@@ -1,0 +1,292 @@
+fileFormatVersion: 2
+guid: 36c38dff28ed4c8429f6eb27ce13ac90
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: back_skirt
+    100002: back_skirt1
+    100004: back_skirt2
+    100006: back_skirt3
+    100008: back_skirt4
+    100010: back_skirt5
+    100012: EyeController
+    100014: Eyes
+    100016: front_skirt
+    100018: front_skirt1
+    100020: front_skirt2
+    100022: front_skirt3
+    100024: front_skirt4
+    100026: front_skirt5
+    100028: head
+    100030: //RootNode
+    100032: IK_Back_Dress
+    100034: IK_Dress
+    100036: IK_Front_Dress
+    100038: IK_Left_Dress
+    100040: IK_Right_Dress
+    100042: left_ankle1
+    100044: left_clavicle1
+    100046: left_elbow1
+    100048: left_foot
+    100050: left_forearmhelper1
+    100052: left_hip
+    100054: left_indexfinger
+    100056: left_indexfinger1
+    100058: left_indexfinger2
+    100060: left_knee1
+    100062: left_middlefinger
+    100064: left_middlefinger1
+    100066: left_middlefinger2
+    100068: left_palm
+    100070: left_pinkiefinger
+    100072: left_pinkiefinger1
+    100074: left_pinkiefinger2
+    100076: left_ringfinger
+    100078: left_ringfinger1
+    100080: left_ringfinger2
+    100082: left_shoulder
+    100084: left_shoulderhelper1
+    100086: left_skirt1
+    100088: left_skirt2
+    100090: left_skirt3
+    100092: left_skirt4
+    100094: left_skirt5
+    100096: left_skirt6
+    100098: left_thighhelper1
+    100100: left_thumb
+    100102: left_thumb1
+    100104: left_thumb2
+    100106: left_wrist1
+    100108: LeftEye
+    100110: LeftEye 1
+    100112: right_ankle1
+    100114: right_clavicle1
+    100116: right_elbow1
+    100118: right_foot
+    100120: right_forearmhelper1
+    100122: right_hip
+    100124: right_indexfinger
+    100126: right_indexfinger1
+    100128: right_indexfinger2
+    100130: right_knee1
+    100132: right_middlefinger
+    100134: right_middlefinger1
+    100136: right_middlefinger2
+    100138: right_palm
+    100140: right_pinkiefinger
+    100142: right_pinkiefinger1
+    100144: right_pinkiefinger2
+    100146: right_ringfinger
+    100148: right_ringfinger1
+    100150: right_ringfinger2
+    100152: right_shoulder
+    100154: right_shoulderhelper1
+    100156: right_skirt1
+    100158: right_skirt2
+    100160: right_skirt3
+    100162: right_skirt4
+    100164: right_skirt5
+    100166: right_skirt6
+    100168: right_thighhelper1
+    100170: right_thumb
+    100172: right_thumb1
+    100174: right_thumb2
+    100176: right_wrist1
+    100178: RightEye
+    100180: RightEye 1
+    100182: root
+    100184: spine1
+    100186: spine2
+    100188: spine3
+    100190: spine4
+    100192: Tatsumaki
+    100194: TatsumakiBody
+    400000: back_skirt
+    400002: back_skirt1
+    400004: back_skirt2
+    400006: back_skirt3
+    400008: back_skirt4
+    400010: back_skirt5
+    400012: EyeController
+    400014: Eyes
+    400016: front_skirt
+    400018: front_skirt1
+    400020: front_skirt2
+    400022: front_skirt3
+    400024: front_skirt4
+    400026: front_skirt5
+    400028: head
+    400030: //RootNode
+    400032: IK_Back_Dress
+    400034: IK_Dress
+    400036: IK_Front_Dress
+    400038: IK_Left_Dress
+    400040: IK_Right_Dress
+    400042: left_ankle1
+    400044: left_clavicle1
+    400046: left_elbow1
+    400048: left_foot
+    400050: left_forearmhelper1
+    400052: left_hip
+    400054: left_indexfinger
+    400056: left_indexfinger1
+    400058: left_indexfinger2
+    400060: left_knee1
+    400062: left_middlefinger
+    400064: left_middlefinger1
+    400066: left_middlefinger2
+    400068: left_palm
+    400070: left_pinkiefinger
+    400072: left_pinkiefinger1
+    400074: left_pinkiefinger2
+    400076: left_ringfinger
+    400078: left_ringfinger1
+    400080: left_ringfinger2
+    400082: left_shoulder
+    400084: left_shoulderhelper1
+    400086: left_skirt1
+    400088: left_skirt2
+    400090: left_skirt3
+    400092: left_skirt4
+    400094: left_skirt5
+    400096: left_skirt6
+    400098: left_thighhelper1
+    400100: left_thumb
+    400102: left_thumb1
+    400104: left_thumb2
+    400106: left_wrist1
+    400108: LeftEye
+    400110: LeftEye 1
+    400112: right_ankle1
+    400114: right_clavicle1
+    400116: right_elbow1
+    400118: right_foot
+    400120: right_forearmhelper1
+    400122: right_hip
+    400124: right_indexfinger
+    400126: right_indexfinger1
+    400128: right_indexfinger2
+    400130: right_knee1
+    400132: right_middlefinger
+    400134: right_middlefinger1
+    400136: right_middlefinger2
+    400138: right_palm
+    400140: right_pinkiefinger
+    400142: right_pinkiefinger1
+    400144: right_pinkiefinger2
+    400146: right_ringfinger
+    400148: right_ringfinger1
+    400150: right_ringfinger2
+    400152: right_shoulder
+    400154: right_shoulderhelper1
+    400156: right_skirt1
+    400158: right_skirt2
+    400160: right_skirt3
+    400162: right_skirt4
+    400164: right_skirt5
+    400166: right_skirt6
+    400168: right_thighhelper1
+    400170: right_thumb
+    400172: right_thumb1
+    400174: right_thumb2
+    400176: right_wrist1
+    400178: RightEye
+    400180: RightEye 1
+    400182: root
+    400184: spine1
+    400186: spine2
+    400188: spine3
+    400190: spine4
+    400192: Tatsumaki
+    400194: TatsumakiBody
+    2100000: solidShader
+    2300000: LeftEye 1
+    2300002: RightEye 1
+    3300000: LeftEye 1
+    3300002: RightEye 1
+    4300000: TatsumakiBody
+    4300002: LeftEye
+    4300004: RightEye
+    9500000: //RootNode
+    13700000: TatsumakiBody
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 500
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
