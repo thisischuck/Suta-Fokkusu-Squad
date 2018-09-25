@@ -17,7 +17,7 @@ public class CellularAutomata : MonoBehaviour
     {
         width = 25;
         height = 25;
-        length = 50;
+        length = 25;
         spacing = 3.0f;
         cycle = 0;
 
@@ -90,7 +90,6 @@ public class CellularAutomata : MonoBehaviour
                     surrounding = CountSurroundings(x, y, z);
                     if (dungeon.Cells[x, y, z].isAlive)
                     {
-                        surrounding = CountSurroundings(x, y, z);
                         if (surrounding < surroundingMin)
                         {
                             dungeon.Cells[x, y, z].isGoingToLive = false;
@@ -136,31 +135,48 @@ public class CellularAutomata : MonoBehaviour
 
         //Count Surroundings in corners
         int count = 0;
-        if (xCurrent == 0 || yCurrent == 0 || zCurrent == 0)// || xCurrent == width - 1 || yCurrent == height - 1 || zCurrent == length - 1)
+
+
+        for (int x = xCurrent - 1; x <= xCurrent + 1; x++)
         {
-            if (dungeon.Cells[xCurrent + 1, yCurrent + 1, zCurrent + 1].isAlive)
+            for (int y = yCurrent - 1; y <= yCurrent + 1; y++)
             {
-                count++;
-            }
-        }
-        else
-        {
-            for (int x = xCurrent - 1; x <= xCurrent + 1; x++)
-            {
-                for (int y = yCurrent - 1; y <= yCurrent + 1; y++)
+                for (int z = zCurrent - 1; z < zCurrent + 1; z++)
                 {
-                    for (int z = zCurrent - 1; z < zCurrent + 1; z++)
+                    if (!CheckInArray(x, y, z))
                     {
-                        if (dungeon.Cells[x, y, z].isAlive)
-                        {
-                            count++;
-                        }
+                        continue;
+                    }
+                    else if (dungeon.Cells[x, y, z].isAlive) // out of range
+                    {
+                        count++;
                     }
                 }
             }
         }
 
         return count;
+    }
+
+    bool CheckInArray(int x, int y, int z)
+    {
+
+        // Posiçoes em x=0 0,0,0 / 0,h,l / 0,0,l / 0,h,0 / 0,0,l
+        // em y=0 w,0,l / w,0,0
+        // em z=0 w,h,0  
+        if (x < 0 || x >= width)
+        {
+            return false;
+        }
+        if (y < 0 || y >= height)
+        {
+            return false;
+        }
+        if (z < 0 || z >= length)
+        {
+            return false;
+        }
+        return true;
     }
 }
 
