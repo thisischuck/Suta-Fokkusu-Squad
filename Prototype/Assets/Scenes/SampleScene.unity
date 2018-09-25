@@ -342,7 +342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b945b9561befdb64e85378e224dc6614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundChance: 40
+  groundChance: 70
+  surroundingMin: 5
+  surroundingMax: 10
 --- !u!4 &656435433
 Transform:
   m_ObjectHideFlags: 0
