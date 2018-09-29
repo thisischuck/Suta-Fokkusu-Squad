@@ -63,7 +63,7 @@ public class CellularAutomata : MonoBehaviour
             cycle++;
             if (cycle == 15)
             {
-                ExpandTo3D();
+                CreateDungeon3D();
                 meshFilter.mesh = CreateMesh();
             }
         }
@@ -134,10 +134,9 @@ public class CellularAutomata : MonoBehaviour
         return count;
     }
 
-    private void ExpandTo3D()
+    private void CreateDungeon3D()
     {
-        dungeon[0] = dungeonLayer;
-        for (int y = 1; y < height; y++)
+        for (int y = 0; y < height; y++)
         {
             dungeon[y] = new CellularDungeonLayer(dungeonLayer, y);
         }
