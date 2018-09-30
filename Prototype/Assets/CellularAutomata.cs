@@ -20,9 +20,9 @@ public class CellularAutomata : MonoBehaviour
 
     void Start()
     {
-        width = 60;
-        height = 15;
-        length = 60;
+        width = 70;
+        height = 10;
+        length = 70;
         spacing = 5.0f;
         cycle = 0;
 
@@ -149,11 +149,11 @@ public class CellularAutomata : MonoBehaviour
         vertices = new Vector3[width * length * height];
         tempIndices = new List<int>();
 
-        for (int y = 0; y < height - 1; y++)
+        for (int y = 0; y < height; y++)
         {
-            for (int z = 0; z < length - 1; z++)
+            for (int z = 0; z < length; z++)
             {
-                for (int x = 0; x < width - 1; x++)
+                for (int x = 0; x < width; x++)
                 {
                     vertices[x + z * width + y * width * length] = dungeon[y].Cells[x, z].position;
                 }
@@ -162,30 +162,79 @@ public class CellularAutomata : MonoBehaviour
 
         for (int y = 0; y < height - 1; y++)
         {
-            for (int z = 0; z < length - 1; z++)
+            for (int z = 0; z < length; z++)
             {
-                for (int x = 0; x < width - 1; x++)
+                for (int x = 0; x < width; x++)
                 {
-                    if (dungeon[y].Cells[x, z].isAlive)
+                    if (x < width - 1 && z < length - 1)
                     {
-                        if (dungeon[y].Cells[x + 1, z].isAlive)
+                        if (dungeon[y].Cells[x, z].isAlive)
+                        {
+                            if (dungeon[y].Cells[x + 1, z].isAlive)
+                            {
+                                tempIndices.Add(x + z * width + y * width * length);
+                                tempIndices.Add(x + 1 + z * width + y * width * length);
+                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+
+                                tempIndices.Add(x + 1 + z * width + y * width * length);
+                                tempIndices.Add(x + 1 + z * width + (y + 1) * width * length);
+                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                            }
+
+                            if (dungeon[y].Cells[x + 1, z + 1].isAlive)
+                            {
+                                tempIndices.Add(x + z * width + y * width * length);
+                                tempIndices.Add(x + 1 + (z + 1) * width + y * width * length);
+                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+
+                                tempIndices.Add(x + 1 + (z + 1) * width + y * width * length);
+                                tempIndices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);
+                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                            }
+
+                            if (z != 0 && dungeon[y].Cells[x + 1, z - 1].isAlive)
+                            {
+                                tempIndices.Add(x + z * width + y * width * length);
+                                tempIndices.Add(x + 1 + (z - 1) * width + y * width * length);
+                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+
+                                tempIndices.Add(x + 1 + (z - 1) * width + y * width * length);
+                                tempIndices.Add(x + 1 + (z - 1) * width + (y + 1) * width * length);
+                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                            }
+
+                            if (x == 0 && dungeon[y].Cells[x, z + 1].isAlive)
+                            {
+                                tempIndices.Add(x + z * width + y * width * length);
+                                tempIndices.Add(x + (z + 1) * width + y * width * length);
+                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+
+                                tempIndices.Add(x + (z + 1) * width + y * width * length);
+                                tempIndices.Add(x + (z + 1) * width + (y + 1) * width * length);
+                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                            }
+                        }
+                    }
+                    else if (x != z)
+                    {
+                        if (x == width - 1)
+                        {
+                            tempIndices.Add(x + z * width + y * width * length);
+                            tempIndices.Add(x + (z + 1) * width + y * width * length);
+                            tempIndices.Add(x + z * width + (y + 1) * width * length);
+
+                            tempIndices.Add(x + (z + 1) * width + y * width * length);
+                            tempIndices.Add(x + (z + 1) * width + (y + 1) * width * length);
+                            tempIndices.Add(x + z * width + (y + 1) * width * length);
+                        }
+                        else if (z == length - 1)
                         {
                             tempIndices.Add(x + z * width + y * width * length);
                             tempIndices.Add(x + 1 + z * width + y * width * length);
                             tempIndices.Add(x + z * width + (y + 1) * width * length);
-                        }
 
-                        else if (dungeon[y].Cells[x + 1, z + 1].isAlive)
-                        {
-                            tempIndices.Add(x + z * width + y * width * length);
-                            tempIndices.Add(x + 1 + (z + 1) * width + y * width * length);
-                            tempIndices.Add(x + z * width + (y + 1) * width * length);
-                        }
-
-                        else if (z != 0 && dungeon[y].Cells[x + 1, z - 1].isAlive)
-                        {
-                            tempIndices.Add(x + z * width + y * width * length);
-                            tempIndices.Add(x + 1 + (z - 1) * width + y * width * length);
+                            tempIndices.Add(x + 1 + z * width + y * width * length);
+                            tempIndices.Add(x + 1 + z * width + (y + 1) * width * length);
                             tempIndices.Add(x + z * width + (y + 1) * width * length);
                         }
                     }
