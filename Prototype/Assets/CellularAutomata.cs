@@ -1,4 +1,19 @@
-﻿using System.Collections;
+﻿/*
+Bruno 27/09/18
+--Cellular Automata in 2D - Works Perfectly
+
+Bruno 30/09/18
+--Projected dungeon to 3D
+--Created mesh - Bugged
+    -If width != length, error happens
+    -If width and length > 90, error happens
+
+Bruno 01/10/18
+--Fixed mesh bug where if width and length are different, error happened
+*/
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,9 +35,9 @@ public class CellularAutomata : MonoBehaviour
 
     void Start()
     {
-        width = 70;
+        width = 82;
         height = 10;
-        length = 70;
+        length = 80;
         spacing = 5.0f;
         cycle = 0;
 
@@ -215,9 +230,9 @@ public class CellularAutomata : MonoBehaviour
                             }
                         }
                     }
-                    else if (x != z)
+                    else
                     {
-                        if (x == width - 1)
+                        if (x == width - 1 && z != length - 1)
                         {
                             tempIndices.Add(x + z * width + y * width * length);
                             tempIndices.Add(x + (z + 1) * width + y * width * length);
@@ -227,7 +242,7 @@ public class CellularAutomata : MonoBehaviour
                             tempIndices.Add(x + (z + 1) * width + (y + 1) * width * length);
                             tempIndices.Add(x + z * width + (y + 1) * width * length);
                         }
-                        else if (z == length - 1)
+                        else if (z == length - 1 && x != width - 1)
                         {
                             tempIndices.Add(x + z * width + y * width * length);
                             tempIndices.Add(x + 1 + z * width + y * width * length);
