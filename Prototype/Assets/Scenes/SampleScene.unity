@@ -348,7 +348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b945b9561befdb64e85378e224dc6614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundChance: 70
+  material: {fileID: 2100000, guid: e084db1d953e1144fab6b008d9783ff5, type: 2}
+  groundChance: 60
 --- !u!4 &656435433
 Transform:
   m_ObjectHideFlags: 0
@@ -421,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ColorWindow: {r: 0, g: 0, b: 0, a: 0}
-  ColorShip: {r: 0, g: 0, b: 0, a: 0}
+  ColorShip: {r: 1, g: 0, b: 0, a: 0}
 --- !u!1001 &1619562883
 Prefab:
   m_ObjectHideFlags: 0

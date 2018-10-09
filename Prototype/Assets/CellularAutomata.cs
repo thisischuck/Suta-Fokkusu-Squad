@@ -1,4 +1,5 @@
-﻿/*
+﻿#region Notes
+/*
 Bruno 27/09/18
 --Cellular Automata in 2D - Works Perfectly
 
@@ -6,12 +7,29 @@ Bruno 30/09/18
 --Projected dungeon to 3D
 --Created mesh - Bugged
     -If width != length, error happens
-    -If width and length > 90, error happens
+    -If width and length > certain size, error happens
 
 Bruno 01/10/18
 --Fixed mesh bug where if width and length are different, error happened
-*/
+--Created method for vertices random noise and gradual height noise
 
+Bruno 04/10/18
+--Divided mesh into submeshes because of the index limit -- many errors
+
+Bruno 06/10/18
+--Turns out submeshes aren't the answer
+    --Need gameObjects with their own meshes
+
+Bruno 08/10/18
+--Vertices need to be seperate for chunks too
+
+Bruno 09/10/18
+--Apparently unity meshes can be set to 32 bit...
+...
+...
+
+*/
+#endregion
 
 using System.Collections;
 using System.Collections.Generic;
@@ -19,6 +37,7 @@ using UnityEngine;
 
 public class CellularAutomata : MonoBehaviour
 {
+    public Material material;
     private MeshFilter meshFilter;
     private MeshRenderer meshRenderer;
     private CellularDungeonLayer dungeonLayer;
@@ -26,20 +45,23 @@ public class CellularAutomata : MonoBehaviour
     private int length, width, height; //z, x, y
     private float spacing;
     private int cycle;
+    private float noiseWaveSmoothness;
     [Range(0, 100)]
     public float groundChance = 70.0f;
+    public static int maxIndices = 65533;
 
     private Vector3[] vertices;
-    private int[] indices;
-    private Vector2[] uvs;
 
     void Start()
     {
-        width = 82;
-        height = 10;
+        width = 200;
+        height = 20;
         length = 80;
         spacing = 5.0f;
         cycle = 0;
+        noiseWaveSmoothness = 20.0f;
+        meshFilter = GetComponent<MeshFilter>();
+        meshRenderer = GetComponent<MeshRenderer>();
 
         dungeonLayer = new CellularDungeonLayer(width, height, length, spacing, groundChance, this.transform);
         dungeon = new CellularDungeonLayer[height];
@@ -48,20 +70,12 @@ public class CellularAutomata : MonoBehaviour
         {
             for (int z = 0; z < length; z++)
             {
-                /*if (!dungeonLayer.Cells[x, z].isAlive)
-                {
-                    dungeonLayer.Cells[x, z].cube.SetActive(false);
-                }*/
                 if (x == 0 || z == 0 || x == width - 1 || z == length - 1)
                 {
-                    //dungeonLayer.Cells[x, z].cube.SetActive(true);
                     dungeonLayer.Cells[x, z].isAlive = true;
                 }
             }
         }
-
-        meshRenderer = GetComponent<MeshRenderer>();
-        meshFilter = GetComponent<MeshFilter>();
     }
 
     void Update()
@@ -125,7 +139,6 @@ public class CellularAutomata : MonoBehaviour
                 if (dungeonLayer.Cells[x, z].isAlive != dungeonLayer.Cells[x, z].isGoingToLive)
                 {
                     dungeonLayer.Cells[x, z].isAlive = dungeonLayer.Cells[x, z].isGoingToLive;
-                    //dungeonLayer.Cells[x, z].cube.SetActive(dungeonLayer.Cells[x, z].isAlive);
                 }
             }
         }
@@ -159,10 +172,12 @@ public class CellularAutomata : MonoBehaviour
 
     private Mesh CreateMesh()
     {
-        List<int> tempIndices;
+        List<int> indices;
+        List<Vector3> normals;
 
         vertices = new Vector3[width * length * height];
-        tempIndices = new List<int>();
+        indices = new List<int>();
+        normals = new List<Vector3>();
 
         for (int y = 0; y < height; y++)
         {
@@ -187,46 +202,62 @@ public class CellularAutomata : MonoBehaviour
                         {
                             if (dungeon[y].Cells[x + 1, z].isAlive)
                             {
-                                tempIndices.Add(x + z * width + y * width * length);
-                                tempIndices.Add(x + 1 + z * width + y * width * length);
-                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                                indices.Add(x + z * width + y * width * length);
+                                indices.Add(x + 1 + z * width + y * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
 
-                                tempIndices.Add(x + 1 + z * width + y * width * length);
-                                tempIndices.Add(x + 1 + z * width + (y + 1) * width * length);
-                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                                indices.Add(x + 1 + z * width + y * width * length);
+                                indices.Add(x + 1 + z * width + (y + 1) * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
+
+                                /*Vector3 normal = Vector3.Cross(
+                                    vertices[x + 1 + z * width + y * width * length] - vertices[x + z * width + y * width * length],
+                                    vertices[x + z * width + (y + 1) * width * length] - vertices[x + z * width + y * width * length]);
+
+                                normals.Add(normal);
+                                normals.Add(normal);
+                                normals.Add(normal);
+
+                                Vector3 normal2 = Vector3.Cross(
+                                    vertices[x + 1 + z * width + (y + 1) * width * length] - vertices[x + 1 + z * width + y * width * length],
+                                    vertices[x + z * width + (y + 1) * width * length] - vertices[x + 1 + z * width + y * width * length]);
+
+                                normals.Add(normal2);
+                                normals.Add(normal2);
+                                normals.Add(normal2);*/
                             }
 
                             if (dungeon[y].Cells[x + 1, z + 1].isAlive)
                             {
-                                tempIndices.Add(x + z * width + y * width * length);
-                                tempIndices.Add(x + 1 + (z + 1) * width + y * width * length);
-                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                                indices.Add(x + z * width + y * width * length);
+                                indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
 
-                                tempIndices.Add(x + 1 + (z + 1) * width + y * width * length);
-                                tempIndices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);
-                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                                indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                                indices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
                             }
 
                             if (z != 0 && dungeon[y].Cells[x + 1, z - 1].isAlive)
                             {
-                                tempIndices.Add(x + z * width + y * width * length);
-                                tempIndices.Add(x + 1 + (z - 1) * width + y * width * length);
-                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                                indices.Add(x + z * width + y * width * length);
+                                indices.Add(x + 1 + (z - 1) * width + y * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
 
-                                tempIndices.Add(x + 1 + (z - 1) * width + y * width * length);
-                                tempIndices.Add(x + 1 + (z - 1) * width + (y + 1) * width * length);
-                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                                indices.Add(x + 1 + (z - 1) * width + y * width * length);
+                                indices.Add(x + 1 + (z - 1) * width + (y + 1) * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
                             }
 
                             if (x == 0 && dungeon[y].Cells[x, z + 1].isAlive)
                             {
-                                tempIndices.Add(x + z * width + y * width * length);
-                                tempIndices.Add(x + (z + 1) * width + y * width * length);
-                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                                indices.Add(x + z * width + y * width * length);
+                                indices.Add(x + (z + 1) * width + y * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
 
-                                tempIndices.Add(x + (z + 1) * width + y * width * length);
-                                tempIndices.Add(x + (z + 1) * width + (y + 1) * width * length);
-                                tempIndices.Add(x + z * width + (y + 1) * width * length);
+                                indices.Add(x + (z + 1) * width + y * width * length);
+                                indices.Add(x + (z + 1) * width + (y + 1) * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
                             }
                         }
                     }
@@ -234,36 +265,80 @@ public class CellularAutomata : MonoBehaviour
                     {
                         if (x == width - 1 && z != length - 1)
                         {
-                            tempIndices.Add(x + z * width + y * width * length);
-                            tempIndices.Add(x + (z + 1) * width + y * width * length);
-                            tempIndices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + z * width + y * width * length);
+                            indices.Add(x + (z + 1) * width + y * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
 
-                            tempIndices.Add(x + (z + 1) * width + y * width * length);
-                            tempIndices.Add(x + (z + 1) * width + (y + 1) * width * length);
-                            tempIndices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + (z + 1) * width + y * width * length);
+                            indices.Add(x + (z + 1) * width + (y + 1) * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
                         }
                         else if (z == length - 1 && x != width - 1)
                         {
-                            tempIndices.Add(x + z * width + y * width * length);
-                            tempIndices.Add(x + 1 + z * width + y * width * length);
-                            tempIndices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + z * width + y * width * length);
+                            indices.Add(x + 1 + z * width + y * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
 
-                            tempIndices.Add(x + 1 + z * width + y * width * length);
-                            tempIndices.Add(x + 1 + z * width + (y + 1) * width * length);
-                            tempIndices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + 1 + z * width + y * width * length);
+                            indices.Add(x + 1 + z * width + (y + 1) * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
                         }
                     }
                 }
             }
         }
 
-        indices = tempIndices.ToArray();
+        RandomNoise();
+        HeightNoise();
 
         Mesh mesh = new Mesh();
+        mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
         mesh.vertices = vertices;
-        mesh.triangles = indices;
+        //mesh.SetNormals();
+        mesh.SetTriangles(indices, 0);
         mesh.RecalculateNormals();
         return mesh;
+
+
+        /*int i = 0;
+        int iteration = 0;
+        List<int> newIndices = new List<int>();
+        List<Vector3> newVertices = new List<Vector3>();
+
+        foreach (int index in indices)
+        {
+            if (i == maxIndices - 1)
+            {
+                i = 0;
+                iteration++;
+                CreateChunkMesh(newIndices, newVertices.ToArray());
+                newIndices.Clear();
+                newVertices.Clear();
+            }
+            newIndices.Add(index - iteration * maxIndices);
+
+            //if (!newVertices.Contains(vertices[index]))
+            newVertices.Add(vertices[index]);
+            i++;
+        }*/
+    }
+
+    //Applies random position shifts to every vertice to give a more natural cave look
+    private void RandomNoise()
+    {
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i] += new Vector3(Random.Range(-0.4f, 0.4f) * spacing, Random.Range(-0.4f, 0.4f) * spacing, Random.Range(-0.4f, 0.4f) * spacing);
+        }
+    }
+
+    //Applies a gradual shift of height to make the caves go up and down
+    private void HeightNoise()
+    {
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            vertices[i].y += (Mathf.Sin(vertices[i].x / noiseWaveSmoothness) + Mathf.Cos(vertices[i].z / noiseWaveSmoothness)) * 10.0f;
+        }
     }
 
     /*
@@ -323,11 +398,6 @@ public class CellularDungeonLayer
                 if (r < groundChance) isAlive = true;
 
                 Cells[x, z] = new Cell(new Vector3(x * spacing, yCurrent * spacing, z * spacing), isAlive);
-                /*Cells[x, z].cube = GameObject.CreatePrimitive(PrimitiveType.Quad);
-                Object.Destroy(Cells[x, z].cube.GetComponent<MeshCollider>());
-                Cells[x, z].cube.transform.position = Cells[x, z].position;
-                Cells[x, z].cube.transform.parent = parent;
-                Cells[x, z].cube.transform.localScale *= spacing;*/
             }
         }
     }
@@ -343,11 +413,6 @@ public class CellularDungeonLayer
                 if (baseLayer.Cells[x, z].isAlive)
                 {
                     Cells[x, z] = new Cell(new Vector3(x * spacing, y * spacing, z * spacing), true);
-                    /*Cells[x, z].cube = GameObject.CreatePrimitive(PrimitiveType.Quad);
-                    Object.Destroy(Cells[x, z].cube.GetComponent<MeshCollider>());
-                    Cells[x, z].cube.transform.position = Cells[x, z].position;
-                    Cells[x, z].cube.transform.parent = parent;
-                    Cells[x, z].cube.transform.localScale *= spacing;*/
                 }
             }
         }
@@ -356,7 +421,6 @@ public class CellularDungeonLayer
 
 public struct Cell
 {
-    public GameObject cube;
     public Vector3 position;
     public bool isAlive;
     public bool isGoingToLive;
@@ -365,6 +429,5 @@ public struct Cell
         this.position = position;
         this.isAlive = isAlive;
         this.isGoingToLive = isAlive;
-        this.cube = null;
     }
 }
