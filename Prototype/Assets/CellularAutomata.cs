@@ -14,7 +14,7 @@ Bruno 01/10/18
 --Created method for vertices random noise and gradual height noise
 
 Bruno 04/10/18
---Divided mesh into submeshes because of the index limit -- many errors
+--Divided mesh into submeshes because of the 16 bit index limit -- many errors
 
 Bruno 06/10/18
 --Turns out submeshes aren't the answer
@@ -24,9 +24,9 @@ Bruno 08/10/18
 --Vertices need to be seperate for chunks too
 
 Bruno 09/10/18
---Apparently unity meshes can be set to 32 bit...
-...
-...
+--Apparently unity meshes can be set to 32 bit.......
+--Made method to calculate every triangle's normal (not sure if flat shading is going to be possible)
+--
 
 */
 #endregion
@@ -48,15 +48,14 @@ public class CellularAutomata : MonoBehaviour
     private float noiseWaveSmoothness;
     [Range(0, 100)]
     public float groundChance = 70.0f;
-    public static int maxIndices = 65533;
 
     private Vector3[] vertices;
 
     void Start()
     {
-        width = 200;
+        width = 120;
         height = 20;
-        length = 80;
+        length = 120;
         spacing = 5.0f;
         cycle = 0;
         noiseWaveSmoothness = 20.0f;
@@ -92,7 +91,7 @@ public class CellularAutomata : MonoBehaviour
             cycle++;
             if (cycle == 15)
             {
-                CreateDungeon3D();
+                ProjectTo3D();
                 meshFilter.mesh = CreateMesh();
             }
         }
@@ -162,11 +161,14 @@ public class CellularAutomata : MonoBehaviour
         return count;
     }
 
-    private void CreateDungeon3D()
+    private void ProjectTo3D()
     {
         for (int y = 0; y < height; y++)
         {
-            dungeon[y] = new CellularDungeonLayer(dungeonLayer, y);
+            if (y != 0 || y != height - 1)
+                dungeon[y] = new CellularDungeonLayer(dungeonLayer, y);
+            else
+                dungeon[y] = new CellularDungeonLayer(dungeonLayer, y, true);
         }
     }
 
@@ -190,66 +192,79 @@ public class CellularAutomata : MonoBehaviour
             }
         }
 
-        for (int y = 0; y < height - 1; y++)
+        for (int y = 0; y < height; y++)
         {
-            for (int z = 0; z < length; z++)
+            for (int z = 0; z < length; z++)//z up --> down
             {
-                for (int x = 0; x < width; x++)
+                for (int x = 0; x < width; x++)// x left --> right
                 {
-                    if (x < width - 1 && z < length - 1)
+                    if (y < height - 1)
                     {
-                        if (dungeon[y].Cells[x, z].isAlive)
+                        if (x < width - 1 && z < length - 1)
                         {
-                            if (dungeon[y].Cells[x + 1, z].isAlive)
+                            if (dungeon[y].Cells[x, z].isAlive)
                             {
-                                indices.Add(x + z * width + y * width * length);
-                                indices.Add(x + 1 + z * width + y * width * length);
-                                indices.Add(x + z * width + (y + 1) * width * length);
+                                //Connect directly right
+                                if (dungeon[y].Cells[x + 1, z].isAlive)
+                                {
+                                    indices.Add(x + z * width + y * width * length);
+                                    indices.Add(x + 1 + z * width + y * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
 
-                                indices.Add(x + 1 + z * width + y * width * length);
-                                indices.Add(x + 1 + z * width + (y + 1) * width * length);
-                                indices.Add(x + z * width + (y + 1) * width * length);
+                                    indices.Add(x + 1 + z * width + y * width * length);
+                                    indices.Add(x + 1 + z * width + (y + 1) * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
+                                }
+                                //Connect diagonally to right and down
+                                if (dungeon[y].Cells[x + 1, z + 1].isAlive)
+                                {
+                                    indices.Add(x + z * width + y * width * length);
+                                    indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
 
-                                /*Vector3 normal = Vector3.Cross(
-                                    vertices[x + 1 + z * width + y * width * length] - vertices[x + z * width + y * width * length],
-                                    vertices[x + z * width + (y + 1) * width * length] - vertices[x + z * width + y * width * length]);
+                                    indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                                    indices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
+                                }
+                                //Connect diagonally to right and up
+                                if (z != 0 && dungeon[y].Cells[x + 1, z - 1].isAlive)
+                                {
+                                    indices.Add(x + z * width + y * width * length);
+                                    indices.Add(x + 1 + (z - 1) * width + y * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
 
-                                normals.Add(normal);
-                                normals.Add(normal);
-                                normals.Add(normal);
+                                    indices.Add(x + 1 + (z - 1) * width + y * width * length);
+                                    indices.Add(x + 1 + (z - 1) * width + (y + 1) * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
+                                }
+                                //Connect directly up
+                                if (x == 0 && dungeon[y].Cells[x, z + 1].isAlive)
+                                {
+                                    indices.Add(x + z * width + y * width * length);
+                                    indices.Add(x + (z + 1) * width + y * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
 
-                                Vector3 normal2 = Vector3.Cross(
-                                    vertices[x + 1 + z * width + (y + 1) * width * length] - vertices[x + 1 + z * width + y * width * length],
-                                    vertices[x + z * width + (y + 1) * width * length] - vertices[x + 1 + z * width + y * width * length]);
+                                    indices.Add(x + (z + 1) * width + y * width * length);
+                                    indices.Add(x + (z + 1) * width + (y + 1) * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
+                                }
+                                //Connect floor layer
+                                if (y == 0)
+                                {
+                                    indices.Add(x + z * width + y * width * length);
+                                    indices.Add(x + (z + 1) * width + y * width * length);
+                                    indices.Add(x + 1 + z * width + y * width * length);
 
-                                normals.Add(normal2);
-                                normals.Add(normal2);
-                                normals.Add(normal2);*/
+                                    indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                                    indices.Add(x + 1 + z * width + y * width * length);
+                                    indices.Add(x + (z + 1) * width + y * width * length);
+                                }
                             }
-
-                            if (dungeon[y].Cells[x + 1, z + 1].isAlive)
-                            {
-                                indices.Add(x + z * width + y * width * length);
-                                indices.Add(x + 1 + (z + 1) * width + y * width * length);
-                                indices.Add(x + z * width + (y + 1) * width * length);
-
-                                indices.Add(x + 1 + (z + 1) * width + y * width * length);
-                                indices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);
-                                indices.Add(x + z * width + (y + 1) * width * length);
-                            }
-
-                            if (z != 0 && dungeon[y].Cells[x + 1, z - 1].isAlive)
-                            {
-                                indices.Add(x + z * width + y * width * length);
-                                indices.Add(x + 1 + (z - 1) * width + y * width * length);
-                                indices.Add(x + z * width + (y + 1) * width * length);
-
-                                indices.Add(x + 1 + (z - 1) * width + y * width * length);
-                                indices.Add(x + 1 + (z - 1) * width + (y + 1) * width * length);
-                                indices.Add(x + z * width + (y + 1) * width * length);
-                            }
-
-                            if (x == 0 && dungeon[y].Cells[x, z + 1].isAlive)
+                        }
+                        else
+                        {
+                            //End off x wall
+                            if (x == width - 1 && z != length - 1)
                             {
                                 indices.Add(x + z * width + y * width * length);
                                 indices.Add(x + (z + 1) * width + y * width * length);
@@ -259,30 +274,29 @@ public class CellularAutomata : MonoBehaviour
                                 indices.Add(x + (z + 1) * width + (y + 1) * width * length);
                                 indices.Add(x + z * width + (y + 1) * width * length);
                             }
+                            //End off z wall
+                            else if (z == length - 1 && x != width - 1)
+                            {
+                                indices.Add(x + z * width + y * width * length);
+                                indices.Add(x + 1 + z * width + y * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
+
+                                indices.Add(x + 1 + z * width + y * width * length);
+                                indices.Add(x + 1 + z * width + (y + 1) * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
+                            }
                         }
                     }
-                    else
+                    //Connect ceilling layer
+                    else if (x < width - 1 && z < length - 1)
                     {
-                        if (x == width - 1 && z != length - 1)
-                        {
-                            indices.Add(x + z * width + y * width * length);
-                            indices.Add(x + (z + 1) * width + y * width * length);
-                            indices.Add(x + z * width + (y + 1) * width * length);
+                        indices.Add(x + z * width + y * width * length);
+                        indices.Add(x + (z + 1) * width + y * width * length);
+                        indices.Add(x + 1 + z * width + y * width * length);
 
-                            indices.Add(x + (z + 1) * width + y * width * length);
-                            indices.Add(x + (z + 1) * width + (y + 1) * width * length);
-                            indices.Add(x + z * width + (y + 1) * width * length);
-                        }
-                        else if (z == length - 1 && x != width - 1)
-                        {
-                            indices.Add(x + z * width + y * width * length);
-                            indices.Add(x + 1 + z * width + y * width * length);
-                            indices.Add(x + z * width + (y + 1) * width * length);
-
-                            indices.Add(x + 1 + z * width + y * width * length);
-                            indices.Add(x + 1 + z * width + (y + 1) * width * length);
-                            indices.Add(x + z * width + (y + 1) * width * length);
-                        }
+                        indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                        indices.Add(x + 1 + z * width + y * width * length);
+                        indices.Add(x + (z + 1) * width + y * width * length);
                     }
                 }
             }
@@ -291,36 +305,29 @@ public class CellularAutomata : MonoBehaviour
         RandomNoise();
         HeightNoise();
 
+        //CalculateTriFlatNormal(indices, normals);
         Mesh mesh = new Mesh();
         mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
         mesh.vertices = vertices;
-        //mesh.SetNormals();
+        mesh.SetNormals(normals);
         mesh.SetTriangles(indices, 0);
         mesh.RecalculateNormals();
         return mesh;
+    }
 
-
-        /*int i = 0;
-        int iteration = 0;
-        List<int> newIndices = new List<int>();
-        List<Vector3> newVertices = new List<Vector3>();
-
-        foreach (int index in indices)
+    //Normal calculation for flat shading
+    private void CalculateTriFlatNormal(List<int> indices, List<Vector3> normals)
+    {
+        for (int i = 0; i < indices.Count; i += 3)
         {
-            if (i == maxIndices - 1)
-            {
-                i = 0;
-                iteration++;
-                CreateChunkMesh(newIndices, newVertices.ToArray());
-                newIndices.Clear();
-                newVertices.Clear();
-            }
-            newIndices.Add(index - iteration * maxIndices);
+            Vector3 a = vertices[indices[i + 1]] - vertices[indices[i]];
+            Vector3 b = vertices[indices[i + 2]] - vertices[indices[i]];
+            Vector3 normal = Vector3.Cross(a, b);
 
-            //if (!newVertices.Contains(vertices[index]))
-            newVertices.Add(vertices[index]);
-            i++;
-        }*/
+            normals.Add(normal);
+            normals.Add(normal);
+            normals.Add(normal);
+        }
     }
 
     //Applies random position shifts to every vertice to give a more natural cave look
@@ -361,6 +368,7 @@ public class CellularDungeonLayer
     private float spacing, groundChance;
     private int width, height, length;
 
+    //To create the first layer through Cellular Automata
     public CellularDungeonLayer(int width, int height, int length, float spacing, float groundChance, Transform parent)
     {
         this.width = width;
@@ -373,6 +381,7 @@ public class CellularDungeonLayer
         Create(0.0f);
     }
 
+    //Create Layers equal to an already existing layer
     public CellularDungeonLayer(CellularDungeonLayer baseLayer, int y)
     {
         this.width = baseLayer.width;
@@ -382,6 +391,18 @@ public class CellularDungeonLayer
         this.parent = baseLayer.parent;
 
         CreateFromLayer(baseLayer, y);
+    }
+
+    //Create Layer full of vertices
+    public CellularDungeonLayer(CellularDungeonLayer baseLayer, int y, bool full)
+    {
+        this.width = baseLayer.width;
+        this.height = baseLayer.height;
+        this.length = baseLayer.length;
+        this.spacing = baseLayer.spacing;
+        this.parent = baseLayer.parent;
+
+        CreateFullLayer(y);
     }
 
     private void Create(float yCurrent)
@@ -414,6 +435,18 @@ public class CellularDungeonLayer
                 {
                     Cells[x, z] = new Cell(new Vector3(x * spacing, y * spacing, z * spacing), true);
                 }
+            }
+        }
+    }
+
+    private void CreateFullLayer(int y)
+    {
+        Cells = new Cell[width, length];
+        for (int x = 0; x < width; x++)
+        {
+            for (int z = 0; z < length; z++)
+            {
+                Cells[x, z] = new Cell(new Vector3(x * spacing, y * spacing, z * spacing), true);
             }
         }
     }
