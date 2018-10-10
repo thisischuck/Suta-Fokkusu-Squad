@@ -30,6 +30,7 @@ Bruno 09/10/18
 Bruno 10/10/18
 --Improved randomness to mesh
 --Mesh finally boxed in
+--Implemented UVs
 */
 #endregion
 
@@ -41,7 +42,6 @@ public class CellularAutomata : MonoBehaviour
 {
     public Material material;
     private MeshFilter meshFilter;
-    private MeshRenderer meshRenderer;
     private CellularDungeonLayer dungeonLayer;
     private CellularDungeonLayer[] dungeon;
     private int length, width, height; //z, x, y
@@ -55,12 +55,11 @@ public class CellularAutomata : MonoBehaviour
     void Start()
     {
         width = 120;
-        height = 10;
+        height = 15;
         length = 120;
         spacing = 10.0f;
         cycle = 0;
         meshFilter = GetComponent<MeshFilter>();
-        meshRenderer = GetComponent<MeshRenderer>();
 
         dungeonLayer = new CellularDungeonLayer(width, height, length, spacing, groundChance, this.transform);
         dungeon = new CellularDungeonLayer[height];
@@ -176,11 +175,14 @@ public class CellularAutomata : MonoBehaviour
     {
         List<int> indices;
         List<Vector3> normals;
+        Vector2[] uvs;
 
         vertices = new Vector3[width * length * height];
+        uvs = new Vector2[width * length * height];
         indices = new List<int>();
         normals = new List<Vector3>();
 
+        //Vertices
         for (int y = 0; y < height; y++)
         {
             for (int z = 0; z < length; z++)
@@ -192,6 +194,44 @@ public class CellularAutomata : MonoBehaviour
             }
         }
 
+        //UVs
+        for (int y = 0; y < height; y++)
+        {
+            for (int z = 0; z < length; z++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    Vector2 uv = new Vector2();
+                    if (y % 2 == 0)
+                    {
+                        if (x % 2 == 0)
+                            uv.x = 0.0f;
+                        else
+                            uv.x = 1.0f;
+
+                        if (z % 2 == 0)
+                            uv.y = 0.0f;
+                        else
+                            uv.y = 1.0f;
+                    }
+                    else
+                    {
+                        if (x % 2 == 0)
+                            uv.x = 0.0f;
+                        else
+                            uv.x = 1.0f;
+
+                        if (z % 2 == 0)
+                            uv.y = 1.0f;
+                        else
+                            uv.y = 0.0f;
+                    }
+                    uvs[x + z * width + y * width * length] = uv;
+                }
+            }
+        }
+
+        //Indices
         for (int y = 0; y < height; y++)
         {
             for (int z = 0; z < length; z++)//z up --> down
@@ -310,6 +350,7 @@ public class CellularAutomata : MonoBehaviour
         Mesh mesh = new Mesh();
         mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
         mesh.vertices = vertices;
+        mesh.uv = uvs;
         //mesh.SetNormals(normals);
         //mesh.SetIndices(indices.ToArray(), MeshTopology.Points, 0);
         mesh.SetTriangles(indices, 0);
