@@ -55,7 +55,7 @@ public class CellularAutomata : MonoBehaviour
     void Start()
     {
         width = 120;
-        height = 15;
+        height = 8;
         length = 120;
         spacing = 10.0f;
         cycle = 0;
@@ -83,12 +83,12 @@ public class CellularAutomata : MonoBehaviour
             CheckIfLives2D();
             UpdateLife2D();
         }
-        if (cycle < 15)
+        if (cycle < 30)
         {
             CheckIfLives2D();
             UpdateLife2D();
             cycle++;
-            if (cycle == 15)
+            if (cycle == 30)
             {
                 ProjectTo3D();
                 meshFilter.mesh = CreateMesh();

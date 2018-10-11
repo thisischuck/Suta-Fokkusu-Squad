@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: e084db1d953e1144fab6b008d9783ff5, type: 2}
-  groundChance: 60
+  groundChance: 10
 --- !u!4 &656435433
 Transform:
   m_ObjectHideFlags: 0
