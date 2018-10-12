@@ -48,8 +48,8 @@ public class CellularAutomata : MonoBehaviour
     private float spacing;
     private int cycle;
     [Range(0, 100)]
-    public float groundChance = 70.0f;
-
+    public float groundChance;
+    private MeshCollider meshCollider;
     private Vector3[] vertices;
 
     void Start()
@@ -60,6 +60,7 @@ public class CellularAutomata : MonoBehaviour
         spacing = 10.0f;
         cycle = 0;
         meshFilter = GetComponent<MeshFilter>();
+        meshCollider = GetComponent<MeshCollider>();
 
         dungeonLayer = new CellularDungeonLayer(width, height, length, spacing, groundChance, this.transform);
         dungeon = new CellularDungeonLayer[height];
@@ -92,6 +93,7 @@ public class CellularAutomata : MonoBehaviour
             {
                 ProjectTo3D();
                 meshFilter.mesh = CreateMesh();
+                meshCollider.sharedMesh = meshFilter.mesh;
             }
         }
     }
@@ -150,7 +152,7 @@ public class CellularAutomata : MonoBehaviour
         {
             for (int z = zCurrent - 1; z <= zCurrent + 1; z++)
             {
-                if (dungeonLayer.Cells[x, z].isAlive && x != xCurrent && z != zCurrent) // out of range
+                if (dungeonLayer.Cells[x, z].isAlive && x != xCurrent && z != zCurrent)
                 {
                     count++;
                 }
@@ -355,6 +357,9 @@ public class CellularAutomata : MonoBehaviour
         //mesh.SetIndices(indices.ToArray(), MeshTopology.Points, 0);
         mesh.SetTriangles(indices, 0);
         mesh.RecalculateNormals();
+
+        GetComponentInChildren<WaterGenerator>().CreateMesh(width, length, spacing);
+
         return mesh;
     }
 
