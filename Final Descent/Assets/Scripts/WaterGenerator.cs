@@ -22,6 +22,7 @@ public class WaterGenerator : MonoBehaviour
         this.spacing = spacing;
 
         Vector3[] vertices = new Vector3[width * length];
+        Vector2[] uvs = new Vector2[width * length];
         List<int> indexes = new List<int>();
 
         for (int z = 0; z < length; z++)
@@ -42,12 +43,15 @@ public class WaterGenerator : MonoBehaviour
                     indexes.Add(x + 1 + z * width);
                     indexes.Add(x + (z + 1) * width);
                 }
+
+                uvs[x + z * width] = new Vector2(x / (float)width, z / (float)length);
             }
         }
 
         Mesh mesh = new Mesh();
         mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
         mesh.vertices = vertices;
+        mesh.uv = uvs;
         mesh.SetTriangles(indexes, 0);
         mesh.RecalculateNormals();
 
