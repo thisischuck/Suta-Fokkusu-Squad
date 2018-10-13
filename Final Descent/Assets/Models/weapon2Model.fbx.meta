@@ -14,9 +14,9 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Weapon2Text
-    second: {fileID: 2100000, guid: 047b28c3199dd2f41b0d23b53abe8167, type: 2}
+    second: {fileID: 2100000, guid: 5e72431252d70644995a0bf3ef00cf9a, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 1
     materialSearch: 1
     materialLocation: 0

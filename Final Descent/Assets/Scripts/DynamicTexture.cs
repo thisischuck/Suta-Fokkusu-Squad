@@ -18,7 +18,7 @@ public class DynamicTexture : MonoBehaviour
         texture.SetPixel(1, 0, ColorShip3);
         texture.filterMode = FilterMode.Point;
         texture.Apply();
-        foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        foreach (Renderer r in GetComponentsInChildren<Renderer>(true))
             r.material.SetTexture("_Texture2D_BaseColors", texture);
     }
 
