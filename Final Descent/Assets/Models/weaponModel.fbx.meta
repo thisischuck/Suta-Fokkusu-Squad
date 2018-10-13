@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 50276f4cf9778d54da8a8e81bc41999d
+guid: b40c84604e7c30f45af57052f84860bd
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: WeaponText
+    2100000: Weapon2Text
     2300000: //RootNode
     3300000: //RootNode
-    4300000: BasicCannon4
+    4300000: BasicCannon1
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: WeaponText
-    second: {fileID: 2100000, guid: fc5e5234e1c120a47acd0c01fb2dc212, type: 2}
+      name: Weapon2Text
+    second: {fileID: 2100000, guid: 106c8853285408e428ed3a6586f563d5, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0

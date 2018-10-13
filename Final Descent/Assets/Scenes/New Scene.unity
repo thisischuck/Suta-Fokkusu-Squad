@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -256,25 +256,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &225041830 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 50276f4cf9778d54da8a8e81bc41999d,
-    type: 3}
-  m_PrefabInternal: {fileID: 1692196893}
---- !u!114 &225041831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 225041830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baf0e6c0726b0c2458e81d6cbc07fc7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ColorShip1: {r: 0.10588236, g: 0.41960788, b: 0.7372549, a: 0}
-  ColorShip2: {r: 0.107600555, g: 0.41801023, b: 0.735849, a: 0}
-  ColorShip3: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 0}
 --- !u!4 &225041834 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 50276f4cf9778d54da8a8e81bc41999d,
@@ -799,7 +780,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &783408430
 Transform:
   m_ObjectHideFlags: 0
@@ -851,7 +832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &864570063
 Transform:
   m_ObjectHideFlags: 0
@@ -1142,6 +1123,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 14.700308
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 50276f4cf9778d54da8a8e81bc41999d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fc5e5234e1c120a47acd0c01fb2dc212, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50276f4cf9778d54da8a8e81bc41999d, type: 3}
   m_IsPrefabAsset: 0
@@ -1161,9 +1146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf0e6c0726b0c2458e81d6cbc07fc7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColorShip1: {r: 0, g: 0, b: 0, a: 0}
-  ColorShip2: {r: 0, g: 0, b: 0, a: 0}
-  ColorShip3: {r: 0, g: 0, b: 0, a: 0}
+  ColorShip1: {r: 0.9716981, g: 0.44459772, b: 0.44459772, a: 0}
+  ColorShip2: {r: 0.764151, g: 0, b: 0, a: 0}
+  ColorShip3: {r: 0.112273075, g: 0.8207547, b: 0.5974833, a: 0}
 --- !u!4 &1889305484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4e02eefa3e8bcf24799288fbe5eafa03,
