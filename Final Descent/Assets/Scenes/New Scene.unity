@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -388,7 +388,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1520955903}
+  - {fileID: 1131132923}
   m_Father: {fileID: 1659831173}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -403,13 +405,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e74ab57487ebc478bb132f00132035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  shootPos: []
-  weaponHolder: {fileID: 0}
+  bullet: {fileID: 4966825239312236, guid: 5f3d53b5cb5e5a747a303c49777c2838, type: 2}
+  shootPos:
+  - {fileID: 1131132923}
+  weaponHolder: {fileID: 1659831173}
   fireRate: 0.25
   range: 100
   damage: 10
-  maxAmmo: 0
+  maxAmmo: 30
   reloadTime: 1
   currentAmmo: 0
 --- !u!1001 &441006864
@@ -780,7 +783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &783408430
 Transform:
   m_ObjectHideFlags: 0
@@ -914,6 +917,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Blades: {fileID: 1633199029}
+--- !u!1 &1131132922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1131132923}
+  m_Layer: 0
+  m_Name: ShootPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1131132923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1131132922}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.07, z: 1.582}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 373329290}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1313455501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,6 +1046,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Blades: {fileID: 1544569374}
+--- !u!4 &1520955903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797,
+    type: 3}
+  m_PrefabInternal: {fileID: 2099754558}
 --- !u!1 &1544569374 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100014, guid: 4e02eefa3e8bcf24799288fbe5eafa03,
@@ -1071,7 +1107,8 @@ MonoBehaviour:
   selectedWeapon: 0
   previousWeapon: 0
   ammo: []
-  ammoT: []
+  ammoT:
+  - {fileID: 33472001873586502, guid: 5f3d53b5cb5e5a747a303c49777c2838, type: 2}
 --- !u!1001 &1692196893
 Prefab:
   m_ObjectHideFlags: 0
@@ -1146,11 +1183,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf0e6c0726b0c2458e81d6cbc07fc7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ColorShip1: {r: 0.9716981, g: 0.44459772, b: 0.44459772, a: 0}
-  ColorShip2: {r: 0.764151, g: 0, b: 0, a: 0}
-  ColorShip3: {r: 0.112273075, g: 0.8207547, b: 0.5974833, a: 0}
+  ColorShip1: {r: 0.13207549, g: 0.12273052, b: 0.12273052, a: 0}
+  ColorShip2: {r: 0.6226415, g: 0.06755074, b: 0.530655, a: 0}
+  ColorShip3: {r: 0.76470596, g: 0, b: 0, a: 0}
 --- !u!4 &1889305484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 4e02eefa3e8bcf24799288fbe5eafa03,
     type: 3}
   m_PrefabInternal: {fileID: 441006864}
+--- !u!1001 &2099754558
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 373329290}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.932
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_Name
+      value: weapon2Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15.93661
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 14.413389
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15.93661
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+  m_IsPrefabAsset: 0
