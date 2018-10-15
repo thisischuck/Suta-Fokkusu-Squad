@@ -15,6 +15,11 @@ public class WaterGenerator : MonoBehaviour
         height = 0;
     }
 
+    void Update()
+    {
+
+    }
+
     public void CreateMesh(int width, int length, float spacing)
     {
         this.width = width;

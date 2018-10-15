@@ -30,7 +30,6 @@ public class ShipPart : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         impact = new ImpactForce();
-        Explode();
         gravity = 9.8f;
     }
 	
