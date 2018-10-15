@@ -49,6 +49,11 @@ public class Ship : MonoBehaviour
                     if (rotZ <= angleZ)
                     {
                         rotZ = 0;
+
+                        if (transform.localRotation.z != 0)
+                        {
+                            transform.localEulerAngles = new Vector3(0, 0, 0);
+                        }
                     }
                     break;
 
@@ -62,13 +67,13 @@ public class Ship : MonoBehaviour
                     if (rotZ >= angleZ)
                     {
                         rotZ = 0;
+
+                        if (transform.localRotation.z != 0)
+                        {
+                            transform.localEulerAngles = new Vector3(0, 0, 0);
+                        }
                     }
                     break;
-            }
-
-            if (transform.localRotation.z != 0)
-            {
-                transform.localEulerAngles = new Vector3(0, 0, 0);
             }
 
             yield return null;

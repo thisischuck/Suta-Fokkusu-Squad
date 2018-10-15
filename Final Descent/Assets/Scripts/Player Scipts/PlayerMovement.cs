@@ -155,14 +155,18 @@ public class PlayerMovement : MonoBehaviour
         CharacterDashControl(); //Controls everything about the dash
 
         #region CAMERA ROTATION
+        switch (mode)
+        {
+            case 0:
+                rotX += -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+                rotY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;// * Mathf.Sign(transform.up.y);
+                break;
 
-        rotX += -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-        rotY += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;// * Mathf.Sign(transform.up.y);
-
-
-        rotX = -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-        rotY = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;// * Mathf.Sign(transform.up.y);
-
+            case 1:
+                rotX = -Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+                rotY = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;// * Mathf.Sign(transform.up.y);
+                break;
+        }
         #endregion
     }
 
@@ -204,6 +208,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (dashCDRCount >= dashCooldown && hasDashed) //End of the cooldown
         {
+            dashCDRCount = 0;
             hasDashed = false;
         }
     }
