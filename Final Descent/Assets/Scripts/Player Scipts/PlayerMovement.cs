@@ -64,15 +64,18 @@ public class PlayerMovement : MonoBehaviour
         transform.position += cam.transform.forward * forwardAxis * Time.deltaTime * shipSpeed;
         transform.position += cam.transform.right * sideAxis * Time.deltaTime * shipSpeed;
 
-        switch (mode) //Switches the rotation method
+        if (!isDashing)
         {
-            case 0:
-                rotX = Mathf.Clamp(rotX, -90, 90);
-                transform.eulerAngles = new Vector3(rotX, rotY, 0);
-                break;
-            case 1:
-                transform.Rotate(new Vector3(rotX, rotY, 0), Space.Self);
-                break;
+            switch (mode) //Switches the rotation method
+            {
+                case 0:
+                    rotX = Mathf.Clamp(rotX, -90, 90);
+                    transform.eulerAngles = new Vector3(rotX, rotY, 0);
+                    break;
+                case 1:
+                    transform.Rotate(new Vector3(rotX, rotY, 0), Space.Self);
+                    break;
+            }
         }
     }
 
