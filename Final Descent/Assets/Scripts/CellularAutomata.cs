@@ -42,6 +42,7 @@ public class CellularAutomata : MonoBehaviour
 {
     public Material material;
     private MeshFilter meshFilter;
+    private ObjectPlacer objectPlacer;
     private CellularDungeonLayer dungeonLayer;
     private CellularDungeonLayer[] dungeon;
     private int length, width, height; //z, x, y
@@ -61,6 +62,7 @@ public class CellularAutomata : MonoBehaviour
         cycle = 0;
         meshFilter = GetComponent<MeshFilter>();
         meshCollider = GetComponent<MeshCollider>();
+        objectPlacer = GetComponent<ObjectPlacer>();
 
         dungeonLayer = new CellularDungeonLayer(width, height, length, spacing, groundChance, this.transform);
         dungeon = new CellularDungeonLayer[height];
@@ -90,12 +92,16 @@ public class CellularAutomata : MonoBehaviour
             UpdateLife2D();
             cycle++;
             if (cycle == 20)
-            {
-                ProjectTo3D();
-                meshFilter.mesh = CreateMesh();
-                meshCollider.sharedMesh = meshFilter.mesh;
-            }
+                End();
         }
+    }
+
+    void End()
+    {
+        ProjectTo3D();
+        meshFilter.mesh = CreateMesh();
+        meshCollider.sharedMesh = meshFilter.mesh;
+        objectPlacer.Place(dungeon, vertices);
     }
 
     void CheckIfLives2D()
@@ -405,7 +411,7 @@ public class CellularDungeonLayer
     Transform parent;
     public Cell[,] Cells;
     private float spacing, groundChance;
-    private int width, height, length;
+    public int width, height, length;
 
     //To create the first layer through Cellular Automata
     public CellularDungeonLayer(int width, int height, int length, float spacing, float groundChance, Transform parent)
