@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -693,12 +693,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-  - GameObject: {fileID: 48866913}
-    Place: 3
-    SpawnRate: 15
-  - GameObject: {fileID: 1566452487}
-    Place: 6
-    SpawnRate: 5
+  - GameObject: {fileID: 100000, guid: d0d23f49170ee9348981419821b3c43c, type: 3}
+    Place: 4
+    SpawnRate: 1
+  - GameObject: {fileID: 100000, guid: 8d7f82484f374bb42a6c47c9375a2ec0, type: 3}
+    Place: 4
+    SpawnRate: 1
+  - GameObject: {fileID: 100000, guid: 2b75b48b1bf817d4bad0cf6e9159f39a, type: 3}
+    Place: 1
+    SpawnRate: 1
+  - GameObject: {fileID: 100000, guid: 2c9eb2572ff251149af1d818ac65fec6, type: 3}
+    Place: 1
+    SpawnRate: 1
+  - GameObject: {fileID: 100000, guid: 455301863ca25804ebe3873501c0ea57, type: 3}
+    Place: 1
+    SpawnRate: 1
+  - GameObject: {fileID: 100000, guid: f8f3209203dfe454a962580933e16d36, type: 3}
+    Place: 1
+    SpawnRate: 1
+  - GameObject: {fileID: 100000, guid: d9b53ed56f58c014fa9825236ba138c7, type: 3}
+    Place: 1
+    SpawnRate: 2
+  - GameObject: {fileID: 100000, guid: 6af418a02cb88d84782386c0d417ac2f, type: 3}
+    Place: 1
+    SpawnRate: 1
+  - GameObject: {fileID: 100000, guid: 1af469db748d5e8418375e244401c0b6, type: 3}
+    Place: 2
+    SpawnRate: 1
+  - GameObject: {fileID: 100000, guid: 1af469db748d5e8418375e244401c0b6, type: 3}
+    Place: 1
+    SpawnRate: 2
+  - GameObject: {fileID: 100000, guid: e1b2746e9bb2cec4bb321b0c2d5f42be, type: 3}
+    Place: 1
+    SpawnRate: 1
+  - GameObject: {fileID: 100006, guid: 7e30c2a81baa1b948ae886f94302e0c2, type: 3}
+    Place: 1
+    SpawnRate: 1
+  - GameObject: {fileID: 100000, guid: 1f74d7cb9b9a645409da444e9e524f86, type: 3}
+    Place: 1
+    SpawnRate: 1
+  - GameObject: {fileID: 100006, guid: bdf3681b60de9df4e85eb767e8456063, type: 3}
+    Place: 1
+    SpawnRate: 1
 --- !u!1 &324494604
 GameObject:
   m_ObjectHideFlags: 0
