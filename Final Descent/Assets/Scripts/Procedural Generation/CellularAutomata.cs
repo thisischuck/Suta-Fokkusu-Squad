@@ -52,6 +52,7 @@ public class CellularAutomata : MonoBehaviour
     public float groundChance;
     private MeshCollider meshCollider;
     private Vector3[] vertices;
+    private Vector3[] vNormals;
 
     void Start()
     {
@@ -101,7 +102,7 @@ public class CellularAutomata : MonoBehaviour
         ProjectTo3D();
         meshFilter.mesh = CreateMesh();
         meshCollider.sharedMesh = meshFilter.mesh;
-        objectPlacer.Place(dungeon, vertices);
+        objectPlacer.Place(dungeon, vertices, vNormals);
     }
 
     void CheckIfLives2D()
@@ -182,9 +183,8 @@ public class CellularAutomata : MonoBehaviour
     private Mesh CreateMesh()
     {
         List<int> indices;
-        List<Vector3> normals;
         Vector2[] uvs;
-
+        List<Vector3> normals;
         vertices = new Vector3[width * length * height];
         uvs = new Vector2[width * length * height];
         indices = new List<int>();
@@ -363,6 +363,7 @@ public class CellularAutomata : MonoBehaviour
         //mesh.SetIndices(indices.ToArray(), MeshTopology.Points, 0);
         mesh.SetTriangles(indices, 0);
         mesh.RecalculateNormals();
+        vNormals = mesh.normals;
 
         GetComponentInChildren<WaterGenerator>().CreateMesh(width, length, spacing);
 
@@ -372,7 +373,7 @@ public class CellularAutomata : MonoBehaviour
     //Normal calculation for flat shading
     private void CalculateTriFlatNormal(List<int> indices, List<Vector3> normals)
     {
-        for (int i = 0; i < indices.Count; i += 3)
+        /*for (int i = 0; i < indices.Count; i += 3)
         {
             Vector3 a = vertices[indices[i + 1]] - vertices[indices[i]];
             Vector3 b = vertices[indices[i + 2]] - vertices[indices[i]];
@@ -381,7 +382,7 @@ public class CellularAutomata : MonoBehaviour
             normals.Add(normal);
             normals.Add(normal);
             normals.Add(normal);
-        }
+        }*/
     }
 
     //Applies random position shifts to every vertice to give a more natural cave look

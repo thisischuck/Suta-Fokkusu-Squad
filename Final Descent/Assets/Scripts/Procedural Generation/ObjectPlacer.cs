@@ -11,7 +11,8 @@ public class ObjectPlacer : MonoBehaviour
 {
     public List<ObjectTobePlaced> objects;
     private Dictionary<Vector3, GameObject> positionsUsed;
-    public void Place(CellularDungeonLayer[] dungeon, Vector3[] vertices)
+
+    public void Place(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals)
     {
         positionsUsed = new Dictionary<Vector3, GameObject>();
         int height = dungeon[0].height;
@@ -31,30 +32,30 @@ public class ObjectPlacer : MonoBehaviour
                             switch (o.Place)
                             {
                                 case Location.CEILING:
-                                    Ceiling(dungeon, vertices, x, y, z, o);
+                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
                                     break;
                                 case Location.FLOOR:
-                                    Floor(dungeon, vertices, x, y, z, o);
+                                    Floor(dungeon, vertices, normals, x, y, z, o);
                                     break;
                                 case Location.WALL:
-                                    Wall(dungeon, vertices, x, y, z, o);
+                                    Wall(dungeon, vertices, normals, x, y, z, o);
                                     break;
                                 case Location.CEILING_AND_WALL:
-                                    Ceiling(dungeon, vertices, x, y, z, o);
-                                    Wall(dungeon, vertices, x, y, z, o);
+                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
+                                    Wall(dungeon, vertices, normals, x, y, z, o);
                                     break;
                                 case Location.FLOOR_AND_WALL:
-                                    Floor(dungeon, vertices, x, y, z, o);
-                                    Wall(dungeon, vertices, x, y, z, o);
+                                    Floor(dungeon, vertices, normals, x, y, z, o);
+                                    Wall(dungeon, vertices, normals, x, y, z, o);
                                     break;
                                 case Location.FLOOR_AND_CEILING:
-                                    Ceiling(dungeon, vertices, x, y, z, o);
-                                    Floor(dungeon, vertices, x, y, z, o);
+                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
+                                    Floor(dungeon, vertices, normals, x, y, z, o);
                                     break;
                                 case Location.ALL:
-                                    Ceiling(dungeon, vertices, x, y, z, o);
-                                    Floor(dungeon, vertices, x, y, z, o);
-                                    Wall(dungeon, vertices, x, y, z, o);
+                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
+                                    Floor(dungeon, vertices, normals, x, y, z, o);
+                                    Wall(dungeon, vertices, normals, x, y, z, o);
                                     break;
                             }
                         }
@@ -64,34 +65,34 @@ public class ObjectPlacer : MonoBehaviour
         }
     }
 
-    public void Ceiling(CellularDungeonLayer[] dungeon, Vector3[] vertices, int x, int y, int z, ObjectTobePlaced o)
+    public void Ceiling(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
         float r = Random.Range(0.0f, 100.0f);
         if (dungeon[y].Cells[x, z].isAlive && y == dungeon.Length - 1 && r > 100 - o.SpawnRate)
         {
-            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f))); //buscar a normal do vertice para rotação
+            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length])); //buscar a normal do vertice para rotação
             newObj.transform.parent = this.transform;
             positionsUsed.Add(new Vector3(x, y, z), newObj);
         }
     }
 
-    public void Floor(CellularDungeonLayer[] dungeon, Vector3[] vertices, int x, int y, int z, ObjectTobePlaced o)
+    public void Floor(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
         float r = Random.Range(0.0f, 100.0f);
         if (dungeon[y].Cells[x, z].isAlive && y == 0 && r > 100 - o.SpawnRate)
         {
-            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]));
             newObj.transform.parent = this.transform;
             positionsUsed.Add(new Vector3(x, y, z), newObj);
         }
     }
 
-    public void Wall(CellularDungeonLayer[] dungeon, Vector3[] vertices, int x, int y, int z, ObjectTobePlaced o)
+    public void Wall(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
         float r = Random.Range(0.0f, 100.0f);
         if (dungeon[y].Cells[x, z].isAlive && (y != 0 && y != dungeon.Length - 1) && r > 100 - o.SpawnRate)
         {
-            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]));
             newObj.transform.parent = this.transform;
             positionsUsed.Add(new Vector3(x, y, z), newObj);
         }
