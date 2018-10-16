@@ -5,6 +5,7 @@ using UnityEngine;
 Script to place objects around the mesh
 */
 
+public enum Location { CEILING, FLOOR, WALL, FLOOR_AND_CEILING, FLOOR_AND_WALL, CEILING_AND_WALL, ALL }
 
 public class ObjectPlacer : MonoBehaviour
 {
@@ -29,28 +30,28 @@ public class ObjectPlacer : MonoBehaviour
                         {
                             switch (o.Place)
                             {
-                                case ObjectTobePlaced.Location.CEILING:
+                                case Location.CEILING:
                                     Ceiling(dungeon, vertices, x, y, z, o);
                                     break;
-                                case ObjectTobePlaced.Location.FLOOR:
+                                case Location.FLOOR:
                                     Floor(dungeon, vertices, x, y, z, o);
                                     break;
-                                case ObjectTobePlaced.Location.WALL:
+                                case Location.WALL:
                                     Wall(dungeon, vertices, x, y, z, o);
                                     break;
-                                case ObjectTobePlaced.Location.CEILING_AND_WALL:
+                                case Location.CEILING_AND_WALL:
                                     Ceiling(dungeon, vertices, x, y, z, o);
                                     Wall(dungeon, vertices, x, y, z, o);
                                     break;
-                                case ObjectTobePlaced.Location.FLOOR_AND_WALL:
+                                case Location.FLOOR_AND_WALL:
                                     Floor(dungeon, vertices, x, y, z, o);
                                     Wall(dungeon, vertices, x, y, z, o);
                                     break;
-                                case ObjectTobePlaced.Location.FLOOR_AND_CEILING:
+                                case Location.FLOOR_AND_CEILING:
                                     Ceiling(dungeon, vertices, x, y, z, o);
                                     Floor(dungeon, vertices, x, y, z, o);
                                     break;
-                                case ObjectTobePlaced.Location.ALL:
+                                case Location.ALL:
                                     Ceiling(dungeon, vertices, x, y, z, o);
                                     Floor(dungeon, vertices, x, y, z, o);
                                     Wall(dungeon, vertices, x, y, z, o);
@@ -100,7 +101,6 @@ public class ObjectPlacer : MonoBehaviour
 [System.Serializable]
 public struct ObjectTobePlaced
 {
-    public enum Location { CEILING, FLOOR, WALL, FLOOR_AND_CEILING, FLOOR_AND_WALL, CEILING_AND_WALL, ALL }
     public GameObject GameObject;
     public Location Place;
     public int SpawnRate;
