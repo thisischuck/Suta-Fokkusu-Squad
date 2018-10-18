@@ -784,16 +784,20 @@ MonoBehaviour:
   - GameObject: {fileID: 100000, guid: 1af469db748d5e8418375e244401c0b6, type: 3}
     Place: 1
     SpawnRate: 2
-  - GameObject: {fileID: 100000, guid: d2dfc4c011149e94d88d87d2fd8957d1, type: 3}
+  - GameObject: {fileID: 1787156706555796, guid: f2c042596dd3651488d622a556af519a,
+      type: 2}
     Place: 0
     SpawnRate: 1
-  - GameObject: {fileID: 100006, guid: 7e30c2a81baa1b948ae886f94302e0c2, type: 3}
+  - GameObject: {fileID: 1664778594642528, guid: 61e4878a78cade143a183f9786fd47f8,
+      type: 2}
     Place: 0
     SpawnRate: 1
-  - GameObject: {fileID: 100000, guid: 052867c02890b2442b043451166cce94, type: 3}
+  - GameObject: {fileID: 1501272746045774, guid: 2fc044a825e6fd64fb8f7ff56a9f36f9,
+      type: 2}
     Place: 0
     SpawnRate: 1
-  - GameObject: {fileID: 100006, guid: bdf3681b60de9df4e85eb767e8456063, type: 3}
+  - GameObject: {fileID: 1916451880768204, guid: 92d8397802af11c4aa72982801f478f2,
+      type: 2}
     Place: 0
     SpawnRate: 1
 --- !u!1 &324494604
