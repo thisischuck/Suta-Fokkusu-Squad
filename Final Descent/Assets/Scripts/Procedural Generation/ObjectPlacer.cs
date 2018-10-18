@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 /*
 Script to place objects around the mesh
+    
+16/10/2018
+    Marcio - normals from objects are still not affected from the vertice's normal.
+18/10/2018
+    Marcio - object's normal take the same value as the vertice's normal, also created an exception for stalactites tagged objects
 */
 
 public enum Location { CEILING, FLOOR, WALL, FLOOR_AND_CEILING, FLOOR_AND_WALL, CEILING_AND_WALL, ALL }
@@ -70,8 +75,10 @@ public class ObjectPlacer : MonoBehaviour
         float r = Random.Range(0.0f, 100.0f);
         if (dungeon[y].Cells[x, z].isAlive && y == dungeon.Length - 1 && r > 100 - o.SpawnRate)
         {
-            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length])); //buscar a normal do vertice para rotação
+            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f,0.0f,0.0f))); //buscar a normal do vertice para rotação
             newObj.transform.parent = this.transform;
+            if(newObj.tag != "Stalactite")
+                newObj.transform.rotation = Quaternion.FromToRotation(-newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
             positionsUsed.Add(new Vector3(x, y, z), newObj);
         }
     }
@@ -81,8 +88,9 @@ public class ObjectPlacer : MonoBehaviour
         float r = Random.Range(0.0f, 100.0f);
         if (dungeon[y].Cells[x, z].isAlive && y == 0 && r > 100 - o.SpawnRate)
         {
-            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]));
+            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             newObj.transform.parent = this.transform;
+            newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
             positionsUsed.Add(new Vector3(x, y, z), newObj);
         }
     }
@@ -92,8 +100,9 @@ public class ObjectPlacer : MonoBehaviour
         float r = Random.Range(0.0f, 100.0f);
         if (dungeon[y].Cells[x, z].isAlive && (y != 0 && y != dungeon.Length - 1) && r > 100 - o.SpawnRate)
         {
-            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]));
+            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             newObj.transform.parent = this.transform;
+            newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
             positionsUsed.Add(new Vector3(x, y, z), newObj);
         }
     }
