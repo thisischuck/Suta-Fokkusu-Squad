@@ -8,11 +8,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraCollision : MonoBehaviour {
-    public float minDistance;
-    public float maxDistance;
+public class CameraCollision : MonoBehaviour
+{
+    public float minDistance = 0.6f;
+    public float maxDistance = 3.0f;
 
-    public float smooth;
+    public float smooth = 30.0f;
     Vector3 dollyDir;
     public Vector3 dollyDirAdjusted;
     public float distance;
@@ -25,10 +26,6 @@ public class CameraCollision : MonoBehaviour {
     {
         dollyDir = (transform.localPosition + dollyDirAdjusted).normalized;
         distance = transform.localPosition.magnitude;
-
-        minDistance = 0.6f;
-        maxDistance = 3.0f;
-        smooth = 30.0f;
     }
 
 
