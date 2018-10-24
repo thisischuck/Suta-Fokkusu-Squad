@@ -27,6 +27,11 @@ public class ShipPart : MonoBehaviour {
     public float gravity;
     public ImpactForce impact;
 
+    private Vector3 explosionPos;
+    private Quaternion explosionRot;
+    public float speed = .2f;
+    public bool onPlace = true;
+
 	// Use this for initialization
 	void Start () {
         impact = new ImpactForce();
@@ -43,13 +48,22 @@ public class ShipPart : MonoBehaviour {
             Rotate(Random.Range(5,15)); //Rotates
 
         }
+        if (!onPlace)
+        {
+            explode = false;
+            GetInPlace();
+            onPlace = AssemblyComplete();
+        }
 	}
 
-    void Explode() //Initiates explosion
+    public void Explode() //Initiates explosion
     {
+        explosionPos = transform.position;
+        explosionRot = transform.rotation;
         explode = true;
         transform.parent = null;
         impact = GenerateRandomImpact();
+        onPlace = false;
     }
 
     ImpactForce GenerateRandomImpact() //Calculates impact force, direction and decay
@@ -90,5 +104,20 @@ public class ShipPart : MonoBehaviour {
     void Rotate(float angle) //Rotates the object
     {
         transform.Rotate(new Vector3(0, 0, angle));
+    }
+
+    void GetInPlace()
+    {
+        float distance = Vector3.Distance(transform.position, explosionPos);
+        if (distance < 1) distance = 1;
+        transform.position = Vector3.MoveTowards(transform.position, explosionPos, Time.deltaTime * (speed * distance));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, explosionRot, Time.deltaTime * (speed));
+    }
+
+    private bool AssemblyComplete()
+    {
+        if (explosionPos == transform.position && explosionRot == transform.rotation)
+            return true;
+        else return false;
     }
 }

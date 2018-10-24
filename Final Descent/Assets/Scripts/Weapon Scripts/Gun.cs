@@ -13,8 +13,6 @@ public class Gun : MonoBehaviour {
 
     //Values dependent of the weapon
     public float fireRate = .25f;
-    public float range = 100f;
-    public float damage = 10f;
     public int maxAmmo;
     public float reloadTime = 1f;
 
@@ -33,7 +31,6 @@ public class Gun : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
         if (isReloading)
             return;
 

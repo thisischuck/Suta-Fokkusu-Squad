@@ -5,6 +5,9 @@ using UnityEngine;
 public class Mover : MonoBehaviour {
 
     public float speed;
+    public float range = 100f;
+    public float Damage = 10f;
+
     public Vector3 shotPos;
     public Quaternion shotRot;
     public float secondsToDeath;

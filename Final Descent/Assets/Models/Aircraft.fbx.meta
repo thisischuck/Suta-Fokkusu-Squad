@@ -259,6 +259,55 @@ ModelImporter:
     4300092: pCube20
     4300094: BaseShip2
     4300096: R_Wing
+    6400000: BaseShip
+    6400002: BaseShip2
+    6400004: Elevator
+    6400006: Intakers_Elevators
+    6400008: Intakes
+    6400010: L_Wing
+    6400012: pCube10
+    6400014: pCube10 1
+    6400016: pCube11
+    6400018: pCube11 1
+    6400020: pCube12
+    6400022: pCube12 1
+    6400024: pCube13
+    6400026: pCube13 1
+    6400028: pCube14
+    6400030: pCube14 1
+    6400032: pCube15
+    6400034: pCube15 1
+    6400036: pCube16
+    6400038: pCube16 1
+    6400040: pCube17
+    6400042: pCube17 1
+    6400044: pCube18
+    6400046: pCube18 1
+    6400048: pCube19
+    6400050: pCube19 1
+    6400052: pCube2
+    6400054: pCube2 1
+    6400056: pCube20
+    6400058: pCube20 1
+    6400060: pCube3
+    6400062: pCube3 1
+    6400064: pCube4
+    6400066: pCube4 1
+    6400068: pCube5
+    6400070: pCube5 1
+    6400072: pCube6
+    6400074: pCube6 1
+    6400076: pCube7
+    6400078: pCube7 1
+    6400080: pCube8
+    6400082: pCube8 1
+    6400084: pCube9
+    6400086: pCube9 1
+    6400088: pTorus1
+    6400090: pTorus1 1
+    6400092: R_Center
+    6400094: R_Center 1
+    6400096: R_Wing
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -293,7 +342,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 100
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

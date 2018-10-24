@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Camera cam;
     private Transform ship;
+    public bool lifePodActive = false;
 
     //General movement variables
     private float forwardAxis;
@@ -54,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        ship = transform.GetChild(0); //Detects the ship
+        ship = transform.Find("Aircraft"); //Detects the ship
         mode = 1;
     }
 
@@ -81,6 +82,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        #region OBJECT TO FOLLOW
+        if (lifePodActive)
+            ship = transform.Find("LifePod");
+        else ship = transform.Find("Aircraft");
+        #endregion
+
         #region MOVEMENT INPUT
         forwardAxis = Input.GetAxis("Vertical");
         sideAxis = Input.GetAxis("Horizontal");
