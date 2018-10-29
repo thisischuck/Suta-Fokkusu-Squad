@@ -31,6 +31,7 @@ public class ShipPart : MonoBehaviour {
     private Quaternion explosionRot;
     public float speed = .2f;
     public bool onPlace = true;
+    public float timeStartRepair = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -42,17 +43,18 @@ public class ShipPart : MonoBehaviour {
 	void Update () {
         if (explode) //If explosion occurs
         {
-
             ReceiveImpact(ref impact); //Receives impact
             gravity += 2f * Time.deltaTime; //Gravity
             Rotate(Random.Range(5,15)); //Rotates
-
         }
-        if (!onPlace)
+        if (!onPlace && Time.time >= timeStartRepair)
         {
             explode = false;
-            GetInPlace();
-            onPlace = AssemblyComplete();
+            if (!AssemblyComplete())
+            {
+                GetInPlace();
+            }
+            else onPlace = true;
         }
 	}
 
@@ -91,7 +93,11 @@ public class ShipPart : MonoBehaviour {
 
     void ReceiveImpact(ref ImpactForce impact) //Applies the impact
     {
-        if (impact.direction.magnitude > 0.2) Move(impact.direction, impact.force);
+        if (impact.direction.magnitude > 0.2)
+        {
+            Move(impact.direction, impact.force);
+            timeStartRepair = Time.time + .25f;
+        }
         // consumes the impact energy each cycle:
         impact.direction = Vector3.Lerp(impact.direction, Vector3.zero, impact.decay * Time.deltaTime);
     }
@@ -109,9 +115,10 @@ public class ShipPart : MonoBehaviour {
     void GetInPlace()
     {
         float distance = Vector3.Distance(transform.position, explosionPos);
+        float rotDistance = Quaternion.Angle(transform.rotation, explosionRot);
         if (distance < 1) distance = 1;
         transform.position = Vector3.MoveTowards(transform.position, explosionPos, Time.deltaTime * (speed * distance));
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, explosionRot, Time.deltaTime * (speed));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, explosionRot, Time.deltaTime * (speed * rotDistance));
     }
 
     private bool AssemblyComplete()

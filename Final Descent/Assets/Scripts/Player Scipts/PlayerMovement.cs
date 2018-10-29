@@ -161,8 +161,11 @@ public class PlayerMovement : MonoBehaviour
 
         #endregion
 
-        CharacterTappingControl(); //Controls the double tapping duration
-        CharacterDashControl(); //Controls everything about the dash
+        if (!lifePodActive)
+        {
+            CharacterTappingControl(); //Controls the double tapping duration
+            CharacterDashControl(); //Controls everything about the dash
+        }
 
         #region CAMERA ROTATION
         switch (mode)
@@ -222,4 +225,5 @@ public class PlayerMovement : MonoBehaviour
             hasDashed = false;
         }
     }
+
 }

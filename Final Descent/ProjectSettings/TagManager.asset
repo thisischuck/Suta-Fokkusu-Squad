@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Stalactite
   - Bullet
+  - PlayerPart
   layers:
   - Default
   - TransparentFX

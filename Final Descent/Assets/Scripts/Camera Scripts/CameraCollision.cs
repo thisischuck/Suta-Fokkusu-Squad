@@ -20,7 +20,6 @@ public class CameraCollision : MonoBehaviour
 
     private Vector3 dadPosition;
 
-
     // Use this for initialization
     void Start()
     {
@@ -48,6 +47,5 @@ public class CameraCollision : MonoBehaviour
         }
 
         transform.localPosition = Vector3.Lerp(transform.localPosition, dollyDir * distance, Time.deltaTime * smooth);
-
     }
 }

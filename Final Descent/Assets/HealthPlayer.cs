@@ -19,13 +19,18 @@ public class HealthPlayer : MonoBehaviour {
             ApplyDamage(50);
         }
 
-        if (Input.GetKey(KeyCode.G))
+        if (CheckIfOnPlace() && Input.GetKey(KeyCode.G))
         {
+            Transform lifepod = transform.Find("LifePod");
+            GameObject aircraft = GameObject.Find("Aircraft");
+
             OrganizeParts();
-            transform.Find("LifePod").gameObject.SetActive(false);
-            transform.Find("LifePod").position = GameObject.Find("Aircraft").transform.position;
-            transform.Find("LifePod").rotation = GameObject.Find("Aircraft").transform.rotation;
-            GameObject.Find("Aircraft").transform.parent = transform;
+            lifepod.gameObject.SetActive(false);
+            lifepod.position = aircraft.transform.position;
+            lifepod.rotation = aircraft.transform.rotation;
+            aircraft.transform.parent = transform;
+            transform.Find("Aircraft").GetComponent<Ship>().enabled = true;
+            ActivateChildScripts(transform.Find("Aircraft"), true);
             GetComponent<PlayerMovement>().lifePodActive = false;
         }
     }
@@ -44,19 +49,7 @@ public class HealthPlayer : MonoBehaviour {
     {
         Transform t = transform.Find("Aircraft");
         //Remove every child inside Aircraft transform
-        foreach (Transform child in t)
-        {
-            //deactivate all components
-            //optimizar codigo
-            if(child.GetComponent<Mover>() != null)
-            child.GetComponent<Mover>().enabled = false;
-            if (child.GetComponent<TurbineMovement>() != null)
-                child.GetComponent<TurbineMovement>().enabled = false;
-            if (child.GetComponent<WeaponSwitching>() != null)
-                child.GetComponent<WeaponSwitching>().enabled = false;
-
-            child.GetComponent<ShipPart>().Explode();
-        }
+        ActivateChildScripts(t, false);
         t.GetComponent<Ship>().enabled = false;
         t.parent = null; // otherwise it will follow the lifepod's position
     }
@@ -66,7 +59,7 @@ public class HealthPlayer : MonoBehaviour {
         Vector3 pos = transform.Find("Aircraft").position;
         Quaternion rot = transform.Find("Aircraft").rotation;
 
-        //set lifepod active
+        //set lifepod active and position and rotation right 
         transform.Find("LifePod").position = pos;
         transform.Find("LifePod").rotation = rot;
         transform.Find("LifePod").gameObject.SetActive(true);
@@ -83,5 +76,45 @@ public class HealthPlayer : MonoBehaviour {
         {
             part.transform.parent = aircraft;
         }
+    }
+
+    private bool CheckIfOnPlace()
+    {
+        Transform aircraft = GameObject.Find("Aircraft").transform;
+
+        GameObject[] playerPart = GameObject.FindGameObjectsWithTag("PlayerPart");
+
+        foreach (GameObject part in playerPart)
+        {
+            if (part.GetComponent<ShipPart>().onPlace == false)
+                return false;
+        }
+        return true;
+    }
+
+    private void ActivateChildScripts(Transform parent, bool active)
+    {
+        for (int i = parent.childCount - 1; i >= 0; i--)
+        {
+            Transform child = parent.GetChild(i);
+
+            if (child.tag == ("PlayerPart"))
+            {
+                if (child.GetComponent<Mover>() != null)
+                    child.GetComponent<Mover>().enabled = active;
+                if (child.GetComponent<TurbineMovement>() != null)
+                    child.GetComponent<TurbineMovement>().enabled = active;
+                if (child.GetComponent<WeaponSwitching>() != null)
+                {
+                    child.GetComponent<WeaponSwitching>().enabled = active;
+                    /*foreach( GameObject c in child)
+                    child.parent.GetComponent<Gun>().enabled = active;*/
+                }
+                    
+                if(!active)
+                child.GetComponent<ShipPart>().Explode();
+            }
+        }
+
     }
 }
