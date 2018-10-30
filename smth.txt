@@ -1,0 +1,81 @@
+Assets
+2D: 
+- Cave Textures;
+- Ui elements:
+   - Hud, Menu principal, butões, menu de pausa, menu da proxima fase;
+- Textura da nave;
+- textura dos monstros;
+- textura dos bosses;
+- spawners;
+3D:
+- Modelo da nave;
+- Modelos dos monstros (8); 
+- Modelos dos bosses (4);
+- Modelos dos Spawners
+-Ambientes dos bosses;
+-Projeteis;
+-Environment:
+  - plantas, rochas, etc;
+Animações:
+- Nave a morrer;
+- Monstros (idle, attacking, moving, dying);
+- Bosses (Spawn, attacking, moving, dying, idle);
+Som:
+- Musica (Menu, jogo, bosses);
+- Som das armas;
+- Som dos monstros (walking, dying, attacking);
+- Som da nave (movimentos, barrel roll, dying);
+- Som do impacto dos tiros;
+- Som das explosões;
+- Som dos menus (carregar nas opções)
+
+
+7 sprints (2 semanas cada)
+
+
+exemplo 1º sprint:
+	Modelo da nave;
+	Controlos da nave (movement, dodge, disparo, shield);
+	1º arma;
+	gerador de dungeons;
+	Stats da nave;
+
+
+Sec XXII
+Cada jogador uma nave.
+Contratar mercenarios para lutar por ti
+1v1 battle mode - deadmatch 
+
+Historia - 
+	Ninguem sabe de onde veio
+	Parasita que infeta tudo.
+	Evoluir Para Controlar Maquinas
+
+Armas - 
+	Laser/Melee/Projeties
+
+Mecanicas -  
+	Air roll
+	2 tipos de voo - avioneta, hovering
+
+Mapa -
+	1 esfera finita - Procedural Generation - baseado numa seed
+	1 planeta
+	Player Hub -
+		 Quando se aproxima pergunta se quer entrar ( cutscene ). Icone a Hover....
+		 Menu Like
+	water effects
+	Biomes - Montanha/Vales/Oceano/Espaço/Deserto
+	Continentes
+
+Missoes ( Side Quests ) - 
+	Fazer alguma coisa no planeta. 
+	( usar ai para fazer as historias )
+
+
+
+
+Stages Fixos entre hubs que o player tem de defender
+	Zona a volta do hub o player pode explorar
+ou
+Arcade random generated.
