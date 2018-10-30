@@ -5,6 +5,7 @@ using UnityEngine;
 public class LaserBehaviour : MonoBehaviour
 {
     float angularSpeed;
+
     void Start()
     {
         angularSpeed = 10.0f;

@@ -11,26 +11,12 @@ public class Mover : MonoBehaviour {
     public Vector3 shotPos;
     public Quaternion shotRot;
     public float secondsToDeath;
-    public bool isActive;
     public bool hasStarted;
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
 
     public void setPosition(Vector3 shotPos, Quaternion shotRot)
     {
         transform.position = shotPos;
         transform.rotation = shotRot;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-        transform.position += speed * transform.forward;
     }
 
     IEnumerator DeathTime()

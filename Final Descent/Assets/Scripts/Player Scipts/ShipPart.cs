@@ -117,6 +117,7 @@ public class ShipPart : MonoBehaviour {
         float distance = Vector3.Distance(transform.position, explosionPos);
         float rotDistance = Quaternion.Angle(transform.rotation, explosionRot);
         if (distance < 1) distance = 1;
+        if (rotDistance < 1) rotDistance = 1;
         transform.position = Vector3.MoveTowards(transform.position, explosionPos, Time.deltaTime * (speed * distance));
         transform.rotation = Quaternion.RotateTowards(transform.rotation, explosionRot, Time.deltaTime * (speed * rotDistance));
     }

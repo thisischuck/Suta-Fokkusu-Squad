@@ -9,6 +9,7 @@ public class Enemy
     public List<Attack> Attacks;
     public Animation Idle;
     public Animation Death;
+
 }
 
 [System.Serializable]
@@ -21,3 +22,5 @@ public struct Attack
 }
 
 public enum Status { POISON, STUN }
+
+

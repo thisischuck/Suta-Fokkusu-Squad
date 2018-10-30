@@ -58,11 +58,12 @@ public class HealthPlayer : MonoBehaviour {
     {
         Vector3 pos = transform.Find("Aircraft").position;
         Quaternion rot = transform.Find("Aircraft").rotation;
+        Transform lifepod = transform.Find("LifePod");
 
         //set lifepod active and position and rotation right 
-        transform.Find("LifePod").position = pos;
-        transform.Find("LifePod").rotation = rot;
-        transform.Find("LifePod").gameObject.SetActive(true);
+        lifepod.position = pos;
+        lifepod.rotation = rot;
+        lifepod.gameObject.SetActive(true);
         GetComponent<PlayerMovement>().lifePodActive = true; //Change object for camera to follow
     }
 
@@ -107,8 +108,8 @@ public class HealthPlayer : MonoBehaviour {
                 if (child.GetComponent<WeaponSwitching>() != null)
                 {
                     child.GetComponent<WeaponSwitching>().enabled = active;
-                    /*foreach( GameObject c in child)
-                    child.parent.GetComponent<Gun>().enabled = active;*/
+                    foreach( Transform c in child)
+                    child.parent.GetComponent<Gun>().enabled = active;
                 }
                     
                 if(!active)

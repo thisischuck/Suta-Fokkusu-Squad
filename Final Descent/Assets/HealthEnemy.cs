@@ -12,28 +12,18 @@ public class HealthEnemy : MonoBehaviour {
 	void Update () {
 	}
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Collision");
-        if(collision.gameObject.tag == "Bullet")
-        {
-            float damage = collision.gameObject.GetComponent<Mover>().Damage;
-            ApplyDamage(damage);
-        }
-    }
-
-    /*private void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Bullet")
         {
             float damage = col.gameObject.GetComponent<Mover>().Damage;
-            TakeDamage(damage);
+            ApplyDamage(damage);
         }
-    }*/
+    }
 
     private void ApplyDamage(float damage)
     {
-        if(Health <= 0)
+        if (Health <= 0)
         {
             Destroy(gameObject);
         }

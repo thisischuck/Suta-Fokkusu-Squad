@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour {
     public Transform bullet;
     public List<Transform> shootPos;
     public Transform weaponHolder;
+    public bool isLaser;
 
     //Values dependent of the weapon
     public float fireRate = .25f;
@@ -26,6 +27,10 @@ public class Gun : MonoBehaviour {
     private void Start()
     {
         currentAmmo = maxAmmo;
+
+        if (GetComponent<MeshFilter>() == null)
+            isLaser = true;
+        else isLaser = false;
     }
 
     // Update is called once per frame
