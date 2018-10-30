@@ -5307,7 +5307,7 @@ Prefab:
     - target: {fileID: 114222496305288920, guid: 47f867f19d93113419e92355ce4c1a3e,
         type: 2}
       propertyPath: speed
-      value: 0.2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114051194396513546, guid: 47f867f19d93113419e92355ce4c1a3e,
         type: 2}
@@ -5347,6 +5347,18 @@ Prefab:
       value: 
       objectReference: {fileID: 33982617655434546, guid: ec976c9a31d83994a932a3b3a7685cb4,
         type: 2}
+    - target: {fileID: 1251895791904514, guid: 47f867f19d93113419e92355ce4c1a3e, type: 2}
+      propertyPath: m_TagString
+      value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 1766552483875542, guid: 47f867f19d93113419e92355ce4c1a3e, type: 2}
+      propertyPath: m_TagString
+      value: Gun
+      objectReference: {fileID: 0}
+    - target: {fileID: 1632712743989040, guid: 47f867f19d93113419e92355ce4c1a3e, type: 2}
+      propertyPath: m_TagString
+      value: Gun
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47f867f19d93113419e92355ce4c1a3e, type: 2}
   m_IsPrefabAsset: 0
@@ -5530,7 +5542,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0

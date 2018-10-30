@@ -84,56 +84,16 @@ public class PlayerMovement : MonoBehaviour
     {
         #region OBJECT TO FOLLOW
         if (lifePodActive)
+        {
             ship = transform.Find("LifePod");
+            isDashing = false;
+        }
         else ship = transform.Find("Aircraft");
         #endregion
 
         #region MOVEMENT INPUT
         forwardAxis = Input.GetAxis("Vertical");
         sideAxis = Input.GetAxis("Horizontal");
-        #endregion
-
-        #region DASH INPUT
-        if (Input.GetKeyDown(KeyCode.A) && !isDashing && !hasDashed)
-        {
-            if (keyTapCool > 0 && keyTapCount >= 1)
-            {
-                isDashing = true;
-                hasDashed = true;
-
-                dir = -transform.right;
-                dashDurCount = 0;
-                dashCDRCount = 0;
-
-                ship.GetComponent<Ship>().DashRotation(360, dashDur);
-
-            }
-            else
-            {
-                keyTapCool += 0.5f;
-                keyTapCount += 1;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.D) && !isDashing && !hasDashed)
-        {
-            if (keyTapCool > 0 && keyTapCount == 1)
-            {
-                isDashing = true;
-                hasDashed = true;
-
-                dir = transform.right;
-                dashDurCount = 0;
-                dashCDRCount = 0;
-
-                ship.GetComponent<Ship>().DashRotation(-360, dashDur);
-            }
-            else
-            {
-                keyTapCool += 0.5f;
-                keyTapCount += 1;
-            }
-        }
         #endregion
 
         #region ROTATION INPUT
@@ -163,6 +123,49 @@ public class PlayerMovement : MonoBehaviour
 
         if (!lifePodActive)
         {
+            #region DASH INPUT
+            if (Input.GetKeyDown(KeyCode.A) && !isDashing && !hasDashed)
+            {
+                if (keyTapCool > 0 && keyTapCount >= 1)
+                {
+                    isDashing = true;
+                    hasDashed = true;
+
+                    dir = -transform.right;
+                    dashDurCount = 0;
+                    dashCDRCount = 0;
+
+                    ship.GetComponent<Ship>().DashRotation(360, dashDur);
+
+                }
+                else
+                {
+                    keyTapCool += 0.5f;
+                    keyTapCount += 1;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.D) && !isDashing && !hasDashed)
+            {
+                if (keyTapCool > 0 && keyTapCount == 1)
+                {
+                    isDashing = true;
+                    hasDashed = true;
+
+                    dir = transform.right;
+                    dashDurCount = 0;
+                    dashCDRCount = 0;
+
+                    ship.GetComponent<Ship>().DashRotation(-360, dashDur);
+                }
+                else
+                {
+                    keyTapCool += 0.5f;
+                    keyTapCount += 1;
+                }
+            }
+            #endregion
+
             CharacterTappingControl(); //Controls the double tapping duration
             CharacterDashControl(); //Controls everything about the dash
         }

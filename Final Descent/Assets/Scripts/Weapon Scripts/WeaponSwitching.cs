@@ -179,6 +179,7 @@ public class WeaponSwitching : MonoBehaviour
         }
     }
     */
+
     public int selectedWeapon = 0;
     public int previousWeapon;
 
