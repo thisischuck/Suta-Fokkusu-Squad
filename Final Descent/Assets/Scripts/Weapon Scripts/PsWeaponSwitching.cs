@@ -11,11 +11,13 @@ public class PsWeaponSwitching : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        selectedWeapon = 0;
+
         foreach (ParticleSystem a in Weapons)
         {
-            a.gameObject.SetActive(false);
+            a.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
-        Weapons[0].gameObject.SetActive(true);
+        Weapons[selectedWeapon].GetComponentInChildren<MeshRenderer>().enabled = true;
     }
 
     // Update is called once per frame
@@ -52,10 +54,10 @@ public class PsWeaponSwitching : MonoBehaviour
     {
         foreach (ParticleSystem a in Weapons)
         {
-            a.gameObject.SetActive(false);
+            a.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
 
-        Weapons[selectedWeapon].gameObject.SetActive(true);
+        Weapons[selectedWeapon].GetComponentInChildren<MeshRenderer>().enabled = true;
     }
 
 

@@ -6,24 +6,30 @@ public class PsGunManager : MonoBehaviour
 {
     private ParticleSystem system;
 
-    bool canFire;
+    public bool canFire, isActive;
     public int bulletsPerClick = 1;
     public float fireRate = 0.45f; //segundos
 
     // Use this for initialization
     void Start()
     {
+        isActive = this.GetComponentInChildren<MeshRenderer>().enabled;
+
+        canFire = true;
         system = this.gameObject.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1") && canFire)
-        {
-            system.Emit(bulletsPerClick);
-            StartCoroutine(FireRateIE());
-        }
+        isActive = this.GetComponentInChildren<MeshRenderer>().enabled;
+
+        if (isActive)
+            if (Input.GetButton("Fire1") && canFire)
+            {
+                system.Emit(bulletsPerClick);
+                StartCoroutine(FireRateIE());
+            }
     }
 
     IEnumerator FireRateIE()
