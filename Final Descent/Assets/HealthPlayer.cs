@@ -25,10 +25,11 @@ public class HealthPlayer : MonoBehaviour {
             GameObject aircraft = GameObject.Find("Aircraft");
 
             OrganizeParts();
-            lifepod.gameObject.SetActive(false);
             lifepod.position = aircraft.transform.position;
             lifepod.rotation = aircraft.transform.rotation;
+            transform.rotation = aircraft.transform.rotation;
             aircraft.transform.parent = transform;
+            lifepod.gameObject.SetActive(false);
             transform.Find("Aircraft").GetComponent<Ship>().enabled = true;
             ActivateChildScripts(transform.Find("Aircraft"), true);
             GetComponent<PlayerMovement>().lifePodActive = false;
@@ -65,6 +66,7 @@ public class HealthPlayer : MonoBehaviour {
         lifepod.rotation = rot;
         lifepod.gameObject.SetActive(true);
         GetComponent<PlayerMovement>().lifePodActive = true; //Change object for camera to follow
+        transform.rotation = lifepod.rotation;
     }
 
     private void OrganizeParts()
@@ -101,21 +103,20 @@ public class HealthPlayer : MonoBehaviour {
 
             if (child.tag == ("PlayerPart"))
             {
-                if (child.GetComponent<Mover>() != null)
-                    child.GetComponent<Mover>().enabled = active;
                 if (child.GetComponent<TurbineMovement>() != null)
                     child.GetComponent<TurbineMovement>().enabled = active;
-                if (child.GetComponent<WeaponSwitching>() != null)
+            if (child.GetComponent<WeaponSwitching>() != null)
+            {
+                foreach (Transform c in child)
                 {
-                    child.GetComponent<WeaponSwitching>().enabled = active;
-                    foreach( Transform c in child)
-                    child.parent.GetComponent<Gun>().enabled = active;
+                    if (c.GetComponent<Gun>() != null)
+                        c.GetComponent<Gun>().enabled = active;
                 }
-                    
-                if(!active)
+                child.GetComponent<WeaponSwitching>().enabled = active;
+            }
+            if (!active)
                 child.GetComponent<ShipPart>().Explode();
             }
         }
-
     }
 }
