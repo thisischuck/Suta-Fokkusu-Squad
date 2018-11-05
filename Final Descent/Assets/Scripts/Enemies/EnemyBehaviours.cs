@@ -4,6 +4,9 @@ using UnityEngine;
 
 public static class EnemyBehaviours
 {
+    public static float wanderDistance = 10.0f;
+    public static float wanderRadius = 5.0f;
+
     public static Vector3 Seek(Transform t, Vector3 velocity, Vector3 target)
     {
         Vector3 velocitySeek = (target - t.position).normalized;
@@ -66,5 +69,13 @@ public static class EnemyBehaviours
         if (distance == Vector3.zero)
             return Vector3.zero;
         return distance.normalized;
+    }
+
+    public static Vector3 Wander(Transform t, Vector3 velocity)
+    {
+        Vector3 circleCenter = t.position + velocity * wanderDistance;
+        float angle = Random.Range(0.0f, 2.0f * Mathf.PI);
+        Vector3 target = circleCenter + new Vector3(Mathf.Sin(angle), 0.0f, Mathf.Cos(angle));
+        return Seek(t, velocity, target);
     }
 }

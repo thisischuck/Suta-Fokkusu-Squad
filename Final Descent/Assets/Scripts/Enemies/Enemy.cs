@@ -2,14 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy
+public class Enemy : MonoBehaviour
 {
-    public int Health;
-    public Vector3 Velocity;
-    public List<Attack> Attacks;
-    public Animation Idle;
-    public Animation Death;
+    protected int Health;
+    protected Vector3 Velocity;
+    protected float MaxVelocity;
+    protected List<Attack> Attacks;
+    protected Animation Idle;
+    protected Animation Death;
 
+    protected virtual void Start()
+    {
+
+    }
+
+    protected virtual void Update()
+    {
+        transform.position += Velocity.normalized * Time.deltaTime;
+        transform.right = Velocity.normalized;
+    }
 }
 
 [System.Serializable]
