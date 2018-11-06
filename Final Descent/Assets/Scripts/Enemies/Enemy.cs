@@ -18,8 +18,11 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (Health <= 0)
+            Destroy(this.gameObject);
+
         transform.position += Velocity.normalized * Time.deltaTime;
-        transform.right = Velocity.normalized;
+        transform.forward = Velocity.normalized;
     }
 }
 

@@ -47,6 +47,7 @@ public class CellularAutomata : MonoBehaviour
     private CellularDungeonLayer[] dungeon;
     private int length, width, height; //z, x, y
     private float spacing;
+    private float randomNoise;
     private int cycle;
     [Range(0, 100)]
     public float groundChance;
@@ -60,6 +61,7 @@ public class CellularAutomata : MonoBehaviour
         height = 8;
         length = 120;
         spacing = 10.0f;
+        randomNoise = 0.2f;
         cycle = 0;
         meshFilter = GetComponent<MeshFilter>();
         meshCollider = GetComponent<MeshCollider>();
@@ -82,11 +84,6 @@ public class CellularAutomata : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            CheckIfLives2D();
-            UpdateLife2D();
-        }
         if (cycle < 20)
         {
             CheckIfLives2D();
@@ -390,7 +387,10 @@ public class CellularAutomata : MonoBehaviour
     {
         for (int i = 0; i < vertices.Length; i++)
         {
-            vertices[i] += new Vector3(Random.Range(-0.3f, 0.3f) * spacing, Random.Range(-0.3f, 0.3f) * spacing, Random.Range(-0.3f, 0.3f) * spacing);
+            vertices[i] += new Vector3(
+                Random.Range(-randomNoise, randomNoise) * spacing,
+                Random.Range(-randomNoise, randomNoise) * spacing,
+                Random.Range(-randomNoise, randomNoise) * spacing);
         }
     }
 
@@ -402,7 +402,7 @@ public class CellularAutomata : MonoBehaviour
         for (int i = 0; i < vertices.Length; i++)
         {
             vertices[i].y += (0.5f - Mathf.PerlinNoise((vertices[i].x / spacing) * a, (vertices[i].z / spacing) * a)) * 5.0f * spacing;
-            vertices[i].y += (0.5f - Mathf.PerlinNoise((vertices[i].x / spacing) * b, (vertices[i].z / spacing) * b)) * 15.0f * spacing;
+            vertices[i].y += (0.5f - Mathf.PerlinNoise((vertices[i].x / spacing) * b, (vertices[i].z / spacing) * b)) * 7.5f * spacing;
         }
     }
 }
