@@ -7,8 +7,8 @@ public class HBController : MonoBehaviour {
     RectTransform x;
     public Transform camara;
     public RectTransform canvas;
-    private float maxHealth;
-    private float currentHealth;
+    private float maxHealth = 1;
+    private float currentHealth = 1;
 
     public void SetCurrentHealth(float currentHealth)
     {
@@ -28,7 +28,7 @@ public class HBController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (currentHealth > 0)
+        if (currentHealth >= 0)
         {
             x.transform.position = (Vector3.up * 1.5f) + transform.position;
 
