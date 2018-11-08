@@ -76,7 +76,14 @@ public class Ship : MonoBehaviour
                     break;
             }
 
+
+
             yield return null;
+        }
+
+        if (transform.localRotation.z != 0)
+        {
+            transform.localEulerAngles = new Vector3(0, 0, 0);
         }
     }
 }

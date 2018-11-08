@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthEnemy : MonoBehaviour {
+public class HealthEnemy : BaseStats {
 
-    public float Health = 100f;
-    public int Shield;
+    private void Start()
+    {
+        GenerateVariables(100, 0);
+        GetComponent<HBController>().StartHPBar(health);
+    }
 
-	
-	// Update is called once per frame
-	void Update () {
-	}
+    // Update is called once per frame
+    void Update () {
+        GetComponent<HBController>().SetCurrentHealth(health);
+    }
 
     private void OnTriggerEnter(Collider col)
     {
@@ -23,14 +26,14 @@ public class HealthEnemy : MonoBehaviour {
 
     private void ApplyDamage(float damage)
     {
-        if (Health <= 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
         else
         {
             Debug.Log("Hit");
-            Health -= damage;
+            health -= damage;
         }
     }
 }

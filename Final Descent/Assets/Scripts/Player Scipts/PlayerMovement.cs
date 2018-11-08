@@ -8,7 +8,6 @@
  It also has a speed boost, which is experimental.
  */
 
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Camera cam;
     private Transform ship;
+    private Rigidbody rB;
     public bool lifePodActive = false;
 
     //General movement variables
@@ -27,8 +27,13 @@ public class PlayerMovement : MonoBehaviour
 
     #region Dash
     //Key Tap
-    public int keyTapCount = 0;
-    public float keyTapCool = 0f;
+    public int keyTapCount_right = 0;
+    public float keyTapCool_right = 0f;
+
+    public int keyTapCount_left = 0;
+    public float keyTapCool_left = 0f;
+
+    public float keyTapTimeFrame = 0.5f;
 
     //Dash Values
     public bool isDashing = false;
@@ -56,14 +61,19 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         ship = transform.Find("Aircraft"); //Detects the ship
-        mode = 1;
+        rB = GetComponent<Rigidbody>();
     }
 
     // Controls only the actual movement.
     void FixedUpdate()
     {
-        transform.position += cam.transform.forward * forwardAxis * Time.deltaTime * shipSpeed;
-        transform.position += cam.transform.right * sideAxis * Time.deltaTime * shipSpeed;
+        //rB.AddForce(cam.transform.forward * forwardAxis * Time.deltaTime * shipSpeed);
+        Vector3 movement = new Vector3(sideAxis, 0, forwardAxis);
+        movement = transform.TransformDirection(movement);
+        rB.velocity = movement * shipSpeed;
+
+
+        
 
         if (!isDashing)
         {
@@ -82,6 +92,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        RaycastHit hit;
+        Debug.DrawRay(transform.position, -transform.up * 1, Color.yellow);
+        if (Physics.Raycast(transform.position, -transform.up, out hit, 5))
+        {
+            if (hit.transform.tag == "Water")
+            {
+                Debug.Log(hit.distance);
+                hit.distance = Mathf.Clamp(hit.distance, 2, 5);
+                hit.transform.GetComponent<WaterGenerator>().FindPoint(hit.point, 2 / hit.distance + 0.25f);
+            }
+        }
+
         #region OBJECT TO FOLLOW
         if (lifePodActive)
         {
@@ -126,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
             #region DASH INPUT
             if (Input.GetKeyDown(KeyCode.A) && !isDashing && !hasDashed)
             {
-                if (keyTapCool > 0 && keyTapCount >= 1)
+                if (keyTapCool_left > 0 && keyTapCount_left >= keyTapTimeFrame)
                 {
                     isDashing = true;
                     hasDashed = true;
@@ -140,14 +162,14 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    keyTapCool += 0.5f;
-                    keyTapCount += 1;
+                    keyTapCool_left += 0.5f;
+                    keyTapCount_left += 1;
                 }
             }
 
             if (Input.GetKeyDown(KeyCode.D) && !isDashing && !hasDashed)
             {
-                if (keyTapCool > 0 && keyTapCount == 1)
+                if (keyTapCool_right > 0 && keyTapCount_right >= keyTapTimeFrame)
                 {
                     isDashing = true;
                     hasDashed = true;
@@ -160,8 +182,8 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
-                    keyTapCool += 0.5f;
-                    keyTapCount += 1;
+                    keyTapCool_right += 0.5f;
+                    keyTapCount_right += 1;
                 }
             }
             #endregion
@@ -189,18 +211,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void CharacterTappingControl()
     {
-        if (keyTapCool > 0)
+        //Right Tap
+        if (keyTapCool_right > 0)
         {
-            keyTapCool -= 1 * Time.deltaTime;
+            keyTapCool_right -= 1 * Time.deltaTime;
         }
         else
         {
-            keyTapCount = 0;
+            keyTapCount_right = 0;
         }
 
-        if (keyTapCount > 2)
+        if (keyTapCount_right > 2)
         {
-            keyTapCount = 0;
+            keyTapCount_right = 0;
+        }
+
+        //Left Tap
+        if (keyTapCool_left > 0)
+        {
+            keyTapCool_left -= 1 * Time.deltaTime;
+        }
+        else
+        {
+            keyTapCount_left = 0;
+        }
+
+        if (keyTapCount_left > 2)
+        {
+            keyTapCount_left = 0;
         }
     }
 
@@ -210,14 +248,15 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isDashing)
                 dashDurCount += 1 * Time.deltaTime;
+            else
+                dashCDRCount += 1 * Time.deltaTime;
 
-            dashCDRCount += 1 * Time.deltaTime;
             transform.position += dir * dashSpeed * Time.deltaTime;
         }
 
         if (dashDurCount >= dashDur && isDashing) //End of the dash
         {
-            dashDur = 1.5f;
+            dashDurCount = 0;
             isDashing = false;
             dir = Vector3.zero;
         }
@@ -228,5 +267,5 @@ public class PlayerMovement : MonoBehaviour
             hasDashed = false;
         }
     }
-
 }
+

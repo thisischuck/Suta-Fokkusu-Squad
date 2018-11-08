@@ -1,0 +1,253 @@
+fileFormatVersion: 2
+guid: 31415ebf53274d14b821ec116a15f756
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: OuterBulb
+    100004: spawner_idle:Innerbulb_joint11
+    100006: spawner_idle:Innerbulb_joint12
+    100008: spawner_idle:Innerbulb_joint12 1
+    100010: spawner_idle:Innerbulb_joint12 2
+    100012: spawner_idle:Innerbulb_joint12 3
+    100014: spawner_idle:Innerbulb_joint12 4
+    100016: spawner_idle:Innerbulb_joint12 5
+    100018: spawner_idle:Innerbulb_joint12 6
+    100020: spawner_idle:Innerbulb_joint13
+    100022: spawner_idle:Innerbulb_joint13 1
+    100024: spawner_idle:Innerbulb_joint13 2
+    100026: spawner_idle:Innerbulb_joint13 3
+    100028: spawner_idle:Innerbulb_joint13 4
+    100030: spawner_idle:Innerbulb_joint13 5
+    100032: spawner_idle:Innerbulb_joint13 6
+    100034: spawner_idle:Innerbulb_joint14
+    100036: spawner_idle:Innerbulb_joint15
+    100038: spawner_idle:Innerbulb_joint16
+    100040: spawner_idle:Innerbulb_joint17
+    100042: spawner_idle:Innerbulb_joint18
+    100044: spawner_idle:Innerbulb_joint19
+    100046: spawner_idle:Innerbulb_joint25
+    100048: spawner_idle:Outerbulb_joint11
+    100050: spawner_idle:Outerbulb_joint12
+    100052: spawner_idle:Outerbulb_joint12 1
+    100054: spawner_idle:Outerbulb_joint12 2
+    100056: spawner_idle:Outerbulb_joint12 3
+    100058: spawner_idle:Outerbulb_joint12 4
+    100060: spawner_idle:Outerbulb_joint12 5
+    100062: spawner_idle:Outerbulb_joint12 6
+    100064: spawner_idle:Outerbulb_joint13
+    100066: spawner_idle:Outerbulb_joint13 1
+    100068: spawner_idle:Outerbulb_joint13 2
+    100070: spawner_idle:Outerbulb_joint13 3
+    100072: spawner_idle:Outerbulb_joint13 4
+    100074: spawner_idle:Outerbulb_joint13 5
+    100076: spawner_idle:Outerbulb_joint13 6
+    100078: spawner_idle:Outerbulb_joint14
+    100080: spawner_idle:Outerbulb_joint15
+    100082: spawner_idle:Outerbulb_joint16
+    100084: spawner_idle:Outerbulb_joint17
+    100086: spawner_idle:Outerbulb_joint18
+    100088: spawner_idle:Outerbulb_joint19
+    100090: spawner_idle:Outerbulb_joint23
+    100092: spawner_idle:Strawjoints_joint27
+    100094: spawner_idle:Strawjoints_joint28
+    100096: spawner_idle:Strawjoints_joint29
+    100098: spawner_idle:Strawjoints_joint30
+    100100: spawner_idle:Strawjoints_joint31
+    100102: spawner_idle:Strawjoints_joint32
+    100104: spawner_idle:Strawjoints_joint33
+    100106: spawner_idle:Strawjoints_joint34
+    100108: spawner_idle:Strawjoints_joint34 1
+    100110: spawner_idle:Strawjoints_joint34 2
+    100112: spawner_idle:Strawjoints_joint34 3
+    100114: spawner_idle:Strawjoints_joint35
+    100116: spawner_idle:Strawjoints_joint35 1
+    100118: spawner_idle:Strawjoints_joint35 2
+    100120: spawner_idle:Strawjoints_joint35 3
+    100122: spawner_idle:Strawjoints_joint36
+    100124: spawner_idle:Strawjoints_joint37
+    100126: spawner_idle:Strawjoints_joint38
+    100128: spawner_idle:Strawjoints_joint39
+    100130: Strawjoints_joint26
+    400000: //RootNode
+    400002: OuterBulb
+    400004: spawner_idle:Innerbulb_joint11
+    400006: spawner_idle:Innerbulb_joint12
+    400008: spawner_idle:Innerbulb_joint12 1
+    400010: spawner_idle:Innerbulb_joint12 2
+    400012: spawner_idle:Innerbulb_joint12 3
+    400014: spawner_idle:Innerbulb_joint12 4
+    400016: spawner_idle:Innerbulb_joint12 5
+    400018: spawner_idle:Innerbulb_joint12 6
+    400020: spawner_idle:Innerbulb_joint13
+    400022: spawner_idle:Innerbulb_joint13 1
+    400024: spawner_idle:Innerbulb_joint13 2
+    400026: spawner_idle:Innerbulb_joint13 3
+    400028: spawner_idle:Innerbulb_joint13 4
+    400030: spawner_idle:Innerbulb_joint13 5
+    400032: spawner_idle:Innerbulb_joint13 6
+    400034: spawner_idle:Innerbulb_joint14
+    400036: spawner_idle:Innerbulb_joint15
+    400038: spawner_idle:Innerbulb_joint16
+    400040: spawner_idle:Innerbulb_joint17
+    400042: spawner_idle:Innerbulb_joint18
+    400044: spawner_idle:Innerbulb_joint19
+    400046: spawner_idle:Innerbulb_joint25
+    400048: spawner_idle:Outerbulb_joint11
+    400050: spawner_idle:Outerbulb_joint12
+    400052: spawner_idle:Outerbulb_joint12 1
+    400054: spawner_idle:Outerbulb_joint12 2
+    400056: spawner_idle:Outerbulb_joint12 3
+    400058: spawner_idle:Outerbulb_joint12 4
+    400060: spawner_idle:Outerbulb_joint12 5
+    400062: spawner_idle:Outerbulb_joint12 6
+    400064: spawner_idle:Outerbulb_joint13
+    400066: spawner_idle:Outerbulb_joint13 1
+    400068: spawner_idle:Outerbulb_joint13 2
+    400070: spawner_idle:Outerbulb_joint13 3
+    400072: spawner_idle:Outerbulb_joint13 4
+    400074: spawner_idle:Outerbulb_joint13 5
+    400076: spawner_idle:Outerbulb_joint13 6
+    400078: spawner_idle:Outerbulb_joint14
+    400080: spawner_idle:Outerbulb_joint15
+    400082: spawner_idle:Outerbulb_joint16
+    400084: spawner_idle:Outerbulb_joint17
+    400086: spawner_idle:Outerbulb_joint18
+    400088: spawner_idle:Outerbulb_joint19
+    400090: spawner_idle:Outerbulb_joint23
+    400092: spawner_idle:Strawjoints_joint27
+    400094: spawner_idle:Strawjoints_joint28
+    400096: spawner_idle:Strawjoints_joint29
+    400098: spawner_idle:Strawjoints_joint30
+    400100: spawner_idle:Strawjoints_joint31
+    400102: spawner_idle:Strawjoints_joint32
+    400104: spawner_idle:Strawjoints_joint33
+    400106: spawner_idle:Strawjoints_joint34
+    400108: spawner_idle:Strawjoints_joint34 1
+    400110: spawner_idle:Strawjoints_joint34 2
+    400112: spawner_idle:Strawjoints_joint34 3
+    400114: spawner_idle:Strawjoints_joint35
+    400116: spawner_idle:Strawjoints_joint35 1
+    400118: spawner_idle:Strawjoints_joint35 2
+    400120: spawner_idle:Strawjoints_joint35 3
+    400122: spawner_idle:Strawjoints_joint36
+    400124: spawner_idle:Strawjoints_joint37
+    400126: spawner_idle:Strawjoints_joint38
+    400128: spawner_idle:Strawjoints_joint39
+    400130: Strawjoints_joint26
+    2100000: spawner_idle_file1Material
+    4300000: OuterBulb
+    7400000: spawner_idle
+    9500000: //RootNode
+    13700000: OuterBulb
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: spawner_idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 240
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 1
+    weldVertices: 0
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

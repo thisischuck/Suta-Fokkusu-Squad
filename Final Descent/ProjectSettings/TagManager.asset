@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - PlayerPart
   - Gun
+  - Water
   layers:
   - Default
   - TransparentFX

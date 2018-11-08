@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPlayer : MonoBehaviour {
+public class HealthPlayer : BaseStats {
 
-    public int Lives = 3;
-    public float Shield;
-    public float Health = 100f;
 
 	// Use this for initialization
 	void Start () {
+        GenerateVariables(100,100);
+        //GetComponent<HBController>().SetMaxHealth(health);
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKey(KeyCode.F))
         {
-            ApplyDamage(50);
+            TakeDamage(50);
         }
 
         if (CheckIfOnPlace() && Input.GetKey(KeyCode.G))
@@ -36,10 +35,18 @@ public class HealthPlayer : MonoBehaviour {
         }
     }
 
-    private void ApplyDamage(float damage)
+    override public void TakeDamage(float damage)
     {
-        Health -= damage;
-        if (Health <= 0)
+        health -= damage;
+        if (invulnerabilityTime != 0)
+        {
+            IsInvulnerable = true;
+            if (this.lives <= 0)
+            {
+                IsAlive = false;
+            }
+        }
+        if (health <= 0)
         {
             SpawnLifePod();
             DeathExplosion();

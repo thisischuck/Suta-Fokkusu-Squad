@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    protected int Health;
     protected Vector3 Velocity;
     protected float MaxVelocity;
     protected List<Attack> Attacks;
@@ -18,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (Health <= 0)
+        if (GetComponent<HealthEnemy>().health <= 0)
             Destroy(this.gameObject);
 
         transform.position += Velocity.normalized * Time.deltaTime;

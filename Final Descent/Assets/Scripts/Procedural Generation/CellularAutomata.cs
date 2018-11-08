@@ -362,7 +362,8 @@ public class CellularAutomata : MonoBehaviour
         mesh.RecalculateNormals();
         vNormals = mesh.normals;
 
-        GetComponentInChildren<WaterGenerator>().CreateMesh(width, length, spacing);
+        GetComponentInChildren<WaterGenerator>().CreateMesh(40, 40, 1);
+        //GetComponentInChildren<WaterGenerator>().CreateMesh(width, length, spacing);
 
         return mesh;
     }
