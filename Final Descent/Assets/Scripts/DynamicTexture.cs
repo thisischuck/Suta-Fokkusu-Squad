@@ -20,6 +20,9 @@ public class DynamicTexture : MonoBehaviour
         texture.Apply();
         foreach (Renderer r in GetComponentsInChildren<Renderer>(true))
             r.material.SetTexture("_Texture2D_BaseColors", texture);
+        Transform weaponHolder = transform.parent.Find("WeaponHolder");
+        foreach (Renderer r in weaponHolder.GetComponentsInChildren<Renderer>(true))
+            r.material.SetTexture("_Texture2D_BaseColors", texture);
         Transform lifepod = transform.parent.Find("LifePod");
         foreach (Renderer r in lifepod.GetComponentsInChildren<Renderer>(true))
             r.material.SetTexture("_Texture2D_BaseColors", texture);
