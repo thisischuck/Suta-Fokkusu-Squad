@@ -1,0 +1,380 @@
+fileFormatVersion: 2
+guid: 22765df1c527d8f4ca832ac338c573d2
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BaseShip
+    100004: BaseShip2
+    100006: Elevator
+    100008: Elevator1
+    100010: Elevators
+    100012: Intaker_elevators
+    100014: Intakes
+    100016: L_Blades
+    100018: L_Blades 1
+    100020: L_Elevator
+    100022: L_Elevator 1
+    100024: L_Elevator_Intaker
+    100026: L_Turbine
+    100028: L_Wing
+    100030: pCube10
+    100032: pCube10 1
+    100034: pCube11
+    100036: pCube11 1
+    100038: pCube12
+    100040: pCube12 1
+    100042: pCube13
+    100044: pCube13 1
+    100046: pCube14
+    100048: pCube14 1
+    100050: pCube15
+    100052: pCube15 1
+    100054: pCube16
+    100056: pCube16 1
+    100058: pCube17
+    100060: pCube17 1
+    100062: pCube18
+    100064: pCube18 1
+    100066: pCube19
+    100068: pCube19 1
+    100070: pCube2
+    100072: pCube2 1
+    100074: pCube20
+    100076: pCube20 1
+    100078: pCube3
+    100080: pCube3 1
+    100082: pCube4
+    100084: pCube4 1
+    100086: pCube5
+    100088: pCube5 1
+    100090: pCube6
+    100092: pCube6 1
+    100094: pCube7
+    100096: pCube7 1
+    100098: pCube8
+    100100: pCube8 1
+    100102: pCube9
+    100104: pCube9 1
+    100106: pTorus1
+    100108: pTorus1 1
+    100110: R_Center
+    100112: R_Center 1
+    100114: R_Elevator
+    100116: R_Elevator 1
+    100118: R_Elevator_Intaker
+    100120: R_Turbine
+    100122: R_Wing
+    400000: //RootNode
+    400002: BaseShip
+    400004: BaseShip2
+    400006: Elevator
+    400008: Elevator1
+    400010: Elevators
+    400012: Intaker_elevators
+    400014: Intakes
+    400016: L_Blades
+    400018: L_Blades 1
+    400020: L_Elevator
+    400022: L_Elevator 1
+    400024: L_Elevator_Intaker
+    400026: L_Turbine
+    400028: L_Wing
+    400030: pCube10
+    400032: pCube10 1
+    400034: pCube11
+    400036: pCube11 1
+    400038: pCube12
+    400040: pCube12 1
+    400042: pCube13
+    400044: pCube13 1
+    400046: pCube14
+    400048: pCube14 1
+    400050: pCube15
+    400052: pCube15 1
+    400054: pCube16
+    400056: pCube16 1
+    400058: pCube17
+    400060: pCube17 1
+    400062: pCube18
+    400064: pCube18 1
+    400066: pCube19
+    400068: pCube19 1
+    400070: pCube2
+    400072: pCube2 1
+    400074: pCube20
+    400076: pCube20 1
+    400078: pCube3
+    400080: pCube3 1
+    400082: pCube4
+    400084: pCube4 1
+    400086: pCube5
+    400088: pCube5 1
+    400090: pCube6
+    400092: pCube6 1
+    400094: pCube7
+    400096: pCube7 1
+    400098: pCube8
+    400100: pCube8 1
+    400102: pCube9
+    400104: pCube9 1
+    400106: pTorus1
+    400108: pTorus1 1
+    400110: R_Center
+    400112: R_Center 1
+    400114: R_Elevator
+    400116: R_Elevator 1
+    400118: R_Elevator_Intaker
+    400120: R_Turbine
+    400122: R_Wing
+    2100000: Text
+    2100002: anisotropic1
+    2300000: BaseShip
+    2300002: BaseShip2
+    2300004: Elevator
+    2300006: Elevator1
+    2300008: Intakes
+    2300010: L_Elevator
+    2300012: L_Elevator 1
+    2300014: L_Elevator_Intaker
+    2300016: L_Wing
+    2300018: pCube10
+    2300020: pCube10 1
+    2300022: pCube11
+    2300024: pCube11 1
+    2300026: pCube12
+    2300028: pCube12 1
+    2300030: pCube13
+    2300032: pCube13 1
+    2300034: pCube14
+    2300036: pCube14 1
+    2300038: pCube15
+    2300040: pCube15 1
+    2300042: pCube16
+    2300044: pCube16 1
+    2300046: pCube17
+    2300048: pCube17 1
+    2300050: pCube18
+    2300052: pCube18 1
+    2300054: pCube19
+    2300056: pCube19 1
+    2300058: pCube2
+    2300060: pCube2 1
+    2300062: pCube20
+    2300064: pCube20 1
+    2300066: pCube3
+    2300068: pCube3 1
+    2300070: pCube4
+    2300072: pCube4 1
+    2300074: pCube5
+    2300076: pCube5 1
+    2300078: pCube6
+    2300080: pCube6 1
+    2300082: pCube7
+    2300084: pCube7 1
+    2300086: pCube8
+    2300088: pCube8 1
+    2300090: pCube9
+    2300092: pCube9 1
+    2300094: pTorus1
+    2300096: pTorus1 1
+    2300098: R_Center
+    2300100: R_Center 1
+    2300102: R_Elevator
+    2300104: R_Elevator 1
+    2300106: R_Elevator_Intaker
+    2300108: R_Wing
+    3300000: BaseShip
+    3300002: BaseShip2
+    3300004: Elevator
+    3300006: Elevator1
+    3300008: Intakes
+    3300010: L_Elevator
+    3300012: L_Elevator 1
+    3300014: L_Elevator_Intaker
+    3300016: L_Wing
+    3300018: pCube10
+    3300020: pCube10 1
+    3300022: pCube11
+    3300024: pCube11 1
+    3300026: pCube12
+    3300028: pCube12 1
+    3300030: pCube13
+    3300032: pCube13 1
+    3300034: pCube14
+    3300036: pCube14 1
+    3300038: pCube15
+    3300040: pCube15 1
+    3300042: pCube16
+    3300044: pCube16 1
+    3300046: pCube17
+    3300048: pCube17 1
+    3300050: pCube18
+    3300052: pCube18 1
+    3300054: pCube19
+    3300056: pCube19 1
+    3300058: pCube2
+    3300060: pCube2 1
+    3300062: pCube20
+    3300064: pCube20 1
+    3300066: pCube3
+    3300068: pCube3 1
+    3300070: pCube4
+    3300072: pCube4 1
+    3300074: pCube5
+    3300076: pCube5 1
+    3300078: pCube6
+    3300080: pCube6 1
+    3300082: pCube7
+    3300084: pCube7 1
+    3300086: pCube8
+    3300088: pCube8 1
+    3300090: pCube9
+    3300092: pCube9 1
+    3300094: pTorus1
+    3300096: pTorus1 1
+    3300098: R_Center
+    3300100: R_Center 1
+    3300102: R_Elevator
+    3300104: R_Elevator 1
+    3300106: R_Elevator_Intaker
+    3300108: R_Wing
+    4300000: BaseShip
+    4300002: Intakes
+    4300004: L_Wing
+    4300006: R_Center
+    4300008: pTorus1
+    4300010: pCube2
+    4300012: pCube3
+    4300014: pCube4
+    4300016: pCube5
+    4300018: pCube6
+    4300020: pCube7
+    4300022: pCube8
+    4300024: pCube9
+    4300026: pCube10
+    4300028: pCube11
+    4300030: pCube12
+    4300032: pCube13
+    4300034: pCube14
+    4300036: pCube15
+    4300038: pCube16
+    4300040: pCube17
+    4300042: pCube18
+    4300044: pCube19
+    4300046: pCube20
+    4300048: Elevator
+    4300050: R_Elevator_Intaker
+    4300052: R_Center
+    4300054: pTorus1
+    4300056: pCube2
+    4300058: pCube3
+    4300060: pCube4
+    4300062: pCube5
+    4300064: pCube6
+    4300066: pCube7
+    4300068: pCube8
+    4300070: pCube9
+    4300072: pCube10
+    4300074: pCube11
+    4300076: pCube12
+    4300078: pCube13
+    4300080: pCube14
+    4300082: pCube15
+    4300084: pCube16
+    4300086: pCube17
+    4300088: pCube18
+    4300090: pCube19
+    4300092: pCube20
+    4300094: BaseShip2
+    4300096: R_Wing
+    4300098: L_Elevator
+    4300100: R_Elevator
+    4300102: L_Elevator
+    4300104: R_Elevator
+    4300106: Elevator1
+    4300108: L_Elevator_Intaker
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
