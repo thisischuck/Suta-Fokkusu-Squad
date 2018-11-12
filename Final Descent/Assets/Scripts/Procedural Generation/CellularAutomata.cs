@@ -57,7 +57,7 @@ public class CellularAutomata : MonoBehaviour
 
     void Start()
     {
-        width = 120;
+        width = 90;
         height = 8;
         length = 120;
         spacing = 10.0f;
@@ -398,8 +398,10 @@ public class CellularAutomata : MonoBehaviour
         mesh.RecalculateNormals();
         vNormals = mesh.normals;
 
-        GetComponentInChildren<WaterGenerator>().CreateMesh(40, 40, 1);
-        //GetComponentInChildren<WaterGenerator>().CreateMesh(width, length, spacing);
+        WaterGenerator waterGenerator = GetComponentInChildren<WaterGenerator>();
+        if (waterGenerator != null)
+            //waterGenerator.CreateMesh(width * Mathf.CeilToInt(spacing), length * Mathf.CeilToInt(spacing), 1); //Needs optimization
+            waterGenerator.CreateMesh(width * 2, length * 2, 1);
 
         return mesh;
     }

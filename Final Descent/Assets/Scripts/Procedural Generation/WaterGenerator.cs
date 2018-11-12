@@ -32,12 +32,12 @@ public class Wave
     {
         //if (!isWaving)
         //{
-            initialAmplitude = amp;
-            isWaving = true;
-            lifeSpan += life;
-            thisPosition = 0;
-            lastPosition = 0;
-            lifeCounter = 0;
+        initialAmplitude = amp;
+        isWaving = true;
+        lifeSpan += life;
+        thisPosition = 0;
+        lastPosition = 0;
+        lifeCounter = 0;
         //}
         //else
         //{
@@ -76,8 +76,8 @@ public class Wave
 
 public class WaterGenerator : MonoBehaviour
 {
+    private BoxCollider boxCollider;
     private MeshFilter meshFilter;
-    private MeshCollider meshCollider;
     private int length, width, height; //z, x, y
     private float spacing;
     Vector3[] vertices;
@@ -86,7 +86,7 @@ public class WaterGenerator : MonoBehaviour
 
     void Start()
     {
-        meshCollider = GetComponent<MeshCollider>();
+        boxCollider = GetComponent<BoxCollider>();
         meshFilter = GetComponent<MeshFilter>();
         movingVertices = new List<Vector3>();
         length = 0;
@@ -103,7 +103,6 @@ public class WaterGenerator : MonoBehaviour
         }
 
         UpdateMesh();
-        meshCollider.sharedMesh = meshFilter.mesh;
     }
 
 
@@ -112,6 +111,8 @@ public class WaterGenerator : MonoBehaviour
         this.width = width;
         this.length = length;
         this.spacing = spacing;
+        boxCollider.size = new Vector3(width, height, length);
+        boxCollider.center = new Vector3(width / 2.0f, height, length / 2.0f);
 
         vertices = new Vector3[width * length];
         verticesWave = new Wave[width * length];
@@ -122,7 +123,7 @@ public class WaterGenerator : MonoBehaviour
         {
             for (int x = 0; x < width; x++)
             {
-                vertices[x + z * width] = new Vector3(x * spacing, height * spacing, z * spacing);
+                vertices[x + z * width] = new Vector3(x * spacing, height, z * spacing);
                 verticesWave[x + z * width] = new Wave();
 
                 if (x < width - 1 && z < length - 1)
@@ -164,13 +165,13 @@ public class WaterGenerator : MonoBehaviour
         x = Mathf.RoundToInt(cord.x);
         CreateWave(x, y, -power);
 
-        if (x - 1 >= 0 && y - 1 >= 0 && !verticesWave[(x - 1) + (y - 1) * width].IsWaving) {          FindPoint(vertices[(x - 1) + (y - 1) * width], (power / 2f)); } //Canto superior esquerdo;
-        if (y - 1 >= 0 && !verticesWave[x + (y - 1) * width].IsWaving) {                             FindPoint(vertices[x + (y - 1) * width], (power / 2f)); }       //Em cima;
-        if (x + 1 < width && y - 1 >= 0 && !verticesWave[(x + 1) + (y - 1) * width].IsWaving) {      FindPoint(vertices[(x + 1) + (y - 1) * width], (power / 2f)); } //Canto superior direito;
-        if (x - 1 >= 0 && !verticesWave[(x - 1) + y * width].IsWaving) {                             FindPoint(vertices[(x - 1) + y * width], (power / 2f)); }        //Esquerda;
-        if (x + 1 < width && !verticesWave[(x + 1) + y * width].IsWaving) {                         FindPoint(vertices[(x + 1) + y * width], (power / 2f)); }       //Direita;
-        if (x - 1 >= 0 && y + 1 < height && !verticesWave[(x - 1) + (y + 1) * width].IsWaving) {     FindPoint(vertices[(x - 1) + (y + 1) * width], (power / 2f)); } //Canto inferior esquerdo;
-        if (y + 1 < height && !verticesWave[x + (y + 1) * width].IsWaving) {                        FindPoint(vertices[x + (y + 1) * width], (power / 2f)); }       //Em baixo;
+        if (x - 1 >= 0 && y - 1 >= 0 && !verticesWave[(x - 1) + (y - 1) * width].IsWaving) { FindPoint(vertices[(x - 1) + (y - 1) * width], (power / 2f)); } //Canto superior esquerdo;
+        if (y - 1 >= 0 && !verticesWave[x + (y - 1) * width].IsWaving) { FindPoint(vertices[x + (y - 1) * width], (power / 2f)); }       //Em cima;
+        if (x + 1 < width && y - 1 >= 0 && !verticesWave[(x + 1) + (y - 1) * width].IsWaving) { FindPoint(vertices[(x + 1) + (y - 1) * width], (power / 2f)); } //Canto superior direito;
+        if (x - 1 >= 0 && !verticesWave[(x - 1) + y * width].IsWaving) { FindPoint(vertices[(x - 1) + y * width], (power / 2f)); }        //Esquerda;
+        if (x + 1 < width && !verticesWave[(x + 1) + y * width].IsWaving) { FindPoint(vertices[(x + 1) + y * width], (power / 2f)); }       //Direita;
+        if (x - 1 >= 0 && y + 1 < height && !verticesWave[(x - 1) + (y + 1) * width].IsWaving) { FindPoint(vertices[(x - 1) + (y + 1) * width], (power / 2f)); } //Canto inferior esquerdo;
+        if (y + 1 < height && !verticesWave[x + (y + 1) * width].IsWaving) { FindPoint(vertices[x + (y + 1) * width], (power / 2f)); }       //Em baixo;
         if (x + 1 < width && y + 1 < height && !verticesWave[(x + 1) + (y + 1) * width].IsWaving) { FindPoint(vertices[(x + 1) + (y + 1) * width], (power / 2f)); } //Canto inferior direito;
 
 
@@ -199,7 +200,7 @@ public class WaterGenerator : MonoBehaviour
 
     private void RemoveOldWaves()
     {
-        for(int i = movingVertices.Count; i < 0; i--)
+        for (int i = movingVertices.Count; i < 0; i--)
         {
             Vector3 v = movingVertices[i];
             if (!verticesWave[(int)v.x + (int)v.z * width].IsWaving)
@@ -215,7 +216,7 @@ public class WaterGenerator : MonoBehaviour
         RemoveOldWaves();
 
         meshFilter.mesh.vertices = vertices;
-        
-        meshFilter.mesh.RecalculateNormals();
+
+        //meshFilter.mesh.RecalculateNormals();
     }
 }

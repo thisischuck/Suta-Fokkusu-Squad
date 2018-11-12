@@ -7,8 +7,8 @@ public class Enemy : MonoBehaviour
     protected Vector3 Velocity;
     protected float MaxVelocity;
     protected List<Attack> Attacks;
-    protected Animation Idle;
-    protected Animation Death;
+    public Animation Idle;
+    public Animation Death;
 
     protected virtual void Start()
     {
