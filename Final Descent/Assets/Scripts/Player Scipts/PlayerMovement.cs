@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Camera cam;
     private Transform ship;
+    private GameObject trail;
     private Rigidbody rB;
     public bool lifePodActive = false;
 
@@ -61,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         ship = transform.Find("Aircraft"); //Detects the ship
+        trail = transform.Find("Aircraft").Find("Trail").gameObject;
+        trail.SetActive(false);
         rB = GetComponent<Rigidbody>();
     }
 
@@ -72,8 +75,8 @@ public class PlayerMovement : MonoBehaviour
         movement = transform.TransformDirection(movement);
         rB.velocity = movement * shipSpeed;
 
+        trail.SetActive(Input.GetButton("Vertical"));
 
-        
 
         if (!isDashing)
         {
