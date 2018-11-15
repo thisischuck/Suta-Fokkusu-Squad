@@ -4,61 +4,58 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCylinder44
-    100004: pCylinder45
-    100006: pCylinder46
-    100008: pCylinder47
-    100010: pCylinder48
-    100012: pCylinder49
-    100014: pCylinder51
-    100016: pCylinder52
-    100018: pCylinder53
-    100020: pCylinder54
+    100002: Mushrooms1
+    100004: pCylinder44
+    100006: pCylinder45
+    100008: pCylinder46
+    100010: pCylinder47
+    100012: pCylinder47 1
+    100014: pCylinder48
+    100016: pCylinder49
+    100018: pCylinder51
+    100020: pCylinder52
+    100022: pCylinder53
+    100024: pCylinder54
+    100026: transform32
+    100028: transform33
+    100030: transform34
+    100032: transform35
+    100034: transform36
+    100036: transform37
+    100038: transform38
+    100040: transform39
+    100042: transform40
+    100044: transform41
     400000: //RootNode
-    400002: pCylinder44
-    400004: pCylinder45
-    400006: pCylinder46
-    400008: pCylinder47
-    400010: pCylinder48
-    400012: pCylinder49
-    400014: pCylinder51
-    400016: pCylinder52
-    400018: pCylinder53
-    400020: pCylinder54
+    400002: Mushrooms1
+    400004: pCylinder44
+    400006: pCylinder45
+    400008: pCylinder46
+    400010: pCylinder47
+    400012: pCylinder47 1
+    400014: pCylinder48
+    400016: pCylinder49
+    400018: pCylinder51
+    400020: pCylinder52
+    400022: pCylinder53
+    400024: pCylinder54
+    400026: transform32
+    400028: transform33
+    400030: transform34
+    400032: transform35
+    400034: transform36
+    400036: transform37
+    400038: transform38
+    400040: transform39
+    400042: transform40
+    400044: transform41
     2100000: lambert1
-    2300000: pCylinder44
-    2300002: pCylinder45
-    2300004: pCylinder46
-    2300006: pCylinder47
-    2300008: pCylinder48
-    2300010: pCylinder49
-    2300012: pCylinder51
-    2300014: pCylinder52
-    2300016: pCylinder53
-    2300018: pCylinder54
-    3300000: pCylinder44
-    3300002: pCylinder45
-    3300004: pCylinder46
-    3300006: pCylinder47
-    3300008: pCylinder48
-    3300010: pCylinder49
-    3300012: pCylinder51
-    3300014: pCylinder52
-    3300016: pCylinder53
-    3300018: pCylinder54
+    2300000: pCylinder47
+    3300000: pCylinder47
     4300000: pCylinder47
-    4300002: pCylinder49
-    4300004: pCylinder44
-    4300006: pCylinder46
-    4300008: pCylinder45
-    4300010: pCylinder53
-    4300012: pCylinder48
-    4300014: pCylinder54
-    4300016: pCylinder51
-    4300018: pCylinder52
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -114,7 +111,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

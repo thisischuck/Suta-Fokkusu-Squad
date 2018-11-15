@@ -3,52 +3,51 @@ guid: 1af469db748d5e8418375e244401c0b6
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: pCylinder73
-    100004: pCylinder74
-    100006: pCylinder76
-    100008: pCylinder77
-    100010: pCylinder79
-    100012: pCylinder80
-    100014: pCylinder81
-    100016: pCylinder82
-    400000: //RootNode
-    400002: pCylinder73
-    400004: pCylinder74
-    400006: pCylinder76
-    400008: pCylinder77
-    400010: pCylinder79
-    400012: pCylinder80
-    400014: pCylinder81
-    400016: pCylinder82
+    100000: Mushrooms6
+    100002: //RootNode
+    100004: pCylinder73
+    100006: pCylinder74
+    100008: pCylinder76
+    100010: pCylinder77
+    100012: pCylinder79
+    100014: pCylinder79 1
+    100016: pCylinder80
+    100018: pCylinder81
+    100020: pCylinder82
+    100022: transform60
+    100024: transform61
+    100026: transform62
+    100028: transform63
+    100030: transform64
+    100032: transform65
+    100034: transform66
+    100036: transform67
+    400000: Mushrooms6
+    400002: //RootNode
+    400004: pCylinder73
+    400006: pCylinder74
+    400008: pCylinder76
+    400010: pCylinder77
+    400012: pCylinder79
+    400014: pCylinder79 1
+    400016: pCylinder80
+    400018: pCylinder81
+    400020: pCylinder82
+    400022: transform60
+    400024: transform61
+    400026: transform62
+    400028: transform63
+    400030: transform64
+    400032: transform65
+    400034: transform66
+    400036: transform67
     2100000: lambert1
-    2300000: pCylinder73
-    2300002: pCylinder74
-    2300004: pCylinder76
-    2300006: pCylinder77
-    2300008: pCylinder79
-    2300010: pCylinder80
-    2300012: pCylinder81
-    2300014: pCylinder82
-    3300000: pCylinder73
-    3300002: pCylinder74
-    3300004: pCylinder76
-    3300006: pCylinder77
-    3300008: pCylinder79
-    3300010: pCylinder80
-    3300012: pCylinder81
-    3300014: pCylinder82
+    2300000: pCylinder79
+    3300000: pCylinder79
     4300000: pCylinder79
-    4300002: pCylinder80
-    4300004: pCylinder82
-    4300006: pCylinder81
-    4300008: pCylinder77
-    4300010: pCylinder76
-    4300012: pCylinder73
-    4300014: pCylinder74
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -104,7 +103,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

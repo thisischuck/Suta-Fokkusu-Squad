@@ -4,31 +4,34 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCylinder50
-    100004: pCylinder55
-    100006: pCylinder56
-    100008: pCylinder57
+    100002: Mushrooms3
+    100004: pCylinder50
+    100006: pCylinder55
+    100008: pCylinder56
+    100010: pCylinder56 1
+    100012: pCylinder57
+    100014: transform48
+    100016: transform49
+    100018: transform50
+    100020: transform51
     400000: //RootNode
-    400002: pCylinder50
-    400004: pCylinder55
-    400006: pCylinder56
-    400008: pCylinder57
+    400002: Mushrooms3
+    400004: pCylinder50
+    400006: pCylinder55
+    400008: pCylinder56
+    400010: pCylinder56 1
+    400012: pCylinder57
+    400014: transform48
+    400016: transform49
+    400018: transform50
+    400020: transform51
     2100000: lambert1
-    2300000: pCylinder50
-    2300002: pCylinder55
-    2300004: pCylinder56
-    2300006: pCylinder57
-    3300000: pCylinder50
-    3300002: pCylinder55
-    3300004: pCylinder56
-    3300006: pCylinder57
+    2300000: pCylinder56
+    3300000: pCylinder56
     4300000: pCylinder56
-    4300002: pCylinder55
-    4300004: pCylinder50
-    4300006: pCylinder57
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -84,7 +87,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

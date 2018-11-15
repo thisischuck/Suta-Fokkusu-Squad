@@ -1,29 +1,17 @@
 fileFormatVersion: 2
-guid: 7e30c2a81baa1b948ae886f94302e0c2
+guid: 6a8eff0c1a27acc408048e499bd6742c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: pCylinder36
-    100002: pCylinder38
-    100004: pCylinder43
-    100006: //RootNode
-    400000: pCylinder36
-    400002: pCylinder38
-    400004: pCylinder43
-    400006: //RootNode
+    100000: //RootNode
+    400000: //RootNode
     2100000: lambert1
-    2300000: pCylinder36
-    2300002: pCylinder38
-    2300004: pCylinder43
-    3300000: pCylinder36
-    3300002: pCylinder38
-    3300004: pCylinder43
-    4300000: pCylinder36
-    4300002: pCylinder43
-    4300004: pCylinder38
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Stalactite
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -79,7 +67,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

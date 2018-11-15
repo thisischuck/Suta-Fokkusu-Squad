@@ -1,44 +1,45 @@
 fileFormatVersion: 2
-guid: f8f3209203dfe454a962580933e16d36
+guid: 51778a780e7080f48a912cc4b599dd23
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pCylinder62
-    100004: pCylinder63
-    100006: pCylinder65
-    100008: pCylinder66
-    100010: pCylinder67
-    100012: pCylinder68
+    100002: Mushrooms2
+    100004: pCylinder62
+    100006: pCylinder63
+    100008: pCylinder65
+    100010: pCylinder66
+    100012: pCylinder67
+    100014: pCylinder67 1
+    100016: pCylinder68
+    100018: transform42
+    100020: transform43
+    100022: transform44
+    100024: transform45
+    100026: transform46
+    100028: transform47
     400000: //RootNode
-    400002: pCylinder62
-    400004: pCylinder63
-    400006: pCylinder65
-    400008: pCylinder66
-    400010: pCylinder67
-    400012: pCylinder68
+    400002: Mushrooms2
+    400004: pCylinder62
+    400006: pCylinder63
+    400008: pCylinder65
+    400010: pCylinder66
+    400012: pCylinder67
+    400014: pCylinder67 1
+    400016: pCylinder68
+    400018: transform42
+    400020: transform43
+    400022: transform44
+    400024: transform45
+    400026: transform46
+    400028: transform47
     2100000: lambert1
-    2300000: pCylinder62
-    2300002: pCylinder63
-    2300004: pCylinder65
-    2300006: pCylinder66
-    2300008: pCylinder67
-    2300010: pCylinder68
-    3300000: pCylinder62
-    3300002: pCylinder63
-    3300004: pCylinder65
-    3300006: pCylinder66
-    3300008: pCylinder67
-    3300010: pCylinder68
+    2300000: pCylinder67
+    3300000: pCylinder67
     4300000: pCylinder67
-    4300002: pCylinder68
-    4300004: pCylinder66
-    4300006: pCylinder65
-    4300008: pCylinder63
-    4300010: pCylinder62
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -94,7 +95,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

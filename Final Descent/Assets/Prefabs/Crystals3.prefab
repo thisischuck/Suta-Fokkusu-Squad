@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4632330557417314}
   - component: {fileID: 33648707048004582}
   - component: {fileID: 23370184226424570}
-  - component: {fileID: 135076564603154834}
+  - component: {fileID: 135686369261827210}
   m_Layer: 0
   m_Name: Crystals3
   m_TagString: Untagged
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997404314289222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -32.97078, y: 46.221508, z: -51.71282}
+  m_LocalPosition: {x: -31.057632, y: 48.154533, z: -34.43844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997404314289222}
   m_Mesh: {fileID: 4300000, guid: 8d7f82484f374bb42a6c47c9375a2ec0, type: 3}
---- !u!135 &135076564603154834
+--- !u!135 &135686369261827210
 SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,5 +94,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.9
-  m_Center: {x: 0.006673366, y: -0.06733948, z: 0.030544221}
+  m_Radius: 0.74
+  m_Center: {x: 0.052693337, y: 0.85, z: 0.02082561}

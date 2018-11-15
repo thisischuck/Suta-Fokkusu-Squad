@@ -9,44 +9,45 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1787156706555796}
+  m_RootGameObject: {fileID: 1789515624587640}
   m_IsPrefabAsset: 1
---- !u!1 &1787156706555796
+--- !u!1 &1789515624587640
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4068877470238186}
-  - component: {fileID: 33631971270343768}
-  - component: {fileID: 23741336738362318}
+  - component: {fileID: 4815749172424272}
+  - component: {fileID: 33126285274220758}
+  - component: {fileID: 23696566093568544}
+  - component: {fileID: 135822075968512684}
   m_Layer: 0
-  m_Name: Stalactite
-  m_TagString: Stalactite
+  m_Name: Mushrooms5
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &4068877470238186
+--- !u!4 &4815749172424272
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1787156706555796}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8050547, y: -2.528802, z: 1.1833506}
-  m_LocalScale: {x: 0.8743495, y: 3.1599793, z: 0.9096103}
+  m_GameObject: {fileID: 1789515624587640}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -63.39931, y: 46.383488, z: -34.446373}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23741336738362318
+--- !u!23 &23696566093568544
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1787156706555796}
+  m_GameObject: {fileID: 1789515624587640}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -56,7 +57,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: d2dfc4c011149e94d88d87d2fd8957d1, type: 3}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,10 +77,22 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33631971270343768
+--- !u!33 &33126285274220758
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1787156706555796}
-  m_Mesh: {fileID: 4300000, guid: d2dfc4c011149e94d88d87d2fd8957d1, type: 3}
+  m_GameObject: {fileID: 1789515624587640}
+  m_Mesh: {fileID: 4300000, guid: 6af418a02cb88d84782386c0d417ac2f, type: 3}
+--- !u!135 &135822075968512684
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1789515624587640}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.78
+  m_Center: {x: -0.035323083, y: 0.39, z: -0.00000017881393}
