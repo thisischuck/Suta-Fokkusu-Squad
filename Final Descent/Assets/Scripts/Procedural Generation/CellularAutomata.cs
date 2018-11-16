@@ -40,12 +40,13 @@ using UnityEngine;
 
 public class CellularAutomata : MonoBehaviour
 {
-    public Material material;
+    private Material material;
     private MeshFilter meshFilter;
+    public MeshFilter collisionMeshFilter;
     private ObjectPlacer objectPlacer;
     private CellularDungeonLayer dungeonLayer;
     private CellularDungeonLayer[] dungeon;
-    private int length, width, height; //z, x, y
+    public int length, width, height; //z, x, y
     private float spacing;
     private float randomNoise;
     private int cycle;
@@ -57,9 +58,6 @@ public class CellularAutomata : MonoBehaviour
 
     void Start()
     {
-        width = 90;
-        height = 8;
-        length = 120;
         spacing = 10.0f;
         randomNoise = 0.2f;
         cycle = 0;
@@ -200,40 +198,30 @@ public class CellularAutomata : MonoBehaviour
         }
 
         //UVs
+        int auxX = 0;
+        int auxZ = 0;
+        int auxY = 0;
+
         for (int y = 0; y < height; y++)
         {
+            auxZ = 0;
             for (int z = 0; z < length; z++)
             {
+                auxX = 0;
                 for (int x = 0; x < width; x++)
                 {
                     Vector2 uv = new Vector2();
-                    if (y % 2 == 0)
-                    {
-                        if (x % 2 == 0)
-                            uv.x = 0.0f;
-                        else
-                            uv.x = 1.0f;
+                    uv.x = auxX;
+                    uv.y = auxZ + auxY;
+                    auxX++;
 
-                        if (z % 2 == 0)
-                            uv.y = 0.0f;
-                        else
-                            uv.y = 1.0f;
-                    }
-                    else
-                    {
-                        if (x % 2 == 0)
-                            uv.x = 0.0f;
-                        else
-                            uv.x = 1.0f;
-
-                        if (z % 2 == 0)
-                            uv.y = 1.0f;
-                        else
-                            uv.y = 0.0f;
-                    }
                     uvs[x + z * width + y * width * length] = uv;
                 }
+                auxZ++;
             }
+            auxY++;
+            if (auxY == width * height)
+                auxY = 0;
         }
 
         //Indices
@@ -250,84 +238,37 @@ public class CellularAutomata : MonoBehaviour
                             if (dungeon[y].Cells[x, z].isAlive && dungeon[y + 1].Cells[x, z].isAlive)
                             {
                                 //Connect directly right
-                                if (dungeon[y].Cells[x + 1, z].isAlive && dungeon[y + 1].Cells[x + 1, z].isAlive)
+                                if (dungeon[y].Cells[x + 1, z].isAlive && dungeon[y + 1].Cells[x + 1, z].isAlive && z != 0)
                                 {
                                     indices.Add(x + z * width + y * width * length);
-                                    indices.Add(x + 1 + z * width + y * width * length);
                                     indices.Add(x + z * width + (y + 1) * width * length);
+                                    indices.Add(x + 1 + z * width + y * width * length);
 
                                     indices.Add(x + 1 + z * width + y * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
                                     indices.Add(x + 1 + z * width + (y + 1) * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-
-                                    //triangles to make two sided mesh
-                                    /*indices.Add(x + z * width + y * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-                                    indices.Add(x + 1 + z * width + y * width * length);
-
-                                    indices.Add(x + 1 + z * width + y * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-                                    indices.Add(x + 1 + z * width + (y + 1) * width * length);*/
                                 }
                                 //Connect diagonally to right and down
                                 if (dungeon[y].Cells[x + 1, z + 1].isAlive && dungeon[y + 1].Cells[x + 1, z + 1].isAlive)
                                 {
                                     indices.Add(x + z * width + y * width * length);
-                                    indices.Add(x + 1 + (z + 1) * width + y * width * length);
                                     indices.Add(x + z * width + (y + 1) * width * length);
+                                    indices.Add(x + 1 + (z + 1) * width + y * width * length);
 
                                     indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
                                     indices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-
-                                    //triangles to make two sided mesh
-                                    /*indices.Add(x + z * width + y * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-                                    indices.Add(x + 1 + (z + 1) * width + y * width * length);
-
-                                    indices.Add(x + 1 + (z + 1) * width + y * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-                                    indices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);*/
                                 }
                                 //Connect diagonally to right and up
                                 if (z != 0 && dungeon[y].Cells[x + 1, z - 1].isAlive && dungeon[y + 1].Cells[x + 1, z - 1].isAlive)
                                 {
                                     indices.Add(x + z * width + y * width * length);
-                                    indices.Add(x + 1 + (z - 1) * width + y * width * length);
                                     indices.Add(x + z * width + (y + 1) * width * length);
+                                    indices.Add(x + 1 + (z - 1) * width + y * width * length);
 
                                     indices.Add(x + 1 + (z - 1) * width + y * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
                                     indices.Add(x + 1 + (z - 1) * width + (y + 1) * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-
-                                    //triangles to make two sided mesh
-                                    /*indices.Add(x + z * width + y * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-                                    indices.Add(x + 1 + (z - 1) * width + y * width * length);
-
-                                    indices.Add(x + 1 + (z - 1) * width + y * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-                                    indices.Add(x + 1 + (z - 1) * width + (y + 1) * width * length);*/
-                                }
-                                //Connect directly down
-                                if (x == 0 && dungeon[y].Cells[x, z + 1].isAlive && dungeon[y + 1].Cells[x, z + 1].isAlive)
-                                {
-                                    indices.Add(x + z * width + y * width * length);
-                                    indices.Add(x + (z + 1) * width + y * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-
-                                    indices.Add(x + (z + 1) * width + y * width * length);
-                                    indices.Add(x + (z + 1) * width + (y + 1) * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-
-                                    //triangles to make two sided mesh
-                                    /*indices.Add(x + z * width + y * width * length);
-                                    indices.Add(x + (z + 1) * width + y * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);
-
-                                    indices.Add(x + (z + 1) * width + y * width * length);
-                                    indices.Add(x + (z + 1) * width + (y + 1) * width * length);
-                                    indices.Add(x + z * width + (y + 1) * width * length);*/
                                 }
                             }
                             //Connect floor layer
@@ -341,6 +282,28 @@ public class CellularAutomata : MonoBehaviour
                                 indices.Add(x + 1 + z * width);
                                 indices.Add(x + (z + 1) * width);
                             }
+                            //End off left side wall
+                            if (x == 0 && z != length - 1)
+                            {
+                                indices.Add(x + z * width + y * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
+                                indices.Add(x + (z + 1) * width + y * width * length);
+
+                                indices.Add(x + (z + 1) * width + y * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
+                                indices.Add(x + (z + 1) * width + (y + 1) * width * length);
+                            }
+                            //End off front wall
+                            if (z == 0 && x != width - 1)
+                            {
+                                indices.Add(x + z * width + y * width * length);
+                                indices.Add(x + 1 + z * width + y * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
+
+                                indices.Add(x + 1 + z * width + y * width * length);
+                                indices.Add(x + 1 + z * width + (y + 1) * width * length);
+                                indices.Add(x + z * width + (y + 1) * width * length);
+                            }
                         }
                         //Connect ceilling layer
                         else
@@ -353,11 +316,10 @@ public class CellularAutomata : MonoBehaviour
                             indices.Add(x + (z + 1) * width + y * width * length);
                             indices.Add(x + 1 + z * width + y * width * length);
                         }
-
                     }
                     else if (y < height - 1)
                     {
-                        //End off x wall
+                        //End off right side wall
                         if (x == width - 1 && z != length - 1)
                         {
                             indices.Add(x + z * width + y * width * length);
@@ -368,26 +330,101 @@ public class CellularAutomata : MonoBehaviour
                             indices.Add(x + (z + 1) * width + (y + 1) * width * length);
                             indices.Add(x + z * width + (y + 1) * width * length);
                         }
-                        //End off z wall
+                        //End off back wall
                         else if (z == length - 1 && x != width - 1)
                         {
                             indices.Add(x + z * width + y * width * length);
-                            indices.Add(x + 1 + z * width + y * width * length);
                             indices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + 1 + z * width + y * width * length);
 
                             indices.Add(x + 1 + z * width + y * width * length);
-                            indices.Add(x + 1 + z * width + (y + 1) * width * length);
                             indices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + 1 + z * width + (y + 1) * width * length);
                         }
                     }
                 }
             }
         }
+        /*bool hasDoneLast = false;
+        for (int y = 0; y < height - 1; y++)
+        {
+            for (int x = 1; x < width; x += 3)// x left --> right
+            {
+                if (x >= width - 1 && !hasDoneLast)
+                {
+                    x = width - 1;
+                    hasDoneLast = true;
+                }
+                for (int z = 0; z < length - 1; z++)//z down --> up
+                {
+                    //check left
+                    if (dungeon[y].Cells[x - 1, z].isAlive &&
+                        dungeon[y + 1].Cells[x, z + 1].isAlive &&
+                        dungeon[y + 1].Cells[x - 1, z].isAlive &&
+                        dungeon[y].Cells[x, z + 1].isAlive)
+                    {
+                        indices.Add(x - 1 + z * width + y * width * length);
+                        indices.Add(x + (z + 1) * width + y * width * length);
+                        indices.Add(x - 1 + z * width + (y + 1) * width * length);
 
+                        indices.Add(x + (z + 1) * width + y * width * length);
+                        indices.Add(x + (z + 1) * width + (y + 1) * width * length);
+                        indices.Add(x - 1 + z * width + (y + 1) * width * length);
+                    }
+
+                    //check current
+                    //connect to left
+                    if (dungeon[y].Cells[x, z].isAlive &&
+                        dungeon[y].Cells[x - 1, z + 1].isAlive &&
+                        dungeon[y + 1].Cells[x - 1, z + 1].isAlive &&
+                        dungeon[y + 1].Cells[x, z].isAlive)
+                    {
+                        indices.Add(x + z * width + y * width * length);
+                        indices.Add(x - 1 + (z + 1) * width + y * width * length);
+                        indices.Add(x + z * width + (y + 1) * width * length);
+
+                        indices.Add(x - 1 + (z + 1) * width + y * width * length);
+                        indices.Add(x - 1 + (z + 1) * width + (y + 1) * width * length);
+                        indices.Add(x + z * width + (y + 1) * width * length);
+                    }
+
+                    //connect to right
+                    if (!hasDoneLast && dungeon[y].Cells[x, z].isAlive &&
+                        dungeon[y].Cells[x + 1, z + 1].isAlive &&
+                        dungeon[y + 1].Cells[x + 1, z + 1].isAlive &&
+                        dungeon[y + 1].Cells[x, z].isAlive)
+                    {
+                        indices.Add(x + z * width + y * width * length);
+                        indices.Add(x + z * width + (y + 1) * width * length);
+                        indices.Add(x + 1 + (z + 1) * width + y * width * length);
+
+                        indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                        indices.Add(x + z * width + (y + 1) * width * length);
+                        indices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);
+                    }
+
+                    //check right
+                    if (dungeon[y].Cells[x + 1, z].isAlive &&
+                        dungeon[y + 1].Cells[x, z + 1].isAlive &&
+                        dungeon[y + 1].Cells[x + 1, z].isAlive &&
+                        dungeon[y].Cells[x, z + 1].isAlive)
+                    {
+                        indices.Add(x + 1 + z * width + y * width * length);
+                        indices.Add(x + 1 + z * width + (y + 1) * width * length);
+                        indices.Add(x + (z + 1) * width + y * width * length);
+
+                        indices.Add(x + (z + 1) * width + y * width * length);
+                        indices.Add(x + 1 + z * width + (y + 1) * width * length);
+                        indices.Add(x + (z + 1) * width + (y + 1) * width * length);
+                    }
+                }
+            }
+        }*/
         RandomNoise();
         HeightNoise();
 
         //CalculateTriFlatNormal(indices, normals);
+        CreateCollisionMesh();
         Mesh mesh = new Mesh();
         mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
         mesh.vertices = vertices;
@@ -443,6 +480,91 @@ public class CellularAutomata : MonoBehaviour
             vertices[i].y += (0.5f - Mathf.PerlinNoise((vertices[i].x / spacing) * a, (vertices[i].z / spacing) * a)) * 5.0f * spacing;
             vertices[i].y += (0.5f - Mathf.PerlinNoise((vertices[i].x / spacing) * b, (vertices[i].z / spacing) * b)) * 7.5f * spacing;
         }
+    }
+
+    private void CreateCollisionMesh()
+    {
+        if (collisionMeshFilter == null)
+            return;
+        List<int> indices = new List<int>();
+        for (int y = 0; y < height - 1; y++)
+        {
+            for (int z = 0; z < length - 1; z++)//z up --> down
+            {
+                for (int x = 0; x < width - 1; x++)// x left --> right
+                {
+                    if (dungeon[y].Cells[x, z].isAlive && dungeon[y + 1].Cells[x, z].isAlive)
+                    {
+                        //Connect directly right
+                        if (dungeon[y].Cells[x + 1, z].isAlive && dungeon[y + 1].Cells[x + 1, z].isAlive && z != 0)
+                        {
+                            //first face
+                            indices.Add(x + z * width + y * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + 1 + z * width + y * width * length);
+
+                            indices.Add(x + 1 + z * width + y * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + 1 + z * width + (y + 1) * width * length);
+
+                            //second face
+                            indices.Add(x + z * width + y * width * length);
+                            indices.Add(x + 1 + z * width + y * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+
+                            indices.Add(x + 1 + z * width + y * width * length);
+                            indices.Add(x + 1 + z * width + (y + 1) * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+                        }
+                        //Connect diagonally to right and down
+                        if (dungeon[y].Cells[x + 1, z + 1].isAlive && dungeon[y + 1].Cells[x + 1, z + 1].isAlive)
+                        {
+                            indices.Add(x + z * width + y * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + 1 + (z + 1) * width + y * width * length);
+
+                            indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);
+
+                            indices.Add(x + z * width + y * width * length);
+                            indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+
+                            indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                            indices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+                        }
+                        //Connect diagonally to right and up
+                        if (z != 0 && dungeon[y].Cells[x + 1, z - 1].isAlive && dungeon[y + 1].Cells[x + 1, z - 1].isAlive)
+                        {
+                            indices.Add(x + z * width + y * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + 1 + (z - 1) * width + y * width * length);
+
+                            indices.Add(x + 1 + (z - 1) * width + y * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+                            indices.Add(x + 1 + (z - 1) * width + (y + 1) * width * length);
+
+                            indices.Add(x + z * width + y * width * length);
+                            indices.Add(x + 1 + (z - 1) * width + y * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+
+                            indices.Add(x + 1 + (z - 1) * width + y * width * length);
+                            indices.Add(x + 1 + (z - 1) * width + (y + 1) * width * length);
+                            indices.Add(x + z * width + (y + 1) * width * length);
+                        }
+                    }
+                }
+            }
+        }
+        Mesh mesh = new Mesh();
+        mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+        mesh.vertices = vertices;
+        mesh.SetTriangles(indices, 0);
+        mesh.RecalculateNormals();
+        collisionMeshFilter.mesh = mesh;
+        collisionMeshFilter.gameObject.GetComponent<MeshCollider>().sharedMesh = collisionMeshFilter.mesh;
     }
 }
 
