@@ -7,9 +7,17 @@ public class Attacks : MonoBehaviour {
     List<Transform> _playerList;
     public Transform target;
     public float force;
+    public ParticleSystem ee;
 
-	// Use this for initialization
-	void Start () {
+    private float nextExplosion;
+    private bool isExploding = false;
+    private int explosionCount;
+
+    // Use this for initialization
+    void Start () {
+
+        nextExplosion = 0f;
+        explosionCount = 0;
 
         /*GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -21,16 +29,32 @@ public class Attacks : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             /*foreach(Transform player in _playerList)
             {
                 GetSucked(player);
             }*/
 
-            GetSucked(target);
+            //GetSucked(target);
+            isExploding = !isExploding;
         }
-	}
+
+        if (isExploding && explosionCount < 3)
+        {
+            if (Time.time >= nextExplosion)
+            {
+                ee.Play(true);
+                nextExplosion = Time.time + 2f;
+                explosionCount++;
+            }
+        }
+        else
+        {
+            isExploding = false;
+            explosionCount = 0;
+        }
+    }
 
     void GetSucked(Transform player)
     {
