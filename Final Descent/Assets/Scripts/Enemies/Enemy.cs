@@ -6,13 +6,23 @@ public class Enemy : MonoBehaviour
 {
     protected Vector3 Velocity;
     protected float MaxVelocity;
-    protected List<Attack> Attacks;
-    public Animation Idle;
-    public Animation Death;
+    public List<Attack> Attacks;
+    public AnimationClip IdleClip;
+    public AnimationClip DeathClip;
+    [HideInInspector]
+    public Animation Idle, Death;
 
     protected virtual void Start()
     {
-
+        //Idle = new Animation();
+        //Idle.clip = IdleClip;
+        //Death = new Animation();
+        //Death.clip = DeathClip;
+        foreach (Attack a in Attacks)
+        {
+            a.Animation = new Animation();
+            a.Animation.clip = a.Clip;
+        }
     }
 
     protected virtual void Update()
@@ -23,17 +33,34 @@ public class Enemy : MonoBehaviour
         transform.position += Velocity.normalized * Time.deltaTime;
         transform.forward = Velocity.normalized;
     }
+
+    protected GameObject GetClosestPlayer()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        int closest = 0;
+        for (int i = 1; i < players.Length; i++)
+        {
+            if (Vector3.Distance(this.transform.position, players[i].transform.position) <
+            Vector3.Distance(this.transform.position, players[closest].transform.position))
+            {
+                closest = i;
+            }
+        }
+        return players[closest];
+    }
 }
 
 [System.Serializable]
-public struct Attack
+public class Attack
 {
     public int Damage;
     public float Knockback;
     public Status StatusEffect;
-    public Animation Anim;
+    public AnimationClip Clip;
+    [HideInInspector]
+    public Animation Animation;
 }
 
-public enum Status { POISON, STUN }
+public enum Status { NONE, POISON, STUN }
 
 

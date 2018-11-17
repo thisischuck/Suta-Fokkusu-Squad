@@ -9,12 +9,19 @@ public class Eye : Enemy
         base.Start();
         Velocity = Vector3.forward;
         MaxVelocity = 10.0f;
-        Attacks = new List<Attack>();
     }
 
     protected override void Update()
     {
+        GameObject player = GetClosestPlayer();
+        if (Vector3.Distance(transform.position, player.transform.position) < 10.0f)
+            MeleeAttack();
         Velocity = EnemyBehaviours.Wander(transform, Velocity);
         base.Update();
+    }
+
+    private void MeleeAttack()
+    {
+        Attacks[0].Animation.Play();
     }
 }

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthEnemy : BaseStats {
+public class HealthEnemy : BaseStats
+{
 
     private void Start()
     {
@@ -11,8 +12,10 @@ public class HealthEnemy : BaseStats {
     }
 
     // Update is called once per frame
-    void Update () {
-        GetComponent<HBController>().SetCurrentHealth(health);
+    void Update()
+    {
+        if (GetComponent<HBController>() != null)
+            GetComponent<HBController>().SetCurrentHealth(health);
     }
 
     private void OnTriggerEnter(Collider col)
