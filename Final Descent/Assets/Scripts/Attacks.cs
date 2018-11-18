@@ -14,9 +14,14 @@ public class Attacks : MonoBehaviour {
     private bool isExploding = false;
     private int explosionCount;
 
+    public List<Transform> RHoles = new List<Transform>();
+    public List<Transform> LHoles = new List<Transform>();
+    public Transform selectedHole;
+    public bool left;
+    public bool goingIn;
+
     List<Transform> holes = new List<Transform>();
     private bool isHighSpeed = false;
-    private bool isOnHole = false;
     int nextHole;
     Vector3 direction;
 
@@ -28,13 +33,13 @@ public class Attacks : MonoBehaviour {
         eelSpeed = 15f;
 
         //Look for the holes and Add'em to the lsit
-        GameObject holeSystem = GameObject.Find("Holes");
+        /*GameObject holeSystem = GameObject.Find("Holes");
 
         foreach (Transform child in holeSystem.transform)
         {
             holes.Add(child);
         }
-        nextHole = Random.Range(0, holes.Count - 1);
+        nextHole = Random.Range(0, holes.Count - 1);*/
 
         /*GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -42,6 +47,21 @@ public class Attacks : MonoBehaviour {
         {
             _playerList.Add(player.gameObject.transform);
         }*/
+
+        AddHoles();
+        if(Random.Range(0,2) == 1)
+        {
+            nextHole = Random.Range(0, LHoles.Count - 1);
+            selectedHole = LHoles[nextHole];
+            left = true;
+        }
+        else
+        {
+            nextHole = Random.Range(0, RHoles.Count - 1);
+            selectedHole = RHoles[nextHole];
+            left = false;
+        }
+        goingIn = false;
     }
 	
 	// Update is called once per frame
@@ -75,7 +95,7 @@ public class Attacks : MonoBehaviour {
 
         if (isHighSpeed)
         {
-            HighSpeed(nextHole);
+            HighSpeed(selectedHole);
         }
     }
 
@@ -89,19 +109,55 @@ public class Attacks : MonoBehaviour {
         }
     }
 
-    void HighSpeed(int hole)
+    void HighSpeed(Transform hole)
     {
-        if (Vector3.Distance(transform.position, holes[hole].position) < 1f)
+        if (Vector3.Distance(transform.position, hole.position) < 5f)
         {
+            Debug.Log("Point Reached");
             //Look for another hole
-            nextHole = Random.Range(0, holes.Count);
+            if (left && !goingIn)
+            {
+                nextHole = Random.Range(0, LHoles.Count-1);
+                goingIn = true;
+            }
+            if(!left && !goingIn)
+            {
+                nextHole = Random.Range(0, RHoles.Count-1);
+                goingIn = true;
+            }
+            if(left && goingIn)
+            {
+                nextHole = Random.Range(0, RHoles.Count-1);
+                goingIn = false;
+            }
+            if (!left && goingIn)
+            {
+                nextHole = Random.Range(0, LHoles.Count-1);
+                goingIn = false;
+            }
         }
 
-        direction = transform.position - holes[hole].position;
+        transform.position += transform.forward *( Time.deltaTime * eelSpeed);
+        //transform.position = Vector3.MoveTowards(transform.position, holes[hole].position, Time.deltaTime * eelSpeed);
+
+        direction = transform.position - hole.position;
         Quaternion targetRot = Quaternion.LookRotation(-direction, Vector3.up);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 8f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 0.04f);
         //transform.forward = -direction;
-        transform.position = Vector3.MoveTowards(transform.position, holes[hole].position, Time.deltaTime * eelSpeed);
-        
+    }
+
+    void AddHoles()
+    {
+        GameObject rholes = GameObject.Find("Holes").transform.Find("RightHoles").gameObject;
+        GameObject lholes = GameObject.Find("Holes").transform.Find("LeftHoles").gameObject;
+
+        foreach (Transform child in rholes.transform)
+        {
+            RHoles.Add(child);
+        }
+        foreach (Transform child in lholes.transform)
+        {
+            LHoles.Add(child);
+        }
     }
 }
