@@ -1,0 +1,190 @@
+fileFormatVersion: 2
+guid: 56cd1ff93aed8794f8cc5bf1407d684f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: antena1
+    100002: antena2
+    100004: body
+    100006: bottom_left_wing
+    100008: bottom_right_wing
+    100010: //RootNode
+    100012: head
+    100014: joint10
+    100016: joint11
+    100018: joint12
+    100020: joint13
+    100022: joint14
+    100024: joint15
+    100026: joint16
+    100028: joint17
+    100030: joint18
+    100032: joint19
+    100034: joint2
+    100036: joint20
+    100038: joint21
+    100040: joint23
+    100042: joint25
+    100044: joint3
+    100046: joint5
+    100048: joint6
+    100050: joint8
+    100052: joint9
+    100054: l_Tail
+    100056: lower_left_Arm
+    100058: lower_right_Arm
+    100060: m_Tail_1
+    100062: m_Tail_2
+    100064: middle_right_Arm
+    100066: midle_left_Arm
+    100068: neck
+    100070: pasted__joint2
+    100072: pasted__joint23
+    100074: pasted__joint25
+    100076: pasted__joint3
+    100078: pasted__joint5
+    100080: pasted__joint6
+    100082: pasted__joint8
+    100084: pasted__joint9
+    100086: root
+    100088: sting
+    100090: top_left_wing
+    100092: top_right_wing
+    100094: u_Tail
+    100096: upper_left_Arm
+    100098: upper_right_Arm
+    400000: antena1
+    400002: antena2
+    400004: body
+    400006: bottom_left_wing
+    400008: bottom_right_wing
+    400010: //RootNode
+    400012: head
+    400014: joint10
+    400016: joint11
+    400018: joint12
+    400020: joint13
+    400022: joint14
+    400024: joint15
+    400026: joint16
+    400028: joint17
+    400030: joint18
+    400032: joint19
+    400034: joint2
+    400036: joint20
+    400038: joint21
+    400040: joint23
+    400042: joint25
+    400044: joint3
+    400046: joint5
+    400048: joint6
+    400050: joint8
+    400052: joint9
+    400054: l_Tail
+    400056: lower_left_Arm
+    400058: lower_right_Arm
+    400060: m_Tail_1
+    400062: m_Tail_2
+    400064: middle_right_Arm
+    400066: midle_left_Arm
+    400068: neck
+    400070: pasted__joint2
+    400072: pasted__joint23
+    400074: pasted__joint25
+    400076: pasted__joint3
+    400078: pasted__joint5
+    400080: pasted__joint6
+    400082: pasted__joint8
+    400084: pasted__joint9
+    400086: root
+    400088: sting
+    400090: top_left_wing
+    400092: top_right_wing
+    400094: u_Tail
+    400096: upper_left_Arm
+    400098: upper_right_Arm
+    7400000: Death
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

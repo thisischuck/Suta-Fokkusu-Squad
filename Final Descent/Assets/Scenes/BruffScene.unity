@@ -198,10 +198,10 @@ FixedJoint:
   m_ConnectedBody: {fileID: 1396595787}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 90
+  m_ConnectedMassScale: 50
 --- !u!54 &361647688
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -236,10 +236,10 @@ FixedJoint:
   m_ConnectedBody: {fileID: 594215004}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 90
+  m_ConnectedMassScale: 50
 --- !u!54 &366939702
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100014, guid: 32c3fefce090d8147b7c24bdc89d54ff, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32c3fefce090d8147b7c24bdc89d54ff, type: 3}
@@ -320,10 +320,10 @@ FixedJoint:
   m_ConnectedBody: {fileID: 1998146305}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 90
+  m_ConnectedMassScale: 50
 --- !u!54 &594215004
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -436,6 +436,72 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 0
+--- !u!1001 &842217556
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400012, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.7310348
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.5893
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.3975
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400012, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_Name
+      value: Butterfly
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a7137252bab4d6546a57379374e7abd4, type: 2}
+    - target: {fileID: 13700008, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 58c539dd4eeef874aa5b74b0a40d3bf8, type: 2}
+    - target: {fileID: 13700004, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 58c539dd4eeef874aa5b74b0a40d3bf8, type: 2}
+    - target: {fileID: 13700006, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 58c539dd4eeef874aa5b74b0a40d3bf8, type: 2}
+    - target: {fileID: 13700002, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 58c539dd4eeef874aa5b74b0a40d3bf8, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 95aa0cb74498d8f4fafc896dd322052c, type: 3}
+  m_IsPrefabAsset: 0
 --- !u!1001 &977565446
 Prefab:
   m_ObjectHideFlags: 0
@@ -477,7 +543,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1192511414183776, guid: 9b3ba7c6557b7de46b4062572583af5d, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23689645719228378, guid: 9b3ba7c6557b7de46b4062572583af5d,
         type: 2}
@@ -524,56 +590,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4895431745947168, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114624720543155828, guid: b5fef787579546b4491abd29cab3e4cb,
+        type: 2}
+      propertyPath: IdleClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1001 &1187859098
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400012, guid: 9f1bb3d2f37e71a448645e0e694f5a6d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.2965407
-      objectReference: {fileID: 0}
-    - target: {fileID: 400012, guid: 9f1bb3d2f37e71a448645e0e694f5a6d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 27.2264
-      objectReference: {fileID: 0}
-    - target: {fileID: 400012, guid: 9f1bb3d2f37e71a448645e0e694f5a6d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.756659
-      objectReference: {fileID: 0}
-    - target: {fileID: 400012, guid: 9f1bb3d2f37e71a448645e0e694f5a6d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400012, guid: 9f1bb3d2f37e71a448645e0e694f5a6d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400012, guid: 9f1bb3d2f37e71a448645e0e694f5a6d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400012, guid: 9f1bb3d2f37e71a448645e0e694f5a6d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400012, guid: 9f1bb3d2f37e71a448645e0e694f5a6d, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 9f1bb3d2f37e71a448645e0e694f5a6d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 9f1bb3d2f37e71a448645e0e694f5a6d, type: 3}
   m_IsPrefabAsset: 0
 --- !u!4 &1313455502 stripped
 Transform:
@@ -599,10 +624,10 @@ FixedJoint:
   m_ConnectedBody: {fileID: 366939702}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 90
+  m_ConnectedMassScale: 50
 --- !u!54 &1396595787
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -651,10 +676,10 @@ FixedJoint:
   m_ConnectedBody: {fileID: 361647688}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 90
+  m_ConnectedMassScale: 50
 --- !u!54 &1521204900
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -689,10 +714,10 @@ FixedJoint:
   m_ConnectedBody: {fileID: 1716407084}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 90
+  m_ConnectedMassScale: 50
 --- !u!54 &1648148022
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -752,10 +777,10 @@ FixedJoint:
   m_ConnectedBody: {fileID: 1648148022}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 0
+  m_EnableCollision: 1
   m_EnablePreprocessing: 1
-  m_MassScale: 1
-  m_ConnectedMassScale: 1
+  m_MassScale: 90
+  m_ConnectedMassScale: 50
 --- !u!54 &1998146305
 Rigidbody:
   m_ObjectHideFlags: 0

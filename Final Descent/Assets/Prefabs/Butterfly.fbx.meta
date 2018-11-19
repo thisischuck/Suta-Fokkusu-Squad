@@ -1,0 +1,212 @@
+fileFormatVersion: 2
+guid: 95aa0cb74498d8f4fafc896dd322052c
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: antena1
+    100002: antena2
+    100004: Body
+    100006: body
+    100008: bottom_left_wing
+    100010: bottom_right_wing
+    100012: //RootNode
+    100014: Butterfly
+    100016: DownLeftWing
+    100018: DownRightWIng
+    100020: head
+    100022: joint10
+    100024: joint11
+    100026: joint12
+    100028: joint13
+    100030: joint14
+    100032: joint15
+    100034: joint16
+    100036: joint17
+    100038: joint18
+    100040: joint19
+    100042: joint2
+    100044: joint20
+    100046: joint21
+    100048: joint23
+    100050: joint25
+    100052: joint3
+    100054: joint5
+    100056: joint6
+    100058: joint8
+    100060: joint9
+    100062: l_Tail
+    100064: lower_left_Arm
+    100066: lower_right_Arm
+    100068: m_Tail_1
+    100070: m_Tail_2
+    100072: middle_right_Arm
+    100074: midle_left_Arm
+    100076: neck
+    100078: pasted__joint2
+    100080: pasted__joint23
+    100082: pasted__joint25
+    100084: pasted__joint3
+    100086: pasted__joint5
+    100088: pasted__joint6
+    100090: pasted__joint8
+    100092: pasted__joint9
+    100094: root
+    100096: sting
+    100098: top_left_wing
+    100100: top_right_wing
+    100102: u_Tail
+    100104: upper_left_Arm
+    100106: upper_right_Arm
+    100108: UpperLeftWing
+    100110: UpperRightWing
+    400000: antena1
+    400002: antena2
+    400004: Body
+    400006: body
+    400008: bottom_left_wing
+    400010: bottom_right_wing
+    400012: //RootNode
+    400014: Butterfly
+    400016: DownLeftWing
+    400018: DownRightWIng
+    400020: head
+    400022: joint10
+    400024: joint11
+    400026: joint12
+    400028: joint13
+    400030: joint14
+    400032: joint15
+    400034: joint16
+    400036: joint17
+    400038: joint18
+    400040: joint19
+    400042: joint2
+    400044: joint20
+    400046: joint21
+    400048: joint23
+    400050: joint25
+    400052: joint3
+    400054: joint5
+    400056: joint6
+    400058: joint8
+    400060: joint9
+    400062: l_Tail
+    400064: lower_left_Arm
+    400066: lower_right_Arm
+    400068: m_Tail_1
+    400070: m_Tail_2
+    400072: middle_right_Arm
+    400074: midle_left_Arm
+    400076: neck
+    400078: pasted__joint2
+    400080: pasted__joint23
+    400082: pasted__joint25
+    400084: pasted__joint3
+    400086: pasted__joint5
+    400088: pasted__joint6
+    400090: pasted__joint8
+    400092: pasted__joint9
+    400094: root
+    400096: sting
+    400098: top_left_wing
+    400100: top_right_wing
+    400102: u_Tail
+    400104: upper_left_Arm
+    400106: upper_right_Arm
+    400108: UpperLeftWing
+    400110: UpperRightWing
+    2100000: lambert1
+    4300000: Body
+    4300002: DownLeftWing
+    4300004: UpperLeftWing
+    4300006: UpperRightWing
+    4300008: DownRightWIng
+    9500000: //RootNode
+    13700000: Body
+    13700002: DownLeftWing
+    13700004: DownRightWIng
+    13700006: UpperLeftWing
+    13700008: UpperRightWing
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

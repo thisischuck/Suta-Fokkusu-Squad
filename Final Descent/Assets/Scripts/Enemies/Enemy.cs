@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour
         //Death.clip = DeathClip;
         foreach (Attack a in Attacks)
         {
-            a.Animation = new Animation();
-            a.Animation.clip = a.Clip;
+            //a.Animation = new Animation();
+            a.Animation.AddClip(a.Clip, "");
         }
     }
 
@@ -57,7 +57,6 @@ public class Attack
     public float Knockback;
     public Status StatusEffect;
     public AnimationClip Clip;
-    [HideInInspector]
     public Animation Animation;
 }
 
