@@ -7,10 +7,15 @@ public class Enemy : MonoBehaviour
     protected Vector3 Velocity;
     protected float MaxVelocity;
     public List<Attack> Attacks;
-    public AnimationClip IdleClip;
-    public AnimationClip DeathClip;
+    public AnimationClip IdleClip; // Not sure if this is needed. You can just make it as an attack with 0 dmg and 0 knockback
+    public AnimationClip DeathClip;// Same
     [HideInInspector]
     public Animation Idle, Death;
+
+    [HideInInspector]
+    public Animation animController;
+
+    public bool isPlaying;
 
     protected virtual void Start()
     {
@@ -18,11 +23,9 @@ public class Enemy : MonoBehaviour
         //Idle.clip = IdleClip;
         //Death = new Animation();
         //Death.clip = DeathClip;
-        foreach (Attack a in Attacks)
-        {
-            //a.Animation = new Animation();
-            a.Animation.AddClip(a.Clip, "");
-        }
+
+        animController = GetComponentInChildren<Animation>();
+        isPlaying = false;
     }
 
     protected virtual void Update()
@@ -32,6 +35,15 @@ public class Enemy : MonoBehaviour
 
         transform.position += Velocity.normalized * Time.deltaTime;
         transform.forward = Velocity.normalized;
+
+        if (!animController.isPlaying)
+            isPlaying = false;
+    }
+
+    public void PlayAnimation(string name)
+    {
+        if (!isPlaying)
+            animController.Play(name);
     }
 
     protected GameObject GetClosestPlayer()
@@ -53,11 +65,17 @@ public class Enemy : MonoBehaviour
 [System.Serializable]
 public class Attack
 {
+    public string Name;
     public int Damage;
     public float Knockback;
     public Status StatusEffect;
+
+    //This two are not needed. You need to add a Animation Component Somewhere and add all the clips through that.
+    //When you want to play it you just need to give it a name so we need to keep the names the same.
+    /* 
     public AnimationClip Clip;
     public Animation Animation;
+    */
 }
 
 public enum Status { NONE, POISON, STUN }
