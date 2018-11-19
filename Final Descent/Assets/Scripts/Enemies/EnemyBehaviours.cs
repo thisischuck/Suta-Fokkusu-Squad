@@ -74,8 +74,12 @@ public static class EnemyBehaviours
     public static Vector3 Wander(Transform t, Vector3 velocity)
     {
         Vector3 circleCenter = t.position + velocity * wanderDistance;
-        float angle = Random.Range(0.0f, 2.0f * Mathf.PI);
-        Vector3 target = circleCenter + new Vector3(Mathf.Sin(angle), 0.0f, Mathf.Cos(angle));
+        float phi = Random.Range(0.0f, 2.0f * Mathf.PI);
+        float theta = Random.Range(0.0f, 2.0f * Mathf.PI);
+        float x = wanderRadius * Mathf.Sin(theta) * Mathf.Cos(phi);
+        float y = wanderRadius * Mathf.Sin(theta) * Mathf.Sin(phi);
+        float z = wanderRadius * Mathf.Cos(theta);
+        Vector3 target = circleCenter + new Vector3(x, y, z);
         return Seek(t, velocity, target);
     }
 }
