@@ -4,26 +4,41 @@ using UnityEngine;
 
 public class Attacks : MonoBehaviour {
 
-    List<Transform> _playerList;
-    public Transform target;
-    public float force;
+    private List<Transform> _playerList;
     public float eelSpeed;
-    public ParticleSystem ee;
 
+    //Tornado
+    private bool isTornado = false;
+    private Vector3 centerPosition;
+    public float radius;
+    public float force;
+
+    //EletricExplosion
     private float nextExplosion;
     private bool isExploding = false;
     private int explosionCount;
+    public ParticleSystem ee;
 
-    public List<Transform> RHoles = new List<Transform>();
-    public List<Transform> LHoles = new List<Transform>();
+    //highspeed
+    private List<Transform> RHoles = new List<Transform>();
+    private List<Transform> LHoles = new List<Transform>();
     public Transform selectedHole;
-    public bool left;
-    public bool goingIn;
-
-    List<Transform> holes = new List<Transform>();
+    private bool left;
+    private bool goingIn = false;
     private bool isHighSpeed = false;
     int nextHole;
     Vector3 direction;
+
+    //calling
+    public GameObject enemyBabies;
+    private int enemiesPerHole = 3;
+
+    //Bite
+    public Transform BottomMouth;
+    private bool isBiting = false;
+    Quaternion openMouth;
+    Quaternion closeMouth;
+    public bool mouthClosed;
 
     // Use this for initialization
     void Start () {
@@ -31,51 +46,55 @@ public class Attacks : MonoBehaviour {
         nextExplosion = 0f;
         explosionCount = 0;
         eelSpeed = 15f;
+        radius = 20f;
 
-        //Look for the holes and Add'em to the lsit
-        /*GameObject holeSystem = GameObject.Find("Holes");
+        _playerList = new List<Transform>();
 
-        foreach (Transform child in holeSystem.transform)
-        {
-            holes.Add(child);
-        }
-        nextHole = Random.Range(0, holes.Count - 1);*/
-
-        /*GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players)
         {
             _playerList.Add(player.gameObject.transform);
-        }*/
+        }
 
         AddHoles();
-        if(Random.Range(0,2) == 1)
+        int rand = Random.Range(0, 2);
+
+        if ( rand == 1)
         {
             nextHole = Random.Range(0, LHoles.Count - 1);
             selectedHole = LHoles[nextHole];
             left = true;
         }
-        else
+        else if(rand == 0)
         {
             nextHole = Random.Range(0, RHoles.Count - 1);
             selectedHole = RHoles[nextHole];
             left = false;
         }
-        goingIn = false;
+
+        openMouth = Quaternion.Euler(BottomMouth.rotation.y + 20.0f, BottomMouth.rotation.y, BottomMouth.rotation.z);
+        closeMouth = BottomMouth.rotation;
+        mouthClosed = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            /*foreach(Transform player in _playerList)
+            /*isTornado = !isTornado;
+            if (isTornado)
             {
-                GetSucked(player);
-            }*/
-
-            //GetSucked(target);
-            //isExploding = !isExploding;
-            isHighSpeed = !isHighSpeed;
+                centerPosition = transform.position + Vector3.forward * 10f;
+            }
+            else transform.position = Vector3.MoveTowards(transform.position, centerPosition, eelSpeed * Time.deltaTime);*/
+            isExploding = !isExploding;
+            //isHighSpeed = !isHighSpeed;
+            //Calling();
+            /*isBiting = !isBiting;
+            if (openMouth == BottomMouth.rotation)
+                mouthClosed = false;
+            else if (closeMouth == BottomMouth.rotation)
+                mouthClosed = true;*/
         }
 
         if (isExploding && explosionCount < 3)
@@ -93,63 +112,132 @@ public class Attacks : MonoBehaviour {
             explosionCount = 0;
         }
 
+        if (isTornado)
+        {
+            CircularMotion();
+            GetSucked();
+        }
+
         if (isHighSpeed)
         {
-            HighSpeed(selectedHole);
+            HighSpeed();
         }
-    }
 
-    void GetSucked(Transform player)
-    {
-        Vector3 direction = Vector3.zero;
-        if(Vector3.Distance(transform.position, player.position) < 20f)
+        if (isBiting)
         {
-            direction = player.position - transform.position;
-            player.position = Vector3.MoveTowards(player.position, transform.position, force);
+            Bite();
         }
     }
 
-    void HighSpeed(Transform hole)
+    void CircularMotion() //Still needs adjusting
     {
-        if (Vector3.Distance(transform.position, hole.position) < 5f)
+        float rotSpeed = 80f;
+
+        transform.RotateAround(centerPosition, Vector3.up, Time.deltaTime * rotSpeed);
+        Vector3 desiredPosition = (transform.position - centerPosition).normalized * radius + centerPosition;
+        transform.position = Vector3.MoveTowards(transform.position, desiredPosition, 5f * Time.deltaTime);
+    }
+
+    void GetSucked()
+    {
+        foreach(Transform player in _playerList)
+        {
+            Vector3 direction = Vector3.zero;
+            if (Vector3.Distance(centerPosition, player.position) < 50f)
+            {
+                direction = player.position - transform.position;
+                player.position = Vector3.MoveTowards(player.position, centerPosition, force);
+            }
+        }
+    }
+
+    void HighSpeed()
+    {
+        Transform previousHole = selectedHole; 
+        if (Vector3.Distance(transform.position, selectedHole.position) < 5f)
         {
             Debug.Log("Point Reached");
             //Look for another hole
             if (left && !goingIn)
             {
-                nextHole = Random.Range(0, LHoles.Count-1);
+                left = true;
                 goingIn = true;
+                while(selectedHole == previousHole)
+                {
+                    nextHole = Random.Range(0, LHoles.Count - 1);
+                    selectedHole = LHoles[nextHole];
+                }
             }
-            if(!left && !goingIn)
+            else if(!left && !goingIn)
             {
-                nextHole = Random.Range(0, RHoles.Count-1);
+                left = false;
                 goingIn = true;
+                while (selectedHole == previousHole)
+                {
+                    nextHole = Random.Range(0, RHoles.Count - 1);
+                    selectedHole = RHoles[nextHole];
+                }
             }
-            if(left && goingIn)
+            else if(left && goingIn)
             {
-                nextHole = Random.Range(0, RHoles.Count-1);
                 goingIn = false;
+                left = false;
+                while (selectedHole == previousHole)
+                {
+                    nextHole = Random.Range(0, RHoles.Count - 1);
+                    selectedHole = RHoles[nextHole];
+                }
             }
-            if (!left && goingIn)
+            else if (!left && goingIn)
             {
-                nextHole = Random.Range(0, LHoles.Count-1);
                 goingIn = false;
+                left = true;
+                while (selectedHole == previousHole)
+                {
+                    nextHole = Random.Range(0, LHoles.Count - 1);
+                    selectedHole = LHoles[nextHole];
+                }
             }
         }
 
         transform.position += transform.forward *( Time.deltaTime * eelSpeed);
         //transform.position = Vector3.MoveTowards(transform.position, holes[hole].position, Time.deltaTime * eelSpeed);
 
-        direction = transform.position - hole.position;
+        direction = transform.position - selectedHole.position;
         Quaternion targetRot = Quaternion.LookRotation(-direction, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 0.04f);
         //transform.forward = -direction;
     }
 
+    void Calling() // change position to spawnEnemyPosition
+    {
+        foreach(Transform hole in RHoles)
+        {
+            for(int i=0;i<=enemiesPerHole;i++)
+                Instantiate(enemyBabies,hole.position,Quaternion.identity);
+        }
+
+        foreach (Transform hole in LHoles)
+        {
+            for (int i = 0; i <= enemiesPerHole; i++)
+                Instantiate(enemyBabies, hole.position, Quaternion.identity);
+        }
+    }
+
+    void Bite()
+    {
+        if (mouthClosed)
+        {
+            BottomMouth.localRotation = Quaternion.RotateTowards(BottomMouth.rotation, openMouth , Time.deltaTime * 6f);
+        }
+        else
+            BottomMouth.localRotation = Quaternion.RotateTowards(BottomMouth.rotation, closeMouth, Time.deltaTime * 6f);
+    }
+
     void AddHoles()
     {
-        GameObject rholes = GameObject.Find("Holes").transform.Find("RightHoles").gameObject;
-        GameObject lholes = GameObject.Find("Holes").transform.Find("LeftHoles").gameObject;
+        GameObject rholes = GameObject.Find("2Room").transform.Find("Room").transform.Find("RightHoles").gameObject;
+        GameObject lholes = GameObject.Find("2Room").transform.Find("Room").transform.Find("LeftHoles").gameObject;
 
         foreach (Transform child in rholes.transform)
         {

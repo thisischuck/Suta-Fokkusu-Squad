@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4214700269737048}
   - component: {fileID: 33965679059776176}
   - component: {fileID: 23299024491773862}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube17 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4333602416833564}
   - component: {fileID: 33032535160219572}
   - component: {fileID: 23279631564458984}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube15 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4395759199435098}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: L_Blades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 4878451101974404}
   - component: {fileID: 33597567016450646}
   - component: {fileID: 23320582742563756}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: R_Flap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4636032109397922}
   - component: {fileID: 33785538676043824}
   - component: {fileID: 23128243478580958}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pSphere3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4151175688437718}
   - component: {fileID: 33587553312546488}
   - component: {fileID: 23936524009205350}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Flap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4862118602756238}
   - component: {fileID: 33384852847265046}
   - component: {fileID: 23984243894365758}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube6 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 4222806309652734}
   - component: {fileID: 33686980849317018}
   - component: {fileID: 23062717786810634}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 4296366636437488}
   - component: {fileID: 33271175394707632}
   - component: {fileID: 23610419931676586}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Weapon3Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 4151019110025296}
   - component: {fileID: 33054789438046818}
   - component: {fileID: 23205046951664530}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 4600422901479362}
   - component: {fileID: 114281872955624976}
   - component: {fileID: 114428891134409812}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: L_Turbine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 114731563779531512}
   - component: {fileID: 114995306017126752}
   - component: {fileID: 114053277508421832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4773750226008372}
   - component: {fileID: 114051445189119860}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: R_Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 4347712214760542}
   - component: {fileID: 33313218564573000}
   - component: {fileID: 23319384324227270}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 4144442509392632}
   - component: {fileID: 33830708790138872}
   - component: {fileID: 23499389782167032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube8 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 4107531465701674}
   - component: {fileID: 33941664825384626}
   - component: {fileID: 23425727503383472}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4443044956842814}
   - component: {fileID: 114887606198376746}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: L_Elevator_Intaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 4092881649666860}
   - component: {fileID: 33867023525797800}
   - component: {fileID: 23013674830811490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: L_Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 4865373641936350}
   - component: {fileID: 33657913302361240}
   - component: {fileID: 23392648739649344}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube13 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 4946078140347874}
   - component: {fileID: 33272324173182630}
   - component: {fileID: 23848318883897178}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 4071059942511910}
   - component: {fileID: 33331787684798388}
   - component: {fileID: 23318886233373768}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pSphere4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: 4229661527983018}
   - component: {fileID: 33377835462800362}
   - component: {fileID: 23154857822425690}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 4556066762547184}
   - component: {fileID: 33144703527126568}
   - component: {fileID: 23295971263074260}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube11 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 4435634288649784}
   - component: {fileID: 33490407012802774}
   - component: {fileID: 23230889478901700}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pSphere2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 4082562782948884}
   - component: {fileID: 33393955894896170}
   - component: {fileID: 23377296401326956}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 65837654021706432}
   - component: {fileID: 114142518972782334}
   - component: {fileID: 65865640823729712}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 4596467910993942}
   - component: {fileID: 33808964599394764}
   - component: {fileID: 23894392320854914}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: R_Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 4232452452395216}
   - component: {fileID: 33436301623957212}
   - component: {fileID: 23524614373893922}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube9 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 4755064862639864}
   - component: {fileID: 33147220982970290}
   - component: {fileID: 23590642546479780}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ GameObject:
   - component: {fileID: 33838732735875616}
   - component: {fileID: 23379940137058416}
   - component: {fileID: 114595785677381014}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: L_Wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -533,7 +533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4519980841455432}
   - component: {fileID: 114648732928170790}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: R_Elevator_Intaker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 114604484463683778}
   - component: {fileID: 65951381222523880}
   - component: {fileID: 65744012336232008}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 4430613161619902}
   - component: {fileID: 33731977644174730}
   - component: {fileID: 23481965917864644}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube3 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 4897742650854776}
   - component: {fileID: 33596033042753712}
   - component: {fileID: 23328290023186664}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 4251851563062706}
   - component: {fileID: 33913646635254338}
   - component: {fileID: 23527595081380456}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: L_Protector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -622,7 +622,7 @@ GameObject:
   - component: {fileID: 33157616634635688}
   - component: {fileID: 23153839057451358}
   - component: {fileID: 114009034947863710}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: R_Wing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 4423624919353522}
   - component: {fileID: 33002753683394230}
   - component: {fileID: 23893057676053148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube19 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 4516687202026572}
   - component: {fileID: 33930986371229520}
   - component: {fileID: 23847121776714986}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 4390642409096478}
   - component: {fileID: 33736777048910792}
   - component: {fileID: 23323230781237238}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 4943578808568914}
   - component: {fileID: 33338003769257270}
   - component: {fileID: 23336715126306534}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube20 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -707,7 +707,7 @@ GameObject:
   - component: {fileID: 4071384251089696}
   - component: {fileID: 33074143497383240}
   - component: {fileID: 23931263267208100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube14 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 4676751531227534}
   - component: {fileID: 33760240351671056}
   - component: {fileID: 23759904324386870}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube16 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,7 +741,7 @@ GameObject:
   - component: {fileID: 4414328382653828}
   - component: {fileID: 33516891018999702}
   - component: {fileID: 23563362795887280}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +758,7 @@ GameObject:
   - component: {fileID: 4858208231368486}
   - component: {fileID: 33337297014431878}
   - component: {fileID: 23891625197049234}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   - component: {fileID: 33285309893926842}
   - component: {fileID: 23037519913637212}
   - component: {fileID: 114903043987924682}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Intakers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +793,7 @@ GameObject:
   - component: {fileID: 4007539041141802}
   - component: {fileID: 33612774184145706}
   - component: {fileID: 23073021674541960}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -810,7 +810,7 @@ GameObject:
   - component: {fileID: 4868645969578936}
   - component: {fileID: 33216359072607538}
   - component: {fileID: 23985320490971798}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 4181634304250988}
   - component: {fileID: 33741516306403598}
   - component: {fileID: 23645472666814938}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube10 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 114977410780670428}
   - component: {fileID: 198492297936256096}
   - component: {fileID: 199049183486429444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Weapon1
   m_TagString: Gun
   m_Icon: {fileID: 0}
@@ -862,7 +862,7 @@ GameObject:
   - component: {fileID: 4573322524970056}
   - component: {fileID: 33427995251249418}
   - component: {fileID: 23236756382683452}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube12 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -879,7 +879,7 @@ GameObject:
   - component: {fileID: 4728017594218358}
   - component: {fileID: 33955116395509592}
   - component: {fileID: 23605589070041742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: R_Protector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 114807752832777344}
   - component: {fileID: 199136466603808456}
   - component: {fileID: 198663243432926032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Weapon2
   m_TagString: Gun
   m_Icon: {fileID: 0}
@@ -912,7 +912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4518733269188894}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LifePod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 4120359306361542}
   - component: {fileID: 33663985833284140}
   - component: {fileID: 23204389129043280}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BaseShip3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,7 +946,7 @@ GameObject:
   - component: {fileID: 4934483141340802}
   - component: {fileID: 33091975280841582}
   - component: {fileID: 23565626204864454}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: R_Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 4186718401399772}
   - component: {fileID: 33787082800048308}
   - component: {fileID: 23723409974189578}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -979,7 +979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4283414109940582}
   - component: {fileID: 114272377024526638}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: L_Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -996,7 +996,7 @@ GameObject:
   - component: {fileID: 4694492946814576}
   - component: {fileID: 33451214381285256}
   - component: {fileID: 23128263089936540}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1011,7 +1011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4632374523961760}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: R_Blades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1028,7 +1028,7 @@ GameObject:
   - component: {fileID: 4090670846943848}
   - component: {fileID: 33587553299215022}
   - component: {fileID: 23488226845063066}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1045,7 +1045,7 @@ GameObject:
   - component: {fileID: 4551857481781624}
   - component: {fileID: 33039032429684608}
   - component: {fileID: 23622219852008504}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: R_Flap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1062,7 +1062,7 @@ GameObject:
   - component: {fileID: 4640836509121842}
   - component: {fileID: 33682918152475292}
   - component: {fileID: 23728352214644076}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pSphere5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,7 +1080,7 @@ GameObject:
   - component: {fileID: 33173790257248526}
   - component: {fileID: 23725617575985048}
   - component: {fileID: 114636916846375132}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cockpit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1097,7 +1097,7 @@ GameObject:
   - component: {fileID: 4862634409092112}
   - component: {fileID: 33796144582457722}
   - component: {fileID: 23749957726693254}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: R_Elevator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1114,7 +1114,7 @@ GameObject:
   - component: {fileID: 4725975446141512}
   - component: {fileID: 33801567077613616}
   - component: {fileID: 23573044751186588}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1131,7 +1131,7 @@ GameObject:
   - component: {fileID: 4262085706031162}
   - component: {fileID: 33982729189113154}
   - component: {fileID: 23299195929270406}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube5 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1148,7 +1148,7 @@ GameObject:
   - component: {fileID: 4558906001719294}
   - component: {fileID: 33829418276067052}
   - component: {fileID: 23346930497442818}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pSphere1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1166,7 +1166,7 @@ GameObject:
   - component: {fileID: 114080835260795720}
   - component: {fileID: 199591194925051286}
   - component: {fileID: 198621434630644182}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Weapon3
   m_TagString: Gun
   m_Icon: {fileID: 0}
@@ -1183,7 +1183,7 @@ GameObject:
   - component: {fileID: 4954917014474672}
   - component: {fileID: 33103116200385922}
   - component: {fileID: 23926300100468114}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: weapon2Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 4079043362458778}
   - component: {fileID: 33991849282753832}
   - component: {fileID: 23074922987391072}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube7 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1216,7 +1216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4958468028026524}
   - component: {fileID: 96901128197746426}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1233,7 +1233,7 @@ GameObject:
   - component: {fileID: 4855990075386184}
   - component: {fileID: 114099722045920876}
   - component: {fileID: 114268927473988584}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: R_Turbine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1250,7 +1250,7 @@ GameObject:
   - component: {fileID: 4792719974014898}
   - component: {fileID: 33590634573871820}
   - component: {fileID: 23766185569948090}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube18 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1267,7 +1267,7 @@ GameObject:
   - component: {fileID: 4896295507612742}
   - component: {fileID: 33983666415775888}
   - component: {fileID: 23641370709094742}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube4 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1284,7 +1284,7 @@ GameObject:
   - component: {fileID: 4908361185319122}
   - component: {fileID: 114287785669408182}
   - component: {fileID: 114990446882911620}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WeaponHolder
   m_TagString: PlayerPart
   m_Icon: {fileID: 0}
@@ -1301,7 +1301,7 @@ GameObject:
   - component: {fileID: 4972976173195568}
   - component: {fileID: 33880636076635980}
   - component: {fileID: 23756563035562050}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1318,7 +1318,7 @@ GameObject:
   - component: {fileID: 4866708280682768}
   - component: {fileID: 33164915558029774}
   - component: {fileID: 23336463101017790}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pSphere6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1335,7 +1335,7 @@ GameObject:
   - component: {fileID: 4353691987810354}
   - component: {fileID: 33931702804380494}
   - component: {fileID: 23830754869707100}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: L_Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1352,7 +1352,7 @@ GameObject:
   - component: {fileID: 4166090109415666}
   - component: {fileID: 33377135384513086}
   - component: {fileID: 23681767511218574}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: pCube14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1369,7 +1369,7 @@ GameObject:
   - component: {fileID: 4412331970663136}
   - component: {fileID: 33244120209602740}
   - component: {fileID: 23211307033059626}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: F_Flap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1386,7 +1386,7 @@ GameObject:
   - component: {fileID: 4326672429946082}
   - component: {fileID: 33939393398176422}
   - component: {fileID: 23798703124010690}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: weaponModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1403,7 +1403,7 @@ GameObject:
   - component: {fileID: 4482859962908890}
   - component: {fileID: 114217962748019432}
   - component: {fileID: 114192617428753734}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Aircraft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
