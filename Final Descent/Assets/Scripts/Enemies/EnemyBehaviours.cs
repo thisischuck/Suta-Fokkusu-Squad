@@ -4,8 +4,8 @@ using UnityEngine;
 
 public static class EnemyBehaviours
 {
-    public static float wanderDistance = 10.0f;
-    public static float wanderRadius = 5.0f;
+    public static float wanderDistance = 50.0f;
+    public static float wanderRadius = 15.0f;
 
     public static Vector3 Seek(Transform t, Vector3 velocity, Vector3 target)
     {

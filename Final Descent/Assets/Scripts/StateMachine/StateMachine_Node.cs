@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateMachine_Node {
+public class StateMachine_Node
+{
     public string name;
     public List<StateMachine_Transition> transitions;
     public List<Action> actions;
@@ -29,5 +30,4 @@ public class StateMachine_Node {
     {
         return name;
     }
-
 }

@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Butterfly : Enemy
 {
-
-
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+        MaxVelocity = 20.0f;
+        Velocity = Vector3.forward * MaxVelocity;
 
+        StateMachine_Node Idle = new StateMachine_Node("Idle", null, null, null);
+        StateMachine_Node Move = new StateMachine_Node("Move", null, null, null);
+        StateMachine_Node Attack = new StateMachine_Node("Attack", null, null, null);
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
-
+        base.Update();
     }
 }

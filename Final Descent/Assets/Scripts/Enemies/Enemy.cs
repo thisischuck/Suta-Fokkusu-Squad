@@ -1,16 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    protected StateMachine stateMachine;
     protected Vector3 Velocity;
     protected float MaxVelocity;
     public List<Attack> Attacks;
-    public AnimationClip IdleClip; // Not sure if this is needed. You can just make it as an attack with 0 dmg and 0 knockback
-    public AnimationClip DeathClip;// Same
-    [HideInInspector]
-    public Animation Idle, Death;
+    public string IdleClip;
+    public string DeathClip;
+    public string Movement;
+    public string Spawn;
 
     [HideInInspector]
     public Animation animController;
@@ -28,13 +30,28 @@ public class Enemy : MonoBehaviour
         isPlaying = false;
     }
 
+    protected virtual void AssignState(StateMachine_Node start)
+    {
+        stateMachine = new StateMachine(start);
+    }
+
     protected virtual void Update()
     {
+        List<Action> actions = stateMachine.Run();
+        if (actions != null)
+        {
+            foreach (var a in actions)
+            {
+                if (a != null)
+                {
+                    a.Invoke();
+                }
+            }
+        }
+        Debug.Log(stateMachine.currentNode.ToString());
+
         if (GetComponent<HealthEnemy>().health <= 0)
             Destroy(this.gameObject);
-
-        transform.position += Velocity.normalized * Time.deltaTime;
-        transform.forward = Velocity.normalized;
 
         if (!animController.isPlaying)
             isPlaying = false;
@@ -69,15 +86,8 @@ public class Attack
     public int Damage;
     public float Knockback;
     public Status StatusEffect;
-
-    //This two are not needed. You need to add a Animation Component Somewhere and add all the clips through that.
-    //When you want to play it you just need to give it a name so we need to keep the names the same.
-    /* 
-    public AnimationClip Clip;
-    public Animation Animation;
-    */
 }
 
-public enum Status { NONE, POISON, STUN }
+public enum Status { NONE, POISON, STUN, SLOW }
 
 

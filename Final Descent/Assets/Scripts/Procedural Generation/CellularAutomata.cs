@@ -47,7 +47,7 @@ public class CellularAutomata : MonoBehaviour
     private CellularDungeonLayer dungeonLayer;
     private CellularDungeonLayer[] dungeon;
     public int length, width, height; //z, x, y
-    private float spacing;
+    public float spacing;
     private float randomNoise;
     private int cycle;
     [Range(0, 100)]
@@ -58,7 +58,6 @@ public class CellularAutomata : MonoBehaviour
 
     void Start()
     {
-        spacing = 10.0f;
         randomNoise = 0.2f;
         cycle = 0;
         meshFilter = GetComponent<MeshFilter>();
