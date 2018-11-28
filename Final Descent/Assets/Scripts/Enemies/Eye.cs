@@ -6,14 +6,16 @@ using UnityEngine;
 public class Eye : Enemy
 {
     private float rayCooldown;
-    private GameObject player;
+    public float rayTimer;
+    private float rayDuration;
 
     protected override void Start()
     {
         base.Start();
-        player = GetClosestPlayer();
         MaxVelocity = 10.0f;
         Velocity = Vector3.forward * MaxVelocity;
+        rayDuration = 3.0f;
+        rayCooldown = 0.0f;
 
         Action a_ResetRayCooldown = () => { rayCooldown = 0.0f; };
         Action a_CountRayCooldown = () => { rayCooldown += Time.deltaTime; };
@@ -23,7 +25,12 @@ public class Eye : Enemy
         Action a_Pursuit = () => { Velocity = EnemyBehaviours.Pursuit(this.transform, Velocity, player.transform, 2.0f); };
         Action a_FaceVelocity = () => { transform.forward = Velocity.normalized; };
         Action a_PlayExplosion = () => { PlayAnimation("Explosion"); };
+        Action a_RayTimerUpdate = () => { rayTimer += Time.deltaTime; };
+        Action a_RayTimerReset = () => { rayTimer = 0.0f; };
+
+        //Debug actions
         Action a_LogRayCooldown = () => { Debug.Log(rayCooldown); };
+        Action a_LogRayTimer = () => { Debug.Log(rayTimer); };
 
         StateMachine_Node wander = new StateMachine_Node("Wander",
             null,
@@ -37,23 +44,25 @@ public class Eye : Enemy
 
         StateMachine_Node attackExplosion = new StateMachine_Node("Attack Explosion",
             new List<Action>(new Action[] { a_PlayExplosion, a_CountRayCooldown }),
-            new List<Action>(new Action[] { a_CountRayCooldown }),
+            new List<Action>(new Action[] { a_PlayExplosion, a_CountRayCooldown }),
             null);
 
         StateMachine_Node attackRay = new StateMachine_Node("Attack Ray",
-            new List<Action>(new Action[] { a_ResetRayCooldown }),
-            new List<Action>(new Action[] { a_FaceEnemyRay }),
-            null);
+            new List<Action>(new Action[] { a_FaceEnemyRay, a_RayTimerReset }),
+            new List<Action>(new Action[] { a_FaceEnemyRay, a_RayTimerUpdate, a_LogRayTimer }),
+            new List<Action>(new Action[] { a_ResetRayCooldown }));
 
         StateMachine_Transition WanderToPursuit = new StateMachine_Transition("Wander to Pursuit", () => ToPursuit(), pursuit, null);
         StateMachine_Transition AnyToWander = new StateMachine_Transition("To Wander", () => ToWander(), wander, null);
         StateMachine_Transition PursuitToExplosion = new StateMachine_Transition("Pursuit to Explosion", () => ToExplosion(), attackExplosion, null);
         StateMachine_Transition PursuitToRay = new StateMachine_Transition("Pursuit to Ray", () => ToRay(), attackRay, null);
         StateMachine_Transition ExplosionToPursuit = new StateMachine_Transition("Explosion To Pursuit", () => IsExplosionOver(), pursuit, null);
+        StateMachine_Transition RayToPursuit = new StateMachine_Transition("Ray to Pursuit", () => IsRayOver(), pursuit, null);
 
         wander.AddTransition(WanderToPursuit);
         pursuit.AddTransition(PursuitToExplosion, PursuitToRay, AnyToWander);
         attackExplosion.AddTransition(ExplosionToPursuit);
+        attackRay.AddTransition(RayToPursuit);
 
         AssignState(wander);
     }
@@ -73,28 +82,16 @@ public class Eye : Enemy
     }
 
     //Functions
-    private bool ToPursuit()
-    {
-        return Vector3.Distance(transform.position, player.transform.position) < 50.0f;
-    }
+    private bool ToPursuit() { return Vector3.Distance(transform.position, player.transform.position) < 50.0f; }
 
-    private bool ToExplosion()
-    {
-        return Vector3.Distance(transform.position, player.transform.position) < 10.0f;
-    }
+    private bool ToExplosion() { return Vector3.Distance(transform.position, player.transform.position) < 10.0f; }
 
-    private bool ToRay()
-    {
-        return Vector3.Distance(transform.position, player.transform.position) > 10.0f && rayCooldown > 2.0f;
-    }
+    private bool ToRay() { return Vector3.Distance(transform.position, player.transform.position) > 10.0f && rayCooldown > 2.0f; }
 
-    private bool ToWander()
-    {
-        return Vector3.Distance(transform.position, player.transform.position) > 60.0f;
-    }
+    private bool ToWander() { return Vector3.Distance(transform.position, player.transform.position) > 60.0f; }
 
-    private bool IsExplosionOver()
-    {
-        return animController.IsPlaying("Explosion");
-    }
+    private bool IsExplosionOver() { return !animController.IsPlaying("Explosion"); }
+    //private bool IsExplosionOver() { return !animController.isPlaying; }
+
+    private bool IsRayOver() { return rayTimer > rayDuration; }
 }

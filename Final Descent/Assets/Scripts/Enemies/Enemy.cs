@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     protected StateMachine stateMachine;
     protected Vector3 Velocity;
     protected float MaxVelocity;
+    protected GameObject player;
     public List<Attack> Attacks;
     public string IdleClip;
     public string DeathClip;
@@ -25,7 +26,7 @@ public class Enemy : MonoBehaviour
         //Idle.clip = IdleClip;
         //Death = new Animation();
         //Death.clip = DeathClip;
-
+        player = GetClosestPlayer();
         animController = GetComponentInChildren<Animation>();
         isPlaying = false;
     }

@@ -49,11 +49,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4895431745947168}
-  - component: {fileID: 95010139817188074}
   - component: {fileID: 54163670168122258}
   - component: {fileID: 135687167421237330}
   - component: {fileID: 114624720543155828}
   - component: {fileID: 114243152695510914}
+  - component: {fileID: 111012611602031214}
   m_Layer: 9
   m_Name: Eye
   m_TagString: Untagged
@@ -140,31 +140,28 @@ Rigidbody:
   m_GameObject: {fileID: 1434242474770240}
   serializedVersion: 2
   m_Mass: 40
-  m_Drag: 0.5
-  m_AngularDrag: 0.05
+  m_Drag: 1
+  m_AngularDrag: 0.5
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!95 &95010139817188074
-Animator:
-  serializedVersion: 3
+--- !u!111 &111012611602031214
+Animation:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434242474770240}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 629cf664f559b1245a9115b070aee799, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: e80e959e4f811c34c8c1548eadf1a238, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!114 &114243152695510914
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,15 +192,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacks:
-  - Damage: 1
+  - Name: Explosion
+    Damage: 1
     Knockback: 5
     StatusEffect: 0
-    Clip: {fileID: 7400000, guid: e80e959e4f811c34c8c1548eadf1a238, type: 3}
-    Animation: {fileID: 0}
-  IdleClip: {fileID: 0}
-  DeathClip: {fileID: 0}
-  Idle: {fileID: 0}
-  Death: {fileID: 0}
+  IdleClip: 
+  DeathClip: 
+  Movement: 
+  Spawn: 
+  animController: {fileID: 0}
+  isPlaying: 0
+  rayTimer: 0
 --- !u!135 &135687167421237330
 SphereCollider:
   m_ObjectHideFlags: 1

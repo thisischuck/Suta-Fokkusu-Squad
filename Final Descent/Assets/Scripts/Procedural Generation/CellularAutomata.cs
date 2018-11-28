@@ -1,4 +1,4 @@
-﻿#region Notes
+#region Notes
 /*
 Bruno 27/09/18
 --Cellular Automata in 2D - Works Perfectly
