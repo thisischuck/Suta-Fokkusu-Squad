@@ -9,6 +9,7 @@ TagManager:
   - PlayerPart
   - Gun
   - Water
+  - Tree
   layers:
   - Default
   - TransparentFX
