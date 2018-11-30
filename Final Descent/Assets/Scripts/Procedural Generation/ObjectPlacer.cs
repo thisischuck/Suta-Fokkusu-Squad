@@ -73,9 +73,9 @@ public class ObjectPlacer : MonoBehaviour
 	public void Place(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals)
 	{
 		positionsUsed = new Dictionary<Vector3, GameObject>();
-		int height = dungeon[0].height;
-		int width = dungeon[0].width;
-		int length = dungeon[0].length;
+		height = dungeon[0].height;
+		width = dungeon[0].width;
+		length = dungeon[0].length;
 
 		foreach (ObjectTobePlaced o in objects)
 		{
@@ -182,6 +182,7 @@ public class ObjectPlacer : MonoBehaviour
 				{
 					if (y == 0 && x < width - 1 && z < length - 1)
 					{
+
 						Vector3 BottomLeft = vertices[(x + 0) + (z + 0) * width + y * width * length];
 						Vector3 BottomRight = vertices[(x + 1) + (z + 0) * width + y * width * length];
 						Vector3 TopLeft = vertices[(x + 0) + (z + 1) * width + y * width * length];
@@ -189,14 +190,12 @@ public class ObjectPlacer : MonoBehaviour
 
 						Vector3 randomPoint = new Vector3(Random.Range(BottomLeft.x, BottomRight.x), 0, Random.Range(BottomLeft.z, TopRight.z));
 
-						Vector3 topVector = TopLeft - TopRight;
-						Vector3 botVector = BottomLeft - BottomRight;
+						Vector3 topVector = new Vector3(randomPoint.x, Mathf.Lerp(TopLeft.y, TopRight.y, randomPoint.x - TopLeft.x), randomPoint.z);
+						Vector3 botVector = new Vector3(randomPoint.x, Mathf.Lerp(BottomLeft.y, BottomRight.y, randomPoint.x - BottomLeft.x), randomPoint.z); 
+						//Vector2.Distance(new Vector2(BottomLeft.x, BottomLeft.z), new Vector2(randomPoint.x, BottomLeft.z))
 
 
-
-						randomPoint.y = Mathf.Lerp(Mathf.Lerp(BottomLeft.y, BottomRight.y, Vector2.Distance(new Vector2(BottomLeft.x, BottomLeft.z), new Vector2(randomPoint.x, randomPoint.z))),
-							Mathf.Lerp(TopLeft.y, TopRight.y, Vector2.Distance(new Vector2(TopLeft.x, TopLeft.z), new Vector2(randomPoint.x, randomPoint.z))),
-							Vector2.Distance(new Vector2(botVector.x, botVector.z), new Vector2(topVector.x, topVector.z)));
+						randomPoint.y = Mathf.Lerp( botVector.y, topVector.y, randomPoint.z - botVector.z);
 
 						QuadVertices.Add(randomPoint);
 
