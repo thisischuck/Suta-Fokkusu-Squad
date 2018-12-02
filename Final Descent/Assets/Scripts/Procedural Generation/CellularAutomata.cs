@@ -223,8 +223,6 @@ public class CellularAutomata : MonoBehaviour
                         uv.y = y + z;
                     }
 
-
-
                     #endregion
 
                     uvs[x + z * width + y * width * length] = uv;
@@ -432,8 +430,8 @@ public class CellularAutomata : MonoBehaviour
                 }
             }
         }*/
-        // RandomNoise();
-        //HeightNoise();
+        RandomNoise();
+        HeightNoise();
 
         //CalculateTriFlatNormal(indices, normals);
         CreateCollisionMesh();
@@ -477,14 +475,14 @@ public class CellularAutomata : MonoBehaviour
             */
             return false;
         }
-        if (y == 0 || y == height - 1)
-        {
-            /* if (z != 0 || z != length - 1)
-                if (x != 0 || x != width - 1)
-                    return true;
-                    */
-            return false;
-        }
+        //if (y == 0 || y == height - 1)
+        //{
+        /* if (z != 0 || z != length - 1)
+            if (x != 0 || x != width - 1)
+                return true;
+                */
+        //return false;
+        //}
 
         return true;
     }
