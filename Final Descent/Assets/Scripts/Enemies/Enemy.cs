@@ -8,7 +8,9 @@ public class Enemy : MonoBehaviour
     protected StateMachine stateMachine;
     protected Vector3 Velocity;
     protected float MaxVelocity;
+    protected float MaxRotationSpeed;
     protected GameObject player;
+    protected HealthEnemy healthEnemy;
     public List<Attack> Attacks;
     public string IdleClip;
     public string DeathClip;
@@ -18,17 +20,11 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public Animation animController;
 
-    public bool isPlaying;
-
     protected virtual void Start()
     {
-        //Idle = new Animation();
-        //Idle.clip = IdleClip;
-        //Death = new Animation();
-        //Death.clip = DeathClip;
         player = GetClosestPlayer();
+        healthEnemy = GetComponent<HealthEnemy>();
         animController = GetComponentInChildren<Animation>();
-        isPlaying = false;
     }
 
     protected virtual void AssignState(StateMachine_Node start)
@@ -38,6 +34,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
+        Debug.Log(stateMachine.currentNode.ToString());
         List<Action> actions = stateMachine.Run();
         if (actions != null)
         {
@@ -49,19 +46,16 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-        Debug.Log(stateMachine.currentNode.ToString());
 
-        if (GetComponent<HealthEnemy>().health <= 0)
+        if (healthEnemy.health <= 0)
             Destroy(this.gameObject);
 
-        if (!animController.isPlaying)
-            isPlaying = false;
     }
 
     public void PlayAnimation(string name)
     {
-        if (!isPlaying)
-            animController.Play(name);
+        animController.CrossFade(name, 0.2f, PlayMode.StopAll);
+
     }
 
     protected GameObject GetClosestPlayer()

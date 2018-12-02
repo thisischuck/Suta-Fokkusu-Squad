@@ -13,13 +13,20 @@ public class Eye : Enemy
     {
         base.Start();
         MaxVelocity = 10.0f;
+        MaxRotationSpeed = 25.0f;
         Velocity = Vector3.forward * MaxVelocity;
         rayDuration = 3.0f;
         rayCooldown = 0.0f;
 
         Action a_ResetRayCooldown = () => { rayCooldown = 0.0f; };
         Action a_CountRayCooldown = () => { rayCooldown += Time.deltaTime; };
-        Action a_FaceEnemyRay = () => { transform.rotation.SetLookRotation(player.transform.position); };
+        Action a_FaceEnemyRay = () =>
+        {
+            transform.rotation = Quaternion.RotateTowards(
+                transform.rotation,
+                Quaternion.LookRotation(player.transform.position - transform.position),
+                Time.deltaTime * MaxRotationSpeed);
+        }; //transform.rotation.SetLookRotation(player.transform.position); };
         Action a_Wander = () => { Velocity = EnemyBehaviours.Wander(transform, Velocity); };
         Action a_Move = () => { transform.position += Velocity * Time.deltaTime; };
         Action a_Pursuit = () => { Velocity = EnemyBehaviours.Pursuit(this.transform, Velocity, player.transform, 2.0f); };
@@ -33,13 +40,13 @@ public class Eye : Enemy
         Action a_LogRayTimer = () => { Debug.Log(rayTimer); };
 
         StateMachine_Node wander = new StateMachine_Node("Wander",
-            null,
             new List<Action>(new Action[] { a_Wander, a_Move, a_FaceVelocity, a_CountRayCooldown, a_LogRayCooldown }),
+            null,
             null);
 
         StateMachine_Node pursuit = new StateMachine_Node("Pursuit",
-            null,
             new List<Action>(new Action[] { a_Pursuit, a_Move, a_FaceVelocity, a_CountRayCooldown }),
+            null,
             null);
 
         StateMachine_Node attackExplosion = new StateMachine_Node("Attack Explosion",
@@ -48,8 +55,8 @@ public class Eye : Enemy
             null);
 
         StateMachine_Node attackRay = new StateMachine_Node("Attack Ray",
-            new List<Action>(new Action[] { a_FaceEnemyRay, a_RayTimerReset }),
             new List<Action>(new Action[] { a_FaceEnemyRay, a_RayTimerUpdate, a_LogRayTimer }),
+            new List<Action>(new Action[] { a_FaceEnemyRay, a_RayTimerReset }),
             new List<Action>(new Action[] { a_ResetRayCooldown }));
 
         StateMachine_Transition WanderToPursuit = new StateMachine_Transition("Wander to Pursuit", () => ToPursuit(), pursuit, null);

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public static class EnemyBehaviours
 {
-    public static float wanderDistance = 50.0f;
-    public static float wanderRadius = 15.0f;
+    public static float wanderDistance = 20.0f;
+    public static float wanderRadius = 8.0f;
 
     public static Vector3 Seek(Transform t, Vector3 velocity, Vector3 target)
     {
         Vector3 velocitySeek = (target - t.position).normalized;
-        return (velocitySeek + velocity).normalized;
+        return (velocitySeek * 0.1f + velocity).normalized;
     }
 
     public static Vector3 Pursuit(Transform t, Vector3 velocity, Transform target, float prediction)
@@ -81,5 +81,13 @@ public static class EnemyBehaviours
         float z = wanderRadius * Mathf.Cos(theta);
         Vector3 target = circleCenter + new Vector3(x, y, z);
         return Seek(t, velocity, target);
+    }
+
+    public static Quaternion RotateTowards(Transform t, Transform target, float rotSpeed)
+    {
+        return Quaternion.RotateTowards(
+                t.rotation,
+                Quaternion.LookRotation(target.transform.position - t.position, Vector3.up),
+                Time.deltaTime * rotSpeed);
     }
 }
