@@ -50,6 +50,58 @@ public class ObjectPlacer : MonoBehaviour
 		}
 	}
 
+    public void Ceiling(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
+    {
+        float r = Random.Range(0.0f, 100.0f);
+        if (dungeon[y].Cells[x, z].isAlive && y == dungeon.Length - 1 && r > 100 - o.SpawnRate)
+        {
+            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f,0.0f,0.0f))); //buscar a normal do vertice para rotação
+            newObj.transform.parent = this.transform;
+            if(newObj.tag != "Stalactite")
+                newObj.transform.rotation = Quaternion.FromToRotation(-newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+            positionsUsed.Add(new Vector3(x, y, z), newObj);
+        }
+    }
+
+    public void Floor(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
+    {
+        float r = Random.Range(0.0f, 100.0f);
+        if (dungeon[y].Cells[x, z].isAlive && y == 0 && r > 100 - o.SpawnRate)
+        {
+            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            newObj.transform.parent = this.transform;
+            newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+            positionsUsed.Add(new Vector3(x, y, z), newObj);
+        }
+    }
+
+    public void Wall(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
+    {
+        float r = Random.Range(0.0f, 100.0f);
+        if (dungeon[y].Cells[x, z].isAlive && (y != 0 && y != dungeon.Length - 1) && r > 100 - o.SpawnRate)
+        {
+            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            newObj.transform.parent = this.transform;
+            newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+            positionsUsed.Add(new Vector3(x, y, z), newObj);
+        }
+    }
+}
+
+[System.Serializable]
+public struct ObjectTobePlaced
+{
+	public GameObject GameObject;
+	public Location Place;
+	public int SpawnRate;
+}
+
+public struct Chunk
+{
+	public GameObject gameObject;
+	public Bounds bounds;
+}
+
 	public void Update()
 	{
 		foreach (Chunk chunk in objectChunks.Values)
@@ -57,7 +109,6 @@ public class ObjectPlacer : MonoBehaviour
 			/*float distanceFromChunk = Vector2.Distance(new Vector2(player.position.x, player.position.z), 
                 new Vector2(chunk.transform.position.x, chunk.transform.position.z)); 
             bool inRange = distanceFromChunk <= chunkRenderDistance;*/
-
 			//chunk.SetActive(inRange); 
 			/*Vector3 screenPoint = Camera.main.WorldToViewportPoint(chunk.gameObject.transform.position); 
             bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1; 
@@ -69,7 +120,6 @@ public class ObjectPlacer : MonoBehaviour
 			Camera.main.farClipPlane = farPlane;
 		}
 	}
-
 	public void Place(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals)
 	{
 		positionsUsed = new Dictionary<Vector3, GameObject>();
@@ -226,18 +276,3 @@ public class ObjectPlacer : MonoBehaviour
 			i++;
 		}
 	}
-}
-
-[System.Serializable]
-public struct ObjectTobePlaced
-{
-	public GameObject GameObject;
-	public Location Place;
-	public int SpawnRate;
-}
-
-public struct Chunk
-{
-	public GameObject gameObject;
-	public Bounds bounds;
-}

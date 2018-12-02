@@ -80,6 +80,11 @@ public class Eye : Enemy
         if (Vector3.Distance(transform.position, player.transform.position) < 10.0f)
             MeleeAttack();
         else Velocity = EnemyBehaviours.Wander(transform, Velocity);*/
+        Velocity = EnemyBehaviours.AvoidObstacles(transform, Velocity, ref isThereAnything) * MaxVelocity;
+
+        if (!isThereAnything)
+            Velocity = (EnemyBehaviours.Pursuit(transform, Velocity, player, 1f) * MaxVelocity);// + EnemyBehaviours.AvoidObstacles(transform, Velocity, ref isThereAnything)) * MaxVelocity;// + EnemyBehaviours.AvoidObstacles(transform);
+
         base.Update();
     }
 

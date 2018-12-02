@@ -27,7 +27,7 @@ public class HealthEnemy : BaseStats
         }
     }
 
-    private void ApplyDamage(float damage)
+    public void ApplyDamage(float damage)
     {
         if (health <= 0)
         {

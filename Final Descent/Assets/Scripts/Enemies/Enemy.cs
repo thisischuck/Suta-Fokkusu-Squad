@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     protected StateMachine stateMachine;
     protected Vector3 Velocity;
     protected float MaxVelocity;
+    public bool isThereAnything = false;
     protected float MaxRotationSpeed;
     protected GameObject player;
     protected HealthEnemy healthEnemy;

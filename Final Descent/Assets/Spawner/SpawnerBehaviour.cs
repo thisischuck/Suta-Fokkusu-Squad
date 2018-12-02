@@ -9,6 +9,7 @@ public class SpawnerBehaviour : MonoBehaviour {
     public StateMachine sM;
     public bool alive = true;
     private Animator animator;
+    public Transform spawnPoint;
 
     public float count = 0;
     public float spawningRechargeTime = 10.0f;
@@ -102,7 +103,7 @@ public class SpawnerBehaviour : MonoBehaviour {
     void SpawnEnemy()
     {
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.transform.position = new Vector3(transform.position.x,  transform.position.y + 1, transform.position.z);
+        cube.transform.position = spawnPoint.position;
 
     }
 }

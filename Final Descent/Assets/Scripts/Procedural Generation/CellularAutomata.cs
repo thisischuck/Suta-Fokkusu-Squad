@@ -96,7 +96,7 @@ public class CellularAutomata : MonoBehaviour
         ProjectTo3D();
         meshFilter.mesh = CreateMesh();
         meshCollider.sharedMesh = meshFilter.mesh;
-        objectPlacer.Place(dungeon, vertices, vNormals);
+        //objectPlacer.Place(dungeon, vertices, vNormals);
     }
 
     void CheckIfLives2D()
@@ -449,8 +449,8 @@ public class CellularAutomata : MonoBehaviour
 
         WaterGenerator waterGenerator = GetComponentInChildren<WaterGenerator>();
         if (waterGenerator != null)
-            //waterGenerator.CreateMesh(width * Mathf.CeilToInt(spacing), length * Mathf.CeilToInt(spacing), 1); //Needs optimization
-            waterGenerator.CreateMesh(width * 2, length * 2, 1);
+            waterGenerator.CreateMesh(0,0,width * Mathf.CeilToInt(spacing), length * Mathf.CeilToInt(spacing), 1); //Needs optimization
+            //waterGenerator.CreateMesh(width * 2, length * 2, 1);
 
         return mesh;
     }
