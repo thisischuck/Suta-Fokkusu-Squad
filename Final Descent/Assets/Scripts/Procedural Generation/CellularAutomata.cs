@@ -522,7 +522,7 @@ public class CellularAutomata : MonoBehaviour
         for (int i = 0; i < vertices.Length; i++)
         {
             vertices[i].y += (0.5f - Mathf.PerlinNoise((vertices[i].x / spacing) * a, (vertices[i].z / spacing) * a)) * 5.0f * spacing;
-            vertices[i].y += (0.5f - Mathf.PerlinNoise((vertices[i].x / spacing) * b, (vertices[i].z / spacing) * b)) * 7.5f * spacing;
+            vertices[i].y += (0.5f - Mathf.PerlinNoise((vertices[i].x / spacing) * b, (vertices[i].z / spacing) * b)) * 20.0f * spacing;
         }
     }
 
