@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: MAT_DarkOrb 1
+  m_Shader: {fileID: 10770, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _NORMALMAP
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_6099F839:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_76F2287E:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_E626C706:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: a07791170e8d60040a4b835d5f762a02, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: a07791170e8d60040a4b835d5f762a02, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_1CC29370_Texture:
+        m_Texture: {fileID: 2800000, guid: 55b58851d3f6bd8449d53c55ad2e1794, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_FF788386_Texture:
+        m_Texture: {fileID: 2800000, guid: 084e8629d9da46d42833c1f4d54b4365, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2D_BaseColors:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2D_Details:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _dirt:
+        m_Texture: {fileID: 2800000, guid: a170b06388a656c4f90ecdf0f17ab23e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _grass:
+        m_Texture: {fileID: 2800000, guid: 8abf2d3271091ac46870c2a81cbb26dc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _normals:
+        m_Texture: {fileID: 2800000, guid: c7197270cf828fe4e9b52d7e978a5582, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _rock:
+        m_Texture: {fileID: 2800000, guid: b19a6df8780af77468f23753b5b17340, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - Vector1_221F90D6: 0.26
+    - Vector1_25EA0889: 0
+    - Vector1_360E8721: 0.05
+    - Vector1_610139B1: 0
+    - Vector1_633CD3A4: 1
+    - Vector1_7180DBF3: 0
+    - Vector1_7845A2A6: 0.5
+    - Vector1_811F81E6: 2
+    - Vector1_B0F331D3: 0
+    - Vector1_BDC41CC3: 1
+    - Vector1_C6D6B5D: 2
+    - Vector1_F0B6E0F8: 0.9
+    - _BlendOp: 0
+    - _BumpScale: 1
+    - _CameraFadingEnabled: 0
+    - _CameraFarFadeDistance: 2
+    - _CameraNearFadeDistance: 1
+    - _ColorMask: 15
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DistortionBlend: 0.5
+    - _DistortionEnabled: 0
+    - _DistortionStrength: 1
+    - _DistortionStrengthScaled: 0
+    - _DstBlend: 0
+    - _EmissionEnabled: 0
+    - _EnableExternalAlpha: 0
+    - _FlipbookMode: 0
+    - _FresnelIntensity: 1.5
+    - _FresnelPower: 1.46
+    - _FresnelValue: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 1
+    - _GlossyReflections: 1
+    - _InvFade: 1
+    - _LightingEnabled: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SoftParticlesEnabled: 0
+    - _SoftParticlesFarFadeDistance: 1
+    - _SoftParticlesNearFadeDistance: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UVSec: 0
+    - _UseUIAlphaClip: 0
+    - _WindQuality: 0
+    - _ZWrite: 1
+    m_Colors:
+    - Color_3CC32613: {r: 0.4235294, g: 0, b: 1.498039, a: 0}
+    - Color_4D89EE55: {r: 1.498039, g: 0, b: 1.364706, a: 0}
+    - Color_63DFC7A5: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 0}
+    - Color_95C626DF: {r: 0, g: 0.6509434, b: 0.5537562, a: 0}
+    - Color_C23916DF: {r: 0.2038982, g: 0.3748609, b: 0.5471698, a: 0}
+    - Vector2_480E0515: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_73A9FF32: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_935CC0D9: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_9D456BFB: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_F04F4119: {r: 1, g: 1, b: 0, a: 0}
+    - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}

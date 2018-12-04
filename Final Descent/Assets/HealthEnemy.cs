@@ -7,7 +7,6 @@ public class HealthEnemy : BaseStats
 
     private void Start()
     {
-        GenerateVariables(100, 0);
         GetComponent<HBController>().StartHPBar(health);
     }
 
