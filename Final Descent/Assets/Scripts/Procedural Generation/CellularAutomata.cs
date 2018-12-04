@@ -56,43 +56,80 @@ public class CellularAutomata : MonoBehaviour
     private Vector3[] vertices;
     private Vector3[] vNormals;
 
+    private Pathfinder pathfinder;
+
     void Start()
     {
+        pathfinder = new Pathfinder();
         randomNoise = 0.2f;
         cycle = 0;
         meshFilter = GetComponent<MeshFilter>();
         meshCollider = GetComponent<MeshCollider>();
         objectPlacer = GetComponent<ObjectPlacer>();
 
-        dungeonLayer = new CellularDungeonLayer(width, height, length, spacing, groundChance, this.transform);
-        dungeon = new CellularDungeonLayer[height];
-
-        for (int x = 0; x < width; x++)
-        {
-            for (int z = 0; z < length; z++)
-            {
-                if (x == 0 || z == 0 || x == width - 1 || z == length - 1)
-                {
-                    dungeonLayer.Cells[x, z].isAlive = true;
-                }
-            }
-        }
+        Path();
     }
 
-    void Update()
+    void Path()
     {
-        if (cycle < 20)
+        int i = 0;
+        do
+        {
+            Debug.Log("NewDungeon");
+            dungeonLayer = new CellularDungeonLayer(width, height, length, spacing, groundChance, this.transform);
+
+            for (int x = 0; x < width; x++)
+            {
+                for (int z = 0; z < length; z++)
+                {
+                    if (x == 0 || z == 0 || x == width - 1 || z == length - 1)
+                    {
+                        dungeonLayer.Cells[x, z].isAlive = true;
+                        dungeonLayer.Cells[x, z].hasVisited = true;
+                    }
+                }
+            }
+
+            UpdateCycle();
+
+            pathfinder.StartPathfinder(dungeonLayer, width, length, 10);
+
+            Debug.Log(pathfinder.FindAllVisited());
+
+            i++;
+        } while (i < 100);
+
+        Debug.Log(pathfinder.isfinished);
+
+        GameObject cube = GameObject.Find("Cube");
+
+        float x1 = pathfinder.SpawnPoint.x * spacing + this.transform.position.x;
+        float y1 = pathfinder.SpawnPoint.y * spacing + this.transform.position.y;
+
+        Vector3 a = new Vector3(x1, this.transform.position.y, y1);
+        Instantiate(cube, a, this.transform.rotation);
+
+        x1 = pathfinder.EndPoint.x * spacing + this.transform.position.x;
+        y1 = pathfinder.EndPoint.y * spacing + this.transform.position.y;
+
+        a = new Vector3(x1, this.transform.position.y, y1);
+        Instantiate(cube, a, this.transform.rotation);
+
+        End();
+    }
+
+    void UpdateCycle()
+    {
+        for (int cycle = 0; cycle < 20; cycle++)
         {
             CheckIfLives2D();
             UpdateLife2D();
-            cycle++;
-            if (cycle == 20)
-                End();
         }
     }
 
     void End()
     {
+        dungeon = new CellularDungeonLayer[height];
         ProjectTo3D();
         meshFilter.mesh = CreateMesh();
         meshCollider.sharedMesh = meshFilter.mesh;
@@ -708,10 +745,12 @@ public struct Cell
     public Vector3 position;
     public bool isAlive;
     public bool isGoingToLive;
+    public bool hasVisited;
     public Cell(Vector3 position, bool isAlive)
     {
         this.position = position;
         this.isAlive = isAlive;
         this.isGoingToLive = isAlive;
+        this.hasVisited = isAlive;
     }
 }
