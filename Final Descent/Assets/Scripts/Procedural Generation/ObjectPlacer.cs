@@ -160,7 +160,8 @@ public class ObjectPlacer : MonoBehaviour
 		{
 			GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
 			newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
-			newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+			if (newObj.tag != "Tree")
+				newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
 			positionsUsed.Add(new Vector3(x, y, z), newObj);
 		}
 	}
