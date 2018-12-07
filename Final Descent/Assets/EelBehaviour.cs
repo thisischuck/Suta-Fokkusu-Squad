@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EelBehaviour : MonoBehaviour
+public class EelBehaviour : Enemy
 {
-    private StateMachine stateMachine;
     private BaseStats baseStats;
 	private EelAttacks eelAttacks;
 
@@ -18,18 +17,21 @@ public class EelBehaviour : MonoBehaviour
     public bool isCharging;
     public bool isBiting;*/
 
-    private float eelHealth;
-	private float eelMaxHealth;
+    public float eelHealth;
+	public float eelMaxHealth;
 
-    void Start()
+    protected override void Start()
     {
-        baseStats = GetComponent<BaseStats>();
+		base.Start();
+		alive = true;
+		baseStats = GetComponent<BaseStats>();
 		eelAttacks = GetComponent<EelAttacks>();
+		baseStats.GenerateVariables(1000, 1000);
 		eelHealth = baseStats.health;
 		eelMaxHealth = eelHealth;
 
         //Actions
-        Action a_active = () => { alive = true; eelAttacks.Start(); };
+        Action a_active = () => { eelAttacks.Start(); };
         Action a_onEntryTornado = () => { eelAttacks.OnEntryTornado(); };
 		Action a_tornado = () => { eelAttacks.Tornado(); };
 		Action a_onEntryHighSpeed = () => { eelAttacks.OnEntryHighSpeed(); };
@@ -109,26 +111,13 @@ public class EelBehaviour : MonoBehaviour
 		//Call
 		n_call.AddTransition(t_callingToCharge, t_callingToTornado, t_killed, t_anyToBite);
 
-        stateMachine = new StateMachine(n_active);
+		AssignState(n_active);
     }
 
-    void Update()
+    protected override void Update()
     {
-        if (alive)
-        {
-            List<Action> actions = stateMachine.Run();
-            if (actions != null)
-            {
-                foreach (var a in actions)
-                {
-                    if (a != null)
-                    {
-                        a.Invoke();
-						Debug.Log(stateMachine.currentNode.name);
-                    }
-                }
-            }
-        }
+		base.Update();
+
 		if (eelHealth <= 0)
 			alive = false;
 		else alive = true;

@@ -5,16 +5,21 @@ using UnityEngine;
 public class EelIK : MonoBehaviour
 {
     public List<Transform> bones;
-    public float MinDistance;
-    private Vector3[] positions;
-    private Vector3[] rotations;
+    private float[] distances;
     private Vector3 oldPos;
     private Vector3 velocity;
+    private EelTest test;
+
     void Start()
     {
-        positions = new Vector3[bones.Count];
-        rotations = new Vector3[bones.Count];
+        distances = new float[bones.Count - 1];
+        for (int i = 0; i < distances.Length - 1; i++)
+        {
+            distances[i] = (bones[i + 1].transform.position - bones[i].transform.position).magnitude * 0.1f;
+        }
+
         velocity = Vector3.forward;
+        test = this.GetComponent<EelTest>();
     }
 
     void FixedUpdate()
@@ -26,7 +31,7 @@ public class EelIK : MonoBehaviour
 
             float distance = Vector3.Distance(previous.position, current.position);
 
-            float t = Time.deltaTime * distance / MinDistance;
+            float t = Time.deltaTime * distance / distances[i - 1] * test.Velocity.magnitude;
 
             if (t > 0.5f)
                 t = 0.5f;

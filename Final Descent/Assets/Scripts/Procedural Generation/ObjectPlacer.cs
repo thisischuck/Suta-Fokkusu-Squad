@@ -124,8 +124,8 @@ public class ObjectPlacer : MonoBehaviour
             }
         }
 
-        QuadCenterVertex(dungeon, vertices, normals, obj);
-    }
+		//QuadCenterVertex(dungeon, vertices, normals, obj);
+	}
 
     public void Ceiling(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
@@ -140,29 +140,31 @@ public class ObjectPlacer : MonoBehaviour
         }
     }
 
-    public void Floor(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
-    {
-        float r = Random.Range(0.0f, 100.0f);
-        if (y == 0 && r > 100 - o.SpawnRate)
-        {
-            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
-            newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
-            newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
-            positionsUsed.Add(new Vector3(x, y, z), newObj);
-        }
-    }
+	public void Floor(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
+	{
+		float r = Random.Range(0.0f, 100.0f);
+		if (y == 0 && r > 100 - o.SpawnRate)
+		{
+			GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+			newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
+			if(newObj.tag!= "Tree")
+				newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+			positionsUsed.Add(new Vector3(x, y, z), newObj);
+		}
+	}
 
-    public void Wall(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
-    {
-        float r = Random.Range(0.0f, 100.0f);
-        if ((y != 0 && y != dungeon.Length - 1) && r > 100 - o.SpawnRate)
-        {
-            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
-            newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
-            newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
-            positionsUsed.Add(new Vector3(x, y, z), newObj);
-        }
-    }
+	public void Wall(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
+	{
+		float r = Random.Range(0.0f, 100.0f);
+		if ((y != 0 && y != dungeon.Length - 1) && r > 100 - o.SpawnRate)
+		{
+			GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+			newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
+			if (newObj.tag != "Tree")
+				newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+			positionsUsed.Add(new Vector3(x, y, z), newObj);
+		}
+	}
 
     public void QuadCenterVertex(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, GameObject o)
     {
