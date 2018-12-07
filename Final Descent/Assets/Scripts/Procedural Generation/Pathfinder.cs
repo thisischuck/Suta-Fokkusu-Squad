@@ -10,6 +10,7 @@ public class Pathfinder
     private int range;
     private CellularDungeonLayer dungeonLayer, dungeonCopy;
     public bool isfinished;
+    public float maxY;
     //PathFinding to see if you can finish the game. Returns a spawnPoint and a endPoint
 
     public Vector2 SpawnPoint
@@ -130,6 +131,8 @@ public class Pathfinder
     bool RecursiveFindEnd(Vector2 spawnPoint, out Vector2 endPoint)
     {
         Vector2 current = spawnPoint;
+        if (spawnPoint.y > maxY)
+            maxY = spawnPoint.y;
 
         if (current.y >= height - range)
         {

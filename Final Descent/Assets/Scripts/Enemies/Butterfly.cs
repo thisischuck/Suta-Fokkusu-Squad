@@ -56,7 +56,7 @@ public class Butterfly : Enemy
 
         //SPAWN ANIMATION REFUSES TO WAIT UNTIL IT'S DONE FOR SOME REASON
         StateMachine_Node Spawn = new StateMachine_Node("Spawn",
-            new List<Action>(new Action[] { () => { spawn = true; } }),
+            new List<Action>(new Action[] { () => { spawn = true; }, a_AnimSpawn }),
             new List<Action>(new Action[] { a_AnimSpawn }),
             null);
 
