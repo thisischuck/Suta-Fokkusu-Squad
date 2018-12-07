@@ -20,13 +20,12 @@ TagManager:
   - UI
   - 
   - 
+  - TerrainCollision
+  - CombatCollision
   - PostProcessing
   - ParticleCollision
   - Player
   - Teste
-  - 
-  - 
-  - 
   - 
   - 
   - 

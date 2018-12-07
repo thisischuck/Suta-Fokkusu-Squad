@@ -432,8 +432,8 @@ public class CellularAutomata : MonoBehaviour
                 }
             }
         }*/
-        // RandomNoise();
-        //HeightNoise();
+        RandomNoise();
+        HeightNoise();
 
         //CalculateTriFlatNormal(indices, normals);
         CreateCollisionMesh();

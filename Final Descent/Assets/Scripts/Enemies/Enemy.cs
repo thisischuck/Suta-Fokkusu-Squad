@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     public string Movement;
     public string Spawn;
 
+    public string enemyName = "";
+
     [HideInInspector]
     public Animation animController;
 

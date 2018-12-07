@@ -14,7 +14,7 @@ MonoBehaviour:
   id: 0
   name: Gun
   description: It's a me, a gun!
-  particleSystemSystem: {fileID: 0}
+  weaponModel: {fileID: 0}
   weaponType: 1
   sprite: {fileID: 21300000, guid: 3e2f9b63c4f4b85449a847d687c402a7, type: 3}
   price: 300

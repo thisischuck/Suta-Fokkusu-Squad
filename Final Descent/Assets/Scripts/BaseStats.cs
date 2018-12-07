@@ -6,6 +6,7 @@ public class BaseStats : MonoBehaviour {
     public int lives = 1;
     public float shield;
     public float health;
+    public float base_maxHealth;
 
     public float invulnerabilityTime = 0.0f;
     [SerializeField]

@@ -15,18 +15,25 @@ public class Ship : MonoBehaviour
 {
     public Transform player;
     public Transform child;
+    private GameObject trail;
 
     [Space]
     [Header("Movement Settings")]
     public float speed;
     public float rotSpeed;
 
+    public void Start()
+    {
+        //trail = transform.Find("Trail").gameObject;
+        //trail.SetActive(false);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         Move();
         Rotate();
-
+        //trail.SetActive(Input.GetButton("Vertical"));
     }
 
     void Move()

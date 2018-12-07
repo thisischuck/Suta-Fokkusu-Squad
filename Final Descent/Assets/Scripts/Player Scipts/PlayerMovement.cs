@@ -18,9 +18,6 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Variables 
     public GameObject ship;
-    public Camera cam;
-    private Transform ship;
-    private GameObject trail;
     private Rigidbody rB;
 
     //----------------Key Tap----------------------
@@ -42,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashDur = 1;
     [Tooltip("Dash speed.")]
     public float dashSpeed = 40;
+    public int numberOfRotations = 1;
 
     //----------------Dash Cooldown----------------------
     private bool hasDashed = false;
@@ -79,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
         Rotate();
         Move();
 
-        trail.SetActive(Input.GetButton("Vertical"));
         CharacterTappingControl(); //Controls the double tapping duration
         CharacterDashControl(); //Controls everything about the dash
 
@@ -120,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
                 dashDurCount = 0;
                 dashCDRCount = 0;
 
-                ship.GetComponent<Ship>().DashRotation(360, dashDur);
+                ship.GetComponent<Ship>().DashRotation(360 * numberOfRotations, dashDur);
 
             }
             else
@@ -141,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
                 dashDurCount = 0;
                 dashCDRCount = 0;
 
-                ship.GetComponent<Ship>().DashRotation(-360, dashDur);
+                ship.GetComponent<Ship>().DashRotation(-360 * numberOfRotations, dashDur);
             }
             else
             {
