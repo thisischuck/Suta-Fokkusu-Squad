@@ -10,6 +10,7 @@ TagManager:
   - Gun
   - Water
   - Tree
+  - Ship
   layers:
   - Default
   - TransparentFX
@@ -19,12 +20,12 @@ TagManager:
   - UI
   - 
   - 
+  - TerrainCollision
+  - CombatCollision
   - PostProcessing
   - ParticleCollision
   - Player
-  - 
-  - 
-  - 
+  - Teste
   - 
   - 
   - 

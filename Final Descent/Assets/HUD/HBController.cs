@@ -36,7 +36,7 @@ public class HBController : MonoBehaviour {
             // Smoothly rotate towards the target point.
             x.transform.rotation = Quaternion.Slerp(x.transform.rotation, targetRotation, 1f);
 
-            x.GetComponent<HealthBar>().realAmout = Mathf.Lerp(x.GetComponent<HealthBar>().realAmout, currentHealth, 5f * Time.deltaTime);
+            x.GetComponent<HealthBar>().currentAmout = Mathf.Lerp(x.GetComponent<HealthBar>().currentAmout, currentHealth, 5f * Time.deltaTime);
         }
         else
         {

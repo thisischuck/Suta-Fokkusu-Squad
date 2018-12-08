@@ -394,8 +394,8 @@ public class CellularAutomata : MonoBehaviour
 
         WaterGenerator waterGenerator = GetComponentInChildren<WaterGenerator>();
         if (waterGenerator != null)
-            //waterGenerator.CreateMesh(width * Mathf.CeilToInt(spacing), length * Mathf.CeilToInt(spacing), 1); //Needs optimization
-            waterGenerator.CreateMesh(width * 2, length * 2, 1);
+            waterGenerator.CreateMesh(0,0,width * Mathf.CeilToInt(spacing), length * Mathf.CeilToInt(spacing), 1); //Needs optimization
+            //waterGenerator.CreateMesh(width * 2, length * 2, 1);
 
         return mesh;
     }

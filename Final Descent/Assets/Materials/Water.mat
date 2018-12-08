@@ -103,10 +103,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_221F90D6: 0.3
+    - Vector1_221F90D6: 0.26
+    - Vector1_31AD8DCB: 8
     - Vector1_360E8721: 0.03
     - Vector1_633CD3A4: 1
     - Vector1_BDC41CC3: 0.2
+    - Vector1_EA6F0032: 3.81
     - Vector1_F0B6E0F8: 0.75
     - _AlphaClip: 0
     - _Blend: 0
@@ -141,11 +143,15 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _streach: 0
     m_Colors:
     - Color_95C626DF: {r: 0.16470589, g: 0.47588497, b: 0.65882355, a: 0}
     - Color_C23916DF: {r: 0.27843142, g: 0.77486205, b: 0.90588236, a: 0}
     - Vector2_73A9FF32: {r: 20, g: 20, b: 0, a: 0}
     - Vector2_F04F4119: {r: 20, g: 20, b: 0, a: 0}
+    - Vector3_44E06D0C: {r: 0, g: 1, b: 0, a: 0}
+    - Vector3_4BFB72E4: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.52954787, g: 0.5902972, b: 0.6415094, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _point_of_bend: {r: 0.027801514, g: 30, b: 53.75653, a: 0}

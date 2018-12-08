@@ -4,19 +4,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnerBehaviour : MonoBehaviour {
-    public Transform player;
-    public bool active;
-    public StateMachine sM;
-    public bool alive = true;
+    private Transform player;
+    public Transform enemyController;
+    private bool active;
+    private StateMachine sM;
+    private bool alive = true;
     private Animator animator;
+    public string spawnerName = "SPAWNER";
+    public Transform spawnPoint;
 
     public float count = 0;
     public float spawningRechargeTime = 10.0f;
 
 	// Use this for initialization
 	void Start () {
-
+        player = GetClosestPlayer().transform;
         animator = GetComponent<Animator>();
+        
 
         #region STATE MACHINE SCHEME
         /*
@@ -38,7 +42,7 @@ public class SpawnerBehaviour : MonoBehaviour {
         Action a_toofar = () => { active = false; };
         Action a_spawn = () => { animator.SetBool("Spawn", true); };
         Action a_resetTimer = () => { count = 0; };
-        Action a_dead = () => { alive = false; };
+        Action a_dead = () => { animator.SetBool("Dead", true); };
         
         //Nodes
         StateMachine_Node n_nonActive = new StateMachine_Node("Non Active", null, null, null);
@@ -67,22 +71,22 @@ public class SpawnerBehaviour : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        List<Action> actions = sM.Run();
+        if (actions != null)
+        {
+            foreach (var a in actions)
+            {
+                if (a != null)
+                {
+                    a.Invoke();
+                }
+
+            }
+        }
+
         //Runs through the actions
         if (alive)
         {
-            List<Action> actions = sM.Run();
-            if (actions != null)
-            {
-                foreach (var a in actions)
-                {
-                    if (a != null)
-                    {
-                        a.Invoke();
-                    }
-
-                }
-            }
-
             //Recharging counter
             if (active)
             {
@@ -91,6 +95,12 @@ public class SpawnerBehaviour : MonoBehaviour {
                     count += 1 * Time.deltaTime;
                 }
             }
+        }
+        
+
+        if (GetComponentInParent<HealthEnemy>().health <= 0)
+        {
+            alive = false;
         }
     }
 
@@ -101,8 +111,23 @@ public class SpawnerBehaviour : MonoBehaviour {
 
     void SpawnEnemy()
     {
-        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        cube.transform.position = new Vector3(transform.position.x,  transform.position.y + 1, transform.position.z);
+        GameObject enemy = Instantiate(enemyController.GetComponent<EnemySpawningController>().ChooseAnEnemy());
+        enemy.transform.position = spawnPoint.position;
 
+    }
+
+    protected GameObject GetClosestPlayer()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        int closest = 0;
+        for (int i = 1; i < players.Length; i++)
+        {
+            if (Vector3.Distance(this.transform.position, players[i].transform.position) <
+            Vector3.Distance(this.transform.position, players[closest].transform.position))
+            {
+                closest = i;
+            }
+        }
+        return players[closest];
     }
 }

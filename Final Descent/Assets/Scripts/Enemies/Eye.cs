@@ -12,6 +12,7 @@ public class Eye : Enemy
     protected override void Start()
     {
         base.Start();
+        enemyName = "EYE";
         MaxVelocity = 10.0f;
         MaxRotationSpeed = 25.0f;
         Velocity = Vector3.forward * MaxVelocity;
@@ -27,17 +28,17 @@ public class Eye : Enemy
                 Quaternion.LookRotation(player.transform.position - transform.position),
                 Time.deltaTime * MaxRotationSpeed);
         }; //transform.rotation.SetLookRotation(player.transform.position); };
-        Action a_Wander = () => { Velocity = EnemyBehaviours.Wander(transform, Velocity); };
+        Action a_Wander = () => { Velocity = EnemyBehaviours.AvoidObstacles(transform, Velocity, ref isThereAnything) * MaxVelocity; if (!isThereAnything) { Velocity = EnemyBehaviours.Wander(transform, Velocity); } };
         Action a_Move = () => { transform.position += Velocity * Time.deltaTime; };
-        Action a_Pursuit = () => { Velocity = EnemyBehaviours.Pursuit(this.transform, Velocity, player.transform, 2.0f); };
+        Action a_Pursuit = () => { Velocity = EnemyBehaviours.AvoidObstacles(transform, Velocity, ref isThereAnything) * MaxVelocity; if (!isThereAnything) { Velocity = EnemyBehaviours.Pursuit(this.transform, Velocity, player.transform, 2.0f); } };
         Action a_FaceVelocity = () => { transform.forward = Velocity.normalized; };
         Action a_PlayExplosion = () => { PlayAnimation("Explosion"); };
         Action a_RayTimerUpdate = () => { rayTimer += Time.deltaTime; };
         Action a_RayTimerReset = () => { rayTimer = 0.0f; };
 
         //Debug actions
-        Action a_LogRayCooldown = () => { Debug.Log(rayCooldown); };
-        Action a_LogRayTimer = () => { Debug.Log(rayTimer); };
+        Action a_LogRayCooldown = () => { };//Debug.Log(rayCooldown); };
+        Action a_LogRayTimer = () => { };// Debug.Log(rayTimer); };
 
         StateMachine_Node wander = new StateMachine_Node("Wander",
             new List<Action>(new Action[] { a_Wander, a_Move, a_FaceVelocity, a_CountRayCooldown, a_LogRayCooldown }),
@@ -80,6 +81,8 @@ public class Eye : Enemy
         if (Vector3.Distance(transform.position, player.transform.position) < 10.0f)
             MeleeAttack();
         else Velocity = EnemyBehaviours.Wander(transform, Velocity);*/
+        //Velocity = EnemyBehaviours.AvoidObstacles(transform, Velocity, ref isThereAnything) * MaxVelocity;
+
         base.Update();
     }
 

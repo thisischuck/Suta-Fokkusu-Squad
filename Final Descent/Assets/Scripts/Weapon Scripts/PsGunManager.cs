@@ -5,6 +5,7 @@ using UnityEngine;
 public class PsGunManager : MonoBehaviour
 {
     private ParticleSystem system;
+    private List<ParticleCollisionEvent> collisionEvents;
 
     public bool canFire, isActive;
     public int bulletsPerClick = 1;
@@ -17,6 +18,7 @@ public class PsGunManager : MonoBehaviour
 
         canFire = true;
         system = this.gameObject.GetComponent<ParticleSystem>();
+        collisionEvents = new List<ParticleCollisionEvent>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,39 @@ public class PsGunManager : MonoBehaviour
                 system.Emit(bulletsPerClick);
                 StartCoroutine(FireRateIE());
             }
+    }
+
+    public void OnParticleCollision(GameObject other)
+    {
+        int collCount = system.GetSafeCollisionEventSize();
+
+        //if (collCount > collisionEvents.Count)
+        //    collisionEvents = new ParticleCollisionEvent[collCount];
+
+        int eventCount = system.GetCollisionEvents(other, collisionEvents);
+
+        for (int i = 0; i < eventCount; i++)
+        {
+            if (other.GetComponent<HealthEnemy>())
+            {
+                other.GetComponent<HealthEnemy>().TakeDamage(15);
+                GameObject stats = GameObject.Find("Stats");
+
+                float enemyCurrenhp = other.GetComponent<HealthEnemy>().health;
+                float enemyMaxhp = other.GetComponent<HealthEnemy>().base_maxHealth;
+                string enemyName = "";
+                if (other.GetComponent<Enemy>())
+                {
+                    enemyName = other.GetComponent<Enemy>().enemyName;
+                    stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
+                }
+                else if (other.GetComponentInChildren<SpawnerBehaviour>())
+                {
+                    enemyName = other.GetComponentInChildren<SpawnerBehaviour>().spawnerName;
+                    stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
+                }
+            }
+        }
     }
 
     IEnumerator FireRateIE()

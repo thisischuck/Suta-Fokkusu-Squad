@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour {
 
-    public float realAmout;
+    public float currentAmout;
 
-    [SerializeField]
     private float amount;
     private float maxHealth;
 
@@ -26,7 +25,7 @@ public class HealthBar : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        amount = ScaleValues(realAmout, maxHealth);
+        amount = ScaleValues(currentAmout, maxHealth);
         UpdateBar();
 	}
 

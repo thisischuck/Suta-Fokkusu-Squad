@@ -3,6 +3,8 @@ Manages the camera collision
  
  12-10-2018
  The script is complete and executes its task sucessufully.
+ 28-12-2018
+ The script was optimized 
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -15,6 +17,8 @@ public class CameraCollision : MonoBehaviour
 
     public float smooth = 30.0f;
     Vector3 dollyDir;
+
+    [Tooltip("Offset of the camera position")]
     public Vector3 dollyDirAdjusted;
     public float distance;
 
@@ -36,8 +40,9 @@ public class CameraCollision : MonoBehaviour
 
         if (Physics.Linecast(transform.parent.position, desiredCameraPos, out hit))
         {
-            if (hit.transform.tag != "Player")
+            if (hit.transform.tag != "Player" && hit.transform.tag != "PlayerPart" && hit.transform.tag != "Ship" && hit.transform.name == "AircraftController")
             {
+                Debug.Log(hit.transform.tag);
                 distance = Mathf.Clamp((hit.distance * 0.8f), minDistance, maxDistance);
             }
         }
@@ -49,3 +54,4 @@ public class CameraCollision : MonoBehaviour
         transform.localPosition = Vector3.Lerp(transform.localPosition, dollyDir * distance, Time.deltaTime * smooth);
     }
 }
+
