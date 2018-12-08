@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 33050576464483578}
   - component: {fileID: 23946905329591438}
   - component: {fileID: 114329639129106558}
-  - component: {fileID: 64550941152102366}
   - component: {fileID: 114557522168494768}
   m_Layer: 9
   m_Name: Dungeon
@@ -199,20 +198,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1114307549565148}
   m_Mesh: {fileID: 0}
---- !u!64 &64550941152102366
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1438548312893994}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 12
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 0}
 --- !u!64 &64953559494795832
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -234,7 +219,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1114307549565148}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0, z: 1}
@@ -251,6 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionMeshFilter: {fileID: 33195534151938898}
+  walls: {fileID: 0}
   length: 120
   width: 80
   height: 10
@@ -340,15 +326,15 @@ MonoBehaviour:
       type: 2}
     Place: 1
     SpawnRate: 3
-  - GameObject: {fileID: 1504012503674550, guid: 05a26ceb27a298f42bf3b911903bf385,
+  - GameObject: {fileID: 1240778210096270, guid: 05a26ceb27a298f42bf3b911903bf385,
       type: 2}
     Place: 1
     SpawnRate: 3
-  - GameObject: {fileID: 1695400930069712, guid: 8f2e05af85c8d804885bdacbffabf8e7,
+  - GameObject: {fileID: 1975196952539636, guid: dcf492876a9f97341892a3cc557bc9b5,
       type: 2}
     Place: 1
     SpawnRate: 3
-  - GameObject: {fileID: 1175596351458798, guid: 9cd263e649ad8284ab44d8b1ddbfc08b,
+  - GameObject: {fileID: 1785086629567800, guid: 9cd263e649ad8284ab44d8b1ddbfc08b,
       type: 2}
     Place: 1
     SpawnRate: 3

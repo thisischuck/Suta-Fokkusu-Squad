@@ -84,17 +84,6 @@ public class WaterGenerator : MonoBehaviour
     public Wave[] verticesWave;
     List<Vector3> movingVertices;
 
-    void Start()
-    {
-        boxCollider = GetComponent<BoxCollider>();
-        meshFilter = GetComponent<MeshFilter>();
-        movingVertices = new List<Vector3>();
-        length = 0;
-        width = 0;
-        height = 0;
-
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
@@ -105,12 +94,17 @@ public class WaterGenerator : MonoBehaviour
         UpdateMesh();
     }
 
-
     public void CreateMesh(int width, int length, float spacing)
     {
         this.width = width;
         this.length = length;
         this.spacing = spacing;
+        boxCollider = GetComponent<BoxCollider>();
+        meshFilter = GetComponent<MeshFilter>();
+        movingVertices = new List<Vector3>();
+        length = 0;
+        width = 0;
+        height = 0;
         boxCollider.size = new Vector3(width, height, length);
         boxCollider.center = new Vector3(width / 2.0f, height, length / 2.0f);
 
