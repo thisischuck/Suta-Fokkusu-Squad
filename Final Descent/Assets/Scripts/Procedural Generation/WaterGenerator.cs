@@ -19,17 +19,6 @@ public class WaterGenerator : MonoBehaviour
     public float streachDistance = 2;
     float streach;
 
-
-    void Start()
-    {
-        boxCollider = GetComponent<BoxCollider>();
-        meshFilter = GetComponent<MeshFilter>();
-        length = 0;
-        width = 0;
-        height = 0;
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -40,6 +29,8 @@ public class WaterGenerator : MonoBehaviour
 
     public void CreateMesh(int offsetX, int offsetY, int width, int length, float spacing)
     {
+        boxCollider = GetComponent<BoxCollider>();
+        meshFilter = GetComponent<MeshFilter>();
         this.width = width;
         this.length = length;
         this.spacing = spacing;
