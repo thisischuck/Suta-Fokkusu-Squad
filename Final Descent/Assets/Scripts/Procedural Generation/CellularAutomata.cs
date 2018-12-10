@@ -113,6 +113,21 @@ public class CellularAutomata : MonoBehaviour
         a = new Vector3(x1, this.transform.position.y, y1);
         Instantiate(cube, a, this.transform.rotation);
 
+        for (int y = 1; y <= length - 1; y++)
+        {
+            for (int x = 1; x < width - 1; x++)
+            {
+                if (dungeonLayer.Cells[x, y].hasVisited && !dungeonLayer.Cells[x, y].isAlive)
+                {
+                    GameObject obj = GameObject.CreatePrimitive(PrimitiveType.Quad);
+                    obj.transform.position = new Vector3(x * 10.0f, 1.0f, y * 10.0f);
+                    obj.transform.rotation = Quaternion.Euler(90.0f, 0.0f, 0.0f);
+                    obj.transform.localScale *= 10.0f;
+                    UnityEngine.MonoBehaviour.Destroy(obj.GetComponent<MeshCollider>());
+                }
+            }
+        }
+
         End();
     }
 
@@ -339,15 +354,14 @@ public class CellularAutomata : MonoBehaviour
                         //Connect ceilling layer
                         else
                         {
-                            indices.Add(x + z * width + y * width * length);
+                            /*indices.Add(x + z * width + y * width * length);
                             indices.Add(x + 1 + z * width + y * width * length);
                             indices.Add(x + (z + 1) * width + y * width * length);
 
                             indices.Add(x + 1 + (z + 1) * width + y * width * length);
                             indices.Add(x + (z + 1) * width + y * width * length);
-                            indices.Add(x + 1 + z * width + y * width * length);
+                            indices.Add(x + 1 + z * width + y * width * length);*/
                         }
-
                     }
                     else if (y < height - 1)
                     {
@@ -379,8 +393,8 @@ public class CellularAutomata : MonoBehaviour
         }
         #endregion
 
-        RandomNoise();
-        HeightNoise();
+        //RandomNoise();
+        //HeightNoise();
 
         CreateCollisionMesh();
         //CreateSideWallsMesh();
@@ -394,8 +408,8 @@ public class CellularAutomata : MonoBehaviour
 
         WaterGenerator waterGenerator = GetComponentInChildren<WaterGenerator>();
         if (waterGenerator != null)
-            waterGenerator.CreateMesh(0,0,width * Mathf.CeilToInt(spacing), length * Mathf.CeilToInt(spacing), 1); //Needs optimization
-            //waterGenerator.CreateMesh(width * 2, length * 2, 1);
+            waterGenerator.CreateMesh(0, 0, width * Mathf.CeilToInt(spacing), length * Mathf.CeilToInt(spacing), 1); //Needs optimization
+                                                                                                                     //waterGenerator.CreateMesh(width * 2, length * 2, 1);
 
         return mesh;
     }
