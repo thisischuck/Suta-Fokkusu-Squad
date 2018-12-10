@@ -99,6 +99,7 @@ public class CellularAutomata : MonoBehaviour
 
         Debug.Log(pathfinder.isfinished);
 
+
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
         float x1 = pathfinder.SpawnPoint.x * spacing + this.transform.position.x;
@@ -146,7 +147,6 @@ public class CellularAutomata : MonoBehaviour
         ProjectTo3D();
         meshFilter.mesh = CreateMesh();
         objectPlacer.Place(dungeon, vertices, vNormals);
-        Destroy(this);
     }
 
     void CheckIfLives2D()
@@ -190,6 +190,7 @@ public class CellularAutomata : MonoBehaviour
                 if (dungeonLayer.Cells[x, z].isAlive != dungeonLayer.Cells[x, z].isGoingToLive)
                 {
                     dungeonLayer.Cells[x, z].isAlive = dungeonLayer.Cells[x, z].isGoingToLive;
+                    dungeonLayer.Cells[x, z].hasVisited = dungeonLayer.Cells[x, z].isGoingToLive;
                 }
             }
         }
