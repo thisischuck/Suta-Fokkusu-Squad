@@ -11,6 +11,7 @@ TagManager:
   - Water
   - Tree
   - Ship
+  - Dungeon
   layers:
   - Default
   - TransparentFX
