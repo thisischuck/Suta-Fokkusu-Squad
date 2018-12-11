@@ -1,38 +1,36 @@
 fileFormatVersion: 2
-guid: 629cf664f559b1245a9115b070aee799
+guid: bd31d9fe85fc8bf46a96ef266a7e8615
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     100002: MainJoint
-    100004: pCube4
-    100006: pCube6
-    100008: SpikesJoint
-    100010: spotLight1
-    100012: transform2
+    100004: MainJoint1
+    100006: pCube4
+    100008: pCube6
+    100010: SpikesJoint
+    100012: SpikesJoint1
+    100014: transform2
     400000: //RootNode
     400002: MainJoint
-    400004: pCube4
-    400006: pCube6
-    400008: SpikesJoint
-    400010: spotLight1
-    400012: transform2
+    400004: MainJoint1
+    400006: pCube4
+    400008: pCube6
+    400010: SpikesJoint
+    400012: SpikesJoint1
+    400014: transform2
     2100000: lambert3
     4300000: pCube6
+    7400000: Explosion
     9500000: //RootNode
-    10800000: spotLight1
+    11100000: //RootNode
     13700000: pCube6
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert3
-    second: {fileID: 2100000, guid: ec4f71de7b5c57f48adeb8bf2292bf98, type: 2}
+  externalObjects: {}
   materials:
-    importMaterials: 1
-    materialName: 1
+    importMaterials: 0
+    materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -64,7 +62,7 @@ ModelImporter:
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
-    importLights: 0
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -101,10 +99,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

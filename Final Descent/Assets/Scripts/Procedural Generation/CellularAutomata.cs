@@ -92,13 +92,11 @@ public class CellularAutomata : MonoBehaviour
             UpdateCycle();
 
             pathfinder.StartPathfinder(dungeonLayer, width, length, 10);
-            Debug.Log(pathfinder.maxY);
 
             i++;
         } while (i < 100 && !pathfinder.isfinished);
 
-        Debug.Log(pathfinder.isfinished);
-
+        pathfinder.ClearAndFill();
 
         GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
@@ -114,6 +112,13 @@ public class CellularAutomata : MonoBehaviour
         a = new Vector3(x1, this.transform.position.y, y1);
         Instantiate(cube, a, this.transform.rotation);
 
+        DrawVisitedCells();
+
+        End();
+    }
+
+    void DrawVisitedCells()
+    {
         for (int y = 1; y <= length - 1; y++)
         {
             for (int x = 1; x < width - 1; x++)
@@ -128,8 +133,6 @@ public class CellularAutomata : MonoBehaviour
                 }
             }
         }
-
-        End();
     }
 
     void UpdateCycle()
@@ -283,10 +286,11 @@ public class CellularAutomata : MonoBehaviour
                         {
                             if (dungeon[y].Cells[x, z].isAlive && dungeon[y + 1].Cells[x, z].isAlive)
                             {
-
                                 //Connect directly right
                                 if (dungeon[y].Cells[x + 1, z].isAlive && dungeon[y + 1].Cells[x + 1, z].isAlive && z != 0)
                                 {
+                                    //if (dungeon[y].Cells[x + 1, z + 1].hasVisited)
+                                    //{
                                     indices.Add(x + z * width + y * width * length);
                                     indices.Add(x + z * width + (y + 1) * width * length);
                                     indices.Add(x + 1 + z * width + y * width * length);
@@ -294,10 +298,23 @@ public class CellularAutomata : MonoBehaviour
                                     indices.Add(x + 1 + z * width + y * width * length);
                                     indices.Add(x + z * width + (y + 1) * width * length);
                                     indices.Add(x + 1 + z * width + (y + 1) * width * length);
+                                    //}
+                                    /*else
+                                    {
+                                        indices.Add(x + z * width + (y + 1) * width * length);
+                                        indices.Add(x + z * width + y * width * length);
+                                        indices.Add(x + 1 + z * width + y * width * length);
+
+                                        indices.Add(x + z * width + (y + 1) * width * length);
+                                        indices.Add(x + 1 + z * width + y * width * length);
+                                        indices.Add(x + 1 + z * width + (y + 1) * width * length);
+                                    }*/
                                 }
                                 //Connect diagonally to right and down
                                 if (dungeon[y].Cells[x + 1, z + 1].isAlive && dungeon[y + 1].Cells[x + 1, z + 1].isAlive)
                                 {
+                                    //if (dungeon[y].Cells[x, z + 1].hasVisited)
+                                    //{
                                     indices.Add(x + z * width + y * width * length);
                                     indices.Add(x + z * width + (y + 1) * width * length);
                                     indices.Add(x + 1 + (z + 1) * width + y * width * length);
@@ -305,10 +322,23 @@ public class CellularAutomata : MonoBehaviour
                                     indices.Add(x + 1 + (z + 1) * width + y * width * length);
                                     indices.Add(x + z * width + (y + 1) * width * length);
                                     indices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);
+                                    //}
+                                    /*else
+                                    {
+                                        indices.Add(x + z * width + (y + 1) * width * length);
+                                        indices.Add(x + z * width + y * width * length);
+                                        indices.Add(x + 1 + (z + 1) * width + y * width * length);
+
+                                        indices.Add(x + z * width + (y + 1) * width * length);
+                                        indices.Add(x + 1 + (z + 1) * width + y * width * length);
+                                        indices.Add(x + 1 + (z + 1) * width + (y + 1) * width * length);
+                                    }*/
                                 }
                                 //Connect diagonally to right and up
                                 if (z != 0 && dungeon[y].Cells[x + 1, z - 1].isAlive && dungeon[y + 1].Cells[x + 1, z - 1].isAlive)
                                 {
+                                    //if (dungeon[y].Cells[x + 1, z].hasVisited)
+                                    //{
                                     indices.Add(x + z * width + y * width * length);
                                     indices.Add(x + z * width + (y + 1) * width * length);
                                     indices.Add(x + 1 + (z - 1) * width + y * width * length);
@@ -316,6 +346,17 @@ public class CellularAutomata : MonoBehaviour
                                     indices.Add(x + 1 + (z - 1) * width + y * width * length);
                                     indices.Add(x + z * width + (y + 1) * width * length);
                                     indices.Add(x + 1 + (z - 1) * width + (y + 1) * width * length);
+                                    //}
+                                    /*else
+                                    {
+                                        indices.Add(x + z * width + (y + 1) * width * length);
+                                        indices.Add(x + z * width + y * width * length);
+                                        indices.Add(x + 1 + (z - 1) * width + y * width * length);
+
+                                        indices.Add(x + z * width + (y + 1) * width * length);
+                                        indices.Add(x + 1 + (z - 1) * width + y * width * length);
+                                        indices.Add(x + 1 + (z - 1) * width + (y + 1) * width * length);
+                                    }*/
                                 }
                             }
                             //Connect floor layer

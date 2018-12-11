@@ -10,7 +10,6 @@ public class Pathfinder
     private int range;
     private CellularDungeonLayer dungeonLayer, dungeonCopy;
     public bool isfinished;
-    public float maxY;
     //PathFinding to see if you can finish the game. Returns a spawnPoint and a endPoint
 
     public Vector2 SpawnPoint
@@ -131,8 +130,6 @@ public class Pathfinder
     bool RecursiveFindEnd(Vector2 spawnPoint, out Vector2 endPoint)
     {
         Vector2 current = spawnPoint;
-        if (spawnPoint.y > maxY)
-            maxY = spawnPoint.y;
 
         if (current.y >= height - range)
         {
@@ -201,5 +198,49 @@ public class Pathfinder
 
         endPoint = currentPoint;
         return true;
+    }
+
+    public void ClearAndFill()
+    {
+        for (int x = 0; x < width; x++)
+            for (int y = 0; y < width; y++)
+                if (!dungeonLayer.Cells[x, y].isAlive)
+                    dungeonLayer.Cells[x, y].hasVisited = false;
+
+        //Vector2 end = new Vector2(-1, -1);
+        FillRecursive(spawnPoint, out endPoint);
+    }
+
+    bool FillRecursive(Vector2 spawnPoint, out Vector2 endPoint)
+    {
+        Vector2 current = spawnPoint;
+
+        int x = (int)current.x;
+        int y = (int)current.y;
+
+        endPoint = new Vector2();
+
+        if (dungeonLayer.Cells[x, y].hasVisited)
+            return false;
+
+        dungeonLayer.Cells[x, y].hasVisited = true;
+
+        List<Move> moves = NextPossibleMoves(x, y);
+
+        if (moves.Count == 0)
+        {
+            return false;
+        }
+
+        foreach (Move tmp in moves)
+        {
+            Vector2 tmpVector;
+            tmpVector = ApplyMovement(current, tmp);
+            if (FillRecursive(tmpVector, out endPoint))
+                return true;
+        }
+
+        moves.Clear();
+        return false;
     }
 }
