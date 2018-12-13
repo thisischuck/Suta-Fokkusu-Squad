@@ -400,13 +400,13 @@ public class CellularAutomata : MonoBehaviour
                         //Connect ceilling layer
                         else
                         {
-                            /*indices.Add(x + z * width + y * width * length);
+                            indices.Add(x + z * width + y * width * length);
                             indices.Add(x + 1 + z * width + y * width * length);
                             indices.Add(x + (z + 1) * width + y * width * length);
 
                             indices.Add(x + 1 + (z + 1) * width + y * width * length);
                             indices.Add(x + (z + 1) * width + y * width * length);
-                            indices.Add(x + 1 + z * width + y * width * length);*/
+                            indices.Add(x + 1 + z * width + y * width * length);
                         }
                     }
                     else if (y < height - 1)
@@ -439,8 +439,8 @@ public class CellularAutomata : MonoBehaviour
         }
         #endregion
 
-        //RandomNoise();
-        //HeightNoise();
+        RandomNoise();
+        HeightNoise();
 
         CreateCollisionMesh();
         //CreateSideWallsMesh();
