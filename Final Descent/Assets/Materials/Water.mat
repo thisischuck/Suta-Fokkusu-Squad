@@ -22,10 +22,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Control:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -50,22 +46,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Normal0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Normal1:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Normal2:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Normal3:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -86,22 +66,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Splat0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Splat1:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Splat2:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Splat3:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_221F90D6: 0.26
     - Vector1_31AD8DCB: 8
@@ -113,30 +77,17 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _Cull: 0
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.82
-    - _GlossinessSource: 0
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Metallic: 0
-    - _Metallic0: 0
-    - _Metallic1: 0
-    - _Metallic2: 0
-    - _Metallic3: 0
-    - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SampleGI: 0
-    - _Shininess: 0.5
-    - _Smoothness0: 0.5
-    - _Smoothness1: 0.5
-    - _Smoothness2: 0.5
-    - _Smoothness3: 0.5
     - _SmoothnessTextureChannel: 0
-    - _SpecSource: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
@@ -145,17 +96,12 @@ Material:
     - _ZWrite: 1
     - _streach: 0
     m_Colors:
-    - Color_95C626DF: {r: 0.16470589, g: 0.47588497, b: 0.65882355, a: 0}
-    - Color_C23916DF: {r: 0.27843142, g: 0.77486205, b: 0.90588236, a: 0}
+    - Color_95C626DF: {r: 0, g: 0.6509434, b: 0.5537562, a: 0}
+    - Color_C23916DF: {r: 0.2038982, g: 0.3748609, b: 0.5471698, a: 0}
     - Vector2_73A9FF32: {r: 20, g: 20, b: 0, a: 0}
     - Vector2_F04F4119: {r: 20, g: 20, b: 0, a: 0}
     - Vector3_44E06D0C: {r: 0, g: 1, b: 0, a: 0}
-    - Vector3_4BFB72E4: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.52954787, g: 0.5902972, b: 0.6415094, a: 1}
+    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-<<<<<<< Updated upstream
-    - _point_of_bend: {r: 127.93121, g: 30, b: 52.106567, a: 0}
-=======
-    - _point_of_bend: {r: 48.3714, g: 30, b: 66.26068, a: 0}
->>>>>>> Stashed changes
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _point_of_bend: {r: 128, g: 30, b: 52, a: 0}
