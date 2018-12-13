@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     protected float MaxRotationSpeed;
     protected GameObject player;
     protected HealthEnemy healthEnemy;
+    protected ParticleSystem particleSys;
     public List<Attack> Attacks;
     public string IdleClip;
     public string DeathClip;
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour
         player = GetClosestPlayer();
         healthEnemy = GetComponent<HealthEnemy>();
         animController = GetComponentInChildren<Animation>();
+        particleSys = GetComponent<ParticleSystem>();
     }
 
     protected virtual void AssignState(StateMachine_Node start)
