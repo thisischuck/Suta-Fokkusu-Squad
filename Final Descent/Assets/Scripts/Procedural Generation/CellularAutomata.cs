@@ -230,7 +230,7 @@ public class CellularAutomata : MonoBehaviour
     private Mesh CreateMesh()
     {
         List<int> indices;
-        Vector2[] uvs = new Vector2[width * length * height];
+        Vector3[] uvs = new Vector3[width * length * height];
         vertices = new Vector3[width * length * height];
         indices = new List<int>();
 
@@ -253,19 +253,11 @@ public class CellularAutomata : MonoBehaviour
             {
                 for (int x = 0; x < width; x++)
                 {
-                    Vector2 uv = new Vector2();
+                    Vector3 uv = new Vector3();
 
-                    //Fixes walls but messes up connections between pillars and walls
-                    /*if (x == 0 || x == width - 1)
-                    {
-                        uv.x = z;
-                        uv.y = y;
-                    }
-                    else
-                    {*/
                     uv.x = x;
-                    uv.y = y + z;
-                    //}
+                    uv.y = y;
+                    uv.z = z;
 
                     uvs[x + z * width + y * width * length] = uv;
                 }
@@ -286,6 +278,18 @@ public class CellularAutomata : MonoBehaviour
                         {
                             if (dungeon[y].Cells[x, z].isAlive && dungeon[y + 1].Cells[x, z].isAlive)
                             {
+                                //Connect directly up
+                                if (dungeon[y].Cells[x, z + 1].isAlive && dungeon[y + 1].Cells[x, z + 1].isAlive && z != 0)
+                                {
+                                    indices.Add(x + z * width + y * width * length);
+                                    indices.Add(x + (z + 1) * width + y * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
+
+                                    indices.Add(x + (z + 1) * width + y * width * length);
+                                    indices.Add(x + (z + 1) * width + (y + 1) * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
+                                }
+
                                 //Connect directly right
                                 if (dungeon[y].Cells[x + 1, z].isAlive && dungeon[y + 1].Cells[x + 1, z].isAlive && z != 0)
                                 {
@@ -443,7 +447,7 @@ public class CellularAutomata : MonoBehaviour
         Mesh mesh = new Mesh();
         mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
         mesh.vertices = vertices;
-        mesh.uv = uvs;
+        mesh.SetUVs(0, new List<Vector3>(uvs));
         mesh.SetTriangles(indices, 0);
         mesh.RecalculateNormals();
         vNormals = mesh.normals;
@@ -508,6 +512,26 @@ public class CellularAutomata : MonoBehaviour
                         {
                             if (dungeon[y].Cells[x, z].isAlive && dungeon[y + 1].Cells[x, z].isAlive)
                             {
+                                //Connect directly up
+                                if (dungeon[y].Cells[x, z + 1].isAlive && dungeon[y + 1].Cells[x, z + 1].isAlive && z != 0)
+                                {
+                                    indices.Add(x + z * width + y * width * length);
+                                    indices.Add(x + (z + 1) * width + y * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
+
+                                    indices.Add(x + (z + 1) * width + y * width * length);
+                                    indices.Add(x + (z + 1) * width + (y + 1) * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
+
+                                    indices.Add(x + (z + 1) * width + y * width * length);
+                                    indices.Add(x + z * width + y * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
+
+                                    indices.Add(x + (z + 1) * width + (y + 1) * width * length);
+                                    indices.Add(x + (z + 1) * width + y * width * length);
+                                    indices.Add(x + z * width + (y + 1) * width * length);
+                                }
+
                                 //Connect directly right
                                 if (dungeon[y].Cells[x + 1, z].isAlive && dungeon[y + 1].Cells[x + 1, z].isAlive && z != 0)
                                 {

@@ -203,7 +203,7 @@ public class Pathfinder
     public void ClearAndFill()
     {
         for (int x = 0; x < width; x++)
-            for (int y = 0; y < width; y++)
+            for (int y = 0; y < height; y++)
                 if (!dungeonLayer.Cells[x, y].isAlive)
                     dungeonLayer.Cells[x, y].hasVisited = false;
 
