@@ -27,7 +27,7 @@ public class ObjectPlacer : MonoBehaviour
     int width;
     int length;
 
-    public void Start()
+    public void Initialize()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         cellular = GetComponent<CellularAutomata>();
@@ -54,14 +54,6 @@ public class ObjectPlacer : MonoBehaviour
     {
         foreach (Chunk chunk in objectChunks.Values)
         {
-            /*float distanceFromChunk = Vector2.Distance(new Vector2(player.position.x, player.position.z), 
-                new Vector2(chunk.transform.position.x, chunk.transform.position.z)); 
-            bool inRange = distanceFromChunk <= chunkRenderDistance;*/
-
-            //chunk.SetActive(inRange); 
-            /*Vector3 screenPoint = Camera.main.WorldToViewportPoint(chunk.gameObject.transform.position); 
-            bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1; 
-            chunk.gameObject.SetActive(onScreen);*/
             float farPlane = Camera.main.farClipPlane;
             Camera.main.farClipPlane = chunkRenderDistance;
             Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
@@ -124,7 +116,7 @@ public class ObjectPlacer : MonoBehaviour
             }
         }
 
-        QuadCenterVertex(dungeon, vertices, normals, obj);
+        //QuadCenterVertex(dungeon, vertices, normals, obj);
     }
 
     public void Ceiling(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)

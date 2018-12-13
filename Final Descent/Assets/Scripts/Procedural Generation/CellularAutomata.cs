@@ -149,6 +149,7 @@ public class CellularAutomata : MonoBehaviour
         dungeon = new CellularDungeonLayer[height];
         ProjectTo3D();
         meshFilter.mesh = CreateMesh();
+        objectPlacer.Initialize();
         objectPlacer.Place(dungeon, vertices, vNormals);
     }
 
