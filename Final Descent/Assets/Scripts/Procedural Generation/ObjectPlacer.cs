@@ -52,6 +52,11 @@ public class ObjectPlacer : MonoBehaviour
 
     public void Update()
     {
+        /**
+        * Active and deactivate chunks based on the camera's frustum
+        * Far plane is reduced for calculations of a low view distance
+        * and then it's resetted back to it's original distance
+        */
         foreach (Chunk chunk in objectChunks.Values)
         {
             float farPlane = Camera.main.farClipPlane;
