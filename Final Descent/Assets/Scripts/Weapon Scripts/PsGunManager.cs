@@ -4,34 +4,42 @@ using UnityEngine;
 
 public class PsGunManager : MonoBehaviour
 {
-    private ParticleSystem system;
+    public ParticleSystem system, ultraSystem;
     private List<ParticleCollisionEvent> collisionEvents;
 
-    public bool canFire, isActive;
-    public int bulletsPerClick = 1;
-    public float fireRate = 0.45f; //segundos
+    public bool canFire, isActive, canUltraFire;
+    public int bulletsPerClick = 1, ultraBulletsPerClick = 1;
+    public float fireRate = 0.45f, ultrafireRate = 2f; //segundos
 
     // Use this for initialization
     void Start()
     {
-        isActive = this.GetComponentInChildren<MeshRenderer>().enabled;
+        isActive = this.GetComponent<MeshRenderer>().enabled;
 
         canFire = true;
-        system = this.gameObject.GetComponent<ParticleSystem>();
+        canUltraFire = true;
         collisionEvents = new List<ParticleCollisionEvent>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        isActive = this.GetComponentInChildren<MeshRenderer>().enabled;
+        isActive = this.GetComponent<MeshRenderer>().enabled;
 
         if (isActive)
+        {
             if (Input.GetButton("Fire1") && canFire)
             {
                 system.Emit(bulletsPerClick);
                 StartCoroutine(FireRateIE());
             }
+            else if (Input.GetButton("Fire2") && canUltraFire)
+            {
+                ultraSystem.Emit(ultraBulletsPerClick);
+                StartCoroutine(UltraFireRateIE());
+            }
+        }
+
     }
 
     public void OnParticleCollision(GameObject other)
@@ -72,5 +80,11 @@ public class PsGunManager : MonoBehaviour
         canFire = false;
         yield return new WaitForSeconds(fireRate);
         canFire = true;
+    }
+    IEnumerator UltraFireRateIE()
+    {
+        canUltraFire = false;
+        yield return new WaitForSeconds(ultrafireRate);
+        canUltraFire = true;
     }
 }

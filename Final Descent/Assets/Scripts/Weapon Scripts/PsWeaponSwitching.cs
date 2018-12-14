@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PsWeaponSwitching : MonoBehaviour
 {
-    public List<ParticleSystem> Weapons;
+    public List<MeshRenderer> Weapons;
 
     int previousWeapon, selectedWeapon;
 
@@ -13,11 +13,7 @@ public class PsWeaponSwitching : MonoBehaviour
     {
         selectedWeapon = 0;
 
-        foreach (ParticleSystem a in Weapons)
-        {
-            a.GetComponentInChildren<MeshRenderer>().enabled = false;
-        }
-        Weapons[selectedWeapon].GetComponentInChildren<MeshRenderer>().enabled = true;
+        SelectWeapon();
     }
 
     // Update is called once per frame
@@ -52,12 +48,12 @@ public class PsWeaponSwitching : MonoBehaviour
 
     void SelectWeapon()
     {
-        foreach (ParticleSystem a in Weapons)
+        foreach (MeshRenderer a in Weapons)
         {
-            a.GetComponentInChildren<MeshRenderer>().enabled = false;
+            a.enabled = false;
         }
 
-        Weapons[selectedWeapon].GetComponentInChildren<MeshRenderer>().enabled = true;
+        Weapons[selectedWeapon].enabled = true;
     }
 
 
