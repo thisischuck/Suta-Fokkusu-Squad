@@ -295,9 +295,19 @@ ModelImporter:
     4300106: Elevator1
     4300108: L_Elevator_Intaker
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text
+    second: {fileID: 2100000, guid: 696a54e0f810cd047a51cea1ead94b94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: anisotropic1
+    second: {fileID: 2100000, guid: 0a9338716ac17994bbb39908f7ad59a5, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0

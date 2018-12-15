@@ -9,9 +9,10 @@ TagManager:
   - PlayerPart
   - Gun
   - Water
-  - Tree
   - Ship
   - Dungeon
+  - Up
+  - Tree
   layers:
   - Default
   - TransparentFX
@@ -27,8 +28,8 @@ TagManager:
   - ParticleCollision
   - Player
   - Teste
-  - 
-  - 
+  - AboveWater
+  - BelowWater
   - 
   - 
   - 
