@@ -682,7 +682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1761263204389318
 GameObject:
   m_ObjectHideFlags: 1
@@ -1760,6 +1760,7 @@ MonoBehaviour:
   lives: 1
   shield: 0
   health: 200
+  base_maxHealth: 0
   invulnerabilityTime: 0
   invCount: 0
   IsInvulnerable: 0
@@ -1775,6 +1776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ea6ac27836de242ac2284f718c618f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThereAnything: 0
   Attacks:
   - Name: LaserAntenas
     Damage: 10
@@ -1792,6 +1794,7 @@ MonoBehaviour:
   DeathClip: Death
   Movement: Mvmnt
   Spawn: Spawn
+  enemyName: 
   animController: {fileID: 0}
   material: {fileID: 2100000, guid: 58c539dd4eeef874aa5b74b0a40d3bf8, type: 2}
   attackwingsLocation: {x: -5, y: 100, z: -30}

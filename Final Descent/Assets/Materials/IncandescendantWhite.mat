@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Water
-  m_Shader: {fileID: 4800000, guid: fb015cb333d69ab428182f55e75e4970, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_Name: IncandescendantWhite
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_ShaderKeywords: _EMISSION
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -54,26 +54,11 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_1CC29370_Texture:
-        m_Texture: {fileID: 2800000, guid: 55b58851d3f6bd8449d53c55ad2e1794, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_FF788386_Texture:
-        m_Texture: {fileID: 2800000, guid: 084e8629d9da46d42833c1f4d54b4365, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_221F90D6: 0.45
-    - Vector1_31AD8DCB: 8
-    - Vector1_360E8721: 0.03
-    - Vector1_633CD3A4: 1
-    - Vector1_BDC41CC3: 0.3
-    - Vector1_EA6F0032: 3.81
-    - Vector1_F0B6E0F8: 0.75
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -94,14 +79,7 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _streach: 0
     m_Colors:
-    - Color_95C626DF: {r: 0.081301175, g: 0.1981132, b: 0.18052104, a: 0}
-    - Color_C23916DF: {r: 0.1214845, g: 0.18338376, b: 0.24528301, a: 0}
-    - Vector2_73A9FF32: {r: 20, g: 20, b: 0, a: 0}
-    - Vector2_F04F4119: {r: 20, g: 20, b: 0, a: 0}
-    - Vector3_44E06D0C: {r: 0, g: 1, b: 0, a: 0}
-    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 3.9999995, g: 3.9999995, b: 3.9999995, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _point_of_bend: {r: 140.9542, g: 30, b: 219.97444, a: 0}
