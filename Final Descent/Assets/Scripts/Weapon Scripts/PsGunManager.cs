@@ -11,7 +11,7 @@ public class PsGunManager : MonoBehaviour
     public bool canFire, isActive, canUltraFire;
     private bool wasHoldingUltra;
     public int bulletsPerClick = 1, ultraBulletsPerClick = 1;
-    public float fireRate = 0.2f, ultrafireRate = 2f, ultraChargeRate = 5.0f; //segundos
+    public float fireRate = 0.2f, ultrafireRate = 2f, ultraChargeRate = 6.0f; //segundos
     private float ultraTimeCharged = 0.0f;
 
     // Use this for initialization
@@ -36,7 +36,7 @@ public class PsGunManager : MonoBehaviour
             {
                 if (bulletObject != null)
                 {
-                    GameObject obj = Instantiate(bulletObject, this.transform.position, Quaternion.identity);
+                    GameObject obj = Instantiate(bulletObject, this.transform.position + this.transform.forward, Quaternion.identity);
                     obj.GetComponent<LaserForward>().Velocity = this.transform.forward;
                 }
                 else
@@ -51,7 +51,7 @@ public class PsGunManager : MonoBehaviour
                 {
                     if (bulletObject != null)
                     {
-                        float scale = ultraTimeCharged * 3.0f;
+                        float scale = ultraTimeCharged * 5.0f;
                         GameObject obj = Instantiate(bulletObject, this.transform.position + (this.transform.forward * scale), Quaternion.identity);
                         obj.GetComponent<LaserForward>().Velocity = this.transform.forward;
                         obj.transform.localScale *= 1.0f + scale;
@@ -117,11 +117,6 @@ public class PsGunManager : MonoBehaviour
     {
         canUltraFire = false;
         yield return new WaitForSeconds(ultrafireRate);
-        canUltraFire = true;
-    }
-    IEnumerator ChargeUltraIE()
-    {
-        yield return new WaitForSeconds(ultraChargeRate);
         canUltraFire = true;
     }
 }
