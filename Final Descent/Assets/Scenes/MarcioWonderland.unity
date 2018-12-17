@@ -4971,6 +4971,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   system: {fileID: 0}
   ultraSystem: {fileID: 0}
+  ultraChargeSystem: {fileID: 0}
+  bulletObject: {fileID: 0}
   canFire: 0
   isActive: 0
   canUltraFire: 0
@@ -4978,6 +4980,7 @@ MonoBehaviour:
   ultraBulletsPerClick: 1
   fireRate: 0.45
   ultrafireRate: 2
+  ultraChargeRate: 5
 --- !u!1 &20530138
 GameObject:
   m_ObjectHideFlags: 0
@@ -7863,6 +7866,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 453677642}
   m_Mesh: {fileID: 4300022, guid: e98d5245d5f94af429f04e34af0bd964, type: 3}
+--- !u!1 &454922226 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1685116301992140, guid: 851deb4559d782244b902187f010f285,
+    type: 2}
+  m_PrefabInternal: {fileID: 4892922}
+--- !u!114 &454922231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 454922226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4dfae56c6da9342968e5e0f4117841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shield: {fileID: 2100000, guid: 4f8247dc09fb04e4ca27df0733b9910a, type: 2}
+  upTime: 0
+  fadeSpeed: 0
 --- !u!1 &468043274
 GameObject:
   m_ObjectHideFlags: 0
@@ -13139,6 +13161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   system: {fileID: 0}
   ultraSystem: {fileID: 0}
+  ultraChargeSystem: {fileID: 0}
+  bulletObject: {fileID: 0}
   canFire: 0
   isActive: 0
   canUltraFire: 0
@@ -13146,6 +13170,7 @@ MonoBehaviour:
   ultraBulletsPerClick: 1
   fireRate: 0.1
   ultrafireRate: 2
+  ultraChargeRate: 5
 --- !u!1001 &582883757
 Prefab:
   m_ObjectHideFlags: 0
@@ -17668,6 +17693,21 @@ Prefab:
     - target: {fileID: 4998603935742798, guid: 450ed247ae0bd9347bdd4caa9d7d154a, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114821659606368194, guid: 450ed247ae0bd9347bdd4caa9d7d154a,
+        type: 2}
+      propertyPath: objects.Array.data[56].SpawnRate
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114821659606368194, guid: 450ed247ae0bd9347bdd4caa9d7d154a,
+        type: 2}
+      propertyPath: objects.Array.data[3].SpawnRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114821659606368194, guid: 450ed247ae0bd9347bdd4caa9d7d154a,
+        type: 2}
+      propertyPath: maxSize
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 450ed247ae0bd9347bdd4caa9d7d154a, type: 2}
@@ -26182,6 +26222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   system: {fileID: 0}
   ultraSystem: {fileID: 0}
+  ultraChargeSystem: {fileID: 0}
+  bulletObject: {fileID: 0}
   canFire: 0
   isActive: 0
   canUltraFire: 0
@@ -26189,6 +26231,7 @@ MonoBehaviour:
   ultraBulletsPerClick: 1
   fireRate: 0.45
   ultrafireRate: 2
+  ultraChargeRate: 5
 --- !u!1 &1976841913
 GameObject:
   m_ObjectHideFlags: 0

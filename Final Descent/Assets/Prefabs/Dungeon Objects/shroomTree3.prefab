@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 135796854816391820}
   m_Layer: 14
   m_Name: shroomTree3
-  m_TagString: Untagged
+  m_TagString: Up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

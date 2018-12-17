@@ -23,11 +23,12 @@ public class ObjectPlacer : MonoBehaviour
     private Vector2 currentChunk;
     private Transform player;
     public GameObject obj;
-    int height;
+	public Transform water;
+	public float maxSize;
+	int height;
     int width;
     int length;
 	float waterHeight;
-	public Transform water;
 
     public void Initialize()
     {
@@ -137,9 +138,11 @@ public class ObjectPlacer : MonoBehaviour
         {
             GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f))); //buscar a normal do vertice para rotação 
             newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
-            if (newObj.tag != "Stalactite")
+			newObj.transform.localScale = Vector3.one * Random.Range(0, maxSize);
+			if (newObj.tag != "Stalactite")
                 newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
-            positionsUsed.Add(new Vector3(x, y, z), newObj);
+			newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
+			positionsUsed.Add(new Vector3(x, y, z), newObj);
         }
     }
 
@@ -163,7 +166,7 @@ public class ObjectPlacer : MonoBehaviour
 
     public void Wall(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
-		//if (o.GameObject.layer == LayerMask.NameToLayer("AboveWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y <= water.position.y) return;
+		if (o.GameObject.layer == LayerMask.NameToLayer("AboveWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y <= water.position.y) return;
 
 		float r = Random.Range(0.0f, 100.0f);
         if ((y != 0 && y != dungeon.Length - 1) && r > 100 - o.SpawnRate)

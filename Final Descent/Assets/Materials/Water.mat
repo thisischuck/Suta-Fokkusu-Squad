@@ -104,4 +104,8 @@ Material:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+<<<<<<< Updated upstream
     - _point_of_bend: {r: 140.9542, g: 30, b: 219.97444, a: 0}
+=======
+    - _point_of_bend: {r: 130.34506, g: 30, b: 33.702225, a: 0}
+>>>>>>> Stashed changes
