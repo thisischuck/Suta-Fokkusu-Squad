@@ -156,11 +156,12 @@ public class CellularAutomata : MonoBehaviour
         ProjectTo3D();
 
         MeshData data = CreateMesh();
-        meshFilter1.mesh = CreateTriangles(data, true);
+        meshFilter1.mesh = CreateTriangles(data, 0);
         meshFilter1.gameObject.GetComponent<MeshCollider>().sharedMesh = meshFilter1.mesh;
-        meshFilter2.mesh = CreateTriangles(data, false);
+        meshFilter2.mesh = CreateTriangles(data, 1);
         meshFilter2.gameObject.GetComponent<MeshCollider>().sharedMesh = meshFilter2.mesh;
-        vNormals = meshFilter1.mesh.normals;
+
+        vNormals = CreateTriangles(new MeshData(null, null, null), 2).normals;
 
         WaterGenerator waterGenerator = GetComponentInChildren<WaterGenerator>();
         if (waterGenerator != null)
@@ -227,14 +228,23 @@ public class CellularAutomata : MonoBehaviour
 
         RandomNoise(ref vertices);
         HeightNoise(ref vertices);
-        oldVertices = vertices;
+
+        /**
+        * Create copy of these vertices individually so it's not a reference
+        * These unoptimized vertices are needed for object placement
+        */
+        oldVertices = new Vector3[vertices.Length];
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            oldVertices[i] = new Vector3(vertices[i].x, vertices[i].y, vertices[i].z);
+        }
 
         MeshData data = ClearExtraVerts(vertices, uvs);
 
         return data;
     }
 
-    private Mesh CreateTriangles(MeshData data, bool mirror)
+    private Mesh CreateTriangles(MeshData data, int behaviour) //0 full mesh, 1 mirrored mesh, 2 dummy mesh
     {
         List<int> indices = new List<int>();
 
@@ -253,7 +263,7 @@ public class CellularAutomata : MonoBehaviour
                                 //Connect directly up
                                 if (dungeon[y].Cells[x, z + 1].isAlive && dungeon[y + 1].Cells[x, z + 1].isAlive && z != 0)
                                 {
-                                    if (mirror)
+                                    if (behaviour == 0 || behaviour == 2)
                                     {
                                         indices.Add(x + (z + 1) * width + y * width * length);
                                         indices.Add(x + z * width + y * width * length);
@@ -278,7 +288,7 @@ public class CellularAutomata : MonoBehaviour
                                 //Connect directly right
                                 if (dungeon[y].Cells[x + 1, z].isAlive && dungeon[y + 1].Cells[x + 1, z].isAlive && z != 0)
                                 {
-                                    if (mirror)
+                                    if (behaviour == 0 || behaviour == 2)
                                     {
                                         indices.Add(x + z * width + (y + 1) * width * length);
                                         indices.Add(x + z * width + y * width * length);
@@ -303,7 +313,7 @@ public class CellularAutomata : MonoBehaviour
                                 //Connect diagonally to right and down
                                 if (dungeon[y].Cells[x + 1, z + 1].isAlive && dungeon[y + 1].Cells[x + 1, z + 1].isAlive)
                                 {
-                                    if (mirror)
+                                    if (behaviour == 0 || behaviour == 2)
                                     {
                                         indices.Add(x + z * width + (y + 1) * width * length);
                                         indices.Add(x + z * width + y * width * length);
@@ -328,7 +338,7 @@ public class CellularAutomata : MonoBehaviour
                                 //Connect diagonally to right and up
                                 if (z != 0 && dungeon[y].Cells[x + 1, z - 1].isAlive && dungeon[y + 1].Cells[x + 1, z - 1].isAlive)
                                 {
-                                    if (mirror)
+                                    if (behaviour == 0 || behaviour == 2)
                                     {
                                         indices.Add(x + z * width + (y + 1) * width * length);
                                         indices.Add(x + z * width + y * width * length);
@@ -351,7 +361,7 @@ public class CellularAutomata : MonoBehaviour
 
                                 }
                             }
-                            if (mirror)
+                            if (behaviour == 0 || behaviour == 2)
                             {
                                 //Connect floor layer
                                 if (y == 0)
@@ -389,7 +399,7 @@ public class CellularAutomata : MonoBehaviour
                             }
                         }
                         //Connect ceilling layer
-                        else if (mirror)
+                        else if (behaviour == 0 || behaviour == 2)
                         {
                             indices.Add(x + z * width + y * width * length);
                             indices.Add(x + 1 + z * width + y * width * length);
@@ -400,7 +410,7 @@ public class CellularAutomata : MonoBehaviour
                             indices.Add(x + 1 + z * width + y * width * length);
                         }
                     }
-                    else if (y < height - 1 && mirror)
+                    else if (y < height - 1 && (behaviour == 0 || behaviour == 2))
                     {
                         //End off right side wall
                         if (x == width - 1 && z != length - 1)
@@ -428,15 +438,26 @@ public class CellularAutomata : MonoBehaviour
                 }
             }
         }
-        OptimizeIndices(ref data, indices);
 
         Mesh mesh = new Mesh();
-        mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
-        mesh.vertices = data.vertices;
-        mesh.SetUVs(0, new List<Vector3>(data.uvs));
-        mesh.SetTriangles(data.indices, 0);
-        mesh.RecalculateNormals();
-        mesh.name = "Mesh " + (mirror ? 1 : 2);
+
+        if (behaviour != 2)
+        {
+            OptimizeIndices(ref data, indices);
+
+            mesh.name = "Mesh " + (behaviour == 0 ? 1 : 2);
+            mesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32;
+            mesh.vertices = data.vertices;
+            mesh.SetUVs(0, new List<Vector3>(data.uvs));
+            mesh.SetTriangles(data.indices, 0);
+            mesh.RecalculateNormals();
+        }
+        else
+        {
+            mesh.vertices = oldVertices;
+            mesh.SetTriangles(indices, 0);
+            mesh.RecalculateNormals();
+        }
 
         return mesh;
     }

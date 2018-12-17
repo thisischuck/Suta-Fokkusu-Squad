@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PsGunManager : MonoBehaviour
 {
-    public ParticleSystem system, ultraSystem;
+    public ParticleSystem system, ultraSystem, ultraChargeSystem;
+    public GameObject bulletObject;
     private List<ParticleCollisionEvent> collisionEvents;
 
     public bool canFire, isActive, canUltraFire;
+    private bool wasHoldingUltra;
     public int bulletsPerClick = 1, ultraBulletsPerClick = 1;
-    public float fireRate = 0.45f, ultrafireRate = 2f; //segundos
+    public float fireRate = 0.2f, ultrafireRate = 2f, ultraChargeRate = 5.0f; //segundos
+    private float ultraTimeCharged = 0.0f;
 
     // Use this for initialization
     void Start()
@@ -18,6 +21,7 @@ public class PsGunManager : MonoBehaviour
 
         canFire = true;
         canUltraFire = true;
+        wasHoldingUltra = false;
         collisionEvents = new List<ParticleCollisionEvent>();
     }
 
@@ -30,16 +34,44 @@ public class PsGunManager : MonoBehaviour
         {
             if (Input.GetButton("Fire1") && canFire)
             {
-                system.Emit(bulletsPerClick);
+                if (bulletObject != null)
+                {
+                    GameObject obj = Instantiate(bulletObject, this.transform.position, Quaternion.identity);
+                    obj.GetComponent<LaserForward>().Velocity = this.transform.forward;
+                }
+                else
+                    system.Emit(bulletsPerClick);
                 StartCoroutine(FireRateIE());
             }
-            else if (Input.GetButton("Fire2") && canUltraFire)
+            else if (wasHoldingUltra && canUltraFire)
             {
-                ultraSystem.Emit(ultraBulletsPerClick);
+                if (ultraChargeSystem != null && !ultraChargeSystem.isPlaying)
+                    ultraChargeSystem.Play();
+                if (!Input.GetButton("Fire2") || ultraTimeCharged > ultraChargeRate)
+                {
+                    if (bulletObject != null)
+                    {
+                        float scale = ultraTimeCharged * 3.0f;
+                        GameObject obj = Instantiate(bulletObject, this.transform.position + (this.transform.forward * scale), Quaternion.identity);
+                        obj.GetComponent<LaserForward>().Velocity = this.transform.forward;
+                        obj.transform.localScale *= 1.0f + scale;
+                    }
+                    else
+                        ultraSystem.Emit(ultraBulletsPerClick);
+                    wasHoldingUltra = false;
+                    ultraTimeCharged = 0.0f;
+                    ultraChargeSystem.Stop();
+                    ultraChargeSystem.Clear();
+                }
                 StartCoroutine(UltraFireRateIE());
             }
         }
 
+        if (Input.GetButton("Fire2"))
+        {
+            wasHoldingUltra = true;
+            ultraTimeCharged += Time.deltaTime;
+        }
     }
 
     public void OnParticleCollision(GameObject other)
@@ -85,6 +117,11 @@ public class PsGunManager : MonoBehaviour
     {
         canUltraFire = false;
         yield return new WaitForSeconds(ultrafireRate);
+        canUltraFire = true;
+    }
+    IEnumerator ChargeUltraIE()
+    {
+        yield return new WaitForSeconds(ultraChargeRate);
         canUltraFire = true;
     }
 }
