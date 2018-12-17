@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507794213195706}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6367606, y: -5.1074324, z: 3.3776042}
+  m_LocalPosition: {x: -15.390007, y: 42.913982, z: 5.534685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,11 +95,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507794213195706}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3401267, y: 0.28537393, z: 1.6569428}
-  m_Center: {x: 0, y: 0, z: 0.43871498}
+  m_Size: {x: 0.3401267, y: 0.28537393, z: 2.5343726}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &114156817307191512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   secondsToDeath: 10
   Velocity: {x: 0, y: 0, z: 0}
-  Speed: 40
+  Speed: 30
 --- !u!198 &198470845020149186
 ParticleSystem:
   m_ObjectHideFlags: 1
