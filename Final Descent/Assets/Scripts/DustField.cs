@@ -5,8 +5,8 @@ using UnityEngine;
 public class DustField : MonoBehaviour
 {
     public Transform target;
-    ParticleSystem.Particle[] points;
-    public ParticleSystem particleSystem;
+    ParticleSystem.Particle[] particles;
+    private ParticleSystem ps;
 
     public Gradient particleColorGradient;
 
@@ -20,45 +20,33 @@ public class DustField : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		ps = GetComponent<ParticleSystem>();
         starDistanceSqr = starDistance * starDistance;
         starClipDistanceSqr = starClipDistance * starClipDistance;
-
-        /*var no = particleSystem.noise;
-        no.enabled = true;
-        no.strength = 1.0f;
-        no.quality = ParticleSystemNoiseQuality.High;*/
-    }
-
-    void CreateStars()
-    {
-        points = new ParticleSystem.Particle[starMax];
-
-        for (int i = 0; i < starMax; i++)
-        {
-            points[i].position = Random.insideUnitSphere * starDistance + target.position;
-            points[i].startColor = particleColorGradient.Evaluate(Random.Range(0f, 1f));
-            points[i].startSize = starSize;
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (points == null)
-            CreateStars();
+		particles = new ParticleSystem.Particle[ps.particleCount];
+		ps.GetParticles(particles);
 
-        for (int i = 0; i < starMax; i++)
+		for (int i = 0; i < particles.Length; i++)
         {
-            if ((points[i].position - target.position).sqrMagnitude > starDistanceSqr)
-                points[i].position = Random.insideUnitSphere * starDistance + target.position;
+			ParticleSystem.Particle p = particles[i];
 
-            if ((points[i].position - target.position).sqrMagnitude <= starClipDistanceSqr)
+			if ((p.position - target.position).sqrMagnitude > starDistanceSqr)
+                p.position = Random.insideUnitSphere * starDistance + target.position;
+
+            if ((p.position - target.position).sqrMagnitude <= starClipDistanceSqr)
             {
-                float percent = (points[i].position - target.position).sqrMagnitude / starClipDistanceSqr;
-                points[i].startSize = percent * starSize;
-                points[i].startColor = particleColorGradient.Evaluate(Random.Range(0f, 1f));
+                float percent = (p.position - target.position).sqrMagnitude / starClipDistanceSqr;
+                p.startSize = percent * starSize;
+                p.startColor = particleColorGradient.Evaluate(Random.Range(0f, 1f));
             }
+
+			particles[i] = p;
         }
-        particleSystem.SetParticles(points, points.Length);
+        ps.SetParticles(particles, particles.Length);
     }
 }

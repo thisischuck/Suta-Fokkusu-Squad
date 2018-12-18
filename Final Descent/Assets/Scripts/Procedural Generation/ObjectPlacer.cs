@@ -23,14 +23,18 @@ public class ObjectPlacer : MonoBehaviour
     private Vector2 currentChunk;
     private Transform player;
     public GameObject obj;
-    int height;
+	public Transform water;
+	public float maxSize;
+	int height;
     int width;
     int length;
+	float waterHeight;
 
-    public void Start()
+    public void Initialize()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         cellular = GetComponent<CellularAutomata>();
+		//waterHeight = GameObject.Find("Water").transform.position.y;
         objectChunks = new Dictionary<Vector2, Chunk>();
         for (float z = 0; z < cellular.length * cellular.spacing; z += chunkSizeZ)
         {
@@ -52,16 +56,13 @@ public class ObjectPlacer : MonoBehaviour
 
     public void Update()
     {
+        /**
+        * Active and deactivate chunks based on the camera's frustum
+        * Far plane is reduced for calculations of a low view distance
+        * and then it's resetted back to it's original distance
+        */
         foreach (Chunk chunk in objectChunks.Values)
         {
-            /*float distanceFromChunk = Vector2.Distance(new Vector2(player.position.x, player.position.z), 
-                new Vector2(chunk.transform.position.x, chunk.transform.position.z)); 
-            bool inRange = distanceFromChunk <= chunkRenderDistance;*/
-
-            //chunk.SetActive(inRange); 
-            /*Vector3 screenPoint = Camera.main.WorldToViewportPoint(chunk.gameObject.transform.position); 
-            bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1; 
-            chunk.gameObject.SetActive(onScreen);*/
             float farPlane = Camera.main.farClipPlane;
             Camera.main.farClipPlane = chunkRenderDistance;
             Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
@@ -91,63 +92,73 @@ public class ObjectPlacer : MonoBehaviour
                                 Mathf.FloorToInt(z * cellular.spacing / chunkSizeZ) * chunkSizeZ);
                             switch (o.Place)
                             {
-                                case Location.CEILING:
-                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
-                                    break;
-                                case Location.FLOOR:
-                                    Floor(dungeon, vertices, normals, x, y, z, o);
-                                    break;
-                                case Location.WALL:
-                                    Wall(dungeon, vertices, normals, x, y, z, o);
-                                    break;
-                                case Location.CEILING_AND_WALL:
-                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
-                                    Wall(dungeon, vertices, normals, x, y, z, o);
-                                    break;
-                                case Location.FLOOR_AND_WALL:
-                                    Floor(dungeon, vertices, normals, x, y, z, o);
-                                    Wall(dungeon, vertices, normals, x, y, z, o);
-                                    break;
-                                case Location.FLOOR_AND_CEILING:
-                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
-                                    Floor(dungeon, vertices, normals, x, y, z, o);
-                                    break;
-                                case Location.ALL:
-                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
-                                    Floor(dungeon, vertices, normals, x, y, z, o);
-                                    Wall(dungeon, vertices, normals, x, y, z, o);
-                                    break;
-                            }
+								case Location.CEILING:
+									Ceiling(dungeon, vertices, normals, x, y, z, o);
+									break;
+								case Location.FLOOR:
+									Floor(dungeon, vertices, normals, x, y, z, o);
+									break;
+								case Location.WALL:
+									Wall(dungeon, vertices, normals, x, y, z, o);
+									break;
+								case Location.CEILING_AND_WALL:
+									Ceiling(dungeon, vertices, normals, x, y, z, o);
+									Wall(dungeon, vertices, normals, x, y, z, o);
+									break;
+								case Location.FLOOR_AND_WALL:
+
+									Floor(dungeon, vertices, normals, x, y, z, o);
+									Wall(dungeon, vertices, normals, x, y, z, o);
+									break;
+								case Location.FLOOR_AND_CEILING:
+									Ceiling(dungeon, vertices, normals, x, y, z, o);
+									Floor(dungeon, vertices, normals, x, y, z, o);
+									break;
+								case Location.ALL:
+									Ceiling(dungeon, vertices, normals, x, y, z, o);
+									Floor(dungeon, vertices, normals, x, y, z, o);
+									Wall(dungeon, vertices, normals, x, y, z, o);
+									break;
+							}
                         }
                     }
                 }
             }
         }
 
-        QuadCenterVertex(dungeon, vertices, normals, obj);
+        //QuadCenterVertex(dungeon, vertices, normals, obj);
     }
 
     public void Ceiling(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
-    {
-        float r = Random.Range(0.0f, 100.0f);
+	{
+		//if (!dungeon[y].Cells[x, z].hasVisited) return;
+
+		float r = Random.Range(0.0f, 100.0f);
         if (y == dungeon.Length - 1 && r > 100 - o.SpawnRate)
         {
             GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f))); //buscar a normal do vertice para rotação 
             newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
-            if (newObj.tag != "Stalactite")
+			newObj.transform.localScale = Vector3.one * Random.Range(0, maxSize);
+			if (newObj.tag != "Stalactite")
                 newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
-            positionsUsed.Add(new Vector3(x, y, z), newObj);
+			newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
+			positionsUsed.Add(new Vector3(x, y, z), newObj);
         }
     }
 
     public void Floor(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
-        float r = Random.Range(0.0f, 100.0f);
+		//if (!dungeon[y].Cells[x, z].hasVisited) return;
+
+		if (o.GameObject.layer == LayerMask.NameToLayer("AboveWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y <= water.position.y ||
+			o.GameObject.layer == LayerMask.NameToLayer("BelowWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y > water.position.y) return;
+
+		float r = Random.Range(0.0f, 100.0f);
         if (y == 0 && r > 100 - o.SpawnRate)
         {
             GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
-            if (newObj.tag != "Tree")
+            if (newObj.tag != "Up")
                 newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
             positionsUsed.Add(new Vector3(x, y, z), newObj);
         }
@@ -155,12 +166,14 @@ public class ObjectPlacer : MonoBehaviour
 
     public void Wall(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
-        float r = Random.Range(0.0f, 100.0f);
+		if (o.GameObject.layer == LayerMask.NameToLayer("AboveWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y <= water.position.y) return;
+
+		float r = Random.Range(0.0f, 100.0f);
         if ((y != 0 && y != dungeon.Length - 1) && r > 100 - o.SpawnRate)
         {
             GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
-            if (newObj.tag != "Tree")
+            if (newObj.tag != "Up")
                 newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
             positionsUsed.Add(new Vector3(x, y, z), newObj);
         }

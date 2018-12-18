@@ -10,7 +10,6 @@ public class Pathfinder
     private int range;
     private CellularDungeonLayer dungeonLayer, dungeonCopy;
     public bool isfinished;
-    public float maxY;
     //PathFinding to see if you can finish the game. Returns a spawnPoint and a endPoint
 
     public Vector2 SpawnPoint
@@ -62,31 +61,17 @@ public class Pathfinder
         Right, Left, Up, Down
     }
 
-    public bool FindAllVisited()
-    {
-        for (int x = 0; x < width; x++)
-            for (int y = 0; y < width; y++)
-            {
-                if (!dungeonLayer.Cells[x, y].hasVisited)
-                {
-                    return false;
-                }
-            }
-        return true;
-    }
-
-
     List<Move> NextPossibleMoves(int xPos, int yPos)
     {
         List<Move> moveList = new List<Move>();
+        for (int y = -1; y <= 1; y++)
+            for (int x = -1; x <= 1; x++)
 
-        for (int x = -1; x <= 1; x++)
-            for (int y = -1; y <= 1; y++)
             {
                 if (x == y || x == -y)
                     continue;
-                if (xPos + x >= 0 && xPos + x < width - 1)
-                    if (yPos + y >= 0 && yPos + y < height - 1)
+                if (xPos + x > 0 && xPos + x < width - 1)
+                    if (yPos + y > 0 && yPos + y < height - 1)
                         if (!dungeonLayer.Cells[xPos + x, yPos + y].hasVisited)
                         {
                             if (x == 0)
@@ -109,7 +94,7 @@ public class Pathfinder
 
     Vector2 ApplyMovement(Vector2 currentPoint, Move move)
     {
-        Vector2 tmp = currentPoint;
+        Vector2 tmp = new Vector2(currentPoint.x, currentPoint.y);
         switch (move)
         {
             case Move.Right:
@@ -131,8 +116,6 @@ public class Pathfinder
     bool RecursiveFindEnd(Vector2 spawnPoint, out Vector2 endPoint)
     {
         Vector2 current = spawnPoint;
-        if (spawnPoint.y > maxY)
-            maxY = spawnPoint.y;
 
         if (current.y >= height - range)
         {
@@ -201,5 +184,41 @@ public class Pathfinder
 
         endPoint = currentPoint;
         return true;
+    }
+
+    public void ClearAndFill()
+    {
+        for (int x = 0; x < width; x++)
+            for (int y = 0; y < height; y++)
+                if (!dungeonLayer.Cells[x, y].isAlive)
+                    dungeonLayer.Cells[x, y].hasVisited = false;
+
+        //Vector2 end = new Vector2(-1, -1);
+        FillRecursive(spawnPoint);
+    }
+
+    bool FillRecursive(Vector2 spawnPoint)
+    {
+        Vector2 current = new Vector2(spawnPoint.x, spawnPoint.y);
+
+        int x = (int)current.x;
+        int y = (int)current.y;
+
+        if (dungeonLayer.Cells[x, y].hasVisited)
+            return false;
+
+        dungeonLayer.Cells[x, y].hasVisited = true;
+
+        List<Move> moves = NextPossibleMoves(x, y);
+
+        foreach (Move tmp in moves)
+        {
+            Vector2 tmpVector;
+            tmpVector = ApplyMovement(current, tmp);
+            FillRecursive(tmpVector);
+        }
+
+        moves.Clear();
+        return false;
     }
 }

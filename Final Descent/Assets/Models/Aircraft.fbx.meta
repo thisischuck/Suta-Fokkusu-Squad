@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e02eefa3e8bcf24799288fbe5eafa03
+guid: 524738f90f590e34f9f6c17e1d8bfaab
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -7,209 +7,238 @@ ModelImporter:
     100002: BaseShip
     100004: BaseShip2
     100006: Elevator
-    100008: Intakers_Elevators
-    100010: Intakes
-    100012: L_Blades
-    100014: L_Blades 1
-    100016: L_Turbine
-    100018: L_Wing
-    100020: pCube10
-    100022: pCube10 1
-    100024: pCube11
-    100026: pCube11 1
-    100028: pCube12
-    100030: pCube12 1
-    100032: pCube13
-    100034: pCube13 1
-    100036: pCube14
-    100038: pCube14 1
-    100040: pCube15
-    100042: pCube15 1
-    100044: pCube16
-    100046: pCube16 1
-    100048: pCube17
-    100050: pCube17 1
-    100052: pCube18
-    100054: pCube18 1
-    100056: pCube19
-    100058: pCube19 1
-    100060: pCube2
-    100062: pCube2 1
-    100064: pCube20
-    100066: pCube20 1
-    100068: pCube3
-    100070: pCube3 1
-    100072: pCube4
-    100074: pCube4 1
-    100076: pCube5
-    100078: pCube5 1
-    100080: pCube6
-    100082: pCube6 1
-    100084: pCube7
-    100086: pCube7 1
-    100088: pCube8
-    100090: pCube8 1
-    100092: pCube9
-    100094: pCube9 1
-    100096: pTorus1
-    100098: pTorus1 1
-    100100: R_Center
-    100102: R_Center 1
-    100104: R_Turbine
-    100106: R_Wing
+    100008: Elevator1
+    100010: Elevators
+    100012: Intaker_elevators
+    100014: Intakes
+    100016: L_Blades
+    100018: L_Blades 1
+    100020: L_Elevator
+    100022: L_Elevator 1
+    100024: L_Elevator_Intaker
+    100026: L_Turbine
+    100028: L_Wing
+    100030: pCube10
+    100032: pCube10 1
+    100034: pCube11
+    100036: pCube11 1
+    100038: pCube12
+    100040: pCube12 1
+    100042: pCube13
+    100044: pCube13 1
+    100046: pCube14
+    100048: pCube14 1
+    100050: pCube15
+    100052: pCube15 1
+    100054: pCube16
+    100056: pCube16 1
+    100058: pCube17
+    100060: pCube17 1
+    100062: pCube18
+    100064: pCube18 1
+    100066: pCube19
+    100068: pCube19 1
+    100070: pCube2
+    100072: pCube2 1
+    100074: pCube20
+    100076: pCube20 1
+    100078: pCube3
+    100080: pCube3 1
+    100082: pCube4
+    100084: pCube4 1
+    100086: pCube5
+    100088: pCube5 1
+    100090: pCube6
+    100092: pCube6 1
+    100094: pCube7
+    100096: pCube7 1
+    100098: pCube8
+    100100: pCube8 1
+    100102: pCube9
+    100104: pCube9 1
+    100106: pTorus1
+    100108: pTorus1 1
+    100110: R_Center
+    100112: R_Center 1
+    100114: R_Elevator
+    100116: R_Elevator 1
+    100118: R_Elevator_Intaker
+    100120: R_Turbine
+    100122: R_Wing
     400000: //RootNode
     400002: BaseShip
     400004: BaseShip2
     400006: Elevator
-    400008: Intakers_Elevators
-    400010: Intakes
-    400012: L_Blades
-    400014: L_Blades 1
-    400016: L_Turbine
-    400018: L_Wing
-    400020: pCube10
-    400022: pCube10 1
-    400024: pCube11
-    400026: pCube11 1
-    400028: pCube12
-    400030: pCube12 1
-    400032: pCube13
-    400034: pCube13 1
-    400036: pCube14
-    400038: pCube14 1
-    400040: pCube15
-    400042: pCube15 1
-    400044: pCube16
-    400046: pCube16 1
-    400048: pCube17
-    400050: pCube17 1
-    400052: pCube18
-    400054: pCube18 1
-    400056: pCube19
-    400058: pCube19 1
-    400060: pCube2
-    400062: pCube2 1
-    400064: pCube20
-    400066: pCube20 1
-    400068: pCube3
-    400070: pCube3 1
-    400072: pCube4
-    400074: pCube4 1
-    400076: pCube5
-    400078: pCube5 1
-    400080: pCube6
-    400082: pCube6 1
-    400084: pCube7
-    400086: pCube7 1
-    400088: pCube8
-    400090: pCube8 1
-    400092: pCube9
-    400094: pCube9 1
-    400096: pTorus1
-    400098: pTorus1 1
-    400100: R_Center
-    400102: R_Center 1
-    400104: R_Turbine
-    400106: R_Wing
+    400008: Elevator1
+    400010: Elevators
+    400012: Intaker_elevators
+    400014: Intakes
+    400016: L_Blades
+    400018: L_Blades 1
+    400020: L_Elevator
+    400022: L_Elevator 1
+    400024: L_Elevator_Intaker
+    400026: L_Turbine
+    400028: L_Wing
+    400030: pCube10
+    400032: pCube10 1
+    400034: pCube11
+    400036: pCube11 1
+    400038: pCube12
+    400040: pCube12 1
+    400042: pCube13
+    400044: pCube13 1
+    400046: pCube14
+    400048: pCube14 1
+    400050: pCube15
+    400052: pCube15 1
+    400054: pCube16
+    400056: pCube16 1
+    400058: pCube17
+    400060: pCube17 1
+    400062: pCube18
+    400064: pCube18 1
+    400066: pCube19
+    400068: pCube19 1
+    400070: pCube2
+    400072: pCube2 1
+    400074: pCube20
+    400076: pCube20 1
+    400078: pCube3
+    400080: pCube3 1
+    400082: pCube4
+    400084: pCube4 1
+    400086: pCube5
+    400088: pCube5 1
+    400090: pCube6
+    400092: pCube6 1
+    400094: pCube7
+    400096: pCube7 1
+    400098: pCube8
+    400100: pCube8 1
+    400102: pCube9
+    400104: pCube9 1
+    400106: pTorus1
+    400108: pTorus1 1
+    400110: R_Center
+    400112: R_Center 1
+    400114: R_Elevator
+    400116: R_Elevator 1
+    400118: R_Elevator_Intaker
+    400120: R_Turbine
+    400122: R_Wing
     2100000: Text
+    2100002: anisotropic1
     2300000: BaseShip
     2300002: BaseShip2
     2300004: Elevator
-    2300006: Intakers_Elevators
+    2300006: Elevator1
     2300008: Intakes
-    2300010: L_Wing
-    2300012: pCube10
-    2300014: pCube10 1
-    2300016: pCube11
-    2300018: pCube11 1
-    2300020: pCube12
-    2300022: pCube12 1
-    2300024: pCube13
-    2300026: pCube13 1
-    2300028: pCube14
-    2300030: pCube14 1
-    2300032: pCube15
-    2300034: pCube15 1
-    2300036: pCube16
-    2300038: pCube16 1
-    2300040: pCube17
-    2300042: pCube17 1
-    2300044: pCube18
-    2300046: pCube18 1
-    2300048: pCube19
-    2300050: pCube19 1
-    2300052: pCube2
-    2300054: pCube2 1
-    2300056: pCube20
-    2300058: pCube20 1
-    2300060: pCube3
-    2300062: pCube3 1
-    2300064: pCube4
-    2300066: pCube4 1
-    2300068: pCube5
-    2300070: pCube5 1
-    2300072: pCube6
-    2300074: pCube6 1
-    2300076: pCube7
-    2300078: pCube7 1
-    2300080: pCube8
-    2300082: pCube8 1
-    2300084: pCube9
-    2300086: pCube9 1
-    2300088: pTorus1
-    2300090: pTorus1 1
-    2300092: R_Center
-    2300094: R_Center 1
-    2300096: R_Wing
+    2300010: L_Elevator
+    2300012: L_Elevator 1
+    2300014: L_Elevator_Intaker
+    2300016: L_Wing
+    2300018: pCube10
+    2300020: pCube10 1
+    2300022: pCube11
+    2300024: pCube11 1
+    2300026: pCube12
+    2300028: pCube12 1
+    2300030: pCube13
+    2300032: pCube13 1
+    2300034: pCube14
+    2300036: pCube14 1
+    2300038: pCube15
+    2300040: pCube15 1
+    2300042: pCube16
+    2300044: pCube16 1
+    2300046: pCube17
+    2300048: pCube17 1
+    2300050: pCube18
+    2300052: pCube18 1
+    2300054: pCube19
+    2300056: pCube19 1
+    2300058: pCube2
+    2300060: pCube2 1
+    2300062: pCube20
+    2300064: pCube20 1
+    2300066: pCube3
+    2300068: pCube3 1
+    2300070: pCube4
+    2300072: pCube4 1
+    2300074: pCube5
+    2300076: pCube5 1
+    2300078: pCube6
+    2300080: pCube6 1
+    2300082: pCube7
+    2300084: pCube7 1
+    2300086: pCube8
+    2300088: pCube8 1
+    2300090: pCube9
+    2300092: pCube9 1
+    2300094: pTorus1
+    2300096: pTorus1 1
+    2300098: R_Center
+    2300100: R_Center 1
+    2300102: R_Elevator
+    2300104: R_Elevator 1
+    2300106: R_Elevator_Intaker
+    2300108: R_Wing
     3300000: BaseShip
     3300002: BaseShip2
     3300004: Elevator
-    3300006: Intakers_Elevators
+    3300006: Elevator1
     3300008: Intakes
-    3300010: L_Wing
-    3300012: pCube10
-    3300014: pCube10 1
-    3300016: pCube11
-    3300018: pCube11 1
-    3300020: pCube12
-    3300022: pCube12 1
-    3300024: pCube13
-    3300026: pCube13 1
-    3300028: pCube14
-    3300030: pCube14 1
-    3300032: pCube15
-    3300034: pCube15 1
-    3300036: pCube16
-    3300038: pCube16 1
-    3300040: pCube17
-    3300042: pCube17 1
-    3300044: pCube18
-    3300046: pCube18 1
-    3300048: pCube19
-    3300050: pCube19 1
-    3300052: pCube2
-    3300054: pCube2 1
-    3300056: pCube20
-    3300058: pCube20 1
-    3300060: pCube3
-    3300062: pCube3 1
-    3300064: pCube4
-    3300066: pCube4 1
-    3300068: pCube5
-    3300070: pCube5 1
-    3300072: pCube6
-    3300074: pCube6 1
-    3300076: pCube7
-    3300078: pCube7 1
-    3300080: pCube8
-    3300082: pCube8 1
-    3300084: pCube9
-    3300086: pCube9 1
-    3300088: pTorus1
-    3300090: pTorus1 1
-    3300092: R_Center
-    3300094: R_Center 1
-    3300096: R_Wing
+    3300010: L_Elevator
+    3300012: L_Elevator 1
+    3300014: L_Elevator_Intaker
+    3300016: L_Wing
+    3300018: pCube10
+    3300020: pCube10 1
+    3300022: pCube11
+    3300024: pCube11 1
+    3300026: pCube12
+    3300028: pCube12 1
+    3300030: pCube13
+    3300032: pCube13 1
+    3300034: pCube14
+    3300036: pCube14 1
+    3300038: pCube15
+    3300040: pCube15 1
+    3300042: pCube16
+    3300044: pCube16 1
+    3300046: pCube17
+    3300048: pCube17 1
+    3300050: pCube18
+    3300052: pCube18 1
+    3300054: pCube19
+    3300056: pCube19 1
+    3300058: pCube2
+    3300060: pCube2 1
+    3300062: pCube20
+    3300064: pCube20 1
+    3300066: pCube3
+    3300068: pCube3 1
+    3300070: pCube4
+    3300072: pCube4 1
+    3300074: pCube5
+    3300076: pCube5 1
+    3300078: pCube6
+    3300080: pCube6 1
+    3300082: pCube7
+    3300084: pCube7 1
+    3300086: pCube8
+    3300088: pCube8 1
+    3300090: pCube9
+    3300092: pCube9 1
+    3300094: pTorus1
+    3300096: pTorus1 1
+    3300098: R_Center
+    3300100: R_Center 1
+    3300102: R_Elevator
+    3300104: R_Elevator 1
+    3300106: R_Elevator_Intaker
+    3300108: R_Wing
     4300000: BaseShip
     4300002: Intakes
     4300004: L_Wing
@@ -235,7 +264,7 @@ ModelImporter:
     4300044: pCube19
     4300046: pCube20
     4300048: Elevator
-    4300050: Intakers_Elevators
+    4300050: R_Elevator_Intaker
     4300052: R_Center
     4300054: pTorus1
     4300056: pCube2
@@ -259,62 +288,29 @@ ModelImporter:
     4300092: pCube20
     4300094: BaseShip2
     4300096: R_Wing
-    6400000: BaseShip
-    6400002: BaseShip2
-    6400004: Elevator
-    6400006: Intakers_Elevators
-    6400008: Intakes
-    6400010: L_Wing
-    6400012: pCube10
-    6400014: pCube10 1
-    6400016: pCube11
-    6400018: pCube11 1
-    6400020: pCube12
-    6400022: pCube12 1
-    6400024: pCube13
-    6400026: pCube13 1
-    6400028: pCube14
-    6400030: pCube14 1
-    6400032: pCube15
-    6400034: pCube15 1
-    6400036: pCube16
-    6400038: pCube16 1
-    6400040: pCube17
-    6400042: pCube17 1
-    6400044: pCube18
-    6400046: pCube18 1
-    6400048: pCube19
-    6400050: pCube19 1
-    6400052: pCube2
-    6400054: pCube2 1
-    6400056: pCube20
-    6400058: pCube20 1
-    6400060: pCube3
-    6400062: pCube3 1
-    6400064: pCube4
-    6400066: pCube4 1
-    6400068: pCube5
-    6400070: pCube5 1
-    6400072: pCube6
-    6400074: pCube6 1
-    6400076: pCube7
-    6400078: pCube7 1
-    6400080: pCube8
-    6400082: pCube8 1
-    6400084: pCube9
-    6400086: pCube9 1
-    6400088: pTorus1
-    6400090: pTorus1 1
-    6400092: R_Center
-    6400094: R_Center 1
-    6400096: R_Wing
+    4300098: L_Elevator
+    4300100: R_Elevator
+    4300102: L_Elevator
+    4300104: R_Elevator
+    4300106: Elevator1
+    4300108: L_Elevator_Intaker
     2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Text
+    second: {fileID: 2100000, guid: 10aa8d332baa7be468855e86e6cfcc10, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: anisotropic1
+    second: {fileID: 2100000, guid: 9a33128429d22f24fb8f2ea38f219056, type: 2}
   materials:
     importMaterials: 0
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -342,7 +338,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 100
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1

@@ -41,9 +41,14 @@ ModelImporter:
     4300008: pSphere3
     4300010: pSphere5
     4300012: pSphere6
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LifepodText
+    second: {fileID: 2100000, guid: 98bdf66ab25faaa4385438a3172c3e5d, type: 2}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 0
