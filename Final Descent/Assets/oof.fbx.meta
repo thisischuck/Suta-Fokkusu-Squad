@@ -1,90 +1,14 @@
 fileFormatVersion: 2
-guid: 9a2afbf898d41e345ad9eb3840c85646
+guid: 556ba6a6e3521284abe762251715d69d
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: group1
-    100002: group2
-    100004: pDisc1
-    100006: pDisc10
-    100008: pDisc11
-    100010: pDisc12
-    100012: pDisc13
-    100014: pDisc14
-    100016: pDisc15
-    100018: pDisc16
-    100020: pDisc2
-    100022: pDisc3
-    100024: pDisc4
-    100026: pDisc5
-    100028: pDisc6
-    100030: pDisc7
-    100032: pDisc8
-    100034: pDisc9
-    100036: pPlane1
-    100038: pSphere1
-    100040: //RootNode
-    100042: transform1
-    100044: transform10
-    100046: transform11
-    100048: transform12
-    100050: transform13
-    100052: transform14
-    100054: transform15
-    100056: transform16
-    100058: transform17
-    100060: transform18
-    100062: transform2
-    100064: transform3
-    100066: transform4
-    100068: transform5
-    100070: transform6
-    100072: transform7
-    100074: transform8
-    100076: transform9
-    400000: group1
-    400002: group2
-    400004: pDisc1
-    400006: pDisc10
-    400008: pDisc11
-    400010: pDisc12
-    400012: pDisc13
-    400014: pDisc14
-    400016: pDisc15
-    400018: pDisc16
-    400020: pDisc2
-    400022: pDisc3
-    400024: pDisc4
-    400026: pDisc5
-    400028: pDisc6
-    400030: pDisc7
-    400032: pDisc8
-    400034: pDisc9
-    400036: pPlane1
-    400038: pSphere1
-    400040: //RootNode
-    400042: transform1
-    400044: transform10
-    400046: transform11
-    400048: transform12
-    400050: transform13
-    400052: transform14
-    400054: transform15
-    400056: transform16
-    400058: transform17
-    400060: transform18
-    400062: transform2
-    400064: transform3
-    400066: transform4
-    400068: transform5
-    400070: transform6
-    400072: transform7
-    400074: transform8
-    400076: transform9
+    100000: //RootNode
+    400000: //RootNode
     2100000: lambert1
-    2300000: group2
-    3300000: group2
-    4300000: group2
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pCube1
   externalObjects: {}
   materials:
     importMaterials: 1

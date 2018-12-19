@@ -20,7 +20,7 @@ public class ShipRotation : MonoBehaviour {
         {
             rotZ += (angleZ / (duration / Time.smoothDeltaTime));
 
-            Debug.Log(rotZ);
+            //Debug.Log(rotZ);
             aux = Mathf.Sign(angleZ);
 
             switch ((int)aux) //Checks if the angle is negative or positive

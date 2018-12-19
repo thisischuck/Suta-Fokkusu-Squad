@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: New Material 1
-  m_Shader: {fileID: 4800000, guid: 82c4c9a9bf25903478879bf4400d5520, type: 3}
+  m_Name: crystal 1
+  m_Shader: {fileID: 4800000, guid: a75ed11e70dbf954aa90e8dd69d91e37, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -18,16 +18,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_295C14F4:
-        m_Texture: {fileID: 2800000, guid: d2fb1212bc0be6d41a532235bc5f3626, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_3F2F487B:
-        m_Texture: {fileID: 2800000, guid: c141f1fdfefe7f246b2c4afae276dd4e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_DEA0CE94:
-        m_Texture: {fileID: 2800000, guid: 10b966b9556b79c4996836f33adbe3ac, type: 3}
+    - Texture2D_CF49357F:
+        m_Texture: {fileID: 2800000, guid: bdf746f75cfbbe646aa2943326b7bbc5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -51,15 +43,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 63dfcc842ce111d47b824ef22ac98669, type: 3}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalCreate_11156983_Texture:
-        m_Texture: {fileID: 2800000, guid: f92e59cf870d90b40bfe45ff690f096c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -75,9 +63,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_38AF606D: 6
-    - Vector1_86F9415A: 0.4
-    - Vector1_8A8C9BAB: 1
+    - Vector1_CC4E8A65: 0.2
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -88,7 +74,6 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _InvFade: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -100,7 +85,6 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _TintColor: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
