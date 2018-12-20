@@ -30,7 +30,7 @@ public class ShipPart : MonoBehaviour {
     private Vector3 explosionPos;
     private Quaternion explosionRot;
     public float speed = .2f;
-    public bool onPlace = true;
+	public bool onPlace = true, defDeath = false;
     public float timeStartRepair = 0;
 
 	// Use this for initialization
@@ -47,7 +47,7 @@ public class ShipPart : MonoBehaviour {
             gravity += 2f * Time.deltaTime; //Gravity
             Rotate(Random.Range(5,15)); //Rotates
         }
-        if (!onPlace && Time.time >= timeStartRepair)
+        if (!onPlace && Time.time >= timeStartRepair && !defDeath)
         {
             explode = false;
             if (!AssemblyComplete())

@@ -5,7 +5,7 @@ using UnityEngine;
 public class PsGunManager : MonoBehaviour
 {
     public ParticleSystem system, ultraSystem, ultraChargeSystem;
-    public GameObject bulletObject;
+	public GameObject fireObject, ultraObject;
     private List<ParticleCollisionEvent> collisionEvents;
 
     public bool canFire, isActive, canUltraFire;
@@ -64,13 +64,15 @@ public class PsGunManager : MonoBehaviour
 		}
 	}
 
+
+
 	private void Weapon1()
 	{
 		if (Input.GetButton("Fire1") && canFire)
 		{
-			if (bulletObject != null)
+			if (fireObject != null)
 			{
-				GameObject obj = Instantiate(bulletObject, this.transform.position, Quaternion.identity);
+				GameObject obj = Instantiate(fireObject, this.transform.position, Quaternion.identity);
 				obj.GetComponent<LaserForward>().Velocity = this.transform.forward;
 			}
 			else
@@ -86,10 +88,10 @@ public class PsGunManager : MonoBehaviour
 			}
 			if (!Input.GetButton("Fire2") || ultraTimeCharged > ultraChargeRate)
 			{
-				if (bulletObject != null)
+				if (fireObject != null)
 				{
 					float scale = ultraTimeCharged * 3.0f;
-					GameObject obj = Instantiate(bulletObject, this.transform.position + (this.transform.forward * scale), Quaternion.identity);
+					GameObject obj = Instantiate(fireObject, this.transform.position + (this.transform.forward * scale), Quaternion.identity);
 					obj.GetComponent<LaserForward>().Velocity = this.transform.forward;
 					obj.transform.localScale *= 1.0f + scale;
 				}
@@ -109,6 +111,7 @@ public class PsGunManager : MonoBehaviour
 		}
 	}
 
+	//MachineGun
 	private void Weapon2()
 	{
 		if (!toggleOn && Input.GetButton("Fire1") && canFire)
@@ -139,71 +142,47 @@ public class PsGunManager : MonoBehaviour
 		}
 	}
 
+	//Shotgun/Harpoon
 	private void Weapon3()
 	{
-		if (Input.GetButton("Fire1") && canFire)
-		{
-			if (bulletObject != null)
-			{
-				GameObject obj = Instantiate(bulletObject, this.transform.position, Quaternion.identity);
-				obj.GetComponent<LaserForward>().Velocity = this.transform.forward;
-			}
-			else
-				system.Emit(bulletsPerClick);
-			StartCoroutine(FireRateIE());
-		}
-		else if (wasHoldingUltra && canUltraFire)
-		{
-			if (ultraChargeSystem != null && !ultraChargeSystem.isPlaying)
-			{
-				ultraChargeSystem.Play();
-
-			}
-			if (!Input.GetButton("Fire2") || ultraTimeCharged > ultraChargeRate)
-			{
-				if (bulletObject != null)
-				{
-					float scale = ultraTimeCharged * 3.0f;
-					GameObject obj = Instantiate(bulletObject, this.transform.position + (this.transform.forward * scale), Quaternion.identity);
-					obj.GetComponent<LaserForward>().Velocity = this.transform.forward;
-					obj.transform.localScale *= 1.0f + scale;
-				}
-				else
-					ultraSystem.Emit(ultraBulletsPerClick);
-				wasHoldingUltra = false;
-				ultraTimeCharged = 0.0f;
-				ultraChargeSystem.Stop();
-				ultraChargeSystem.Clear();
-			}
-			StartCoroutine(UltraFireRateIE());
-		}
-		if (Input.GetButton("Fire2"))
-		{
-			wasHoldingUltra = true;
-			ultraTimeCharged += Time.deltaTime;
-		}
-	}
-
-	private void Weapon4()
-	{
-		if (Input.GetButton("Fire1") && canFire)
-		{
+		if (Input.GetButton("Fire1") && !canFire)
+			this.transform.Find("ShotgunForceArea").GetComponent<Shotgun>().ClearList();
+		else if (Input.GetButton("Fire1") && canFire)
+		{ 
 			system.Emit(bulletsPerClick);
+			this.transform.Find("ShotgunForceArea").gameObject.SetActive(true);
 			StartCoroutine(FireRateIE());
 		}
 		else if (Input.GetButton("Fire2") && canUltraFire && Time.time >= ultraAvailable)
 		{
-			ultraSystem.Emit(ultraBulletsPerClick);
-			StartCoroutine(UltraFireRateIE());
-			toggleOn = false;
+			GameObject obj = Instantiate(ultraObject, this.transform.position, Quaternion.identity);
+			obj.GetComponent<Hook>().Forward = this.transform.forward;
+			obj.GetComponent<Hook>().weaponPos = this.transform;
 			ultraAvailable = Time.time + ultraCoolDown;
+			StartCoroutine(UltraFireRateIE());
 		}
-		Pursuit(system);
-		Pursuit(ultraSystem);
+		if (!Input.GetButton("Fire1"))
+			this.transform.Find("ShotgunForceArea").gameObject.SetActive(false);
+	}
 
-		ParticleSystem MiniMissiles = ultraSystem.transform.Find("Mini_Missiles").GetComponent<ParticleSystem>();
-		if (MiniMissiles.isPlaying)
-			Pursuit(MiniMissiles);
+	//Missiles
+	private void Weapon4()
+	{
+		if (Input.GetButton("Fire1") && canFire)
+		{
+			GameObject obj = Instantiate(fireObject, this.transform.position, Quaternion.identity);
+			obj.GetComponent<missileAI>().Velocity = this.transform.forward;
+			obj.transform.rotation = this.transform.rotation;
+			StartCoroutine(FireRateIE());
+		}
+		else if (Input.GetButton("Fire2") && canUltraFire && Time.time >= ultraAvailable)
+		{
+			GameObject obj = Instantiate(ultraObject, this.transform.position, Quaternion.identity);
+			obj.GetComponent<missileAI>().Velocity = this.transform.forward;
+			obj.transform.rotation = this.transform.rotation;
+			ultraAvailable = Time.time + ultraCoolDown;
+			StartCoroutine(UltraFireRateIE());
+		}
 	}
 
 	private bool LookForEnemy(ParticleSystem.Particle p)
