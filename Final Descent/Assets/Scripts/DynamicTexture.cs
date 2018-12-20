@@ -10,7 +10,6 @@ public class DynamicTexture : MonoBehaviour
     Texture2D texture;
     void Start()
     {
-
         texture = new Texture2D(2, 2, TextureFormat.RGBA32, false, false);
         texture.SetPixel(0, 1, ColorShip1);
         texture.SetPixel(1, 1, ColorShip2);
@@ -23,7 +22,7 @@ public class DynamicTexture : MonoBehaviour
         Transform weaponHolder = transform.parent.Find("WeaponHolder");
         foreach (Renderer r in weaponHolder.GetComponentsInChildren<Renderer>(true))
             r.material.SetTexture("_Texture2D_BaseColors", texture);
-        Transform lifepod = transform.parent.Find("LifePod");
+        Transform lifepod = transform.parent.parent.Find("LifePod");
         foreach (Renderer r in lifepod.GetComponentsInChildren<Renderer>(true))
             r.material.SetTexture("_Texture2D_BaseColors", texture);
     }

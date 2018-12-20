@@ -5,6 +5,8 @@ using UnityEngine;
 public class HealthPlayer : BaseStats {
 
     public GameObject hpBar, shieldBar;
+	private bool exploded = false;
+	public ParticleSystem damagedShip, areaPulse;
 
 	// Use this for initialization
 	void Start () {
@@ -16,28 +18,49 @@ public class HealthPlayer : BaseStats {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             TakeDamage(50);
         }
 
-        if (CheckIfOnPlace() && Input.GetKey(KeyCode.G))
+        if (exploded && CheckIfOnPlace() && Input.GetKey(KeyCode.G))
         {
             Transform lifepod = transform.Find("LifePod");
-            GameObject aircraft = GameObject.Find("Aircraft");
+            GameObject playerAircraft = GameObject.Find("Player_aircraft");
+			GameObject aircraft = GameObject.Find("Aircraft");
 
-            OrganizeParts();
+			OrganizeParts(aircraft.transform);
             lifepod.position = aircraft.transform.position;
             lifepod.rotation = aircraft.transform.rotation;
             transform.rotation = aircraft.transform.rotation;
-            aircraft.transform.parent = transform;
+            aircraft.transform.parent = playerAircraft.transform;
+			playerAircraft.transform.parent = transform;
             lifepod.gameObject.SetActive(false);
-            transform.Find("Aircraft").GetComponent<Ship>().enabled = true;
-            ActivateChildScripts(transform.Find("Aircraft"), true);
-            GetComponent<PlayerMovement>().lifePodActive = false;
-        }
+            playerAircraft.GetComponent<ShipRotation>().enabled = true;
+            ActivateChildScripts(aircraft.transform, true);
+			ActivateChildScripts(playerAircraft.transform.Find("WeaponHolder"), true);
+			playerAircraft.transform.localPosition = Vector3.zero;
+			exploded = false;
 
-        UpdateBars();
+			health = base_maxHealth;
+			shield = base_maxShield;
+		}
+		if (!CheckIfOnPlace())
+			damagedShip.gameObject.SetActive(true);
+		else damagedShip.gameObject.SetActive(false);
+
+
+		if(exploded)
+		{
+			hpBar.SetActive(false);
+			shieldBar.SetActive(false);
+		}
+		else
+		{
+			hpBar.SetActive(true);
+			shieldBar.SetActive(true);
+			UpdateBars();
+		}
     }
 
     override public void TakeDamage(float damage)
@@ -46,17 +69,26 @@ public class HealthPlayer : BaseStats {
         if (invulnerabilityTime != 0)
         {
             IsInvulnerable = true;
-            if (this.lives <= 0)
+            /*if (this.lives <= 0)
             {
                 IsAlive = false;
-            }
+            }*/
         }
-        if (health <= 0)
+        if (health <= 0 && lives > 0)
         {
-            SpawnLifePod();
+			lives--;
+			SpawnLifePod();
+			Debug.Log("spawnlifepod");
             DeathExplosion();
         }
-    }
+		else if (health <= 0 && lives <= 0)
+		{
+			lives--;
+			transform.GetComponent<Ship>().enabled = false;
+			DeathExplosion();
+			IsAlive = false;
+		}
+	}
 
     private void UpdateBars()
     {
@@ -66,42 +98,46 @@ public class HealthPlayer : BaseStats {
 
     private void DeathExplosion()
     {
-        Transform t = transform.Find("Aircraft");
-        //Remove every child inside Aircraft transform
-        ActivateChildScripts(t, false);
-        t.GetComponent<Ship>().enabled = false;
-        t.parent = null; // otherwise it will follow the lifepod's position
+        Transform t = GameObject.Find("Player_aircraft").transform;
+		Transform player = t.Find("Aircraft");
+		//Remove every child inside Aircraft transform
+		ActivateChildScripts(t.Find("WeaponHolder"), false);
+		ActivateChildScripts(player, false);
+        t.GetComponent<ShipRotation>().enabled = false;
+        t.parent = null;
+		exploded = true;
     }
 
     private void SpawnLifePod()
     {
-        Vector3 pos = transform.Find("Aircraft").position;
-        Quaternion rot = transform.Find("Aircraft").rotation;
+        Vector3 pos = transform.Find("Player_aircraft").position;
+        Quaternion rot = transform.Find("Player_aircraft").rotation;
         Transform lifepod = transform.Find("LifePod");
 
         //set lifepod active and position and rotation right 
-        lifepod.position = pos;
-        lifepod.rotation = rot;
+        //lifepod.position = pos;
+        //lifepod.rotation = rot;
         lifepod.gameObject.SetActive(true);
-        GetComponent<PlayerMovement>().lifePodActive = true; //Change object for camera to follow
-        transform.rotation = lifepod.rotation;
+        //GetComponent<PlayerMovement>().lifePodActive = true; //Change object for camera to follow
+        //transform.rotation = lifepod.rotation;
     }
 
-    private void OrganizeParts()
+    private void OrganizeParts(Transform parent)
     {
-        Transform aircraft = GameObject.Find("Aircraft").transform;
-
         GameObject[] playerPart = GameObject.FindGameObjectsWithTag("PlayerPart");
 
         foreach( GameObject part in playerPart)
         {
-            part.transform.parent = aircraft;
+			if(part.name == "WeaponHolder")
+				part.transform.parent = parent.parent;
+			else
+			part.transform.parent = parent;
         }
     }
 
     private bool CheckIfOnPlace()
     {
-        Transform aircraft = GameObject.Find("Aircraft").transform;
+        Transform aircraft = GameObject.Find("Player_aircraft").transform.Find("Aircraft");
 
         GameObject[] playerPart = GameObject.FindGameObjectsWithTag("PlayerPart");
 
@@ -132,9 +168,15 @@ public class HealthPlayer : BaseStats {
                 }
                 child.GetComponent<WeaponSwitching>().enabled = active;
             }
-            if (!active)
+            if (!active && IsAlive)
                 child.GetComponent<ShipPart>().Explode();
-            }
-        }
-    }
+				child.GetComponent<ShipPart>().defDeath = false;
+			}
+			else if (!active && !IsAlive)
+			{
+				child.GetComponent<ShipPart>().Explode();
+				child.GetComponent<ShipPart>().defDeath = true;
+			}
+		}
+	}
 }

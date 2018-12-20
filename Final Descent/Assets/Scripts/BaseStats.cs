@@ -6,16 +6,25 @@ public class BaseStats : MonoBehaviour {
     public int lives = 1;
     public float shield;
     public float health;
-    public float base_maxHealth;
 
-    public float invulnerabilityTime = 0.0f;
+	[HideInInspector]
+	public float base_maxHealth, base_maxShield;
+
+	public float invulnerabilityTime = 0.0f;
     [SerializeField]
     public float invCount = 0.0f;
     public bool IsInvulnerable = false;
 
     public bool IsAlive = true;
 
-    public virtual void TakeDamage(float health)
+
+	private void Start()
+	{
+		base_maxHealth = health;
+		base_maxShield = shield;
+	}
+
+	public virtual void TakeDamage(float health)
     {
         this.health -= health;
         if (invulnerabilityTime != 0)
