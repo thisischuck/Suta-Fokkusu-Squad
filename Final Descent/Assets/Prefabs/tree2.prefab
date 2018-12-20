@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4916628531750152}
   - component: {fileID: 33996204943064036}
   - component: {fileID: 23755021870398868}
+  - component: {fileID: 114115486329010698}
   m_Layer: 0
   m_Name: tree2
   m_TagString: Untagged
@@ -83,3 +84,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1785086629567800}
   m_Mesh: {fileID: 4300000, guid: d10191015e1920e44a5173704bdc6373, type: 3}
+--- !u!114 &114115486329010698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1785086629567800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 156
+    i1: 210
+    i2: 99
+    i3: 230
+    i4: 73
+    i5: 173
+    i6: 130
+    i7: 132
+    i8: 171
+    i9: 68
+    i10: 216
+    i11: 177
+    i12: 221
+    i13: 191
+    i14: 192
+    i15: 139
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

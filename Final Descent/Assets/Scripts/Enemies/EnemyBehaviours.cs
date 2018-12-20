@@ -147,13 +147,11 @@ public static class EnemyBehaviours
                     {
                         t.Rotate(Vector3.up * 15f);
                         dir = t.forward;
-                        Debug.Log("Going left");
                     }
                     else if (angle >= 0)
                     {
                         t.Rotate(Vector3.up * -15f);
                         dir = t.forward;
-                        Debug.Log("Going right");
                     }
                 }
                 else

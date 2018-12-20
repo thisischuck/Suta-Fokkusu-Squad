@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33107074128382990}
   - component: {fileID: 23146122443457954}
   - component: {fileID: 135896969091634526}
+  - component: {fileID: 114892560117959232}
   m_Layer: 15
   m_Name: coral2
   m_TagString: Untagged
@@ -84,6 +85,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1201012319126794}
   m_Mesh: {fileID: 4300000, guid: 47c7a191f05269149aa193206fd33686, type: 3}
+--- !u!114 &114892560117959232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201012319126794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 110
+    i1: 112
+    i2: 86
+    i3: 250
+    i4: 208
+    i5: 122
+    i6: 68
+    i7: 148
+    i8: 25
+    i9: 218
+    i10: 183
+    i11: 244
+    i12: 71
+    i13: 170
+    i14: 1
+    i15: 12
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!135 &135896969091634526
 SphereCollider:
   m_ObjectHideFlags: 1

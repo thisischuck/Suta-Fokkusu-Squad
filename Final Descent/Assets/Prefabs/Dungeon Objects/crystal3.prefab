@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33647470750301564}
   - component: {fileID: 23914702371828214}
   - component: {fileID: 65676353679333550}
+  - component: {fileID: 114954150421543888}
   m_Layer: 0
   m_Name: crystal3
   m_TagString: Untagged
@@ -96,3 +97,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3586044, y: 4.178881, z: 1.8044002}
   m_Center: {x: 0, y: 1.6431483, z: 0}
+--- !u!114 &114954150421543888
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1663588139974642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 100
+    i1: 111
+    i2: 73
+    i3: 108
+    i4: 143
+    i5: 184
+    i6: 113
+    i7: 164
+    i8: 72
+    i9: 209
+    i10: 25
+    i11: 101
+    i12: 103
+    i13: 94
+    i14: 49
+    i15: 3
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

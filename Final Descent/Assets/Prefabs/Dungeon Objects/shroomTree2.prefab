@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33872052797229214}
   - component: {fileID: 23644800934509756}
   - component: {fileID: 135745003244553162}
+  - component: {fileID: 114915801456644348}
   m_Layer: 14
   m_Name: shroomTree2
   m_TagString: Up
@@ -84,6 +85,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1603346072240678}
   m_Mesh: {fileID: 4300000, guid: 316fd1b6a87678646ad9f39156d873e0, type: 3}
+--- !u!114 &114915801456644348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1603346072240678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 144
+    i1: 175
+    i2: 255
+    i3: 231
+    i4: 254
+    i5: 59
+    i6: 168
+    i7: 228
+    i8: 121
+    i9: 177
+    i10: 15
+    i11: 107
+    i12: 76
+    i13: 106
+    i14: 138
+    i15: 255
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!135 &135745003244553162
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33202841980284054}
   - component: {fileID: 23127503069149048}
   - component: {fileID: 65205514977918696}
+  - component: {fileID: 114247537409173094}
   m_Layer: 14
   m_Name: boulder12
   m_TagString: Up
@@ -97,3 +98,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1185532, y: 5.085942, z: 1.0545597}
   m_Center: {x: 0, y: 1.0292771, z: 0}
+--- !u!114 &114247537409173094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1351310951393476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 171
+    i1: 243
+    i2: 239
+    i3: 80
+    i4: 160
+    i5: 34
+    i6: 47
+    i7: 20
+    i8: 169
+    i9: 114
+    i10: 237
+    i11: 22
+    i12: 225
+    i13: 162
+    i14: 163
+    i15: 213
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

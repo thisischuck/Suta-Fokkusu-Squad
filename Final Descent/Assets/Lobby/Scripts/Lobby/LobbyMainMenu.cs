@@ -14,6 +14,8 @@ namespace Prototype.NetworkLobby
 
         public InputField ipInput;
         public InputField matchNameInput;
+        public int seed;
+
 
         public void OnEnable()
         {
@@ -68,6 +70,8 @@ namespace Prototype.NetworkLobby
             lobbyManager._isMatchmaking = true;
             lobbyManager.DisplayIsConnecting();
 
+            seed = (int)System.DateTime.Now.Ticks;
+            lobbyManager.seed = seed;
             lobbyManager.SetServerInfo("Matchmaker Host", lobbyManager.matchHost);
         }
 

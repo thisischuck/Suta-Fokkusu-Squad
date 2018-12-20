@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 /* 
 Script to place objects around the mesh 
-     
+
 16/10/2018 
-    Marcio - normals from objects are still not affected from the vertice's normal. 
+Marcio - normals from objects are still not affected from the vertice's normal. 
 18/10/2018 
-    Marcio - object's normal take the same value as the vertice's normal, also created an exception for stalactites tagged objects 
+Marcio - object's normal take the same value as the vertice's normal, also created an exception for stalactites tagged objects 
 */
 
 public enum Location { CEILING, FLOOR, WALL, FLOOR_AND_CEILING, FLOOR_AND_WALL, CEILING_AND_WALL, ALL }
 
 public class ObjectPlacer : MonoBehaviour
 {
+    public bool IsOnline = false;
+
     public List<ObjectTobePlaced> objects;
     public float chunkSizeX = 60.0f, chunkSizeZ = 60.0f;
     public float chunkRenderDistance;
@@ -32,7 +34,11 @@ public class ObjectPlacer : MonoBehaviour
 
     public void Initialize()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (IsOnline)
+        {
+            RegisterPrefabs();
+        }
+        //player = GameObject.FindGameObjectWithTag("Player").transform;
         cellular = GetComponent<CellularAutomata>();
 		//waterHeight = GameObject.Find("Water").transform.position.y;
         objectChunks = new Dictionary<Vector2, Chunk>();
@@ -68,6 +74,16 @@ public class ObjectPlacer : MonoBehaviour
             Plane[] planes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
             chunk.gameObject.SetActive(GeometryUtility.TestPlanesAABB(planes, chunk.bounds));
             Camera.main.farClipPlane = farPlane;
+        }
+    }
+
+    private void RegisterPrefabs()
+    {
+        foreach (ObjectTobePlaced o in objects)
+        {
+            GameObject networkObject = o.GameObject;
+            networkObject.AddComponent<UnityEngine.Networking.NetworkIdentity>();
+            UnityEngine.Networking.ClientScene.RegisterPrefab(networkObject);
         }
     }
 
@@ -136,13 +152,23 @@ public class ObjectPlacer : MonoBehaviour
 		float r = Random.Range(0.0f, 100.0f);
         if (y == dungeon.Length - 1 && r > 100 - o.SpawnRate)
         {
-            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f))); //buscar a normal do vertice para rotação 
+            GameObject newObj = null;
+            if (IsOnline)
+            {
+                newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+                UnityEngine.Networking.NetworkServer.Spawn(newObj);
+            }
+            else
+            {
+                newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f))); //buscar a normal do vertice para rotação 
+            }
             newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
 			newObj.transform.localScale = Vector3.one * Random.Range(0, maxSize);
 			if (newObj.tag != "Stalactite")
                 newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
 			newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
 			positionsUsed.Add(new Vector3(x, y, z), newObj);
+
         }
     }
 
@@ -156,7 +182,16 @@ public class ObjectPlacer : MonoBehaviour
 		float r = Random.Range(0.0f, 100.0f);
         if (y == 0 && r > 100 - o.SpawnRate)
         {
-            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            GameObject newObj = null;
+            if (IsOnline)
+            {
+                newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+                UnityEngine.Networking.NetworkServer.Spawn(newObj);
+            }
+            else
+            {
+                newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f))); //buscar a normal do vertice para rotação 
+            }
             newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
             if (newObj.tag != "Up")
                 newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
@@ -171,7 +206,16 @@ public class ObjectPlacer : MonoBehaviour
 		float r = Random.Range(0.0f, 100.0f);
         if ((y != 0 && y != dungeon.Length - 1) && r > 100 - o.SpawnRate)
         {
-            GameObject newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            GameObject newObj = null;
+            if (IsOnline)
+            {
+                newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+                UnityEngine.Networking.NetworkServer.Spawn(newObj);
+            }
+            else
+            {
+                newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f))); //buscar a normal do vertice para rotação 
+            }
             newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
             if (newObj.tag != "Up")
                 newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;

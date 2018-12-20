@@ -13,6 +13,7 @@ TagManager:
   - Dungeon
   - Up
   - Tree
+  - AircraftController
   layers:
   - Default
   - TransparentFX

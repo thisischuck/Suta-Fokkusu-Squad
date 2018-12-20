@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4393562238520924}
+  - component: {fileID: 114837775549538392}
   m_Layer: 15
   m_Name: Seaweed1
   m_TagString: Up
@@ -112,3 +113,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1782834203360930}
   m_Mesh: {fileID: 4300000, guid: 884c49df0d5dfba4287d4fa7be869d19, type: 3}
+--- !u!114 &114837775549538392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179910603455318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 16
+    i1: 100
+    i2: 118
+    i3: 229
+    i4: 62
+    i5: 62
+    i6: 253
+    i7: 116
+    i8: 154
+    i9: 0
+    i10: 140
+    i11: 116
+    i12: 159
+    i13: 135
+    i14: 70
+    i15: 207
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

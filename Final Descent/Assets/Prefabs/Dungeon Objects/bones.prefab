@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33434140235843316}
   - component: {fileID: 23711078633395158}
   - component: {fileID: 65579150158606630}
+  - component: {fileID: 114180685500991202}
   m_Layer: 14
   m_Name: bones
   m_TagString: Untagged
@@ -96,3 +97,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3093414, y: 1.4009811, z: 0.722332}
   m_Center: {x: 0, y: 0.39936072, z: 0}
+--- !u!114 &114180685500991202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1641165155329708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 31
+    i1: 94
+    i2: 76
+    i3: 43
+    i4: 169
+    i5: 40
+    i6: 143
+    i7: 148
+    i8: 234
+    i9: 82
+    i10: 90
+    i11: 226
+    i12: 88
+    i13: 112
+    i14: 112
+    i15: 161
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

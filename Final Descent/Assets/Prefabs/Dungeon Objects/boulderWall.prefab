@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33137898098491306}
   - component: {fileID: 23316694699177994}
   - component: {fileID: 65148660749259434}
+  - component: {fileID: 114969804591380566}
   m_Layer: 0
   m_Name: boulderWall
   m_TagString: Up
@@ -96,3 +97,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.160263, y: 2.2102156, z: 4.5812216}
   m_Center: {x: -0.000004172325, y: 0, z: 0.45031065}
+--- !u!114 &114969804591380566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093831852580788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 120
+    i1: 154
+    i2: 48
+    i3: 111
+    i4: 72
+    i5: 82
+    i6: 37
+    i7: 52
+    i8: 232
+    i9: 157
+    i10: 240
+    i11: 109
+    i12: 72
+    i13: 152
+    i14: 148
+    i15: 13
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33325137660117078}
   - component: {fileID: 23196384941285620}
   - component: {fileID: 135552286992168542}
+  - component: {fileID: 114185979259553758}
   m_Layer: 0
   m_Name: crystal5
   m_TagString: Untagged
@@ -84,6 +85,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1815499894033042}
   m_Mesh: {fileID: 4300000, guid: 2b75b48b1bf817d4bad0cf6e9159f39a, type: 3}
+--- !u!114 &114185979259553758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1815499894033042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 203
+    i1: 228
+    i2: 131
+    i3: 12
+    i4: 127
+    i5: 205
+    i6: 159
+    i7: 52
+    i8: 201
+    i9: 168
+    i10: 173
+    i11: 27
+    i12: 167
+    i13: 122
+    i14: 97
+    i15: 85
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!135 &135552286992168542
 SphereCollider:
   m_ObjectHideFlags: 1

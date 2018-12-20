@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23409556208492634}
   - component: {fileID: 65848975784482380}
   - component: {fileID: 65191795922529450}
+  - component: {fileID: 114399345691871712}
   m_Layer: 0
   m_Name: boulder6
   m_TagString: Up
@@ -109,3 +110,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.1671638, y: 2.3992229, z: 1.8518162}
   m_Center: {x: 0.00000047683716, y: 0.46658444, z: 0}
+--- !u!114 &114399345691871712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617746641342508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 178
+    i1: 203
+    i2: 104
+    i3: 163
+    i4: 101
+    i5: 61
+    i6: 177
+    i7: 36
+    i8: 137
+    i9: 5
+    i10: 59
+    i11: 171
+    i12: 198
+    i13: 219
+    i14: 71
+    i15: 68
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

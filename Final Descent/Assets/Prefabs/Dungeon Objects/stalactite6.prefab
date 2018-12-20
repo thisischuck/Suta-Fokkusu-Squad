@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33086653544847640}
   - component: {fileID: 23075586872392014}
   - component: {fileID: 136450954326324974}
+  - component: {fileID: 114606028730540686}
   m_Layer: 0
   m_Name: stalactite6
   m_TagString: Up
@@ -84,6 +85,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1303390202676726}
   m_Mesh: {fileID: 4300000, guid: 937c0baa0809c734aa63e98443d997d8, type: 3}
+--- !u!114 &114606028730540686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1303390202676726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 18
+    i1: 47
+    i2: 250
+    i3: 92
+    i4: 101
+    i5: 56
+    i6: 232
+    i7: 84
+    i8: 58
+    i9: 105
+    i10: 139
+    i11: 255
+    i12: 99
+    i13: 159
+    i14: 95
+    i15: 141
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!136 &136450954326324974
 CapsuleCollider:
   m_ObjectHideFlags: 1

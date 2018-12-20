@@ -107,7 +107,7 @@ public class Network_PlayerMovement : NetworkBehaviour {
         Vector3 move = new Vector3(st.hor, 0.0f, st.ver);
         move = transform.TransformDirection(move);
         rigidB.velocity = move * 20;
-        Debug.Log(rigidB.position.ToString());
+
         //}
     }
 

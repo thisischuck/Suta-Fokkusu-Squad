@@ -41,7 +41,9 @@ using UnityEngine;
 public class CellularAutomata : MonoBehaviour
 {
     public int SeedInspector = 0;
+    public bool IsOnline = false;
     public static int Seed;
+    public GameObject manager;
 
     public MeshFilter meshFilter1;
     public MeshFilter meshFilter2;
@@ -163,16 +165,32 @@ public class CellularAutomata : MonoBehaviour
 
         vNormals = CreateTriangles(new MeshData(null, null, null), 2).normals;
 
-        WaterGenerator waterGenerator = GetComponentInChildren<WaterGenerator>();
-        if (waterGenerator != null)
+        //WaterGenerator waterGenerator = GetComponentInChildren<WaterGenerator>();
+        //if (waterGenerator != null)
             //waterGenerator.CreateMesh(0, 0, width * Mathf.CeilToInt(spacing), length * Mathf.CeilToInt(spacing), 1); //Needs optimization
-            waterGenerator.CreateMesh(0, 0, width * 2, length * 2, 1);
+            //waterGenerator.CreateMesh(0, 0, width * 2, length * 2, 1);
 
-        Vector3 spawn = new Vector3(
-            pathfinder.SpawnPoint.x * spacing,
-            oldVertices[Mathf.FloorToInt(pathfinder.SpawnPoint.x) + Mathf.FloorToInt(pathfinder.SpawnPoint.y) * width].y + (height * spacing / 2),
-            pathfinder.SpawnPoint.y * spacing);
-        GameObject.FindGameObjectWithTag("Player").transform.position = spawn;
+        if (!IsOnline)
+        {
+            Vector3 spawn = new Vector3(
+                pathfinder.SpawnPoint.x * spacing,
+                oldVertices[Mathf.FloorToInt(pathfinder.SpawnPoint.x) + Mathf.FloorToInt(pathfinder.SpawnPoint.y) * width].y + (height * spacing / 2),
+                pathfinder.SpawnPoint.y * spacing);
+            GameObject.FindGameObjectWithTag("Player").transform.position = spawn;
+        }
+        else
+        {
+            Vector3[] spawns = new Vector3[4];
+            for (int i = 0; i < spawns.Length; i++)
+            {
+                spawns[i] = new Vector3(
+    pathfinder.SpawnPoint.x * spacing + i * 2,
+    oldVertices[Mathf.FloorToInt(pathfinder.SpawnPoint.x) + Mathf.FloorToInt(pathfinder.SpawnPoint.y) * width].y + (height * spacing / 2),
+    pathfinder.SpawnPoint.y * spacing);
+            }
+
+            manager.GetComponent<DungeonController>().ReceiveConfirmation(spawns, Seed);
+        }
 
         objectPlacer.Initialize();
         objectPlacer.Place(dungeon, oldVertices, vNormals);

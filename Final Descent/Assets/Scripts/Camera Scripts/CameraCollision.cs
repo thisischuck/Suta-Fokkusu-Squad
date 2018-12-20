@@ -21,8 +21,9 @@ public class CameraCollision : MonoBehaviour
     [Tooltip("Offset of the camera position")]
     public Vector3 dollyDirAdjusted;
     public float distance;
+    public Transform dad;
 
-    private Vector3 dadPosition;
+    public Vector3 dadPosition;
 
     // Use this for initialization
     void Start()
@@ -35,12 +36,16 @@ public class CameraCollision : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 desiredCameraPos = transform.parent.TransformPoint(dollyDir * maxDistance);
+        Vector3 desiredCameraPos = dad.TransformPoint(dollyDir * maxDistance);
         RaycastHit hit;
+        dadPosition = dad.position;
+        Debug.DrawRay(transform.position, transform.forward * 5, Color.green);
+        Debug.DrawLine(transform.position, dad.position, Color.red);
 
-        if (Physics.Linecast(transform.parent.position, desiredCameraPos, out hit))
+        if (Physics.Linecast(dad.position, desiredCameraPos, out hit))
         {
-            if (hit.transform.tag != "Player" && hit.transform.tag != "PlayerPart" && hit.transform.tag != "Ship" && hit.transform.name == "AircraftController")
+            //Debug.Log("HEY");
+            if (hit.transform.tag != "Player" && hit.transform.tag != "PlayerPart" && hit.transform.tag != "Ship" && hit.transform.tag != "AircraftController")
             {
                 Debug.Log(hit.transform.tag);
                 distance = Mathf.Clamp((hit.distance * 0.8f), minDistance, maxDistance);

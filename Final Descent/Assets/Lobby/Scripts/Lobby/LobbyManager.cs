@@ -5,10 +5,22 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Types;
 using UnityEngine.Networking.Match;
 using System.Collections;
-
+using System;
+using System.Collections.Generic;
 
 namespace Prototype.NetworkLobby
 {
+    public class MsgTypes
+    {
+        public const short MapSeed = MsgType.Highest + 2;
+
+        public class MapSeedMsg : MessageBase
+        {
+            public float seed;
+            public bool received;
+            public Vector3[] playerSpawnPositiions;
+        }
+    }
     public class LobbyManager : NetworkLobbyManager 
     {
         static short MsgKicked = MsgType.Highest + 1;
@@ -19,6 +31,11 @@ namespace Prototype.NetworkLobby
         [Header("Unity UI Lobby")]
         [Tooltip("Time in second between all players ready & match start")]
         public float prematchCountdown = 5.0f;
+
+        public int seed;
+        public int donePlayers;
+        public List<Vector3> spawnPoints;
+        //public GameObject dungeonController;
 
         [Space]
         [Header("UI Reference")]
@@ -96,6 +113,7 @@ namespace Prototype.NetworkLobby
                             backDelegate = StopClientClbk;
                         }
                     }
+
                 }
                 else
                 {
@@ -114,6 +132,7 @@ namespace Prototype.NetworkLobby
                 //backDelegate = StopGameClbk;
                 topPanel.isInGame = true;
                 topPanel.ToggleVisibility(false);
+                //dungeonController.GetComponent<DungeonController>().StartDungeon(seed);
             }
         }
 
@@ -244,13 +263,14 @@ namespace Prototype.NetworkLobby
             _currentMatchID = (System.UInt64)matchInfo.networkId;
 		}
 
-		public override void OnDestroyMatch(bool success, string extendedInfo)
+		public override void OnDestroyMatch(bool success, string extendedInfo) //left lobby creation
 		{
 			base.OnDestroyMatch(success, extendedInfo);
 			if (_disconnectServer)
             {
                 StopMatchMaker();
                 StopHost();
+                seed = 0;
             }
         }
 
@@ -321,7 +341,7 @@ namespace Prototype.NetworkLobby
 
         }
 
-        public override bool OnLobbyServerSceneLoadedForPlayer(GameObject lobbyPlayer, GameObject gamePlayer)
+        public override bool OnLobbyServerSceneLoadedForPlayer(GameObject lobbyPlayer, GameObject gamePlayer) //GAME STARTS
         {
             //This hook allows you to apply state data from the lobby-player to the game-player
             //just subclass "LobbyHook" and add it to the lobby object.
@@ -329,7 +349,46 @@ namespace Prototype.NetworkLobby
             if (_lobbyHooks)
                 _lobbyHooks.OnLobbyServerSceneLoadedForPlayer(this, lobbyPlayer, gamePlayer);
 
+            ClientScene.localPlayers.Add(new PlayerController());
+            NetworkConnection connection = lobbyPlayer.GetComponent<NetworkIdentity>().connectionToClient;
+
+            GameObject dung = Instantiate(spawnPrefabs[0]);
+            //dung.GetComponent<CellularAutomata>().SeedInspector = seed;
+            //dung.GetComponent<CellularAutomata>().IsOnline = true;
+            //dung.GetComponent<ObjectPlacer>().IsOnline = true;
+            //dung.GetComponent<CellularAutomata>().manager = dungeonController;
+            NetworkServer.AddPlayerForConnection(connection, dung, 1);
+            NetworkServer.Spawn(dung);
+            dung.GetComponent<DungeonController>().StartDungeon(seed);
+            
+            //dung.SetActive(true);
+
             return true;
+        }
+
+        public void Update()
+        {
+            
+        }
+
+        public void DungeonDone(DungeonController dC, Vector3[] spawns, int seed)
+        {
+            if (this.seed == seed)
+            {
+                if (spawnPoints.Count <= 0)
+                {
+                    for (int i = 0; i < spawns.Length; i++)
+                    {
+                        spawnPoints.Add(spawns[i]);
+                    }
+                }
+
+                GameObject player = Instantiate(spawnPrefabs[2], spawnPoints[spawnPoints.Count - 1], Quaternion.identity);
+                Destroy(dC.gameObject);
+                
+                NetworkServer.ReplacePlayerForConnection(dC.connectionToClient, player, dC.playerControllerId);
+                spawnPoints.RemoveAt(spawnPoints.Count - 1);
+            }
         }
 
         // --- Countdown management

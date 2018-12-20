@@ -155,11 +155,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &244346705 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1850815098669592, guid: b5fef787579546b4491abd29cab3e4cb,
-    type: 2}
-  m_PrefabInternal: {fileID: 244346704}
 --- !u!1001 &281698314
 Prefab:
   m_ObjectHideFlags: 0
@@ -209,6 +204,131 @@ Prefab:
       propertyPath: shieldBar
       value: 
       objectReference: {fileID: 1252861297}
+    - target: {fileID: 114417186941707376, guid: 851deb4559d782244b902187f010f285,
+        type: 2}
+      propertyPath: dad
+      value: 
+      objectReference: {fileID: 622249066}
+    - target: {fileID: 1327317825573412, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957834900929450, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931185851210914, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865484820183686, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864167776281852, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734283473028536, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715969431462896, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704239679271608, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631442552588872, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1589895163202654, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579915717955032, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547276044166066, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541166129278072, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506493278681318, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1460466074544460, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430788797773072, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404022147087574, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295236742691556, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288479246355754, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271656078766920, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246130284402536, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191979641537392, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174051298509424, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130923056797028, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083615231749710, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073988265948898, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865149319910388, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764552251962538, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208189810632420, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282916661751172, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851deb4559d782244b902187f010f285, type: 2}
   m_IsPrefabAsset: 0
@@ -363,6 +483,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &622249066 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4998142637356258, guid: 851deb4559d782244b902187f010f285,
+    type: 2}
+  m_PrefabInternal: {fileID: 281698314}
 --- !u!1 &662005582
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +688,7 @@ Prefab:
         type: 2}
       propertyPath: enemiesList.Array.data[0]
       value: 
-      objectReference: {fileID: 244346705}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45f16853e7464c04a999fd707d867aea, type: 2}
   m_IsPrefabAsset: 0
@@ -696,8 +821,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89fd350d7f3ae6408a152ee6ed29de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionMeshFilter: {fileID: 0}
-  walls: {fileID: 0}
+  SeedInspector: 0
+  meshFilter1: {fileID: 0}
+  meshFilter2: {fileID: 0}
   length: 0
   width: 0
   height: 0
@@ -777,7 +903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1585276663
 Transform:
   m_ObjectHideFlags: 0
@@ -903,6 +1029,10 @@ Prefab:
       propertyPath: enemyController
       value: 
       objectReference: {fileID: 2013326735}
+    - target: {fileID: 1712655050129296, guid: 6ad42337c5305c34c99c9454a61ae4fc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ad42337c5305c34c99c9454a61ae4fc, type: 2}
   m_IsPrefabAsset: 0

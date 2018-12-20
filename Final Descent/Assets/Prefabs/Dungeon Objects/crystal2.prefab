@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23189421785851048}
   - component: {fileID: 65133482966163850}
   - component: {fileID: 65098634168200382}
+  - component: {fileID: 114894193508560158}
   m_Layer: 0
   m_Name: crystal2
   m_TagString: Untagged
@@ -109,3 +110,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.0692406, y: 7.4056234, z: 4.57034}
   m_Center: {x: 0.108068466, y: 2.734448, z: 0}
+--- !u!114 &114894193508560158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1113009177399236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 225
+    i1: 169
+    i2: 21
+    i3: 70
+    i4: 140
+    i5: 106
+    i6: 118
+    i7: 132
+    i8: 219
+    i9: 105
+    i10: 52
+    i11: 116
+    i12: 176
+    i13: 64
+    i14: 230
+    i15: 138
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
