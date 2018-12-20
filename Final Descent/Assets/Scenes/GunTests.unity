@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -213,7 +213,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1515245770}
-  - {fileID: 1568533336}
+  - {fileID: 232104940}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4899,7 +4899,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 87265243217ffb141a052ff3a78e437c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 3d419c112ee83ee48bbeaf7a55ad98f8, type: 2}
+      objectReference: {fileID: 2100000, guid: ec4e9cd2960d56048bce639fa83224cf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87265243217ffb141a052ff3a78e437c, type: 3}
   m_IsPrefabAsset: 0
@@ -14408,6 +14408,10 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b43464b6f3beafa4aa54793c66f7a835, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &232104940 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 232104939}
 --- !u!1 &240869623
 GameObject:
   m_ObjectHideFlags: 0
@@ -51941,7 +51945,7 @@ Transform:
   m_Children:
   - {fileID: 392460192}
   m_Father: {fileID: 1568533336}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &1433367284
 ParticleSystemRenderer:
@@ -56565,10 +56569,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac3ecdce26a5bc468e135f96d7b9a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  system: {fileID: 0}
+  ultraSystem: {fileID: 0}
+  ultraChargeSystem: {fileID: 0}
+  bulletObject: {fileID: 0}
   canFire: 0
   isActive: 0
+  canUltraFire: 0
   bulletsPerClick: 1
+  ultraBulletsPerClick: 1
   fireRate: 0.1
+  maxFireRate: 0.2
+  ultrafireRate: 0.1
+  ultraChargeRate: 5
+  currentFireRate: 0.6
+  currentUltraFireRate: 0.6
+  ultraCoolDown: 0
+  ultraTimer: 0
+  ultraAvailable: 0
+  weaponBehaviour: 1
+  toggleOn: 0
 --- !u!114 &1433367287
 MonoBehaviour:
   m_ObjectHideFlags: 0

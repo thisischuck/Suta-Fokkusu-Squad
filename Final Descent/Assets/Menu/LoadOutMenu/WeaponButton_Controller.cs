@@ -46,7 +46,7 @@ public class WeaponButton_Controller : MonoBehaviour
 
     void AlreadySelected()
     {
-        foreach (WeaponObject w in PlayerInfo.currentWeapons)
+        foreach (WeaponObject w in PlayerStatsInfo.currentWeapons)
         {
             if (w != null)
             {
@@ -64,9 +64,9 @@ public class WeaponButton_Controller : MonoBehaviour
         daddy.GetComponent<LoadOutMenu_Controller>().selectedWeaponDesc.text = "Description: " + weaponObject.description;
         daddy.GetComponent<LoadOutMenu_Controller>().selectedWeaponName.text = "Name: " + weaponObject.name;
         daddy.GetComponent<LoadOutMenu_Controller>().selectedWeaponPrice.text = "PRICE: " + weaponObject.price.ToString();
-        if (weaponObject.price > PlayerInfo.gold)
+        if (weaponObject.price > PlayerStatsInfo.gold)
             daddy.GetComponent<LoadOutMenu_Controller>().selectedWeaponPrice.color = Color.red;
-        else if (weaponObject.price <= PlayerInfo.gold)
+        else if (weaponObject.price <= PlayerStatsInfo.gold)
             daddy.GetComponent<LoadOutMenu_Controller>().selectedWeaponPrice.color = Color.green;
         daddy.GetComponent<LoadOutMenu_Controller>().selectedWeapon = weaponObject;
         // MANTER COR EUNQUANTO ESTIVER SELECIONADA

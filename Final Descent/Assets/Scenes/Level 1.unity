@@ -113,6 +113,64 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &109122612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1695443990141826, guid: 851deb4559d782244b902187f010f285,
+    type: 2}
+  m_PrefabInternal: {fileID: 791326289}
+--- !u!114 &109122614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 109122612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc619aa6cf2d2c64389a88a984bd7de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &181227568
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4498721390921550, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 20.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498721390921550, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -8.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498721390921550, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 34.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498721390921550, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498721390921550, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498721390921550, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498721390921550, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498721390921550, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5fef787579546b4491abd29cab3e4cb, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &411761887
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &427970080
 GameObject:
@@ -234,7 +292,7 @@ Prefab:
     - target: {fileID: 224361848249974558, guid: 22324090e889b5e4397c3b45a9d4c1cc,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224361848249974558, guid: 22324090e889b5e4397c3b45a9d4c1cc,
         type: 2}
@@ -274,7 +332,7 @@ Prefab:
     - target: {fileID: 224361848249974558, guid: 22324090e889b5e4397c3b45a9d4c1cc,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224361848249974558, guid: 22324090e889b5e4397c3b45a9d4c1cc,
         type: 2}
@@ -341,6 +399,21 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.66205
       objectReference: {fileID: 0}
+    - target: {fileID: 114548967452962414, guid: 22324090e889b5e4397c3b45a9d4c1cc,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114548967452962414, guid: 22324090e889b5e4397c3b45a9d4c1cc,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114548967452962414, guid: 22324090e889b5e4397c3b45a9d4c1cc,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22324090e889b5e4397c3b45a9d4c1cc, type: 2}
   m_IsPrefabAsset: 0
@@ -401,12 +474,151 @@ Prefab:
         type: 2}
       propertyPath: waterPlane
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1273715246}
     - target: {fileID: 114678259093544344, guid: 851deb4559d782244b902187f010f285,
         type: 2}
       propertyPath: postProcessVolume
       value: 
       objectReference: {fileID: 411761888}
+    - target: {fileID: 1931185851210914, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704239679271608, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1957834900929450, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1271656078766920, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1589895163202654, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1288479246355754, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130923056797028, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579915717955032, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1547276044166066, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1734283473028536, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1541166129278072, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1864167776281852, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865484820183686, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430788797773072, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715969431462896, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404022147087574, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327317825573412, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506493278681318, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191979641537392, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1073988265948898, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174051298509424, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1295236742691556, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246130284402536, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1460466074544460, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083615231749710, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631442552588872, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685116301992140, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1208189810632420, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764552251962538, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1865149319910388, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282916661751172, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_TagString
+      value: AircraftController
+      objectReference: {fileID: 0}
+    - target: {fileID: 114417186941707376, guid: 851deb4559d782244b902187f010f285,
+        type: 2}
+      propertyPath: minDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114162387378768070, guid: 851deb4559d782244b902187f010f285,
+        type: 2}
+      propertyPath: speed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114101173061177776, guid: 851deb4559d782244b902187f010f285,
+        type: 2}
+      propertyPath: speed
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851deb4559d782244b902187f010f285, type: 2}
   m_IsPrefabAsset: 0
@@ -449,13 +661,33 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1252122987225398, guid: 450ed247ae0bd9347bdd4caa9d7d154a, type: 2}
+    - target: {fileID: 1698580234923080, guid: 450ed247ae0bd9347bdd4caa9d7d154a, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114671071004577558, guid: 450ed247ae0bd9347bdd4caa9d7d154a,
+        type: 2}
+      propertyPath: height
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 23084062721305554, guid: 450ed247ae0bd9347bdd4caa9d7d154a,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b16b502b696b8c84ea070217dd5c3bd5, type: 2}
+    - target: {fileID: 114011973419431130, guid: 450ed247ae0bd9347bdd4caa9d7d154a,
+        type: 2}
+      propertyPath: mat
+      value: 
+      objectReference: {fileID: 2100000, guid: b16b502b696b8c84ea070217dd5c3bd5, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 450ed247ae0bd9347bdd4caa9d7d154a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &1273715246 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4155330257218514, guid: 450ed247ae0bd9347bdd4caa9d7d154a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1243202119}
 --- !u!1 &1798931339
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +748,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811972960 stripped
 GameObject:

@@ -158,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Mouse sensibility
-        sens = PlayerInfo.sens;
+        sens = PlayerStatsInfo.sens;
 
     }
 

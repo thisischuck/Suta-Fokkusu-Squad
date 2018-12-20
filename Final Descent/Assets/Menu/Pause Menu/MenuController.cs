@@ -31,7 +31,7 @@ public class MenuController : MonoBehaviour {
 
     private void Start()
     {
-        sensSlider.value = PlayerInfo.sens;
+        sensSlider.value = PlayerStatsInfo.sens;
     }
 
     // Update is called once per frame
@@ -66,8 +66,8 @@ public class MenuController : MonoBehaviour {
 
     private void SetCurrentCrosshair(params GameObject[] gO)
     {
-        currentCrosshair = crosshairSprites[PlayerInfo.crosshairNumber];
-        PlayerInfo.currentCrosshair = currentCrosshair;
+        currentCrosshair = crosshairSprites[PlayerStatsInfo.crosshairNumber];
+        PlayerStatsInfo.currentCrosshair = currentCrosshair;
         gO[0].GetComponent<Image>().sprite = currentCrosshair;
         gO[1].GetComponent<Image>().sprite = currentCrosshair;
     }
@@ -135,31 +135,31 @@ public class MenuController : MonoBehaviour {
     public void SensValue()
     {
         sensValue.text = ((int)(sensSlider.value)).ToString();
-        PlayerInfo.sens = sensSlider.value;
+        PlayerStatsInfo.sens = sensSlider.value;
     }
 
 
     public void RightArrow()
     {
-        if (PlayerInfo.crosshairNumber < crosshairSprites.Length - 1)
+        if (PlayerStatsInfo.crosshairNumber < crosshairSprites.Length - 1)
         { 
-            PlayerInfo.crosshairNumber++;
+            PlayerStatsInfo.crosshairNumber++;
         }
         else
         {
-            PlayerInfo.crosshairNumber = 0;
+            PlayerStatsInfo.crosshairNumber = 0;
         }
     }
 
     public void LeftArrow()
     {
-        if (PlayerInfo.crosshairNumber > 0)
+        if (PlayerStatsInfo.crosshairNumber > 0)
         {
-            PlayerInfo.crosshairNumber--;
+            PlayerStatsInfo.crosshairNumber--;
         }
         else
         {
-            PlayerInfo.crosshairNumber = crosshairSprites.Length - 1;
+            PlayerStatsInfo.crosshairNumber = crosshairSprites.Length - 1;
         }
     }
     #endregion

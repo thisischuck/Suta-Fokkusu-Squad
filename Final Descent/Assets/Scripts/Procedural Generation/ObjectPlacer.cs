@@ -38,7 +38,10 @@ public class ObjectPlacer : MonoBehaviour
         {
             RegisterPrefabs();
         }
-        //player = GameObject.FindGameObjectWithTag("Player").transform;
+        else
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         cellular = GetComponent<CellularAutomata>();
 		//waterHeight = GameObject.Find("Water").transform.position.y;
         objectChunks = new Dictionary<Vector2, Chunk>();
@@ -58,6 +61,12 @@ public class ObjectPlacer : MonoBehaviour
                 objectChunks.Add(new Vector2(x, z), chunk);
             }
         }
+    }
+
+    private void Start()
+    {
+        Debug.Log("HEY");
+        Initialize();
     }
 
     public void Update()

@@ -53,9 +53,9 @@ public class LoadOutMenu_Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        nextStage.text = "Next Stage: " + PlayerInfo.stage;
-        currentGold.text = "Gold: " + PlayerInfo.gold;
-        currentGoldInWeaponSelection.text = "CURRENT GOLD: " + PlayerInfo.gold;
+        nextStage.text = "Next Stage: " + PlayerStatsInfo.stage;
+        currentGold.text = "Gold: " + PlayerStatsInfo.gold;
+        currentGoldInWeaponSelection.text = "CURRENT GOLD: " + PlayerStatsInfo.gold;
 
         UpdateButton(weapon1, 0);
         UpdateButton(weapon2, 1);
@@ -81,13 +81,13 @@ public class LoadOutMenu_Controller : MonoBehaviour {
                 btnColor3.GetComponent<Image>().color = color3;
                 break;
         }
-        PlayerInfo.shipColor1 = color1;
-        PlayerInfo.shipColor2 = color2;
-        PlayerInfo.shipColor3 = color3;
+        PlayerStatsInfo.shipColor1 = color1;
+        PlayerStatsInfo.shipColor2 = color2;
+        PlayerStatsInfo.shipColor3 = color3;
 
-        plane.GetComponent<DynamicTexture>().ColorShip1 = PlayerInfo.shipColor1;
-        plane.GetComponent<DynamicTexture>().ColorShip2 = PlayerInfo.shipColor2;
-        plane.GetComponent<DynamicTexture>().ColorShip3 = PlayerInfo.shipColor3;
+        plane.GetComponent<DynamicTexture>().ColorShip1 = PlayerStatsInfo.shipColor1;
+        plane.GetComponent<DynamicTexture>().ColorShip2 = PlayerStatsInfo.shipColor2;
+        plane.GetComponent<DynamicTexture>().ColorShip3 = PlayerStatsInfo.shipColor3;
     }
 
     private void ChangeColorChanel(int button)
@@ -119,7 +119,7 @@ public class LoadOutMenu_Controller : MonoBehaviour {
             }
             else
             {
-                if (selectedWeapon.price > PlayerInfo.gold)
+                if (selectedWeapon.price > PlayerStatsInfo.gold)
                 {
                     buyButton.interactable = false;
                 }
@@ -138,9 +138,9 @@ public class LoadOutMenu_Controller : MonoBehaviour {
 
     private void UpdateButton(Button b, int i)
     {
-        if (PlayerInfo.currentWeapons[i] != null)
+        if (PlayerStatsInfo.currentWeapons[i] != null)
         {
-            b.GetComponent<Image>().sprite = PlayerInfo.currentWeapons[i].sprite;
+            b.GetComponent<Image>().sprite = PlayerStatsInfo.currentWeapons[i].sprite;
             b.GetComponentInChildren<TMP_Text>().text = "";//PlayerInfo.currentWeapons[i].name;
         }
         else
@@ -152,7 +152,7 @@ public class LoadOutMenu_Controller : MonoBehaviour {
 
     private bool FindWeapon()
     {
-        foreach (WeaponObject w in PlayerInfo.unlockedWeapons)
+        foreach (WeaponObject w in PlayerStatsInfo.unlockedWeapons)
         {
             if (w.name == selectedWeapon.name)
             {
@@ -205,7 +205,7 @@ public class LoadOutMenu_Controller : MonoBehaviour {
         {
             if (FindWeapon())
             {
-                PlayerInfo.currentWeapons[weaponChange] = selectedWeapon;
+                PlayerStatsInfo.currentWeapons[weaponChange] = selectedWeapon;
             }
         }
         LoadOutMenuBack();
@@ -215,10 +215,10 @@ public class LoadOutMenu_Controller : MonoBehaviour {
     {
         if (selectedWeapon != null)
         {
-            if (!FindWeapon() && PlayerInfo.gold >= selectedWeapon.price)
+            if (!FindWeapon() && PlayerStatsInfo.gold >= selectedWeapon.price)
             {
-                PlayerInfo.gold -= selectedWeapon.price;
-                PlayerInfo.unlockedWeapons.Add(selectedWeapon);
+                PlayerStatsInfo.gold -= selectedWeapon.price;
+                PlayerStatsInfo.unlockedWeapons.Add(selectedWeapon);
             }
         }
     }

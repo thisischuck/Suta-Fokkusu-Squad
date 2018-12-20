@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class PlayerInfo {
+public static class PlayerStatsInfo {
     public static string name = "player";
     public static int gold = 900;
     public static Color shipColor1;
