@@ -14,11 +14,13 @@ public class Butterfly : Enemy
     private bool spawn;
 
     private AnimationClip animIdle, animSpawn, animMove, animMelee, animLaser, animWings, animDeath;
+    private ParticleSystem[] ps;
 
     protected override void Start()
     {
         base.Start();
         spawn = false;
+        ps = GetComponentsInChildren<ParticleSystem>();
         /*animController["Spawn"].wrapMode = WrapMode.Loop;
         animController["Death"].wrapMode = WrapMode.ClampForever;*/
         animController["Idle"].wrapMode = WrapMode.Loop;
@@ -52,9 +54,10 @@ public class Butterfly : Enemy
         Action a_MoveWithVelocity = () => { transform.position += Velocity * MaxVelocity; };
         Action a_SeekWingsLocation = () => { Velocity = EnemyBehaviours.Seek(transform, Velocity, attackwingsLocation); };
         Action a_WingsCharge = () => { material.SetColor("_EmissionColor", material.GetColor("_EmissionColor") + colorEmission); };
+        Action a_WingsShoot = () => { foreach (ParticleSystem p in ps) p.Play(); };
+        Action a_WingsStopShooting = () => { foreach (ParticleSystem p in ps) p.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); };
         Action a_WingsDischarge = () => { material.SetColor("_EmissionColor", material.GetColor("_EmissionColor") - colorEmission); };
 
-        //SPAWN ANIMATION REFUSES TO WAIT UNTIL IT'S DONE FOR SOME REASON
         StateMachine_Node Spawn = new StateMachine_Node("Spawn",
             new List<Action>(new Action[] { () => { spawn = true; }, a_AnimSpawn }),
             new List<Action>(new Action[] { a_AnimSpawn }),
@@ -111,8 +114,8 @@ public class Butterfly : Enemy
 
         StateMachine_Node AttackWings = new StateMachine_Node("Attack Wings",
             null,
-            new List<Action>(new Action[] { a_AnimWings }),
-            new List<Action>(new Action[] { a_AttackCooldownReset }));
+            new List<Action>(new Action[] { a_AnimWings, a_WingsShoot }),
+            new List<Action>(new Action[] { a_AttackCooldownReset, a_WingsStopShooting, a_WingsStopShooting, a_WingsStopShooting }));
 
         StateMachine_Node WingsDischarge = new StateMachine_Node("Wings Discharge",
             new List<Action>(new Action[] { a_WingsDischarge }),

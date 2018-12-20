@@ -48,6 +48,8 @@ public class CellularAutomata : MonoBehaviour
     public MeshFilter meshFilter1;
     public MeshFilter meshFilter2;
 
+    public GameObject Portal;
+
     private ObjectPlacer objectPlacer;
     private CellularDungeonLayer dungeonLayer;
     private CellularDungeonLayer[] dungeon;
@@ -192,10 +194,23 @@ public class CellularAutomata : MonoBehaviour
             manager.GetComponent<DungeonController>().ReceiveConfirmation(spawns, Seed);
         }
 
+        Vector3 portal = new Vector3(
+            pathfinder.EndPoint.x * spacing,
+            oldVertices[Mathf.FloorToInt(pathfinder.EndPoint.x) + Mathf.FloorToInt(pathfinder.EndPoint.y) * width].y + (height * spacing / 2),
+            pathfinder.EndPoint.y * spacing);
+        Portal.transform.position = portal;
+
         objectPlacer.Initialize();
         objectPlacer.Place(dungeon, oldVertices, vNormals);
 
         oldVertices = null;
+
+        /*
+        * TODO Message server it's done
+        *
+        *
+        *
+         */
     }
 
     private void ProjectTo3D()
