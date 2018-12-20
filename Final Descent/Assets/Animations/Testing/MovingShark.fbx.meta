@@ -5,126 +5,138 @@ ModelImporter:
   fileIDToRecycleName:
     100000: Animation
     100002: Body
-    100004: BodyController2
-    100006: BodyController3
-    100008: Bottom
-    100010: BottomController
-    100012: bottomnurbsSquare2
-    100014: bottomnurbsSquare3
-    100016: bottomnurbsSquare4
-    100018: bottomnurbsSquare4 1
-    100020: Cluster1
-    100022: cluster1Handle
-    100024: Cluster2
-    100026: cluster2Handle
-    100028: Cluster3
-    100030: cluster3Handle
-    100032: Cluster4
-    100034: cluster4Handle
-    100036: Cluster5
-    100038: cluster5Handle
-    100040: curve1
-    100042: Head
-    100044: ikHandle1
-    100046: joint11
-    100048: joint12
-    100050: joint13
-    100052: joint14
-    100054: joint2
-    100056: joint3
-    100058: joint4
-    100060: joint6
-    100062: joint8
-    100064: joint9
-    100066: LeftFin
-    100068: leftnurbsSquare2
-    100070: leftnurbsSquare3
-    100072: leftnurbsSquare4
-    100074: leftnurbsSquare4 1
-    100076: Mouth
-    100078: MouthController
-    100080: //RootNode
-    100082: Rig
-    100084: RightFin
-    100086: rightnurbsSquare2
-    100088: rightnurbsSquare3
-    100090: rightnurbsSquare4
-    100092: rightnurbsSquare4 1
-    100094: Root
-    100096: Saw
-    100098: SawController
-    100100: Tail
-    100102: TailEnd1
-    100104: TailEnd2
-    100106: TipTail
-    100108: Top
-    100110: TopController
-    100112: topnurbsSquare2
-    100114: topnurbsSquare3
-    100116: topnurbsSquare4
-    100118: topnurbsSquare4 1
+    100004: Body 1
+    100006: BodyController2
+    100008: BodyController3
+    100010: Bottom
+    100012: BottomController
+    100014: bottomnurbsSquare2
+    100016: bottomnurbsSquare3
+    100018: bottomnurbsSquare4
+    100020: bottomnurbsSquare4 1
+    100022: Cluster1
+    100024: cluster1Handle
+    100026: Cluster2
+    100028: cluster2Handle
+    100030: Cluster3
+    100032: cluster3Handle
+    100034: Cluster4
+    100036: cluster4Handle
+    100038: Cluster5
+    100040: cluster5Handle
+    100042: curve1
+    100044: Head
+    100046: ikHandle1
+    100048: joint11
+    100050: joint12
+    100052: joint13
+    100054: joint14
+    100056: joint2
+    100058: joint3
+    100060: joint4
+    100062: joint6
+    100064: joint8
+    100066: joint9
+    100068: LeftFin
+    100070: leftnurbsSquare2
+    100072: leftnurbsSquare3
+    100074: leftnurbsSquare4
+    100076: leftnurbsSquare4 1
+    100078: Mouth
+    100080: MouthController
+    100082: //RootNode
+    100084: Rig
+    100086: RightFin
+    100088: rightnurbsSquare2
+    100090: rightnurbsSquare3
+    100092: rightnurbsSquare4
+    100094: rightnurbsSquare4 1
+    100096: Root
+    100098: Saw
+    100100: SawController
+    100102: SawShark
+    100104: Tail
+    100106: TailEnd1
+    100108: TailEnd2
+    100110: Teeth
+    100112: TipTail
+    100114: Top
+    100116: TopController
+    100118: topnurbsSquare2
+    100120: topnurbsSquare3
+    100122: topnurbsSquare4
+    100124: topnurbsSquare4 1
     400000: Animation
     400002: Body
-    400004: BodyController2
-    400006: BodyController3
-    400008: Bottom
-    400010: BottomController
-    400012: bottomnurbsSquare2
-    400014: bottomnurbsSquare3
-    400016: bottomnurbsSquare4
-    400018: bottomnurbsSquare4 1
-    400020: Cluster1
-    400022: cluster1Handle
-    400024: Cluster2
-    400026: cluster2Handle
-    400028: Cluster3
-    400030: cluster3Handle
-    400032: Cluster4
-    400034: cluster4Handle
-    400036: Cluster5
-    400038: cluster5Handle
-    400040: curve1
-    400042: Head
-    400044: ikHandle1
-    400046: joint11
-    400048: joint12
-    400050: joint13
-    400052: joint14
-    400054: joint2
-    400056: joint3
-    400058: joint4
-    400060: joint6
-    400062: joint8
-    400064: joint9
-    400066: LeftFin
-    400068: leftnurbsSquare2
-    400070: leftnurbsSquare3
-    400072: leftnurbsSquare4
-    400074: leftnurbsSquare4 1
-    400076: Mouth
-    400078: MouthController
-    400080: //RootNode
-    400082: Rig
-    400084: RightFin
-    400086: rightnurbsSquare2
-    400088: rightnurbsSquare3
-    400090: rightnurbsSquare4
-    400092: rightnurbsSquare4 1
-    400094: Root
-    400096: Saw
-    400098: SawController
-    400100: Tail
-    400102: TailEnd1
-    400104: TailEnd2
-    400106: TipTail
-    400108: Top
-    400110: TopController
-    400112: topnurbsSquare2
-    400114: topnurbsSquare3
-    400116: topnurbsSquare4
-    400118: topnurbsSquare4 1
+    400004: Body 1
+    400006: BodyController2
+    400008: BodyController3
+    400010: Bottom
+    400012: BottomController
+    400014: bottomnurbsSquare2
+    400016: bottomnurbsSquare3
+    400018: bottomnurbsSquare4
+    400020: bottomnurbsSquare4 1
+    400022: Cluster1
+    400024: cluster1Handle
+    400026: Cluster2
+    400028: cluster2Handle
+    400030: Cluster3
+    400032: cluster3Handle
+    400034: Cluster4
+    400036: cluster4Handle
+    400038: Cluster5
+    400040: cluster5Handle
+    400042: curve1
+    400044: Head
+    400046: ikHandle1
+    400048: joint11
+    400050: joint12
+    400052: joint13
+    400054: joint14
+    400056: joint2
+    400058: joint3
+    400060: joint4
+    400062: joint6
+    400064: joint8
+    400066: joint9
+    400068: LeftFin
+    400070: leftnurbsSquare2
+    400072: leftnurbsSquare3
+    400074: leftnurbsSquare4
+    400076: leftnurbsSquare4 1
+    400078: Mouth
+    400080: MouthController
+    400082: //RootNode
+    400084: Rig
+    400086: RightFin
+    400088: rightnurbsSquare2
+    400090: rightnurbsSquare3
+    400092: rightnurbsSquare4
+    400094: rightnurbsSquare4 1
+    400096: Root
+    400098: Saw
+    400100: SawController
+    400102: SawShark
+    400104: Tail
+    400106: TailEnd1
+    400108: TailEnd2
+    400110: Teeth
+    400112: TipTail
+    400114: Top
+    400116: TopController
+    400118: topnurbsSquare2
+    400120: topnurbsSquare3
+    400122: topnurbsSquare4
+    400124: topnurbsSquare4 1
+    2100000: lambert1
+    4300000: Body
+    4300002: Teeth
     7400000: MovingShark
     9500000: //RootNode
+    11100000: //RootNode
+    13700000: Body
+    13700002: Teeth
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -199,10 +211,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 1
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
