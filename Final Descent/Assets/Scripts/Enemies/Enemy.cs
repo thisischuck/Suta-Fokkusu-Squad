@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        Debug.Log(stateMachine.currentNode.ToString());
+        //Debug.Log(stateMachine.currentNode.ToString());
         List<Action> actions = stateMachine.Run();
         if (actions != null)
         {
