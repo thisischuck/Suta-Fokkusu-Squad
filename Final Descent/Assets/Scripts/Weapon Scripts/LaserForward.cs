@@ -8,6 +8,7 @@ public class LaserForward : MonoBehaviour
     public Vector3 Velocity;
     public float Speed = 30.0f;
     private bool hasStarted;
+    public int damage = 5;
 
     void Start()
     {

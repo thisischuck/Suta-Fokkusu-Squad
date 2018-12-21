@@ -25,25 +25,26 @@ public class ObjectPlacer : MonoBehaviour
     private Vector2 currentChunk;
     private Transform player;
     public GameObject obj;
-	public Transform water;
-	public float maxSize;
-	int height;
+    public Transform water;
+    public float maxSize;
+    int height;
     int width;
     int length;
-	float waterHeight;
+    float waterHeight;
 
     public void Initialize()
     {
-        if (IsOnline)
-        {
-            RegisterPrefabs();
-        }
-        else
-        {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
-        }
+        //if (IsOnline)
+        //{
+        //    RegisterPrefabs();
+        //}
+        //else
+        //{
+        //    player = GameObject.FindGameObjectWithTag("Player").transform;
+        //}
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         cellular = GetComponent<CellularAutomata>();
-		//waterHeight = GameObject.Find("Water").transform.position.y;
+        //waterHeight = GameObject.Find("Water").transform.position.y;
         objectChunks = new Dictionary<Vector2, Chunk>();
         for (float z = 0; z < cellular.length * cellular.spacing; z += chunkSizeZ)
         {
@@ -66,7 +67,7 @@ public class ObjectPlacer : MonoBehaviour
     private void Start()
     {
         Debug.Log("HEY");
-        Initialize();
+        //Initialize();
     }
 
     public void Update()
@@ -86,15 +87,15 @@ public class ObjectPlacer : MonoBehaviour
         }
     }
 
-    private void RegisterPrefabs()
-    {
-        foreach (ObjectTobePlaced o in objects)
-        {
-            GameObject networkObject = o.GameObject;
-            networkObject.AddComponent<UnityEngine.Networking.NetworkIdentity>();
-            UnityEngine.Networking.ClientScene.RegisterPrefab(networkObject);
-        }
-    }
+    //private void RegisterPrefabs()
+    //{
+    //    foreach (ObjectTobePlaced o in objects)
+    //    {
+    //        GameObject networkObject = o.GameObject;
+    //        networkObject.AddComponent<UnityEngine.Networking.NetworkIdentity>();
+    //        UnityEngine.Networking.ClientScene.RegisterPrefab(networkObject);
+    //    }
+    //}
 
     public void Place(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals)
     {
@@ -117,34 +118,34 @@ public class ObjectPlacer : MonoBehaviour
                                 Mathf.FloorToInt(z * cellular.spacing / chunkSizeZ) * chunkSizeZ);
                             switch (o.Place)
                             {
-								case Location.CEILING:
-									Ceiling(dungeon, vertices, normals, x, y, z, o);
-									break;
-								case Location.FLOOR:
-									Floor(dungeon, vertices, normals, x, y, z, o);
-									break;
-								case Location.WALL:
-									Wall(dungeon, vertices, normals, x, y, z, o);
-									break;
-								case Location.CEILING_AND_WALL:
-									Ceiling(dungeon, vertices, normals, x, y, z, o);
-									Wall(dungeon, vertices, normals, x, y, z, o);
-									break;
-								case Location.FLOOR_AND_WALL:
+                                case Location.CEILING:
+                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
+                                    break;
+                                case Location.FLOOR:
+                                    Floor(dungeon, vertices, normals, x, y, z, o);
+                                    break;
+                                case Location.WALL:
+                                    Wall(dungeon, vertices, normals, x, y, z, o);
+                                    break;
+                                case Location.CEILING_AND_WALL:
+                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
+                                    Wall(dungeon, vertices, normals, x, y, z, o);
+                                    break;
+                                case Location.FLOOR_AND_WALL:
 
-									Floor(dungeon, vertices, normals, x, y, z, o);
-									Wall(dungeon, vertices, normals, x, y, z, o);
-									break;
-								case Location.FLOOR_AND_CEILING:
-									Ceiling(dungeon, vertices, normals, x, y, z, o);
-									Floor(dungeon, vertices, normals, x, y, z, o);
-									break;
-								case Location.ALL:
-									Ceiling(dungeon, vertices, normals, x, y, z, o);
-									Floor(dungeon, vertices, normals, x, y, z, o);
-									Wall(dungeon, vertices, normals, x, y, z, o);
-									break;
-							}
+                                    Floor(dungeon, vertices, normals, x, y, z, o);
+                                    Wall(dungeon, vertices, normals, x, y, z, o);
+                                    break;
+                                case Location.FLOOR_AND_CEILING:
+                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
+                                    Floor(dungeon, vertices, normals, x, y, z, o);
+                                    break;
+                                case Location.ALL:
+                                    Ceiling(dungeon, vertices, normals, x, y, z, o);
+                                    Floor(dungeon, vertices, normals, x, y, z, o);
+                                    Wall(dungeon, vertices, normals, x, y, z, o);
+                                    break;
+                            }
                         }
                     }
                 }
@@ -155,10 +156,10 @@ public class ObjectPlacer : MonoBehaviour
     }
 
     public void Ceiling(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
-	{
-		//if (!dungeon[y].Cells[x, z].hasVisited) return;
+    {
+        if (!dungeon[y].Cells[x, z].hasVisited) return;
 
-		float r = Random.Range(0.0f, 100.0f);
+        float r = Random.Range(0.0f, 100.0f);
         if (y == dungeon.Length - 1 && r > 100 - o.SpawnRate)
         {
             GameObject newObj = null;
@@ -172,23 +173,23 @@ public class ObjectPlacer : MonoBehaviour
                 newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f))); //buscar a normal do vertice para rotação 
             }
             newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
-			newObj.transform.localScale = Vector3.one * Random.Range(0, maxSize);
-			if (newObj.tag != "Stalactite")
+            newObj.transform.localScale = Vector3.one * Random.Range(0, maxSize);
+            if (newObj.tag != "Stalactite")
                 newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
-			newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
-			positionsUsed.Add(new Vector3(x, y, z), newObj);
+            newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
+            positionsUsed.Add(new Vector3(x, y, z), newObj);
 
         }
     }
 
     public void Floor(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
-		//if (!dungeon[y].Cells[x, z].hasVisited) return;
+        if (!dungeon[y].Cells[x, z].hasVisited) return;
 
-		if (o.GameObject.layer == LayerMask.NameToLayer("AboveWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y <= water.position.y ||
-			o.GameObject.layer == LayerMask.NameToLayer("BelowWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y > water.position.y) return;
+        if (o.GameObject.layer == LayerMask.NameToLayer("AboveWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y <= water.position.y ||
+            o.GameObject.layer == LayerMask.NameToLayer("BelowWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y > water.position.y) return;
 
-		float r = Random.Range(0.0f, 100.0f);
+        float r = Random.Range(0.0f, 100.0f);
         if (y == 0 && r > 100 - o.SpawnRate)
         {
             GameObject newObj = null;
@@ -210,9 +211,9 @@ public class ObjectPlacer : MonoBehaviour
 
     public void Wall(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
-		if (o.GameObject.layer == LayerMask.NameToLayer("AboveWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y <= water.position.y) return;
+        if (o.GameObject.layer == LayerMask.NameToLayer("AboveWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y <= water.position.y) return;
 
-		float r = Random.Range(0.0f, 100.0f);
+        float r = Random.Range(0.0f, 100.0f);
         if ((y != 0 && y != dungeon.Length - 1) && r > 100 - o.SpawnRate)
         {
             GameObject newObj = null;

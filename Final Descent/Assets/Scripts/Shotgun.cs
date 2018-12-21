@@ -19,7 +19,7 @@ public class Shotgun : MonoBehaviour {
 			{
 				Rigidbody rb = t.GetComponent<Rigidbody>();
 
-				rb.AddForce(transform.forward * 30f);
+				rb.AddForce(transform.forward * 60f);
 				Debug.Log(rb.transform);
 			}
 		}			

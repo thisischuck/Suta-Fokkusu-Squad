@@ -230,7 +230,7 @@ MonoBehaviour:
   miniMissiles: {fileID: 1810084279393892, guid: 868c6945f1fc0884fa795426a1897348,
     type: 2}
   speed: 30
-  rotSpeed: 70
+  rotSpeed: 100
   Velocity: {x: 0, y: 0, z: 0}
   lifeTime: 5
   explosive: 0

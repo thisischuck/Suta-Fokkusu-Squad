@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealthEnemy : BaseStats
 {
-
+    public string name;
     private void Start()
     {
         GenerateVariables(100, 0);
@@ -23,8 +23,33 @@ public class HealthEnemy : BaseStats
     {
         if (col.gameObject.tag == "Bullet")
         {
-            float damage = col.gameObject.GetComponent<Mover>().Damage;
-            ApplyDamage(damage);
+            if (col.gameObject.GetComponent<Mover>())
+            {
+                float damage = col.gameObject.GetComponent<Mover>().Damage;
+                ApplyDamage(damage);
+
+            }
+            if (col.gameObject.GetComponent<LaserForward>())
+            {
+                float damage = col.gameObject.GetComponent<LaserForward>().damage;
+                ApplyDamage(damage);
+            }
+            GameObject stats = GameObject.Find("Stats");
+
+            float enemyCurrenhp = GetComponent<HealthEnemy>().health;
+            float enemyMaxhp = GetComponent<HealthEnemy>().base_maxHealth;
+            string enemyName = "";
+            if (GetComponent<Enemy>())
+            {
+                enemyName = GetComponent<Enemy>().enemyName;
+                stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
+            }
+            else if (GetComponentInChildren<SpawnerBehaviour>())
+            {
+                enemyName = GetComponentInChildren<SpawnerBehaviour>().spawnerName;
+                stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
+            }
+
         }
     }
 

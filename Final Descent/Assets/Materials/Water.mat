@@ -94,7 +94,7 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _streach: 0
+    - _streach: 1.98
     m_Colors:
     - Color_95C626DF: {r: 0.081301175, g: 0.1981132, b: 0.18052104, a: 0}
     - Color_C23916DF: {r: 0.1214845, g: 0.18338376, b: 0.24528301, a: 0}
@@ -104,4 +104,4 @@ Material:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _point_of_bend: {r: 370.49353, g: 30, b: 292.07394, a: 0}
+    - _point_of_bend: {r: 295.51733, g: 46, b: 97.648834, a: 0}

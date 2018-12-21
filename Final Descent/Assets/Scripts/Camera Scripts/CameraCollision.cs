@@ -51,6 +51,10 @@ public class CameraCollision : MonoBehaviour
                 Debug.Log(hit.transform.tag);
                 distance = Mathf.Clamp((hit.distance * 0.8f), minDistance, maxDistance);
             }
+            else
+            {
+                distance = maxDistance;
+            }
         }
         else
         {

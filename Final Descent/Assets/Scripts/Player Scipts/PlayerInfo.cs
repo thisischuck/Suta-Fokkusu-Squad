@@ -37,7 +37,7 @@ public struct Info
 public static class PlayerStatsInfo
 {
     public static string name = "player";
-    public static int gold = 900;
+    public static int gold = 5000;
     public static Color shipColor1;
     public static Color shipColor2;
     public static Color shipColor3;
@@ -122,7 +122,7 @@ public static class PlayerStatsInfo
     public static void ResetInfo()
     {
         name = "player";
-        gold = 900;
+        gold = 5000;
         shipColor1 = Color.black;
         shipColor2 = Color.black;
         shipColor3 = Color.black;

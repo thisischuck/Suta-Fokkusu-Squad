@@ -20,6 +20,7 @@ public class SpawnerBehaviour : MonoBehaviour {
 	void Start () {
         player = GetClosestPlayer().transform;
         animator = GetComponent<Animator>();
+        enemyController = GameObject.FindGameObjectWithTag("EnemyController").transform;
         
 
         #region STATE MACHINE SCHEME
@@ -51,10 +52,10 @@ public class SpawnerBehaviour : MonoBehaviour {
         StateMachine_Node n_dead = new StateMachine_Node("Dead", null, null, null);
 
         //Transitions
-        StateMachine_Transition t_becomingActive = new StateMachine_Transition("nonActive to Active", () => { return Vector3.Distance(transform.position, player.position) <= 50; },
+        StateMachine_Transition t_becomingActive = new StateMachine_Transition("nonActive to Active", () => { return Vector3.Distance(transform.position, player.position) <= 100; },
             n_active, new List<Action>(new Action[] { a_active })); //Player is close, spawner activates
 
-        StateMachine_Transition t_activeToNonActive = new StateMachine_Transition("Active to nonActive", () => { return Vector3.Distance(transform.position, player.position) > 50; }, 
+        StateMachine_Transition t_activeToNonActive = new StateMachine_Transition("Active to nonActive", () => { return Vector3.Distance(transform.position, player.position) > 100; }, 
             n_nonActive, new List<Action>(new Action[] { a_toofar })); //Player is far away, spawner deactivates
 
         StateMachine_Transition t_activeToSpawn = new StateMachine_Transition("Active to Spawning", () => { return count >= spawningRechargeTime; }, n_spawning, new List<Action>(new Action[] { a_spawn })); //Spawner is done recharging, it spawns an enemy
@@ -112,7 +113,9 @@ public class SpawnerBehaviour : MonoBehaviour {
     void SpawnEnemy()
     {
         GameObject enemy = Instantiate(enemyController.GetComponent<EnemySpawningController>().ChooseAnEnemy());
+        GameObject enemy2 = Instantiate(enemyController.GetComponent<EnemySpawningController>().ChooseAnEnemy());
         enemy.transform.position = spawnPoint.position;
+        enemy2.transform.position = spawnPoint.position;
 
     }
 

@@ -232,7 +232,7 @@ MonoBehaviour:
   speed: 30
   rotSpeed: 70
   Velocity: {x: 0, y: 0, z: 0}
-  lifeTime: 2
+  lifeTime: 0.5
   explosive: 1
 --- !u!136 &136260766429489882
 CapsuleCollider:

@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4320626584232270}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TopFin_Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4016009290866524}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tail_b2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4908604028908658}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BottomJaw_Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4107330747001500}
   - component: {fileID: 137417254185523824}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BottomEyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4261251381537582}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: joint7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4672753273214020}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AntenaController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4584033613426920}
   - component: {fileID: 137796258657090212}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4244584722574334}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tail_Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4837437051366128}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body_Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4234703910757008}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tail_b3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4706451117572624}
   - component: {fileID: 137641471292383890}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4736284741770580}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Antena 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4838308793774068}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bottom_Jaw_Ik
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4192071683077508}
   - component: {fileID: 137824161922582886}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4615650862056968}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mouth_Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4061975927570154}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tail_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4370960142405554}
   - component: {fileID: 137525861001799202}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4157978143109980}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4211484196306114}
   - component: {fileID: 137359920492808926}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4168905306513936}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Angler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4418894164917186}
   - component: {fileID: 137364407681709000}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4562611834789120}
   - component: {fileID: 137804649623838926}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4001775997042554}
   - component: {fileID: 137332358170521900}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Antena
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4974610810337342}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4710707591758924}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4113114673587788}
   - component: {fileID: 137151689528170114}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4229437578679088}
   - component: {fileID: 137204777462829838}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Horn2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4703196651548736}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: joint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4954873905857876}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: joint12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4988574745948178}
   - component: {fileID: 137065343540795568}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Horn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4567448348734918}
   - component: {fileID: 137522205569286112}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HornsFoward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +498,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4386025637668258}
   - component: {fileID: 137906594937551850}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4127917231432154}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4703123389012238}
   - component: {fileID: 137518183930774860}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -544,7 +544,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4249015632732142}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: joint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4348574236606958}
   - component: {fileID: 137742987712564190}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TopEyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -575,7 +575,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4578913651690724}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Top_Jaw_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4466522659555316}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: UpperJaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4127230477832616}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: joint17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4110573893325146}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Antena_IK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -635,7 +635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4751371245922922}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ikHandle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +650,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4579691820406642}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +665,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4016765427471860}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: transform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -680,7 +680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4001134610003196}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: joint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -695,7 +695,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4427531956278396}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LowerJaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -710,7 +710,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4353215762056132}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: joint10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,9 +729,11 @@ GameObject:
   - component: {fileID: 111409982665257420}
   - component: {fileID: 135795158011536982}
   - component: {fileID: 114760906059626854}
-  m_Layer: 0
+  - component: {fileID: 114872563879770576}
+  - component: {fileID: 54313855571641696}
+  m_Layer: 11
   m_Name: Angie
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,7 +746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4686804655903828}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: joint9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +762,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4107336627379300}
   - component: {fileID: 137953014309303904}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Teeth7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -775,7 +777,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4691651812861658}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TopJaw_Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -790,7 +792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4274345345866458}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: joint16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4632244296971394}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Top_Fin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1008,7 +1010,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1847629942088758}
   m_LocalRotation: {x: -0, y: -0.9995515, z: -0, w: 0.029948274}
-  m_LocalPosition: {x: -12.865828, y: 43.580135, z: 3.2581027}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4168905306513936}
@@ -1539,6 +1541,21 @@ Transform:
   m_Father: {fileID: 4168905306513936}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54313855571641696
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847629942088758}
+  serializedVersion: 2
+  m_Mass: 40
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &95439413019638376
 Animator:
   serializedVersion: 3
@@ -1592,6 +1609,27 @@ MonoBehaviour:
   enemyName: 
   animController: {fileID: 0}
   p1: {fileID: 0}
+--- !u!114 &114872563879770576
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847629942088758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70c7f1e45a8dc54db9cb3f0aa885564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 1
+  shield: 0
+  health: 100
+  base_maxHealth: 0
+  base_maxShield: 0
+  invulnerabilityTime: 0
+  invCount: 0
+  IsInvulnerable: 0
+  IsAlive: 1
+  name: ANGLERFISH
 --- !u!135 &135795158011536982
 SphereCollider:
   m_ObjectHideFlags: 1

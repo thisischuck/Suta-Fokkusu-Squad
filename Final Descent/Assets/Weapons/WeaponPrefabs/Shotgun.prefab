@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 198112029625292726}
   - component: {fileID: 199300642499426172}
   - component: {fileID: 114282030548275682}
+  - component: {fileID: 114976919178415542}
   m_Layer: 4
   m_Name: Shotgun
   m_TagString: Untagged
@@ -86,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566669747414614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.02, z: 0.951388}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 14.700311, y: 14.73414, z: 14.734142}
   m_Children:
   - {fileID: 4863959080508514}
@@ -122,7 +123,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 03b8c90d40546a542aa6a99e21dc026e, type: 3}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -148,7 +149,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1566669747414614}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -157,7 +158,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5e72431252d70644995a0bf3ef00cf9a, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -234,7 +235,7 @@ MonoBehaviour:
   ultraObject: {fileID: 1968641924042306, guid: 35f85be59ee28ce4087a2926a44c6639,
     type: 2}
   canFire: 1
-  isActive: 1
+  isActive: 0
   canUltraFire: 1
   bulletsPerClick: 5
   ultraBulletsPerClick: 1
@@ -244,6 +245,19 @@ MonoBehaviour:
   ultraChargeRate: 5
   ultraCoolDown: 1
   weaponBehaviour: 3
+--- !u!114 &114976919178415542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1466524949046836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85277f8f460fecb488bfe8ea45eaf43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  system: {fileID: 198112029625292726}
+  damage: 40
 --- !u!114 &114995110145890570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -879,7 +893,7 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 4
-    angle: 21.432293
+    angle: 10
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -3655,7 +3669,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
     type: 1
     collisionMode: 0
@@ -3725,7 +3739,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3778,7 +3792,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3833,11 +3847,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 2048
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -4804,7 +4818,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 2b3ef6fc57a734c469a450da9b1ade9c, type: 2}
+  - {fileID: 0}
   - {fileID: 2100000, guid: e514ee94af7a79744ae46e490e793888, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 198013990526466922}
   m_Layer: 11
   m_Name: Eye
-  m_TagString: Bullet
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947752668025230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -54.99037, y: 48.63, z: 71.39}
+  m_LocalPosition: {x: -8.616596, y: 3.3722672, z: 15.768877}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4427672857199170}
@@ -208,12 +208,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 1
   shield: 0
-  health: 10
+  health: 100
   base_maxHealth: 0
+  base_maxShield: 0
   invulnerabilityTime: 0
   invCount: 0
   IsInvulnerable: 0
   IsAlive: 1
+  name: EYE
 --- !u!114 &114748722429445192
 MonoBehaviour:
   m_ObjectHideFlags: 1

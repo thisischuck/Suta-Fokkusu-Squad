@@ -76,7 +76,6 @@ public class CellularAutomata : MonoBehaviour
         randomNoise = 0.2f;
         cycle = 0;
 
-
         Path();
     }
 
@@ -198,6 +197,7 @@ public class CellularAutomata : MonoBehaviour
             pathfinder.EndPoint.x * spacing,
             oldVertices[Mathf.FloorToInt(pathfinder.EndPoint.x) + Mathf.FloorToInt(pathfinder.EndPoint.y) * width].y + (height * spacing / 2),
             pathfinder.EndPoint.y * spacing);
+        Instantiate(Portal);
         Portal.transform.position = portal;
 
         objectPlacer = GetComponent<ObjectPlacer>();

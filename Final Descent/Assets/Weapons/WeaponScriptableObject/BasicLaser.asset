@@ -14,7 +14,7 @@ MonoBehaviour:
   id: 1
   name: Laser Gun
   description: Basic laser gun. Weak damage but can shoot an empowered cherged attack.
-  weaponModel: {fileID: 1816135550643124, guid: dcf3c03a1dc205940b5c52336a5c4045,
+  weaponModel: {fileID: 1606070544469350, guid: f3784282224a7d0438fb89db909c17e7,
     type: 2}
   weaponType: 0
   sprite: {fileID: 21300000, guid: 2527106b8939a1d43859b644c5ad65a2, type: 3}

@@ -13,6 +13,13 @@ public class MenuController : MonoBehaviour {
     public GameObject optionMenu;
 
     [Space]
+    [Header("StartScene")]
+    public TMP_Text Stage;
+    public Canvas otherCanvas;
+    float count = 0;
+
+
+    [Space]
     [Header("Volume")]
     public TMP_Text volumeValue;
     public Slider volumeSlider;
@@ -37,6 +44,12 @@ public class MenuController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        count += 1 * Time.deltaTime;
+        if (count >= 4)
+        {
+            otherCanvas.gameObject.SetActive(false);
+        }
+        Stage.text = "STAGE " + (PlayerStatsInfo.stage - 1).ToString();
         if (!GameOver)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
