@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class HealthPlayer : BaseStats {
 
-    public GameObject hpBar, shieldBar;
+	public GameObject hpBar, shieldBar;
 	private bool exploded = false;
 	public ParticleSystem damagedShip, areaPulse;
+	public bool collision = false;
 
 	// Use this for initialization
 	void Start () {
@@ -18,12 +19,8 @@ public class HealthPlayer : BaseStats {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            TakeDamage(50);
-        }
 
-        if (exploded && CheckIfOnPlace() && Input.GetKey(KeyCode.G))
+		if (exploded && CheckIfOnPlace() && Input.GetKey(KeyCode.G))
         {
             Transform lifepod = transform.Find("LifePod");
             GameObject playerAircraft = GameObject.Find("Player_aircraft");
@@ -35,20 +32,26 @@ public class HealthPlayer : BaseStats {
             transform.rotation = aircraft.transform.rotation;
             aircraft.transform.parent = playerAircraft.transform;
 			playerAircraft.transform.parent = transform;
-            lifepod.gameObject.SetActive(false);
+			playerAircraft.transform.localPosition = Vector3.zero;
+			//playerAircraft.transform.position = transform.position;
+			transform.GetComponent<Ship>().enabled = true;
+			lifepod.gameObject.SetActive(false);
             playerAircraft.GetComponent<ShipRotation>().enabled = true;
             ActivateChildScripts(aircraft.transform, true);
 			ActivateChildScripts(playerAircraft.transform.Find("WeaponHolder"), true);
-			playerAircraft.transform.localPosition = Vector3.zero;
 			exploded = false;
+			areaPulse.gameObject.SetActive(false);
 
 			health = base_maxHealth;
 			shield = base_maxShield;
 		}
-		if (!CheckIfOnPlace())
+		if (!CheckIfOnPlace() && exploded)
 			damagedShip.gameObject.SetActive(true);
-		else damagedShip.gameObject.SetActive(false);
-
+		else if (CheckIfOnPlace() && exploded)
+		{
+			damagedShip.gameObject.SetActive(false);
+			areaPulse.gameObject.SetActive(true);
+		}
 
 		if(exploded)
 		{
@@ -62,6 +65,11 @@ public class HealthPlayer : BaseStats {
 			UpdateBars();
 		}
     }
+
+	public void TakeDamageShield(float damage)
+	{
+		shield -= damage;
+	}
 
     override public void TakeDamage(float damage)
     {
@@ -83,10 +91,10 @@ public class HealthPlayer : BaseStats {
         }
 		else if (health <= 0 && lives <= 0)
 		{
-			lives--;
-			transform.GetComponent<Ship>().enabled = false;
-			DeathExplosion();
 			IsAlive = false;
+			lives--;
+			//transform.parent.Find("PlayerController").GetComponent<PlayerMovement>().enabled = false;
+			DeathExplosion();
 		}
 	}
 
@@ -102,10 +110,13 @@ public class HealthPlayer : BaseStats {
 		Transform player = t.Find("Aircraft");
 		//Remove every child inside Aircraft transform
 		ActivateChildScripts(t.Find("WeaponHolder"), false);
+
 		ActivateChildScripts(player, false);
-        t.GetComponent<ShipRotation>().enabled = false;
-        t.parent = null;
+		t.GetComponent<ShipRotation>().enabled = false;
+		if (IsAlive)
+			t.parent = null;
 		exploded = true;
+		areaPulse.gameObject.SetActive(true);
     }
 
     private void SpawnLifePod()

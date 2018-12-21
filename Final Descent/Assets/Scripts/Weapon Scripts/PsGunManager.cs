@@ -64,9 +64,123 @@ public class PsGunManager : MonoBehaviour
         }
     }
 
+	//MachineGun
+	private void Weapon2()
+	{
+		if (!toggleOn && Input.GetButton("Fire1") && canFire)
+		{
+			system.Emit(bulletsPerClick);
+			StartCoroutine(FireRateIE());
+			FireRateIncrease();
+			currentFireRate = fireRate;
+		}
+		else if (toggleOn && Input.GetButton("Fire1") && canUltraFire && Time.time >= ultraAvailable)
+		{
+			ultraSystem.Emit(ultraBulletsPerClick);
+			StartCoroutine(UltraFireRateIE());
+			ultraTimeUp += Time.deltaTime;
+		}
+		else if(!Input.GetButton("Fire1") && !Input.GetButton("Fire2"))
+		{
+			fireRate = startFireRate;
+			currentFireRate = startFireRate;
+			ultraTimeUp = 0.0f;
+		}
+		if (Input.GetButtonDown("Fire2"))
+			toggleOn = true;
+		if (ultraTimeUp >= 3f)
+		{
+			toggleOn = false;
+			ultraAvailable = Time.time + ultraCoolDown;
+		}
+	}
 
+	//Shotgun/Harpoon
+	private void Weapon3()
+	{
+		if (Input.GetButton("Fire1") && !canFire)
+			this.transform.Find("ShotgunForceArea").GetComponent<Shotgun>().ClearList();
+		else if (Input.GetButton("Fire1") && canFire)
+		{ 
+			system.Emit(bulletsPerClick);
+			this.transform.Find("ShotgunForceArea").gameObject.SetActive(true);
+			StartCoroutine(FireRateIE());
+		}
+		else if (Input.GetButton("Fire2") && canUltraFire && Time.time >= ultraAvailable)
+		{
+			GameObject obj = Instantiate(ultraObject, this.transform.position, Quaternion.identity);
+			obj.GetComponent<Hook>().Forward = this.transform.forward;
+			obj.GetComponent<Hook>().weaponPos = this.transform;
+			ultraAvailable = Time.time + ultraCoolDown;
+			StartCoroutine(UltraFireRateIE());
+		}
+		if (!Input.GetButton("Fire1"))
+			this.transform.Find("ShotgunForceArea").gameObject.SetActive(false);
+	}
 
-    private void Weapon1()
+	//Missiles
+	private void Weapon4()
+	{
+		if (Input.GetButton("Fire1") && canFire)
+		{
+			GameObject obj = Instantiate(fireObject, this.transform.position, Quaternion.identity);
+			obj.GetComponent<missileAI>().Velocity = this.transform.forward;
+			obj.transform.rotation = this.transform.rotation;
+			StartCoroutine(FireRateIE());
+		}
+		else if (Input.GetButton("Fire2") && canUltraFire && Time.time >= ultraAvailable)
+		{
+			GameObject obj = Instantiate(ultraObject, this.transform.position, Quaternion.identity);
+			obj.GetComponent<missileAI>().Velocity = this.transform.forward;
+			obj.transform.rotation = this.transform.rotation;
+			ultraAvailable = Time.time + ultraCoolDown;
+			StartCoroutine(UltraFireRateIE());
+		}
+	}
+
+	private bool LookForEnemy(ParticleSystem.Particle p)
+	{
+	    float distance = 0.0f;
+		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+		foreach (GameObject e in enemies)
+		{
+			float d = Vector3.Distance(p.position, e.transform.position);
+			if (distance > d || distance == 0)
+			{
+				distance = d;
+				target = e.transform;
+			}
+		}
+		if (distance > 30f)
+			return false;
+		else return true;
+	}
+
+	private void Pursuit(ParticleSystem ps)
+	{
+		ParticleSystem.Particle[] particles = new ParticleSystem.Particle[ps.particleCount];
+		ps.GetParticles(particles);
+
+		for (int i = 0; i < particles.Length; i++)
+		{
+			ParticleSystem.Particle p = particles[i];
+
+			if (LookForEnemy(p))
+			{
+				Vector3 dirToTarget = (target.position - p.position).normalized; // senao a força aplicada iria ser maior consoante a distancia
+				Vector3 seekTarget = (dirToTarget * ps.main.startSpeed.constant) * Time.deltaTime;
+
+				p.velocity = seekTarget;
+
+				particles[i] = p;
+			}
+			else
+				continue;
+		}
+		ps.SetParticles(particles, particles.Length);
+	}
+
+	public void OnParticleCollision(GameObject other)
     {
         if (Input.GetButton("Fire1") && canFire)
         {

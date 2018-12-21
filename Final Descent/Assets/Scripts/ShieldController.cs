@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShieldController : MonoBehaviour
 {
-
+	public GameObject player;
 	static float alpha;
 	public Material shield;
 	public float upTime;
@@ -21,11 +21,6 @@ public class ShieldController : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.P))
-		{
-			fadeIn = true;
-		}
-
 		if (fadeIn)
 			Fade(true);
 		if (fadeout)
@@ -52,6 +47,11 @@ public class ShieldController : MonoBehaviour
 			fadeout = false;
 			upTime = 0f;
 		}
+
+		if (player.GetComponent<HealthPlayer>().shield <= 0)
+			transform.GetComponent<MeshRenderer>().enabled = false;
+		else
+			transform.GetComponent<MeshRenderer>().enabled = true;
 	}
 
 	void Fade(bool _in)
@@ -67,8 +67,25 @@ public class ShieldController : MonoBehaviour
 	{
 		if (other.tag == "Enemy")
 		{
-			fadeIn = true;
-			fadeout = false;
+			if (player.GetComponent<HealthPlayer>().shield > 0)
+			{
+				if (!fadeIn)
+				{
+					fadeIn = true;
+					fadeout = false;
+					player.GetComponent<HealthPlayer>().TakeDamageShield(20);
+				}
+				else
+				{
+					upTime = 0.0f;
+					fadeout = false;
+					player.GetComponent<HealthPlayer>().TakeDamageShield(10);
+				}
+			}
+			else
+			{
+				player.GetComponent<HealthPlayer>().TakeDamage(20);
+			}
 		}
 	}
 }

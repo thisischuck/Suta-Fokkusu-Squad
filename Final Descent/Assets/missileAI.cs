@@ -70,4 +70,14 @@ public class missileAI : MonoBehaviour {
 			return false;
 		else return true;
 	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "Enemy")
+		{
+			Debug.Log("hit");
+			//collision.gameObject.SendMessage(takeDamage(damage));
+			Destroy(this.gameObject);
+		}
+	}
 }
