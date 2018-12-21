@@ -75,7 +75,7 @@ public class CellularAutomata : MonoBehaviour
         pathfinder = new Pathfinder();
         randomNoise = 0.2f;
         cycle = 0;
-        
+
 
         Path();
     }
@@ -167,10 +167,10 @@ public class CellularAutomata : MonoBehaviour
 
         vNormals = CreateTriangles(new MeshData(null, null, null), 2).normals;
 
-        //WaterGenerator waterGenerator = GetComponentInChildren<WaterGenerator>();
-        //if (waterGenerator != null)
-            //waterGenerator.CreateMesh(0, 0, width * Mathf.CeilToInt(spacing), length * Mathf.CeilToInt(spacing), 1); //Needs optimization
-            //waterGenerator.CreateMesh(0, 0, width * 2, length * 2, 1);
+        WaterGenerator waterGenerator = GetComponentInChildren<WaterGenerator>();
+        if (waterGenerator != null)
+            waterGenerator.CreateMesh(0, 0, width * Mathf.CeilToInt(spacing), length * Mathf.CeilToInt(spacing), 1); //Needs optimization
+                                                                                                                     //waterGenerator.CreateMesh(0, 0, width * 2, length * 2, 1);
 
         if (!IsOnline)
         {
@@ -186,9 +186,9 @@ public class CellularAutomata : MonoBehaviour
             for (int i = 0; i < spawns.Length; i++)
             {
                 spawns[i] = new Vector3(
-    pathfinder.SpawnPoint.x * spacing + i * 2,
-    oldVertices[Mathf.FloorToInt(pathfinder.SpawnPoint.x) + Mathf.FloorToInt(pathfinder.SpawnPoint.y) * width].y + (height * spacing / 2),
-    pathfinder.SpawnPoint.y * spacing);
+                    pathfinder.SpawnPoint.x * spacing + i * 2,
+                    oldVertices[Mathf.FloorToInt(pathfinder.SpawnPoint.x) + Mathf.FloorToInt(pathfinder.SpawnPoint.y) * width].y + (height * spacing / 2),
+                    pathfinder.SpawnPoint.y * spacing);
             }
 
             manager.GetComponent<DungeonController>().ReceiveConfirmation(spawns, Seed);

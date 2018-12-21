@@ -60,7 +60,6 @@ public class Enemy : MonoBehaviour
     public void PlayAnimation(string name)
     {
         animController.CrossFade(name, 0.2f, PlayMode.StopAll);
-
     }
 
     protected GameObject GetClosestPlayer()
