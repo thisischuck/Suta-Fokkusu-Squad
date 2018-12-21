@@ -10,6 +10,8 @@ public class Eye : Enemy
     private float rayDuration;
     private ParticleSystem ps;
 
+    bool playPs;
+
     protected override void Start()
     {
         base.Start();
@@ -18,13 +20,15 @@ public class Eye : Enemy
         MaxVelocity = 10.0f;
         MaxRotationSpeed = 25.0f;
         Velocity = Vector3.forward * MaxVelocity;
-        rayDuration = 3.0f;
-        rayCooldown = 2.0f;
+        rayDuration = 10.0f;
+        rayCooldown = 5.0f;
+        playPs = false;
+        rayTimer = 0;
 
         Action a_ResetRayCooldown = () => { rayCooldown = 0.0f; };
         Action a_CountRayCooldown = () => { rayCooldown += Time.deltaTime; };
-        Action a_ShootRay = () => { ps.Play(); };
-        Action a_StopShooting = () => { ps.Stop(); ps.Clear(); };
+        Action a_ShootRay = () => { playPs = true; };
+        Action a_StopShooting = () => { playPs = false; };
         Action a_FaceEnemyRay = () =>
         {
             transform.rotation = Quaternion.RotateTowards(
@@ -41,24 +45,24 @@ public class Eye : Enemy
         Action a_RayTimerReset = () => { rayTimer = 0.0f; };
 
         StateMachine_Node wander = new StateMachine_Node("Wander",
-            new List<Action>(new Action[] { a_Wander, a_Move, a_FaceVelocity, a_CountRayCooldown }),
+            new List<Action>(new Action[] { a_Wander, a_Move, a_FaceVelocity, a_CountRayCooldown, a_StopShooting }),
             null,
             null);
 
         StateMachine_Node pursuit = new StateMachine_Node("Pursuit",
-            new List<Action>(new Action[] { a_Pursuit, a_Move, a_FaceVelocity, a_CountRayCooldown }),
+            new List<Action>(new Action[] { a_Pursuit, a_Move, a_FaceVelocity, a_CountRayCooldown, a_StopShooting }),
             null,
             null);
 
         StateMachine_Node attackExplosion = new StateMachine_Node("Attack Explosion",
-            new List<Action>(new Action[] { a_PlayExplosion, a_CountRayCooldown }),
+            new List<Action>(new Action[] { a_PlayExplosion, a_CountRayCooldown, a_StopShooting }),
             new List<Action>(new Action[] { a_PlayExplosion, a_CountRayCooldown }),
             null);
 
         StateMachine_Node attackRay = new StateMachine_Node("Attack Ray",
             new List<Action>(new Action[] { a_FaceEnemyRay, a_RayTimerUpdate }),
             new List<Action>(new Action[] { a_FaceEnemyRay, a_RayTimerReset, a_ShootRay }),
-            new List<Action>(new Action[] { a_ResetRayCooldown, a_StopShooting }));
+            new List<Action>(new Action[] { a_StopShooting, a_ResetRayCooldown }));
 
         StateMachine_Transition WanderToPursuit = new StateMachine_Transition("Wander to Pursuit", () => ToPursuit(), pursuit, null);
         StateMachine_Transition AnyToWander = new StateMachine_Transition("To Wander", () => ToWander(), wander, null);
@@ -66,11 +70,13 @@ public class Eye : Enemy
         StateMachine_Transition PursuitToRay = new StateMachine_Transition("Pursuit to Ray", () => ToRay(), attackRay, null);
         StateMachine_Transition ExplosionToPursuit = new StateMachine_Transition("Explosion To Pursuit", () => IsExplosionOver(), pursuit, null);
         StateMachine_Transition RayToPursuit = new StateMachine_Transition("Ray to Pursuit", () => IsRayOver(), pursuit, null);
+        StateMachine_Transition RayToWander = new StateMachine_Transition("Ray to Wander", () => IsRayOver() && ToWander(), wander, null);
 
         wander.AddTransition(WanderToPursuit);
         pursuit.AddTransition(PursuitToExplosion, PursuitToRay, AnyToWander);
         attackExplosion.AddTransition(ExplosionToPursuit);
         attackRay.AddTransition(RayToPursuit);
+        attackRay.AddTransition(RayToWander);
 
         AssignState(wander);
     }
@@ -82,6 +88,8 @@ public class Eye : Enemy
             MeleeAttack();
         else Velocity = EnemyBehaviours.Wander(transform, Velocity);*/
         //Velocity = EnemyBehaviours.AvoidObstacles(transform, Velocity, ref isThereAnything) * MaxVelocity;
+
+        StopOrPlayParticleSystem(playPs, ps);
 
         base.Update();
     }
@@ -96,7 +104,7 @@ public class Eye : Enemy
 
     private bool ToExplosion() { return Vector3.Distance(transform.position, player.transform.position) < 10.0f; }
 
-    private bool ToRay() { return Vector3.Distance(transform.position, player.transform.position) > 10.0f && rayCooldown > 2.0f; }
+    private bool ToRay() { return Vector3.Distance(transform.position, player.transform.position) > 10.0f && rayCooldown > 5.0f; }
 
     private bool ToWander() { return Vector3.Distance(transform.position, player.transform.position) > 60.0f; }
 
