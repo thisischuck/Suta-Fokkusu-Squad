@@ -77,13 +77,15 @@ public class PsGunManager : MonoBehaviour
             else
                 system.Emit(bulletsPerClick);
             StartCoroutine(FireRateIE());
+
+            SendMessage("PlayLaserAudio");
         }
         else if (wasHoldingUltra && canUltraFire)
         {
             if (ultraChargeSystem != null && !ultraChargeSystem.isPlaying)
             {
                 ultraChargeSystem.Play();
-
+                SendMessage("PlayChargeAudio");
             }
             if (!Input.GetButton("Fire2") || ultraTimeCharged > ultraChargeRate)
             {
@@ -93,6 +95,9 @@ public class PsGunManager : MonoBehaviour
                     GameObject obj = Instantiate(fireObject, this.transform.position + (this.transform.forward * scale), Quaternion.identity);
                     obj.GetComponent<LaserForward>().Velocity = this.transform.forward;
                     obj.transform.localScale *= 1.0f + scale;
+
+                    SendMessage("StopChargeAudio");
+                    SendMessage("PlayUltraLaserAudio", ultraTimeCharged);
                 }
                 else
                     ultraSystem.Emit(ultraBulletsPerClick);
@@ -100,6 +105,8 @@ public class PsGunManager : MonoBehaviour
                 ultraTimeCharged = 0.0f;
                 ultraChargeSystem.Stop();
                 ultraChargeSystem.Clear();
+
+
             }
             StartCoroutine(UltraFireRateIE());
         }
@@ -119,6 +126,7 @@ public class PsGunManager : MonoBehaviour
             StartCoroutine(FireRateIE());
             FireRateIncrease();
             currentFireRate = fireRate;
+            SendMessage("PlayMachineGunAudio");
         }
         else if (toggleOn && Input.GetButton("Fire1") && canUltraFire && Time.time >= ultraAvailable)
         {

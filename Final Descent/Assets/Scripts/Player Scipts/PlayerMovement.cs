@@ -101,6 +101,15 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = new Vector3(hor, 0.0f, ver);
         move = transform.TransformDirection(move);
         rB.velocity = move * speed;
+
+        if (hor != 0 || ver != 0)
+        {
+            SendMessage("PlayShipMovementAudio");
+        }
+        else
+        {
+            SendMessage("StopShipMovementAudio");
+        }
     }
 
     private void Update()
