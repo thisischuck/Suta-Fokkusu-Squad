@@ -349,18 +349,18 @@ namespace Prototype.NetworkLobby
             if (_lobbyHooks)
                 _lobbyHooks.OnLobbyServerSceneLoadedForPlayer(this, lobbyPlayer, gamePlayer);
 
+            GameObject dung = Instantiate(spawnPrefabs[0]);
             ClientScene.localPlayers.Add(new PlayerController());
             NetworkConnection connection = lobbyPlayer.GetComponent<NetworkIdentity>().connectionToClient;
-
-            GameObject dung = Instantiate(spawnPrefabs[0]);
             //dung.GetComponent<CellularAutomata>().SeedInspector = seed;
             //dung.GetComponent<CellularAutomata>().IsOnline = true;
             //dung.GetComponent<ObjectPlacer>().IsOnline = true;
             //dung.GetComponent<CellularAutomata>().manager = dungeonController;
+            dung.GetComponent<DungeonController>().StartDungeon(seed);
             NetworkServer.AddPlayerForConnection(connection, dung, 1);
             NetworkServer.Spawn(dung);
             dung.GetComponent<DungeonController>().StartDungeon(seed);
-            
+
             //dung.SetActive(true);
 
             return true;

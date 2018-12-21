@@ -100,7 +100,7 @@ public class MenuController : MonoBehaviour {
 
     public void LoadMenu()
     {
-        //SceneManager.LoadScene(); 
+        SceneManager.LoadScene(0); 
     }
 
     public void Options()

@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -822,8 +822,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SeedInspector: 0
+  IsOnline: 0
+  manager: {fileID: 0}
   meshFilter1: {fileID: 0}
   meshFilter2: {fileID: 0}
+  Portal: {fileID: 0}
   length: 0
   width: 0
   height: 0
@@ -1176,6 +1179,10 @@ Prefab:
     - target: {fileID: 1566799341046574, guid: 22324090e889b5e4397c3b45a9d4c1cc, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1947987071283950, guid: 22324090e889b5e4397c3b45a9d4c1cc, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22324090e889b5e4397c3b45a9d4c1cc, type: 2}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadOutMenu_Controller : MonoBehaviour {
@@ -13,6 +14,7 @@ public class LoadOutMenu_Controller : MonoBehaviour {
     [Header("General Stats")]
     public TMP_Text nextStage;
     public TMP_Text currentGold;
+    public Button nextStageButton, mainMenuButton;
 
     [Header("Current Weapons")]
     public Button weapon1;
@@ -40,6 +42,8 @@ public class LoadOutMenu_Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         //SweaponList = new WeaponObject[24];
+        nextStageButton.onClick.AddListener(() => NextScene());
+        mainMenuButton.onClick.AddListener(() => LoadMenu());
         weapon1.onClick.AddListener(() => ChangeWeapon(0));
         weapon2.onClick.AddListener(() => ChangeWeapon(1));
         weapon3.onClick.AddListener(() => ChangeWeapon(2));
@@ -53,7 +57,7 @@ public class LoadOutMenu_Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        nextStage.text = "Next Stage: " + PlayerStatsInfo.stage;
+        nextStage.text = "Next Stage: " + (PlayerStatsInfo.stage - 1).ToString();
         currentGold.text = "Gold: " + PlayerStatsInfo.gold;
         currentGoldInWeaponSelection.text = "CURRENT GOLD: " + PlayerStatsInfo.gold;
 
@@ -225,11 +229,13 @@ public class LoadOutMenu_Controller : MonoBehaviour {
 
     public void LoadMenu()
     {
-        //SceneManager.LoadScene(); 
+        PlayerStatsInfo.SaveProgress();
+        PlayerStatsInfo.ResetInfo();
+        SceneManager.LoadScene(0); 
     }
 
     public void NextScene()
     {
-        //SceneManager.NextScene();
+        SceneManager.LoadScene(PlayerStatsInfo.stage);
     }
 }

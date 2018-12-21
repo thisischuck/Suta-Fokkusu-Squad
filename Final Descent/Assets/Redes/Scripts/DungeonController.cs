@@ -8,11 +8,16 @@ public class DungeonController : NetworkBehaviour{
     public int seed;
     public int Count = 0;
 
+    private void Start()
+    {
+       
+    }
+
     public void StartDungeon(int seed)
     {
+        this.seed = seed;
         if (isLocalPlayer)
         {
-            this.seed = seed;
             dung = GameObject.Find("DungeonHolder");
             dungChild = dung.transform.Find("Dungeon").gameObject;
             dungChild.GetComponent<CellularAutomata>().SeedInspector = seed;
@@ -21,6 +26,11 @@ public class DungeonController : NetworkBehaviour{
             dungChild.GetComponent<CellularAutomata>().manager = this.gameObject;
             dungChild.SetActive(true);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        //StartDungeon(seed);
     }
 
     public void ReceiveConfirmation(Vector3[] spawns, int seed)
