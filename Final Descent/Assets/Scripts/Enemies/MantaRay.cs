@@ -55,6 +55,4 @@ public class MantaRay : Enemy
 
     private bool ToWander() { return Vector3.Distance(transform.position, player.transform.position) > 60.0f; }
     private bool ToPursuit() { return Vector3.Distance(transform.position, player.transform.position) < 50.0f; }
-
-
 }

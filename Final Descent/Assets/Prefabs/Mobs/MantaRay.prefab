@@ -2037,6 +2037,7 @@ MonoBehaviour:
   shield: 0
   health: 0
   base_maxHealth: 20
+  base_maxShield: 0
   invulnerabilityTime: 0
   invCount: 0
   IsInvulnerable: 0
