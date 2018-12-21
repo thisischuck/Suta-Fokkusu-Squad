@@ -39,7 +39,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Update()
     {
-        //Debug.Log(stateMachine.currentNode.ToString());
+        Debug.Log(stateMachine.currentNode.ToString());
         List<Action> actions = stateMachine.Run();
         if (actions != null)
         {
@@ -60,7 +60,19 @@ public class Enemy : MonoBehaviour
     public void PlayAnimation(string name)
     {
         animController.CrossFade(name, 0.2f, PlayMode.StopAll);
+    }
 
+    public void StopOrPlayParticleSystem(bool playPs, ParticleSystem ps)
+    {
+        if (playPs && !ps.isPlaying)
+        {
+            ps.Play();
+        }
+
+        if (ps.isPlaying && !playPs)
+        {
+            ps.Clear(); ps.Stop();
+        }
     }
 
     protected GameObject GetClosestPlayer()

@@ -9,7 +9,7 @@ public static class EnemyBehaviours
     public static Vector3 Seek(Transform t, Vector3 velocity, Vector3 target)
     {
         Vector3 velocitySeek = (target - t.position).normalized;
-        return (velocitySeek * 0.1f + velocity).normalized;
+        return (velocitySeek * 0.5f + velocity).normalized;
     }
 
     public static Vector3 Pursuit(Transform t, Vector3 velocity, Transform target, float prediction)
@@ -140,7 +140,7 @@ public static class EnemyBehaviours
                 collDir = collDir.normalized;
                 Vector3 normalAxis = t.up.normalized;
                 float angle = AngleSigned(t.forward, collDir, normalAxis);
-                
+
                 if (angle > -170 && angle < 170)
                 {
                     if (angle < 0) //Esquerda

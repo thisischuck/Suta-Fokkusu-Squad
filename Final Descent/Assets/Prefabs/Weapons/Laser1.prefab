@@ -157,19 +157,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cac3ecdce26a5bc468e135f96d7b9a3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  system: {fileID: 198425285916868866}
+  system: {fileID: 0}
   ultraSystem: {fileID: 0}
   ultraChargeSystem: {fileID: 198670095273857154}
-  bulletObject: {fileID: 1507794213195706, guid: dcf8b91bea4e4e348af1d98b88be1b09,
-    type: 2}
+  fireObject: {fileID: 1507794213195706, guid: dcf8b91bea4e4e348af1d98b88be1b09, type: 2}
+  ultraObject: {fileID: 0}
   canFire: 0
   isActive: 0
   canUltraFire: 0
   bulletsPerClick: 1
   ultraBulletsPerClick: 1
   fireRate: 0.4
+  maxFireRate: 0.2
   ultrafireRate: 0.15
   ultraChargeRate: 5
+  ultraCoolDown: 0
+  weaponBehaviour: 1
 --- !u!198 &198425285916868866
 ParticleSystem:
   m_ObjectHideFlags: 1

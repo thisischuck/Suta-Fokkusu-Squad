@@ -1,0 +1,222 @@
+fileFormatVersion: 2
+guid: 5c9ed26b7c4a48d459c3cb56440c8d74
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Animation
+    100002: //RootNode
+    100004: Body
+    100006: Body 1
+    100008: BodyController2
+    100010: BodyController3
+    100012: Bottom
+    100014: BottomController
+    100016: bottomnurbsSquare2
+    100018: bottomnurbsSquare3
+    100020: bottomnurbsSquare4
+    100022: bottomnurbsSquare4 1
+    100024: Cluster1
+    100026: cluster1Handle
+    100028: Cluster2
+    100030: cluster2Handle
+    100032: Cluster3
+    100034: cluster3Handle
+    100036: Cluster4
+    100038: cluster4Handle
+    100040: Cluster5
+    100042: cluster5Handle
+    100044: curve1
+    100046: Head
+    100048: ikHandle1
+    100050: joint11
+    100052: joint12
+    100054: joint13
+    100056: joint14
+    100058: joint2
+    100060: joint3
+    100062: joint4
+    100064: joint6
+    100066: joint8
+    100068: joint9
+    100070: LeftFin
+    100072: leftnurbsSquare2
+    100074: leftnurbsSquare3
+    100076: leftnurbsSquare4
+    100078: leftnurbsSquare4 1
+    100080: Mouth
+    100082: MouthController
+    100084: Rig
+    100086: RightFin
+    100088: rightnurbsSquare2
+    100090: rightnurbsSquare3
+    100092: rightnurbsSquare4
+    100094: rightnurbsSquare4 1
+    100096: Root
+    100098: Saw
+    100100: SawController
+    100102: SawShark
+    100104: Tail
+    100106: TailEnd1
+    100108: TailEnd2
+    100110: Teeth
+    100112: TipTail
+    100114: Top
+    100116: TopController
+    100118: topnurbsSquare2
+    100120: topnurbsSquare3
+    100122: topnurbsSquare4
+    100124: topnurbsSquare4 1
+    400000: Animation
+    400002: //RootNode
+    400004: Body
+    400006: Body 1
+    400008: BodyController2
+    400010: BodyController3
+    400012: Bottom
+    400014: BottomController
+    400016: bottomnurbsSquare2
+    400018: bottomnurbsSquare3
+    400020: bottomnurbsSquare4
+    400022: bottomnurbsSquare4 1
+    400024: Cluster1
+    400026: cluster1Handle
+    400028: Cluster2
+    400030: cluster2Handle
+    400032: Cluster3
+    400034: cluster3Handle
+    400036: Cluster4
+    400038: cluster4Handle
+    400040: Cluster5
+    400042: cluster5Handle
+    400044: curve1
+    400046: Head
+    400048: ikHandle1
+    400050: joint11
+    400052: joint12
+    400054: joint13
+    400056: joint14
+    400058: joint2
+    400060: joint3
+    400062: joint4
+    400064: joint6
+    400066: joint8
+    400068: joint9
+    400070: LeftFin
+    400072: leftnurbsSquare2
+    400074: leftnurbsSquare3
+    400076: leftnurbsSquare4
+    400078: leftnurbsSquare4 1
+    400080: Mouth
+    400082: MouthController
+    400084: Rig
+    400086: RightFin
+    400088: rightnurbsSquare2
+    400090: rightnurbsSquare3
+    400092: rightnurbsSquare4
+    400094: rightnurbsSquare4 1
+    400096: Root
+    400098: Saw
+    400100: SawController
+    400102: SawShark
+    400104: Tail
+    400106: TailEnd1
+    400108: TailEnd2
+    400110: Teeth
+    400112: TipTail
+    400114: Top
+    400116: TopController
+    400118: topnurbsSquare2
+    400120: topnurbsSquare3
+    400122: topnurbsSquare4
+    400124: topnurbsSquare4 1
+    2100000: lambert1
+    4300000: Body
+    4300002: Teeth
+    7400000: Attack
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Body
+    13700002: Teeth
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
