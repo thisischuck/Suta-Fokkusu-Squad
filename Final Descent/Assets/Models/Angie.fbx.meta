@@ -1,0 +1,231 @@
+fileFormatVersion: 2
+guid: 3847fe09c033fb646b6db6683d3a4eb3
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Angler
+    100004: Animation
+    100006: Antena
+    100008: Antena 1
+    100010: Antena_IK
+    100012: AntenaController
+    100014: Body
+    100016: Body 1
+    100018: Body_Controller
+    100020: bottom
+    100022: Bottom_Jaw_Ik
+    100024: BottomEyes
+    100026: BottomJaw_Controller
+    100028: Horn
+    100030: Horn2
+    100032: HornsFoward
+    100034: ikHandle1
+    100036: joint10
+    100038: joint11
+    100040: joint12
+    100042: joint16
+    100044: joint17
+    100046: joint4
+    100048: joint5
+    100050: joint7
+    100052: joint9
+    100054: Light
+    100056: LowerJaw
+    100058: Mouth
+    100060: Mouth_Controller
+    100062: Tail
+    100064: Tail_b2
+    100066: Tail_b3
+    100068: Tail_Controller
+    100070: Tail_IK
+    100072: Teeth
+    100074: Teeth1
+    100076: Teeth2
+    100078: Teeth3
+    100080: Teeth4
+    100082: Teeth5
+    100084: Teeth6
+    100086: Teeth7
+    100088: Teeth8
+    100090: Teeth9
+    100092: Top_Fin
+    100094: Top_Jaw_IK
+    100096: TopEyes
+    100098: TopFin_Controller
+    100100: TopJaw_Controller
+    100102: transform1
+    100104: UpperJaw
+    400000: //RootNode
+    400002: Angler
+    400004: Animation
+    400006: Antena
+    400008: Antena 1
+    400010: Antena_IK
+    400012: AntenaController
+    400014: Body
+    400016: Body 1
+    400018: Body_Controller
+    400020: bottom
+    400022: Bottom_Jaw_Ik
+    400024: BottomEyes
+    400026: BottomJaw_Controller
+    400028: Horn
+    400030: Horn2
+    400032: HornsFoward
+    400034: ikHandle1
+    400036: joint10
+    400038: joint11
+    400040: joint12
+    400042: joint16
+    400044: joint17
+    400046: joint4
+    400048: joint5
+    400050: joint7
+    400052: joint9
+    400054: Light
+    400056: LowerJaw
+    400058: Mouth
+    400060: Mouth_Controller
+    400062: Tail
+    400064: Tail_b2
+    400066: Tail_b3
+    400068: Tail_Controller
+    400070: Tail_IK
+    400072: Teeth
+    400074: Teeth1
+    400076: Teeth2
+    400078: Teeth3
+    400080: Teeth4
+    400082: Teeth5
+    400084: Teeth6
+    400086: Teeth7
+    400088: Teeth8
+    400090: Teeth9
+    400092: Top_Fin
+    400094: Top_Jaw_IK
+    400096: TopEyes
+    400098: TopFin_Controller
+    400100: TopJaw_Controller
+    400102: transform1
+    400104: UpperJaw
+    2000000: bottom
+    2100000: lambert1
+    4300000: Teeth4
+    4300002: Teeth5
+    4300004: Teeth6
+    4300006: Teeth7
+    4300008: TopEyes
+    4300010: Horn
+    4300012: BottomEyes
+    4300014: Teeth8
+    4300016: Teeth9
+    4300018: Horn2
+    4300020: Antena
+    4300022: HornsFoward
+    4300024: Body
+    4300026: Teeth
+    4300028: Teeth1
+    4300030: Teeth2
+    4300032: Teeth3
+    9500000: //RootNode
+    13700000: Antena
+    13700002: Body
+    13700004: BottomEyes
+    13700006: Horn
+    13700008: Horn2
+    13700010: HornsFoward
+    13700012: Teeth
+    13700014: Teeth1
+    13700016: Teeth2
+    13700018: Teeth3
+    13700020: Teeth4
+    13700022: Teeth5
+    13700024: Teeth6
+    13700026: Teeth7
+    13700028: Teeth8
+    13700030: Teeth9
+    13700032: TopEyes
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 25
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.5
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
