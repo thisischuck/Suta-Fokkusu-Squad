@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa04869c7b692b4095954f4b5a5f976, type: 3}
+  m_Name: Missiles
+  m_EditorClassIdentifier: 
+  id: 4
+  name: 'Rocket Laucher '
+  description: A rocket lauching weapon with high destructive power.
+  weaponModel: {fileID: 1034729441262864, guid: c2e734e34e8e5c54ca63d15ea99b50cc,
+    type: 2}
+  weaponType: 1
+  sprite: {fileID: 21300000, guid: 9f2e33db15dbc014c92fbf2a450d68a4, type: 3}
+  price: 1600
+  level: 2

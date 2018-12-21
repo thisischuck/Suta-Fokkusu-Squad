@@ -7,6 +7,7 @@ public class DynamicTexture : MonoBehaviour
     public Color ColorShip1 = new Color(0.0f, 0.0f, 0.0f, 0.0f);
     public Color ColorShip2 = new Color(0.0f, 0.0f, 0.0f, 0.0f);
     public Color ColorShip3 = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+    public bool menu = false;
     Texture2D texture;
     void Start()
     {
@@ -23,8 +24,11 @@ public class DynamicTexture : MonoBehaviour
         foreach (Renderer r in weaponHolder.GetComponentsInChildren<Renderer>(true))
             r.material.SetTexture("_Texture2D_BaseColors", texture);
         Transform lifepod = transform.parent.parent.Find("LifePod");
-        foreach (Renderer r in lifepod.GetComponentsInChildren<Renderer>(true))
-            r.material.SetTexture("_Texture2D_BaseColors", texture);
+        if (!menu)
+        {
+            foreach (Renderer r in lifepod.GetComponentsInChildren<Renderer>(true))
+                r.material.SetTexture("_Texture2D_BaseColors", texture);
+        }
     }
 
     void Update()
