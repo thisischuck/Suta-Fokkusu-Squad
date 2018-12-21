@@ -11,7 +11,7 @@ public class Butterfly : Enemy
     private Color colorEmissionMax;
     private float attackCooldowns = 0.0f;
     private int nextAttack = 0;
-    private bool spawn;
+    private bool spawn, playParticleSystem;
 
     private AnimationClip animIdle, animSpawn, animMove, animMelee, animLaser, animWings, animDeath;
     private ParticleSystem[] ps;
@@ -20,6 +20,7 @@ public class Butterfly : Enemy
     {
         base.Start();
         spawn = false;
+        playParticleSystem = spawn;
         ps = GetComponentsInChildren<ParticleSystem>();
         /*animController["Spawn"].wrapMode = WrapMode.Loop;
         animController["Death"].wrapMode = WrapMode.ClampForever;*/
@@ -54,8 +55,8 @@ public class Butterfly : Enemy
         Action a_MoveWithVelocity = () => { transform.position += Velocity * MaxVelocity; };
         Action a_SeekWingsLocation = () => { Velocity = EnemyBehaviours.Seek(transform, Velocity, attackwingsLocation); };
         Action a_WingsCharge = () => { material.SetColor("_EmissionColor", material.GetColor("_EmissionColor") + colorEmission); };
-        Action a_WingsShoot = () => { foreach (ParticleSystem p in ps) p.Play(); };
-        Action a_WingsStopShooting = () => { foreach (ParticleSystem p in ps) p.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); };
+        Action a_WingsShoot = () => { playParticleSystem = true; };
+        Action a_WingsStopShooting = () => { playParticleSystem = false; };
         Action a_WingsDischarge = () => { material.SetColor("_EmissionColor", material.GetColor("_EmissionColor") - colorEmission); };
 
         StateMachine_Node Spawn = new StateMachine_Node("Spawn",
@@ -165,6 +166,10 @@ public class Butterfly : Enemy
 
     protected override void Update()
     {
+        foreach (var tmp in ps)
+        {
+            StopOrPlayParticleSystem(playParticleSystem, tmp);
+        }
         base.Update();
     }
 
