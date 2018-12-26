@@ -27,8 +27,8 @@ public class Eye : Enemy
 
         Action a_ResetRayCooldown = () => { rayCooldown = 0.0f; };
         Action a_CountRayCooldown = () => { rayCooldown += Time.deltaTime; };
-        Action a_ShootRay = () => { playPs = true; SendMessage("PlayEyeLaserAudio"); };
-        Action a_StopShooting = () => { playPs = false; SendMessage("StopEyeLaserAudio"); };
+        Action a_ShootRay = () => { playPs = true; SendMessage("PlayShotLoopAudio"); };
+        Action a_StopShooting = () => { playPs = false; SendMessage("StopShotLoopAudio"); };
         Action a_FaceEnemyRay = () =>
         {
             transform.rotation = Quaternion.RotateTowards(

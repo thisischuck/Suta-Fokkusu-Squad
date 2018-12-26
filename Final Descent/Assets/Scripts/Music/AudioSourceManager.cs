@@ -35,26 +35,21 @@ public class AudioSourceManager : MonoBehaviour
         return null;
     }
 
-    #region Enemies
-
-    void PlayEyeLaserAudio()
+    void PlayShotLoopAudio()
     {
-        source_once = ChooseSource();
-        source_once.clip = audioClips[0];
-        source_once.loop = true;
-        source_once.volume = volume;
-        source_once.Play();
+        source_loops = ChooseSource();
+        source_loops.clip = audioClips[0];
+        source_loops.priority = priority;
+        source_loops.loop = true;
+        source_loops.volume = volume;
+        source_loops.Play();
     }
 
-    void StopEyeLaserAudio()
+    void StopShotLoopAudio()
     {
-        if (source_once)
-            source_once.Stop();
+        if (source_loops)
+            source_loops.Stop();
     }
-
-    #endregion
-
-    #region ShipMovement
 
     void PlayShipMovementAudio()
     {
@@ -63,12 +58,14 @@ public class AudioSourceManager : MonoBehaviour
             source_starts = ChooseSource();
             source_starts.clip = audioClips[0];
             source_starts.volume = volume;
+            source_starts.priority = priority;
             source_starts.loop = false;
             source_starts.Play();
 
             source_loops = ChooseSource();
             source_loops.clip = audioClips[1];
             source_loops.volume = volume;
+            source_loops.priority = priority;
             source_loops.loop = true;
             source_loops.PlayScheduled(source_starts.clip.length);
 
@@ -86,33 +83,22 @@ public class AudioSourceManager : MonoBehaviour
         isPlaying = false;
     }
 
-    void PlayPlayerImpactAudio()
+    void PlayDodgeSound(int sound)
     {
         source_once = ChooseSource();
-        source_once.clip = audioClips[2];
+        source_once.clip = audioClips[sound];
         source_once.loop = false;
-        source_once.volume = volume;
+        source_once.priority = priority;
+        source_once.volume = 0.2f;
         source_once.Play();
     }
 
-    #endregion
-
-    #region Weapons
-
-    void PlayMachineGunAudio()
+    void PlayShotOnceSound()
     {
         source_once = ChooseSource();
         source_once.clip = audioClips[0];
         source_once.loop = false;
-        source_once.volume = volume;
-        source_once.Play();
-    }
-
-    void PlayLaserAudio()
-    {
-        source_once = ChooseSource();
-        source_once.clip = audioClips[0];
-        source_once.loop = false;
+        source_once.priority = priority;
         source_once.volume = volume;
         source_once.Play();
     }
@@ -120,8 +106,9 @@ public class AudioSourceManager : MonoBehaviour
     void PlayChargeAudio()
     {
         source_starts = ChooseSource();
-        source_starts.clip = audioClips[3];
+        source_starts.clip = audioClips[1];
         source_starts.loop = false;
+        source_once.priority = priority;
         source_starts.volume = volume;
         source_starts.Play();
     }
@@ -138,17 +125,16 @@ public class AudioSourceManager : MonoBehaviour
         source_once.clip = audioClips[0];
         source_once.loop = false;
         source_once.volume = volume + rate / 5;
-        Debug.Log(source_once.volume);
         source_once.pitch -= rate / 10;
+        source_once.priority = priority;
         source_once.Play();
     }
-
-    #endregion
 
     void ResetAudioSource(AudioSource a)
     {
         a.pitch = 1;
         a.playOnAwake = false;
+        a.priority = priority;
         a.loop = false;
     }
 

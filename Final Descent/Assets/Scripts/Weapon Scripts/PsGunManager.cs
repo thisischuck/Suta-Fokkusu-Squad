@@ -78,7 +78,7 @@ public class PsGunManager : MonoBehaviour
                 system.Emit(bulletsPerClick);
             StartCoroutine(FireRateIE());
 
-            SendMessage("PlayLaserAudio");
+            SendMessage("PlayShotOnceSound");
         }
         else if (wasHoldingUltra && canUltraFire)
         {
@@ -126,7 +126,7 @@ public class PsGunManager : MonoBehaviour
             StartCoroutine(FireRateIE());
             FireRateIncrease();
             currentFireRate = fireRate;
-            SendMessage("PlayMachineGunAudio");
+            SendMessage("PlayShotOnceSound");
         }
         else if (toggleOn && Input.GetButton("Fire1") && canUltraFire && Time.time >= ultraAvailable)
         {
@@ -159,6 +159,7 @@ public class PsGunManager : MonoBehaviour
             system.Emit(bulletsPerClick);
             this.transform.Find("ShotgunForceArea").gameObject.SetActive(true);
             StartCoroutine(FireRateIE());
+            SendMessage("PlayShotOnceSound");
         }
         else if (Input.GetButton("Fire2") && canUltraFire && Time.time >= ultraAvailable)
         {
@@ -181,6 +182,7 @@ public class PsGunManager : MonoBehaviour
             obj.GetComponent<missileAI>().Velocity = this.transform.forward;
             obj.transform.rotation = this.transform.rotation;
             StartCoroutine(FireRateIE());
+            SendMessage("PlayShotOnceSound");
         }
         else if (Input.GetButton("Fire2") && canUltraFire && Time.time >= ultraAvailable)
         {
@@ -204,6 +206,8 @@ public class PsGunManager : MonoBehaviour
             else
                 system.Emit(bulletsPerClick);
             StartCoroutine(FireRateIE());
+
+            SendMessage("PlayShotOnceSound");
         }
         else if (wasHoldingUltra && canUltraFire)
         {

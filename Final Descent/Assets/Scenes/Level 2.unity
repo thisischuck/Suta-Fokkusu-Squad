@@ -242,16 +242,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114793438942473538, guid: 851deb4559d782244b902187f010f285,
-        type: 2}
-      propertyPath: waterPlane
-      value: 
-      objectReference: {fileID: 307681713}
-    - target: {fileID: 114793438942473538, guid: 851deb4559d782244b902187f010f285,
-        type: 2}
-      propertyPath: postProcessVolume
-      value: 
-      objectReference: {fileID: 434657326}
     - target: {fileID: 114042092634744564, guid: 851deb4559d782244b902187f010f285,
         type: 2}
       propertyPath: hpBar
@@ -262,29 +252,19 @@ Prefab:
       propertyPath: shieldBar
       value: 
       objectReference: {fileID: 408259913}
-    - target: {fileID: 114164522677486532, guid: 851deb4559d782244b902187f010f285,
+    - target: {fileID: 114793438942473538, guid: 851deb4559d782244b902187f010f285,
         type: 2}
-      propertyPath: slot1
+      propertyPath: waterPlane
       value: 
-      objectReference: {fileID: 502023605}
-    - target: {fileID: 114164522677486532, guid: 851deb4559d782244b902187f010f285,
+      objectReference: {fileID: 307681713}
+    - target: {fileID: 114793438942473538, guid: 851deb4559d782244b902187f010f285,
         type: 2}
-      propertyPath: slot2
+      propertyPath: postProcessVolume
       value: 
-      objectReference: {fileID: 502023604}
+      objectReference: {fileID: 434657326}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851deb4559d782244b902187f010f285, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &502023604 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1337366905535682, guid: 851deb4559d782244b902187f010f285,
-    type: 2}
-  m_PrefabInternal: {fileID: 502023603}
---- !u!1 &502023605 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1448140480867198, guid: 851deb4559d782244b902187f010f285,
-    type: 2}
-  m_PrefabInternal: {fileID: 502023603}
 --- !u!1001 &578102261
 Prefab:
   m_ObjectHideFlags: 0
@@ -830,6 +810,16 @@ Prefab:
     - target: {fileID: 4417011200340930, guid: 17065f97627160f48a7e67cd132b8549, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114352447110517072, guid: 17065f97627160f48a7e67cd132b8549,
+        type: 2}
+      propertyPath: spawnRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114352447110517072, guid: 17065f97627160f48a7e67cd132b8549,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17065f97627160f48a7e67cd132b8549, type: 2}
