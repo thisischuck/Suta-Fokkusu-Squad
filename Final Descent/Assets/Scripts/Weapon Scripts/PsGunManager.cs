@@ -152,9 +152,7 @@ public class PsGunManager : MonoBehaviour
     //Shotgun/Harpoon
     private void Weapon3()
     {
-        if (Input.GetButton("Fire1") && !canFire)
-            this.transform.Find("ShotgunForceArea").GetComponent<Shotgun>().ClearList();
-        else if (Input.GetButton("Fire1") && canFire)
+        if (Input.GetButton("Fire1") && canFire)
         {
             system.Emit(bulletsPerClick);
             this.transform.Find("ShotgunForceArea").gameObject.SetActive(true);

@@ -20,6 +20,9 @@ public class HealthPlayer : BaseStats {
 	// Update is called once per frame
 	void Update () {
 
+		if (Input.GetKeyDown(KeyCode.F) && health > 0)
+			TakeDamage(50);
+
 		if (exploded && CheckIfOnPlace() && Input.GetKey(KeyCode.G))
         {
             Transform lifepod = transform.Find("LifePod");
@@ -33,7 +36,6 @@ public class HealthPlayer : BaseStats {
             aircraft.transform.parent = playerAircraft.transform;
 			playerAircraft.transform.parent = transform;
 			playerAircraft.transform.localPosition = Vector3.zero;
-			//playerAircraft.transform.position = transform.position;
 			transform.GetComponent<Ship>().enabled = true;
 			lifepod.gameObject.SetActive(false);
             playerAircraft.GetComponent<ShipRotation>().enabled = true;
@@ -75,26 +77,20 @@ public class HealthPlayer : BaseStats {
     {
         health -= damage;
         if (invulnerabilityTime != 0)
-        {
             IsInvulnerable = true;
-            /*if (this.lives <= 0)
-            {
-                IsAlive = false;
-            }*/
-        }
+
         if (health <= 0 && lives > 0)
         {
 			lives--;
 			SpawnLifePod();
-			Debug.Log("spawnlifepod");
             DeathExplosion();
         }
 		else if (health <= 0 && lives <= 0)
 		{
 			IsAlive = false;
 			lives--;
-			//transform.parent.Find("PlayerController").GetComponent<PlayerMovement>().enabled = false;
 			DeathExplosion();
+			GameObject.Find("InGame_MainCanvas").GetComponent<MenuController>().GameOver = true;
 		}
 	}
 
@@ -106,12 +102,13 @@ public class HealthPlayer : BaseStats {
 
     private void DeathExplosion()
     {
-        Transform t = GameObject.Find("Player_aircraft").transform;
-		Transform player = t.Find("Aircraft");
-		//Remove every child inside Aircraft transform
+		Transform t = GameObject.Find("Player_aircraft").transform;
+
+		//Desativar arma
 		ActivateChildScripts(t.Find("WeaponHolder"), false);
 
-		ActivateChildScripts(player, false);
+		//Desativar aircraft e explodir todaspeças
+		ActivateChildScripts(t.Find("Aircraft"), false);
 		t.GetComponent<ShipRotation>().enabled = false;
 		if (IsAlive)
 			t.parent = null;
@@ -129,8 +126,6 @@ public class HealthPlayer : BaseStats {
         //lifepod.position = pos;
         //lifepod.rotation = rot;
         lifepod.gameObject.SetActive(true);
-        //GetComponent<PlayerMovement>().lifePodActive = true; //Change object for camera to follow
-        //transform.rotation = lifepod.rotation;
     }
 
     private void OrganizeParts(Transform parent)
@@ -162,31 +157,52 @@ public class HealthPlayer : BaseStats {
 
     private void ActivateChildScripts(Transform parent, bool active)
     {
-        for (int i = parent.childCount - 1; i >= 0; i--)
-        {
-            Transform child = parent.GetChild(i);
-
-            if (child.tag == ("PlayerPart"))
-            {
-                if (child.GetComponent<TurbineMovement>() != null)
-                    child.GetComponent<TurbineMovement>().enabled = active;
-            if (child.GetComponent<WeaponSwitching>() != null)
-            {
-                foreach (Transform c in child)
-                {
-                    if (c.GetComponent<Gun>() != null)
-                        c.GetComponent<Gun>().enabled = active;
-                }
-                child.GetComponent<WeaponSwitching>().enabled = active;
-            }
-            if (!active && IsAlive)
-                child.GetComponent<ShipPart>().Explode();
-				child.GetComponent<ShipPart>().defDeath = false;
-			}
-			else if (!active && !IsAlive)
+		if(parent.name == "Aircraft")
+		{
+			for (int i = parent.childCount - 1; i >= 0; i--)
 			{
-				child.GetComponent<ShipPart>().Explode();
-				child.GetComponent<ShipPart>().defDeath = true;
+				Transform child = parent.GetChild(i);
+
+				if (child.tag == ("PlayerPart"))
+				{
+					if (child.GetComponent<TurbineMovement>() != null)
+						child.GetComponent<TurbineMovement>().enabled = active;
+					if (!active && IsAlive)
+					{
+						child.GetComponent<ShipPart>().Explode();
+						if (IsAlive)
+							child.GetComponent<ShipPart>().defDeath = false;
+						else
+							child.GetComponent<ShipPart>().defDeath = true;
+					}
+				}
+			}
+		}
+		else
+		{
+			parent.GetComponent<PsWeaponSwitching>().enabled = active;
+
+			for (int i = parent.childCount - 1; i >= 0; i--)
+			{
+				Transform child = parent.GetChild(i);
+				if (child.GetComponent<Morph>() != null)
+				{
+					foreach (Transform c in child)
+					{
+						if (c.GetComponent<PsGunManager>() != null)
+							c.GetComponent<PsGunManager>().enabled = active;
+					}
+					child.GetComponent<Morph>().enabled = active;
+				}
+			}
+			//Add the explosion
+			if (!active && IsAlive)
+			{
+				parent.GetComponent<ShipPart>().Explode();
+				if (IsAlive)
+					parent.GetComponent<ShipPart>().defDeath = false;
+				else
+					parent.GetComponent<ShipPart>().defDeath = true;
 			}
 		}
 	}

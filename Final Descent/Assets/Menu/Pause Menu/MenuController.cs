@@ -212,7 +212,10 @@ public class MenuController : MonoBehaviour {
 
     private void Defeat()
     {
-        gameoverMenu.SetActive(true);
+		transform.Find("CrossHair").gameObject.SetActive(false);
+		transform.Find("CurrentWeapon").gameObject.SetActive(false);
+		transform.Find("EnemyInfo").gameObject.SetActive(false);
+		gameoverMenu.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }

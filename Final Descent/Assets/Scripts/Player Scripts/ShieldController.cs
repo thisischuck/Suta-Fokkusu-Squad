@@ -21,6 +21,8 @@ public class ShieldController : MonoBehaviour
 
 	void Update()
 	{
+		if(Input.GetKeyDown(KeyCode.P))
+			fadeIn = true;
 		if (fadeIn)
 			Fade(true);
 		if (fadeout)
