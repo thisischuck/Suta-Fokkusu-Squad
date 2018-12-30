@@ -8,7 +8,7 @@ public class EelIK : MonoBehaviour
     private float[] distances;
     private Vector3 oldPos;
     private Vector3 velocity;
-    private EelTest test;
+    private float eelSpeed;
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class EelIK : MonoBehaviour
         }
 
         velocity = Vector3.forward;
-        test = this.GetComponent<EelTest>();
+        eelSpeed = this.GetComponent<EelAttacks>().eelSpeed;
     }
 
     void FixedUpdate()
@@ -31,7 +31,7 @@ public class EelIK : MonoBehaviour
 
             float distance = Vector3.Distance(previous.position, current.position);
 
-            float t = Time.deltaTime * distance / distances[i - 1] * test.Velocity.magnitude;
+            float t = Time.deltaTime * distance / distances[i - 1] * (Vector3.forward * eelSpeed).magnitude;
 
             if (t > 0.5f)
                 t = 0.5f;
