@@ -51,11 +51,10 @@ public class EelAttacks : MonoBehaviour {
 
 	//Bite
 	public Transform BottomMouth;
-    public bool isBiting;
+    //public bool isBiting;
     private Quaternion openMouth;
     private Quaternion closeMouth;
     private bool mouthClosed;
-	private Transform inBiteRange;
 
 	//ShowWave
 	public bool isShockWave;
@@ -70,7 +69,7 @@ public class EelAttacks : MonoBehaviour {
 	// Use this for initialization
 	public void Start () {
 		isTornado = false;
-		TornadoDuration = 5f;
+		TornadoDuration = 100f;
 		goToExplode = false;
 		isExploding = false;
 		RHoles = new List<Transform>();
@@ -81,7 +80,7 @@ public class EelAttacks : MonoBehaviour {
 		isCalling = false;
 		isCharging = false;
 		sameCharge = true;
-		isBiting = false;
+		//isBiting = false;
 		isShockWave = false;
 
         nextExplosion = 0f;
@@ -111,7 +110,6 @@ public class EelAttacks : MonoBehaviour {
 		if (Input.GetKeyDown(KeyCode.P))
 		{
 			//isTornado = !isTornado;
-			//PrepTornado();
 			//isExploding = !isExploding;
 			//isHighSpeed = !isHighSpeed;
 			//OnEntryHighSpeed();
@@ -144,60 +142,55 @@ public class EelAttacks : MonoBehaviour {
 
 		if (isCharging)
 			Charge();
-
-		if (isBiting)
-			Bite();
 	}
 
 	#region Tornado
 	public void OnEntryTornado()
     {
-		Debug.Log("OnEntryTornado");
-
 		isTornado = true;
+		Debug.Log("tornado duration: " + TornadoDuration);
 		timeTornading = Time.time + TornadoDuration;
         centerPosition = transform.position + Vector3.forward * 10f;
 		goToExplode = false;
     }
 
-	/*public void OnExitTornado()
-	{
-		Debug.Log("OnExitTornado");
-		transform.position = Vector3.MoveTowards(transform.position, centerPosition, eelSpeed * Time.deltaTime);
-		goToExplode = true;
-	}*/
-
 	public void Tornado()// colocar a dar damage stun qunado toca na ragdoll da enguia
     {
-		if(!isTornado)
+		/*if(!isTornado)
 		{
 			transform.position = Vector3.MoveTowards(transform.position, centerPosition, eelSpeed * Time.deltaTime);
-			if (Vector3.Distance(transform.position, centerPosition) <= 3f)
+			if (Vector3.Distance(transform.position, centerPosition) == 0f)
 				goToExplode = true;
-		}
+		}*/
 		if (Time.time >= timeTornading)
 		{
 			isTornado = false;
-			return;
 		}
+		else
+		{
+			//CircularMotion //Still needs adjusting
+			float rotSpeed = 20f;
 
-		//CircularMotion //Still needs adjusting
-		float rotSpeed = 80f;
+			//transform.RotateAround(centerPosition, Vector3.up, Time.deltaTime * rotSpeed);
+			Vector3 desiredPosition = (transform.position - centerPosition).normalized * radius + centerPosition;
+			//transform.position = Vector3.MoveTowards(transform.position, desiredPosition, 20f * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, desiredPosition, 20f * Time.deltaTime);
 
-        transform.RotateAround(centerPosition, Vector3.up, Time.deltaTime * rotSpeed);
-        Vector3 desiredPosition = (transform.position - centerPosition).normalized * radius + centerPosition;
-        transform.position = Vector3.MoveTowards(transform.position, desiredPosition, 5f * Time.deltaTime);
+			Vector3 heading = centerPosition - transform.position;
+			float distance = heading.magnitude;
+			transform.right = heading / distance;
 
-		//GetSucked()
-        foreach(Transform player in _playerList)
-        {
-            Vector3 direction = Vector3.zero;
-            if (Vector3.Distance(centerPosition, player.position) < 50f)
-            {
-                direction = player.position - transform.position;
-                player.position = Vector3.MoveTowards(player.position, centerPosition, force);
-            }
-        }
+			//GetSucked()
+			foreach (Transform player in _playerList)
+			{
+				Vector3 direction = Vector3.zero;
+				if (Vector3.Distance(centerPosition, player.position) < 50f)
+				{
+					direction = player.position - transform.position;
+					player.position = Vector3.MoveTowards(player.position, centerPosition, force * Time.deltaTime);
+				}
+			}
+		}
     }
 	#endregion
 
@@ -252,7 +245,7 @@ public class EelAttacks : MonoBehaviour {
 		randVoltas = Random.Range(2, 5);
 		voltasCount = 0;
 		voltas = randVoltas + 1;
-		Debug.Log(voltas);
+		//Debug.Log(voltas);
 	}
 
 	public void HighSpeed()
@@ -325,11 +318,16 @@ public class EelAttacks : MonoBehaviour {
                     selectedHole = LHoles[nextHole];
                 }
             }
-			Debug.Log(voltasCount);
+			//Debug.Log(voltasCount);
 		}
 
+		/*Vector3 Velocity = EnemyBehaviours.Pursuit(transform, transform.forward, selectedHole, 0);
+		transform.forward = Velocity.normalized;
+
+		transform.position += Velocity * eelSpeed * Time.deltaTime;*/
+
 		//Movement
-        transform.position += transform.forward *( Time.deltaTime * eelSpeed);
+		transform.position += transform.forward * eelSpeed * Time.deltaTime;
 
         direction = transform.position - selectedHole.position;
         Quaternion targetRot = Quaternion.LookRotation(-direction, Vector3.up);
@@ -340,10 +338,10 @@ public class EelAttacks : MonoBehaviour {
 
 	#region Calling
 
-	public void OnEntryCalling()
+	/*public void OnEntryCalling()
 	{
 		isCalling = true;
-	}
+	}*/
 
 	public void Calling() // change position to spawnEnemyPosition
     {
@@ -369,12 +367,10 @@ public class EelAttacks : MonoBehaviour {
 	public void OnEntryCharge()
 	{
 		isCharging = true;
-		if (!sameCharge)
-		{
-			currentHealth = this.GetComponent<HealthEnemy>().health;
-			sameCharge = true;
-			playerIndex = Random.Range(0, 4);
-		}
+
+		currentHealth = this.GetComponent<HealthEnemy>().health;
+		//sameCharge = true;
+		playerIndex = Random.Range(0, _playerList.Count - 1);
 	}
 
 	public void Charge()// talvez procurar os q estam com stun e dar charge a um deles
@@ -383,41 +379,45 @@ public class EelAttacks : MonoBehaviour {
 		Transform chosenTarget;
 		chosenTarget = _playerList[playerIndex];
 
-		transform.position = Vector3.MoveTowards(transform.position, chosenTarget.position, eelSpeed * Time.deltaTime);
+		/*Vector3 Velocity = EnemyBehaviours.Pursuit(transform, transform.forward, chosenTarget, 1);
+		transform.forward = Velocity.normalized;
+
+		transform.position += Velocity * eelSpeed * Time.deltaTime;*/
+
+		//Movement
+		transform.position += transform.forward * eelSpeed * Time.deltaTime;
 
 		direction = transform.position - chosenTarget.position;
 		Quaternion targetRot = Quaternion.LookRotation(-direction, Vector3.up);
-		transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 0.04f);
+		transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2f * Time.deltaTime);
 	}
 
 	#endregion
 
 	#region Bite
 
-	public void OnEntryBite()
+	/*public void OnEntryBite()
 	{
 		isBiting = true;
 		mouthClosed = true;
-	}
+	}*/
 
-	public void Bite()
+	public void Bite(Transform player)
     {
 		Debug.Log("Bite");
-		if (mouthClosed)
-            BottomMouth.localRotation = Quaternion.RotateTowards(BottomMouth.rotation, openMouth , Time.deltaTime * 8f);
-		else
-			BottomMouth.localRotation = Quaternion.RotateTowards(BottomMouth.rotation, closeMouth, Time.deltaTime * 8f);
 
-		if (openMouth == BottomMouth.rotation)
+		if (openMouth == BottomMouth.rotation)//esta aberta
 		{
 			mouthClosed = false;
-			inBiteRange.GetComponent<HealthPlayer>().TakeDamage(BiteDamage);
+			player.GetComponent<HealthPlayer>().TakeDamage(BiteDamage);
 		}
-		else if (closeMouth == BottomMouth.rotation)
-		{
+		else
 			mouthClosed = true;
-			isBiting = false;
-		}
+
+		if (mouthClosed)
+			BottomMouth.localRotation = Quaternion.RotateTowards(BottomMouth.rotation, openMouth, Time.deltaTime * 8f);
+		else
+			BottomMouth.localRotation = Quaternion.RotateTowards(BottomMouth.rotation, closeMouth, Time.deltaTime * 8f);
 	}
 
 	#endregion
@@ -487,8 +487,7 @@ public class EelAttacks : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			isBiting = true;
-			inBiteRange = other.transform;
+			Bite(other.transform);
 		}
 	}
 }

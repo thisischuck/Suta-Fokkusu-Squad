@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class HealthEnemy : BaseStats
 {
-    public string name;
     private void Start()
     {
         GenerateVariables(100, 0);
@@ -19,22 +18,20 @@ public class HealthEnemy : BaseStats
             GetComponent<HBController>().SetCurrentHealth(health);
     }
 
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter(Collider other)
     {
-        if (col.gameObject.tag == "Bullet")
-        {
-            if (col.gameObject.GetComponent<Mover>())
-            {
-                float damage = col.gameObject.GetComponent<Mover>().Damage;
-                ApplyDamage(damage);
+        if (other.gameObject.tag == "Bullet")
+		{
+			//Eel case
+			if (this.transform.parent != null && other.transform.parent.name == "Eel")
+			{
+				GameObject eel = other.transform.parent.Find("Head").gameObject;
+				CheckWhatWepon(eel);
+			}
+			else
+				CheckWhatWepon(other.gameObject);
 
-            }
-            if (col.gameObject.GetComponent<LaserForward>())
-            {
-                float damage = col.gameObject.GetComponent<LaserForward>().damage;
-                ApplyDamage(damage);
-            }
-            GameObject stats = GameObject.Find("Stats");
+			GameObject stats = GameObject.Find("Stats");
 
             float enemyCurrenhp = GetComponent<HealthEnemy>().health;
             float enemyMaxhp = GetComponent<HealthEnemy>().base_maxHealth;
@@ -49,20 +46,24 @@ public class HealthEnemy : BaseStats
                 enemyName = GetComponentInChildren<SpawnerBehaviour>().spawnerName;
                 stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
             }
+        }
+	}
 
-        }
-    }
+	private void CheckWhatWepon(GameObject other)
+	{
 
-    public void ApplyDamage(float damage)
-    {
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Debug.Log("Hit");
-            health -= damage;
-        }
-    }
+		if (other.name == "missile" || other.name == "miniMissile")
+		{
+			other.GetComponent<HealthEnemy>().TakeDamage(10);
+		}
+		if (other.name == "missileBig")
+		{
+			other.GetComponent<HealthEnemy>().TakeDamage(20);
+		}
+		if(other.name == "EnergyBullet")
+		{
+			other.GetComponent<HealthEnemy>().TakeDamage(10);
+		}
+		Destroy(other);
+	}
 }

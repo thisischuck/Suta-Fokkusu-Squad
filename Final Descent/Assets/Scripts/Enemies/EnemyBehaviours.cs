@@ -24,7 +24,6 @@ public static class EnemyBehaviours
         {
             midPos += f.transform.position;
         }
-
         return midPos / friends.Count;
     }
 

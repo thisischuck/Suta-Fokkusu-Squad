@@ -283,6 +283,7 @@ public class PsGunManager : MonoBehaviour
 
     public void OnParticleCollision(GameObject other)
     {
+		Debug.Log("COLLISION CARALHO");
         int collCount = system.GetSafeCollisionEventSize();
 
         //if (collCount > collisionEvents.Count)
@@ -311,6 +312,26 @@ public class PsGunManager : MonoBehaviour
                     stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
                 }
             }
+			else if(other.transform.parent !=null && other.transform.parent.name == "Eel")
+			{
+				GameObject eel = other.transform.parent.Find("Head").gameObject;
+				eel.GetComponent<HealthEnemy>().TakeDamage(15);
+				GameObject stats = GameObject.Find("Stats");
+
+				float enemyCurrenhp = eel.GetComponent<HealthEnemy>().health;
+				float enemyMaxhp = eel.GetComponent<HealthEnemy>().base_maxHealth;
+				string enemyName = "";
+				if (eel.GetComponent<Enemy>())
+				{
+					enemyName = eel.GetComponent<Enemy>().enemyName;
+					stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
+				}
+				else if (eel.GetComponentInChildren<SpawnerBehaviour>())
+				{
+					enemyName = eel.GetComponentInChildren<SpawnerBehaviour>().spawnerName;
+					stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
+				}
+			}
         }
     }
 

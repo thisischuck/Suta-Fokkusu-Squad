@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EelBehaviour : Enemy
 {
-    private BaseStats baseStats;
 	private EelAttacks eelAttacks;
 
 	public bool alive;
@@ -19,15 +18,14 @@ public class EelBehaviour : Enemy
 
     public float eelHealth;
 	public float eelMaxHealth;
+	private int toCall = 0;
 
-    protected override void Start()
+	protected override void Start()
     {
 		base.Start();
 		alive = true;
-		baseStats = GetComponent<BaseStats>();
 		eelAttacks = GetComponent<EelAttacks>();
-		baseStats.GenerateVariables(1000, 1000);
-		eelHealth = baseStats.health;
+		eelHealth = GetComponent<HealthEnemy>().health;
 		eelMaxHealth = eelHealth;
 
         //Actions
@@ -40,12 +38,12 @@ public class EelBehaviour : Enemy
 		Action a_explode = () => { eelAttacks.Explode(); };
 		Action a_onEntryShockWave = () => { eelAttacks.OnEntryShockWave(); };
 		Action a_shockWave = () => { eelAttacks.ShockWave(); };
-		Action a_onEntryCalling = () => { eelAttacks.OnEntryCalling(); };
+		//Action a_onEntryCalling = () => { eelAttacks.OnEntryCalling(); };
 		Action a_call = () => { eelAttacks.Calling(); };
 		Action a_onEntryCharge = () => { eelAttacks.OnEntryCharge(); };
 		Action a_charge = () => { eelAttacks.Charge(); };
-		Action a_onEntryBite = () => { eelAttacks.OnEntryBite(); };
-		Action a_bite = () => { eelAttacks.Bite(); };
+		//Action a_onEntryBite = () => { eelAttacks.OnEntryBite(); };
+		//Action a_bite = () => { eelAttacks.Bite(); };
         Action a_dead = () => { alive = false; };
 
         //Nodes
@@ -54,13 +52,13 @@ public class EelBehaviour : Enemy
         StateMachine_Node n_highSpeed = new StateMachine_Node("HighSpeed", new List<Action> { a_highSpeed }, new List<Action> { a_onEntryHighSpeed }, null);
         StateMachine_Node n_shockWave = new StateMachine_Node("ShockWave", new List<Action> { a_shockWave }, null, null);
         StateMachine_Node n_explode = new StateMachine_Node("Exploding", new List<Action> { a_explode }, null, null);
-        StateMachine_Node n_call = new StateMachine_Node("Calling", new List<Action> { a_call }, null, null);
+        //StateMachine_Node n_call = new StateMachine_Node("Calling",null, new List<Action> { a_onEntryCalling, a_call }, null);
         StateMachine_Node n_Charge = new StateMachine_Node("Charging", new List<Action> { a_charge }, new List<Action> { a_onEntryCharge }, null);
-        StateMachine_Node n_Bite = new StateMachine_Node("Biting", new List<Action> { a_bite }, new List<Action> { a_onEntryBite }, null);
+        //StateMachine_Node n_Bite = new StateMachine_Node("Biting", new List<Action> { a_bite }, new List<Action> { a_onEntryBite }, null);
         StateMachine_Node n_dead = new StateMachine_Node("Dead", null, null, null); //ainda sem açao
 
 		//Transitions
-		StateMachine_Transition t_ativeToHighSpeed = new StateMachine_Transition("Active To HighSpeed", () => { return alive == true; }, n_highSpeed,
+		StateMachine_Transition t_ativeToHighSpeed = new StateMachine_Transition("Active To HighSpeed", () => { return alive == true; }, n_tornado,
 			null);
 		StateMachine_Transition t_highSpeedToTornado = new StateMachine_Transition("HighSpeed To Tornado", () => { return eelAttacks.isHighSpeed == false && 
 			eelAttacks.MedPlayersPositions(transform.position) > 50f; }, n_tornado, null); //Player is far away, tornado is activated
@@ -76,40 +74,46 @@ public class EelBehaviour : Enemy
             null);
         StateMachine_Transition t_shockWaveToHighSpeed = new StateMachine_Transition("ShockWave To HighSpeed", () => { return eelAttacks.isShockWave == false && eelAttacks.RandNum() == 0; }, n_highSpeed,
             null);
-        StateMachine_Transition t_callingToCharge = new StateMachine_Transition(" Calling To Charge", () => { return eelAttacks.isCalling == false && eelAttacks.RandNum() == 1; }, n_Charge,
+
+        /*StateMachine_Transition t_callingToCharge = new StateMachine_Transition(" Calling To Charge", () => { return eelAttacks.isCalling == false && eelAttacks.RandNum() == 1; }, n_Charge,
             null);
         StateMachine_Transition t_callingToTornado = new StateMachine_Transition("Calling To Tornado", () => { return eelAttacks.isCalling == false && eelAttacks.RandNum() == 0; }, n_tornado,
-            null);
-        StateMachine_Transition t_biteToHighSpeed = new StateMachine_Transition("Bite To HighSpeed", () => { return GoToHighSpeed() == true; }, n_highSpeed,
-            null); //CODICAO: Se a Eel receber mais de 5% da vida desde q começou a atacar(charge) volta para o HighSpeed node
-		StateMachine_Transition t_biteToCharge = new StateMachine_Transition("Bite To Charge", () => { return GoToHighSpeed() == false; }, n_Charge,
-			null); //CODICAO: Se a Eel receber menos de 5% da vida desde q começou a atacar(charge) volta para o Charge node
-		StateMachine_Transition t_anyToBite = new StateMachine_Transition("Bite", () => { return eelAttacks.isBiting == true; }, n_Bite,
-			null); //CODICAO: Se alguem estiver em range de morder irá transicionar para Bite node
-		StateMachine_Transition t_anyCalling = new StateMachine_Transition("Calling", () => { return activateCall() == true; }, n_call,
-			null);
+            null);*/
+
+		StateMachine_Transition t_chargeToHighSpeed = new StateMachine_Transition("Charge To HighSpeed", () => { return GoToHighSpeed() == true; }, n_highSpeed, 
+			null); //CODICAO: Se a Eel receber mais de 5% da vida desde q começou a atacar(charge) volta para o HighSpeed node
+
+		//StateMachine_Transition t_biteToHighSpeed = new StateMachine_Transition("Bite To HighSpeed", () => { /*return GoToHighSpeed() == true;*/ return eelAttacks.isHighSpeed == true; }, n_highSpeed,
+        //     null); //CODICAO: Se a Eel receber mais de 5% da vida desde q começou a atacar(charge) volta para o HighSpeed node
+		//StateMachine_Transition t_biteToCharge = new StateMachine_Transition("Bite To Charge", () => { /*return GoToHighSpeed() == false;*/ return eelAttacks.isCharging == true; }, n_Charge,
+		//	null); //CODICAO: Se a Eel receber menos de 5% da vida desde q começou a atacar(charge) volta para o Charge node
+		//StateMachine_Transition t_anyToBite = new StateMachine_Transition("Bite", () => { return eelAttacks.isBiting == true; }, n_Bite,
+		//	null); //CODICAO: Se alguem estiver em range de morder irá transicionar para Bite node
+
+		/*StateMachine_Transition t_anyCalling = new StateMachine_Transition("Calling", () => { return activateCall() == true; }, n_call,
+			null);*/
 		StateMachine_Transition t_killed = new StateMachine_Transition("Killed", () => { return alive == false; }, n_dead, null); //Eel gets killed
 
 		//Active
-		n_active.AddTransition(t_ativeToHighSpeed, t_killed, t_anyCalling, t_anyToBite);
+		n_active.AddTransition(t_ativeToHighSpeed, t_killed);
 
 		//HighSpeed
-		n_highSpeed.AddTransition(t_highSpeedToTornado, t_highSpeedToShockwave,t_killed, t_anyCalling, t_anyToBite);
+		n_highSpeed.AddTransition(t_highSpeedToTornado, t_highSpeedToShockwave,t_killed);
 
 		//Tornado
-		n_tornado.AddTransition(t_tornadoToExplode, t_killed, t_anyCalling, t_anyToBite);
+		n_tornado.AddTransition(t_tornadoToExplode, t_killed);
 
 		//Explode
-		n_explode.AddTransition(t_explodeToCharge, t_killed, t_explodeToHighSpeed, t_anyCalling, t_anyToBite);
+		n_explode.AddTransition(t_explodeToCharge, t_killed, t_explodeToHighSpeed);
 
 		//ShockWave
-		n_shockWave.AddTransition(t_shockWaveToCharge, t_shockWaveToHighSpeed, t_killed, t_anyCalling, t_anyToBite);
+		n_shockWave.AddTransition(t_shockWaveToCharge, t_shockWaveToHighSpeed, t_killed);
 
-		//Bite
-		n_Bite.AddTransition(t_biteToCharge, t_biteToHighSpeed, t_killed, t_anyCalling);
+		//Charge
+		n_Charge.AddTransition(t_chargeToHighSpeed, t_killed);
 
 		//Call
-		n_call.AddTransition(t_callingToCharge, t_callingToTornado, t_killed, t_anyToBite);
+		//n_call.AddTransition(t_callingToCharge, t_callingToTornado, t_killed);
 
 		AssignState(n_active);
     }
@@ -121,31 +125,35 @@ public class EelBehaviour : Enemy
 		if (eelHealth <= 0)
 			alive = false;
 		else alive = true;
-    }
 
-	public bool activateCall()
+		if (Input.GetKeyDown(KeyCode.K))
+			GetComponent<HealthEnemy>().TakeDamage(15f);
+
+		eelHealth = GetComponent<HealthEnemy>().health;
+		activateCall();
+	}
+
+	public void activateCall()
 	{
-		if (eelHealth == eelMaxHealth / 0.5)//vida a 50%
-			return true;
-		else if (eelHealth == eelMaxHealth * 0.75)//vida a 75%
-			return true;
-		else if (eelHealth == eelMaxHealth * 0.25)//vida a 25%
-			return true;
-		else return false;
+		if(eelHealth <= eelMaxHealth * 0.75 && toCall == 0 || eelHealth <= eelMaxHealth * 0.5 && toCall == 1 || eelHealth <= eelMaxHealth * 0.25 && toCall == 2)
+		{
+			eelAttacks.Calling();
+			toCall++;
+		} 
 	}
 
 	public bool GoToHighSpeed()
 	{
-		if (eelAttacks.currentHealth - eelHealth >= eelHealth * 0.05)
+		float e = eelAttacks.currentHealth - (eelMaxHealth * 0.05f);
+		if (eelHealth <= eelAttacks.currentHealth - (eelMaxHealth * 0.05f))
 		{
-			//eelAttacks.isHighSpeed = true;
-			eelAttacks.sameCharge = false;
+			eelAttacks.isHighSpeed = true;
+			eelAttacks.isCharging = false;
 			return true;
 		}
 		else
 		{
-			//eelAttacks.isCharging = true;
-			eelAttacks.sameCharge = true;
+			eelAttacks.isCharging = true;
 			return false;
 		}
 	}
