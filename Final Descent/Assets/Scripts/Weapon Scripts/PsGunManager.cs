@@ -133,6 +133,7 @@ public class PsGunManager : MonoBehaviour
             ultraSystem.Emit(ultraBulletsPerClick);
             StartCoroutine(UltraFireRateIE());
             ultraTimeUp += Time.deltaTime;
+            SendMessage("PlayUltraOnceSound");
         }
         else if (!Input.GetButton("Fire1") && !Input.GetButton("Fire2"))
         {
@@ -166,6 +167,7 @@ public class PsGunManager : MonoBehaviour
             obj.GetComponent<Hook>().weaponPos = this.transform;
             ultraAvailable = Time.time + ultraCoolDown;
             StartCoroutine(UltraFireRateIE());
+            SendMessage("PlayUltraOnceSound");
         }
         if (!Input.GetButton("Fire1"))
             this.transform.Find("ShotgunForceArea").gameObject.SetActive(false);
@@ -189,6 +191,7 @@ public class PsGunManager : MonoBehaviour
             obj.transform.rotation = this.transform.rotation;
             ultraAvailable = Time.time + ultraCoolDown;
             StartCoroutine(UltraFireRateIE());
+            SendMessage("PlayUltraOnceSound");
         }
     }
 
@@ -283,7 +286,7 @@ public class PsGunManager : MonoBehaviour
 
     public void OnParticleCollision(GameObject other)
     {
-		Debug.Log("COLLISION CARALHO");
+        Debug.Log("COLLISION CARALHO");
         int collCount = system.GetSafeCollisionEventSize();
 
         //if (collCount > collisionEvents.Count)
@@ -312,26 +315,26 @@ public class PsGunManager : MonoBehaviour
                     stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
                 }
             }
-			else if(other.transform.parent !=null && other.transform.parent.name == "Eel")
-			{
-				GameObject eel = other.transform.parent.Find("Head").gameObject;
-				eel.GetComponent<HealthEnemy>().TakeDamage(15);
-				GameObject stats = GameObject.Find("Stats");
+            else if (other.transform.parent != null && other.transform.parent.name == "Eel")
+            {
+                GameObject eel = other.transform.parent.Find("Head").gameObject;
+                eel.GetComponent<HealthEnemy>().TakeDamage(15);
+                GameObject stats = GameObject.Find("Stats");
 
-				float enemyCurrenhp = eel.GetComponent<HealthEnemy>().health;
-				float enemyMaxhp = eel.GetComponent<HealthEnemy>().base_maxHealth;
-				string enemyName = "";
-				if (eel.GetComponent<Enemy>())
-				{
-					enemyName = eel.GetComponent<Enemy>().enemyName;
-					stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
-				}
-				else if (eel.GetComponentInChildren<SpawnerBehaviour>())
-				{
-					enemyName = eel.GetComponentInChildren<SpawnerBehaviour>().spawnerName;
-					stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
-				}
-			}
+                float enemyCurrenhp = eel.GetComponent<HealthEnemy>().health;
+                float enemyMaxhp = eel.GetComponent<HealthEnemy>().base_maxHealth;
+                string enemyName = "";
+                if (eel.GetComponent<Enemy>())
+                {
+                    enemyName = eel.GetComponent<Enemy>().enemyName;
+                    stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
+                }
+                else if (eel.GetComponentInChildren<SpawnerBehaviour>())
+                {
+                    enemyName = eel.GetComponentInChildren<SpawnerBehaviour>().spawnerName;
+                    stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
+                }
+            }
         }
     }
 

@@ -341,7 +341,6 @@ MonoBehaviour:
   invCount: 0
   IsInvulnerable: 0
   IsAlive: 1
-  name: EYE
 --- !u!114 &114597648861000904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -354,7 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 0.1
-  priority: 0
+  priority: 128
   audioClips:
   - {fileID: 8300000, guid: 8845c3222612e224faf68b636a9439ab, type: 3}
   audioSources: []
@@ -381,7 +380,7 @@ MonoBehaviour:
   Spawn: 
   enemyName: 
   animController: {fileID: 0}
-  rayTimer: 0
+  rayTimer: 10
 --- !u!135 &135137560395408808
 SphereCollider:
   m_ObjectHideFlags: 1

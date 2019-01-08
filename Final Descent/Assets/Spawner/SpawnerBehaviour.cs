@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerBehaviour : MonoBehaviour {
+public class SpawnerBehaviour : MonoBehaviour
+{
     private Transform player;
     public Transform enemyController;
     private bool active;
@@ -16,12 +17,13 @@ public class SpawnerBehaviour : MonoBehaviour {
     public float count = 0;
     public float spawningRechargeTime = 10.0f;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         player = GetClosestPlayer().transform;
         animator = GetComponent<Animator>();
         enemyController = GameObject.FindGameObjectWithTag("EnemyController").transform;
-        
+
 
         #region STATE MACHINE SCHEME
         /*
@@ -44,7 +46,7 @@ public class SpawnerBehaviour : MonoBehaviour {
         Action a_spawn = () => { animator.SetBool("Spawn", true); };
         Action a_resetTimer = () => { count = 0; };
         Action a_dead = () => { animator.SetBool("Dead", true); };
-        
+
         //Nodes
         StateMachine_Node n_nonActive = new StateMachine_Node("Non Active", null, null, null);
         StateMachine_Node n_active = new StateMachine_Node("Active", null, new List<Action>(new Action[] { a_resetTimer }), null);
@@ -55,7 +57,7 @@ public class SpawnerBehaviour : MonoBehaviour {
         StateMachine_Transition t_becomingActive = new StateMachine_Transition("nonActive to Active", () => { return Vector3.Distance(transform.position, player.position) <= 100; },
             n_active, new List<Action>(new Action[] { a_active })); //Player is close, spawner activates
 
-        StateMachine_Transition t_activeToNonActive = new StateMachine_Transition("Active to nonActive", () => { return Vector3.Distance(transform.position, player.position) > 100; }, 
+        StateMachine_Transition t_activeToNonActive = new StateMachine_Transition("Active to nonActive", () => { return Vector3.Distance(transform.position, player.position) > 100; },
             n_nonActive, new List<Action>(new Action[] { a_toofar })); //Player is far away, spawner deactivates
 
         StateMachine_Transition t_activeToSpawn = new StateMachine_Transition("Active to Spawning", () => { return count >= spawningRechargeTime; }, n_spawning, new List<Action>(new Action[] { a_spawn })); //Spawner is done recharging, it spawns an enemy
@@ -69,9 +71,10 @@ public class SpawnerBehaviour : MonoBehaviour {
         sM = new StateMachine(n_nonActive);
 
     }
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
         List<Action> actions = sM.Run();
         if (actions != null)
         {
@@ -97,7 +100,7 @@ public class SpawnerBehaviour : MonoBehaviour {
                 }
             }
         }
-        
+
 
         if (GetComponentInParent<HealthEnemy>().health <= 0)
         {
@@ -116,6 +119,7 @@ public class SpawnerBehaviour : MonoBehaviour {
         GameObject enemy2 = Instantiate(enemyController.GetComponent<EnemySpawningController>().ChooseAnEnemy());
         enemy.transform.position = spawnPoint.position;
         enemy2.transform.position = spawnPoint.position;
+        SendMessage("PlayShotOnceSound");
 
     }
 

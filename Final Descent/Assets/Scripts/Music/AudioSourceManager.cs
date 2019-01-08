@@ -103,6 +103,16 @@ public class AudioSourceManager : MonoBehaviour
         source_once.Play();
     }
 
+    void PlayUltraOnceSound()
+    {
+        source_once = ChooseSource();
+        source_once.clip = audioClips[1];
+        source_once.loop = false;
+        source_once.priority = priority;
+        source_once.volume = volume;
+        source_once.Play();
+    }
+
     void PlayChargeAudio()
     {
         source_starts = ChooseSource();
