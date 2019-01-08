@@ -20,7 +20,7 @@ public class MantaRay : Enemy
         Action a_AnimMove = () => { PlayAnimation("Moving"); };
         Action a_MoveWithVelocity = () => { transform.position += Velocity * Time.deltaTime * MaxVelocity; };
         Action a_FaceVelocity = () => { transform.forward = Velocity.normalized; };
-        Action a_Shoot = () => { if (timer > shootCooldown) { p1.Emit(1); p2.Emit(1); timer = 0.0f; } };
+        Action a_Shoot = () => { if (timer > shootCooldown) { p1.Emit(1); p2.Emit(1); timer = 0.0f; SendMessage("PlayShotOnceSound"); } };
         Action a_ShootCooldown = () => { timer += Time.deltaTime; };
 
         //Wander

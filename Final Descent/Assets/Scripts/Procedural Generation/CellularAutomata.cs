@@ -198,8 +198,8 @@ public class CellularAutomata : MonoBehaviour
             pathfinder.EndPoint.x * spacing,
             oldVertices[Mathf.FloorToInt(pathfinder.EndPoint.x) + Mathf.FloorToInt(pathfinder.EndPoint.y) * width].y + (height * spacing / 2),
             pathfinder.EndPoint.y * spacing);
-        Instantiate(Portal);
-        Portal.transform.position = portal;
+        Instantiate(Portal, portal, Portal.transform.rotation);
+        //Portal.transform.position = portal;
 
         objectPlacer = GetComponent<ObjectPlacer>();
         objectPlacer.Initialize();

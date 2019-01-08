@@ -68,7 +68,6 @@ public class ObjectPlacer : MonoBehaviour
         }
     }
 
-
     public void Update()
     {
         /**

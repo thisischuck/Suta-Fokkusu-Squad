@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e20d4361cdc5fbb448dfaf02d738867e
+guid: 00794111aee0ea94fa9f1d3d8b69b601
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -11,82 +11,83 @@ ModelImporter:
     100010: Bottom_Mouth
     100012: Bottom_Teeth
     100014: //RootNode
-    100016: Head
-    100018: Neck
-    100020: pCylinder100
-    100022: pCylinder101
-    100024: pCylinder102
-    100026: pCylinder103
-    100028: pCylinder104
-    100030: pCylinder105
-    100032: pCylinder106
-    100034: pCylinder107
-    100036: pCylinder108
-    100038: pCylinder109
-    100040: pCylinder110
-    100042: pCylinder111
-    100044: pCylinder112
-    100046: pCylinder113
-    100048: pCylinder114
-    100050: pCylinder115
-    100052: pCylinder116
-    100054: pCylinder117
-    100056: pCylinder118
-    100058: pCylinder119
-    100060: pCylinder120
-    100062: pCylinder121
-    100064: pCylinder122
-    100066: pCylinder123
-    100068: pCylinder124
-    100070: pCylinder63
-    100072: pCylinder64
-    100074: pCylinder65
-    100076: pCylinder66
-    100078: pCylinder67
-    100080: pCylinder68
-    100082: pCylinder69
-    100084: pCylinder70
-    100086: pCylinder71
-    100088: pCylinder72
-    100090: pCylinder73
-    100092: pCylinder74
-    100094: pCylinder75
-    100096: pCylinder76
-    100098: pCylinder77
-    100100: pCylinder78
-    100102: pCylinder79
-    100104: pCylinder80
-    100106: pCylinder81
-    100108: pCylinder82
-    100110: pCylinder83
-    100112: pCylinder84
-    100114: pCylinder85
-    100116: pCylinder86
-    100118: pCylinder87
-    100120: pCylinder88
-    100122: pCylinder89
-    100124: pCylinder90
-    100126: pCylinder91
-    100128: pCylinder92
-    100130: pCylinder93
-    100132: pCylinder94
-    100134: pCylinder95
-    100136: pCylinder96
-    100138: pCylinder97
-    100140: pCylinder98
-    100142: pCylinder99
-    100144: Skin
-    100146: spine0
-    100148: spine1
-    100150: spine2
-    100152: spine3
-    100154: spine4
-    100156: spine5
-    100158: spine6
-    100160: spine7
-    100162: Teeth
-    100164: Upper_Mouth
-    100166: Upper_Teeth
+    100016: Eyes
+    100018: Head
+    100020: Neck
+    100022: pCylinder100
+    100024: pCylinder101
+    100026: pCylinder102
+    100028: pCylinder103
+    100030: pCylinder104
+    100032: pCylinder105
+    100034: pCylinder106
+    100036: pCylinder107
+    100038: pCylinder108
+    100040: pCylinder109
+    100042: pCylinder110
+    100044: pCylinder111
+    100046: pCylinder112
+    100048: pCylinder113
+    100050: pCylinder114
+    100052: pCylinder115
+    100054: pCylinder116
+    100056: pCylinder117
+    100058: pCylinder118
+    100060: pCylinder119
+    100062: pCylinder120
+    100064: pCylinder121
+    100066: pCylinder122
+    100068: pCylinder123
+    100070: pCylinder124
+    100072: pCylinder63
+    100074: pCylinder64
+    100076: pCylinder65
+    100078: pCylinder66
+    100080: pCylinder67
+    100082: pCylinder68
+    100084: pCylinder69
+    100086: pCylinder70
+    100088: pCylinder71
+    100090: pCylinder72
+    100092: pCylinder73
+    100094: pCylinder74
+    100096: pCylinder75
+    100098: pCylinder76
+    100100: pCylinder77
+    100102: pCylinder78
+    100104: pCylinder79
+    100106: pCylinder80
+    100108: pCylinder81
+    100110: pCylinder82
+    100112: pCylinder83
+    100114: pCylinder84
+    100116: pCylinder85
+    100118: pCylinder86
+    100120: pCylinder87
+    100122: pCylinder88
+    100124: pCylinder89
+    100126: pCylinder90
+    100128: pCylinder91
+    100130: pCylinder92
+    100132: pCylinder93
+    100134: pCylinder94
+    100136: pCylinder95
+    100138: pCylinder96
+    100140: pCylinder97
+    100142: pCylinder98
+    100144: pCylinder99
+    100146: Skin
+    100148: spine0
+    100150: spine1
+    100152: spine2
+    100154: spine3
+    100156: spine4
+    100158: spine5
+    100160: spine6
+    100162: spine7
+    100164: Teeth
+    100166: Upper_Mouth
+    100168: Upper_Teeth
     400000: body
     400002: bone1_helper
     400004: bone2_helper
@@ -95,84 +96,89 @@ ModelImporter:
     400010: Bottom_Mouth
     400012: Bottom_Teeth
     400014: //RootNode
-    400016: Head
-    400018: Neck
-    400020: pCylinder100
-    400022: pCylinder101
-    400024: pCylinder102
-    400026: pCylinder103
-    400028: pCylinder104
-    400030: pCylinder105
-    400032: pCylinder106
-    400034: pCylinder107
-    400036: pCylinder108
-    400038: pCylinder109
-    400040: pCylinder110
-    400042: pCylinder111
-    400044: pCylinder112
-    400046: pCylinder113
-    400048: pCylinder114
-    400050: pCylinder115
-    400052: pCylinder116
-    400054: pCylinder117
-    400056: pCylinder118
-    400058: pCylinder119
-    400060: pCylinder120
-    400062: pCylinder121
-    400064: pCylinder122
-    400066: pCylinder123
-    400068: pCylinder124
-    400070: pCylinder63
-    400072: pCylinder64
-    400074: pCylinder65
-    400076: pCylinder66
-    400078: pCylinder67
-    400080: pCylinder68
-    400082: pCylinder69
-    400084: pCylinder70
-    400086: pCylinder71
-    400088: pCylinder72
-    400090: pCylinder73
-    400092: pCylinder74
-    400094: pCylinder75
-    400096: pCylinder76
-    400098: pCylinder77
-    400100: pCylinder78
-    400102: pCylinder79
-    400104: pCylinder80
-    400106: pCylinder81
-    400108: pCylinder82
-    400110: pCylinder83
-    400112: pCylinder84
-    400114: pCylinder85
-    400116: pCylinder86
-    400118: pCylinder87
-    400120: pCylinder88
-    400122: pCylinder89
-    400124: pCylinder90
-    400126: pCylinder91
-    400128: pCylinder92
-    400130: pCylinder93
-    400132: pCylinder94
-    400134: pCylinder95
-    400136: pCylinder96
-    400138: pCylinder97
-    400140: pCylinder98
-    400142: pCylinder99
-    400144: Skin
-    400146: spine0
-    400148: spine1
-    400150: spine2
-    400152: spine3
-    400154: spine4
-    400156: spine5
-    400158: spine6
-    400160: spine7
-    400162: Teeth
-    400164: Upper_Mouth
-    400166: Upper_Teeth
-    2100000: text
-    2100002: teeth
+    400016: Eyes
+    400018: Head
+    400020: Neck
+    400022: pCylinder100
+    400024: pCylinder101
+    400026: pCylinder102
+    400028: pCylinder103
+    400030: pCylinder104
+    400032: pCylinder105
+    400034: pCylinder106
+    400036: pCylinder107
+    400038: pCylinder108
+    400040: pCylinder109
+    400042: pCylinder110
+    400044: pCylinder111
+    400046: pCylinder112
+    400048: pCylinder113
+    400050: pCylinder114
+    400052: pCylinder115
+    400054: pCylinder116
+    400056: pCylinder117
+    400058: pCylinder118
+    400060: pCylinder119
+    400062: pCylinder120
+    400064: pCylinder121
+    400066: pCylinder122
+    400068: pCylinder123
+    400070: pCylinder124
+    400072: pCylinder63
+    400074: pCylinder64
+    400076: pCylinder65
+    400078: pCylinder66
+    400080: pCylinder67
+    400082: pCylinder68
+    400084: pCylinder69
+    400086: pCylinder70
+    400088: pCylinder71
+    400090: pCylinder72
+    400092: pCylinder73
+    400094: pCylinder74
+    400096: pCylinder75
+    400098: pCylinder76
+    400100: pCylinder77
+    400102: pCylinder78
+    400104: pCylinder79
+    400106: pCylinder80
+    400108: pCylinder81
+    400110: pCylinder82
+    400112: pCylinder83
+    400114: pCylinder84
+    400116: pCylinder85
+    400118: pCylinder86
+    400120: pCylinder87
+    400122: pCylinder88
+    400124: pCylinder89
+    400126: pCylinder90
+    400128: pCylinder91
+    400130: pCylinder92
+    400132: pCylinder93
+    400134: pCylinder94
+    400136: pCylinder95
+    400138: pCylinder96
+    400140: pCylinder97
+    400142: pCylinder98
+    400144: pCylinder99
+    400146: Skin
+    400148: spine0
+    400150: spine1
+    400152: spine2
+    400154: spine3
+    400156: spine4
+    400158: spine5
+    400160: spine6
+    400162: spine7
+    400164: Teeth
+    400166: Upper_Mouth
+    400168: Upper_Teeth
+    2100000: text3
+    2100002: anisotropic4
+    2100004: anisotropic5
+    2100006: teeth5
+    2100008: teeth6
+    2100010: lambert7
     4300000: body
     4300002: pCylinder116
     4300004: pCylinder71
@@ -236,71 +242,72 @@ ModelImporter:
     4300120: pCylinder64
     4300122: pCylinder63
     4300124: pCylinder65
+    4300126: Eyes
     9500000: //RootNode
     13700000: body
-    13700002: pCylinder100
-    13700004: pCylinder101
-    13700006: pCylinder102
-    13700008: pCylinder103
-    13700010: pCylinder104
-    13700012: pCylinder105
-    13700014: pCylinder106
-    13700016: pCylinder107
-    13700018: pCylinder108
-    13700020: pCylinder109
-    13700022: pCylinder110
-    13700024: pCylinder111
-    13700026: pCylinder112
-    13700028: pCylinder113
-    13700030: pCylinder114
-    13700032: pCylinder115
-    13700034: pCylinder116
-    13700036: pCylinder117
-    13700038: pCylinder118
-    13700040: pCylinder119
-    13700042: pCylinder120
-    13700044: pCylinder121
-    13700046: pCylinder122
-    13700048: pCylinder123
-    13700050: pCylinder124
-    13700052: pCylinder63
-    13700054: pCylinder64
-    13700056: pCylinder65
-    13700058: pCylinder66
-    13700060: pCylinder67
-    13700062: pCylinder68
-    13700064: pCylinder69
-    13700066: pCylinder70
-    13700068: pCylinder71
-    13700070: pCylinder72
-    13700072: pCylinder73
-    13700074: pCylinder74
-    13700076: pCylinder75
-    13700078: pCylinder76
-    13700080: pCylinder77
-    13700082: pCylinder78
-    13700084: pCylinder79
-    13700086: pCylinder80
-    13700088: pCylinder81
-    13700090: pCylinder82
-    13700092: pCylinder83
-    13700094: pCylinder84
-    13700096: pCylinder85
-    13700098: pCylinder86
-    13700100: pCylinder87
-    13700102: pCylinder88
-    13700104: pCylinder89
-    13700106: pCylinder90
-    13700108: pCylinder91
-    13700110: pCylinder92
-    13700112: pCylinder93
-    13700114: pCylinder94
-    13700116: pCylinder95
-    13700118: pCylinder96
-    13700120: pCylinder97
-    13700122: pCylinder98
-    13700124: pCylinder99
-    2186277476908879412: ImportLogs
+    13700002: Eyes
+    13700004: pCylinder100
+    13700006: pCylinder101
+    13700008: pCylinder102
+    13700010: pCylinder103
+    13700012: pCylinder104
+    13700014: pCylinder105
+    13700016: pCylinder106
+    13700018: pCylinder107
+    13700020: pCylinder108
+    13700022: pCylinder109
+    13700024: pCylinder110
+    13700026: pCylinder111
+    13700028: pCylinder112
+    13700030: pCylinder113
+    13700032: pCylinder114
+    13700034: pCylinder115
+    13700036: pCylinder116
+    13700038: pCylinder117
+    13700040: pCylinder118
+    13700042: pCylinder119
+    13700044: pCylinder120
+    13700046: pCylinder121
+    13700048: pCylinder122
+    13700050: pCylinder123
+    13700052: pCylinder124
+    13700054: pCylinder63
+    13700056: pCylinder64
+    13700058: pCylinder65
+    13700060: pCylinder66
+    13700062: pCylinder67
+    13700064: pCylinder68
+    13700066: pCylinder69
+    13700068: pCylinder70
+    13700070: pCylinder71
+    13700072: pCylinder72
+    13700074: pCylinder73
+    13700076: pCylinder74
+    13700078: pCylinder75
+    13700080: pCylinder76
+    13700082: pCylinder77
+    13700084: pCylinder78
+    13700086: pCylinder79
+    13700088: pCylinder80
+    13700090: pCylinder81
+    13700092: pCylinder82
+    13700094: pCylinder83
+    13700096: pCylinder84
+    13700098: pCylinder85
+    13700100: pCylinder86
+    13700102: pCylinder87
+    13700104: pCylinder88
+    13700106: pCylinder89
+    13700108: pCylinder90
+    13700110: pCylinder91
+    13700112: pCylinder92
+    13700114: pCylinder93
+    13700116: pCylinder94
+    13700118: pCylinder95
+    13700120: pCylinder96
+    13700122: pCylinder97
+    13700124: pCylinder98
+    13700126: pCylinder99
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -332,7 +339,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1500
+    globalScale: 1000
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -352,14 +359,14 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 15
+    previousCalculatedGlobalScale: 10
     hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

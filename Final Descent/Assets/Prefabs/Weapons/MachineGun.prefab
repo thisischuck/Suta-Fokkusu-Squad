@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4581665524463986}
   - component: {fileID: 199891961156839644}
   - component: {fileID: 198245634062091724}
-  m_Layer: 4
+  - component: {fileID: 114056266646820156}
+  m_Layer: 12
   m_Name: RightClickWeapon2Ps
   m_TagString: Gun
   m_Icon: {fileID: 0}
@@ -38,7 +39,7 @@ GameObject:
   - component: {fileID: 4536302401709634}
   - component: {fileID: 198249719267322408}
   - component: {fileID: 199396568927929386}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +56,8 @@ GameObject:
   - component: {fileID: 4529500292137076}
   - component: {fileID: 199343277212189606}
   - component: {fileID: 198267178860256064}
-  m_Layer: 4
+  - component: {fileID: 114369853253870912}
+  m_Layer: 12
   m_Name: LeftClickWeapon2Ps
   m_TagString: Gun
   m_Icon: {fileID: 0}
@@ -72,7 +74,7 @@ GameObject:
   - component: {fileID: 4512902056884894}
   - component: {fileID: 198300390099138336}
   - component: {fileID: 199604642549160018}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +91,7 @@ GameObject:
   - component: {fileID: 4489693528263988}
   - component: {fileID: 198490569762836362}
   - component: {fileID: 199020285879327386}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ImpactShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +109,7 @@ GameObject:
   - component: {fileID: 33400906078261700}
   - component: {fileID: 23399126234221738}
   - component: {fileID: 114843297132893092}
-  m_Layer: 4
+  m_Layer: 12
   m_Name: MachineGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +126,7 @@ GameObject:
   - component: {fileID: 4823943492128972}
   - component: {fileID: 198609555931658748}
   - component: {fileID: 199385116165004894}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Shockwave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,6 +272,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514547187023300}
   m_Mesh: {fileID: 4300000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+--- !u!114 &114056266646820156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1139488939515788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85277f8f460fecb488bfe8ea45eaf43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  system: {fileID: 0}
+  damage: 10
+--- !u!114 &114369853253870912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1188671856424218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85277f8f460fecb488bfe8ea45eaf43d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  system: {fileID: 0}
+  damage: 10
 --- !u!114 &114843297132893092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -284,7 +312,8 @@ MonoBehaviour:
   system: {fileID: 198267178860256064}
   ultraSystem: {fileID: 198245634062091724}
   ultraChargeSystem: {fileID: 0}
-  bulletObject: {fileID: 0}
+  fireObject: {fileID: 0}
+  ultraObject: {fileID: 0}
   canFire: 0
   isActive: 0
   canUltraFire: 0
@@ -294,7 +323,7 @@ MonoBehaviour:
   maxFireRate: 0.1
   ultrafireRate: 0.1
   ultraChargeRate: 5
-  ultraCoolDown: 3
+  ultraCoolDown: 6
   weaponBehaviour: 2
 --- !u!198 &198245634062091724
 ParticleSystem:
@@ -3705,9 +3734,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -3775,7 +3804,7 @@ ParticleSystem:
     m_Bounce:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3878,12 +3907,12 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    minKillSpeed: 0
-    maxKillSpeed: 10000
-    radiusScale: 1
+    minKillSpeed: 1
+    maxKillSpeed: 0
+    radiusScale: 0.0001
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 512
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -12837,9 +12866,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -13011,15 +13040,15 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     minKillSpeed: 0
-    maxKillSpeed: 10000
-    radiusScale: 1
+    maxKillSpeed: 0
+    radiusScale: 0.0001
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 512
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:

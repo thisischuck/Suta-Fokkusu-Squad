@@ -127,7 +127,8 @@ public class PlayerMovement : MonoBehaviour
                 dashCDRCount = 0;
 
                 ship.GetComponent<Ship>().DashRotation(360 * numberOfRotations, dashDur);
-
+                SendMessage("StopShipMovementAudio");
+                SendMessage("PlayDodgeSound", 2);
             }
             else
             {
@@ -148,6 +149,9 @@ public class PlayerMovement : MonoBehaviour
                 dashCDRCount = 0;
 
                 ship.GetComponent<Ship>().DashRotation(-360 * numberOfRotations, dashDur);
+
+                SendMessage("StopShipMovementAudio");
+                SendMessage("PlayDodgeSound", 2);
             }
             else
             {

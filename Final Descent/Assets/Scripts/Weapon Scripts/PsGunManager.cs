@@ -78,7 +78,7 @@ public class PsGunManager : MonoBehaviour
                 system.Emit(bulletsPerClick);
             StartCoroutine(FireRateIE());
 
-            SendMessage("PlayLaserAudio");
+            SendMessage("PlayShotOnceSound");
         }
         else if (wasHoldingUltra && canUltraFire)
         {
@@ -126,13 +126,14 @@ public class PsGunManager : MonoBehaviour
             StartCoroutine(FireRateIE());
             FireRateIncrease();
             currentFireRate = fireRate;
-            SendMessage("PlayMachineGunAudio");
+            SendMessage("PlayShotOnceSound");
         }
-        else if (toggleOn && Input.GetButton("Fire1") && canUltraFire && Time.time >= ultraAvailable)
+        else if (toggleOn && Input.GetButton("Fire1") && canUltraFire)
         {
             ultraSystem.Emit(ultraBulletsPerClick);
             StartCoroutine(UltraFireRateIE());
             ultraTimeUp += Time.deltaTime;
+            SendMessage("PlayUltraOnceSound");
         }
         else if (!Input.GetButton("Fire1") && !Input.GetButton("Fire2"))
         {
@@ -141,24 +142,33 @@ public class PsGunManager : MonoBehaviour
             ultraTimeUp = 0.0f;
         }
         if (Input.GetButtonDown("Fire2"))
-            toggleOn = true;
+		{
+			if (toggleOn)
+			{
+				toggleOn = false;
+				ultraAvailable = Time.time + ultraCoolDown;
+				ultraTimeUp = 0.0f;
+			}
+			else if (!toggleOn && Time.time >= ultraAvailable)
+				toggleOn = true;
+		}
         if (ultraTimeUp >= 0.7f)
         {
             toggleOn = false;
-            ultraAvailable = Time.time + ultraCoolDown;
+			ultraTimeUp = 0.0f;
+			ultraAvailable = Time.time + ultraCoolDown;
         }
     }
 
     //Shotgun/Harpoon
     private void Weapon3()
     {
-        if (Input.GetButton("Fire1") && !canFire)
-            this.transform.Find("ShotgunForceArea").GetComponent<Shotgun>().ClearList();
-        else if (Input.GetButton("Fire1") && canFire)
+        if (Input.GetButton("Fire1") && canFire)
         {
             system.Emit(bulletsPerClick);
             this.transform.Find("ShotgunForceArea").gameObject.SetActive(true);
             StartCoroutine(FireRateIE());
+            SendMessage("PlayShotOnceSound");
         }
         else if (Input.GetButton("Fire2") && canUltraFire && Time.time >= ultraAvailable)
         {
@@ -167,6 +177,7 @@ public class PsGunManager : MonoBehaviour
             obj.GetComponent<Hook>().weaponPos = this.transform;
             ultraAvailable = Time.time + ultraCoolDown;
             StartCoroutine(UltraFireRateIE());
+            SendMessage("PlayUltraOnceSound");
         }
         if (!Input.GetButton("Fire1"))
             this.transform.Find("ShotgunForceArea").gameObject.SetActive(false);
@@ -181,6 +192,7 @@ public class PsGunManager : MonoBehaviour
             obj.GetComponent<missileAI>().Velocity = this.transform.forward;
             obj.transform.rotation = this.transform.rotation;
             StartCoroutine(FireRateIE());
+            SendMessage("PlayShotOnceSound");
         }
         else if (Input.GetButton("Fire2") && canUltraFire && Time.time >= ultraAvailable)
         {
@@ -189,6 +201,7 @@ public class PsGunManager : MonoBehaviour
             obj.transform.rotation = this.transform.rotation;
             ultraAvailable = Time.time + ultraCoolDown;
             StartCoroutine(UltraFireRateIE());
+            SendMessage("PlayUltraOnceSound");
         }
     }
 
@@ -204,6 +217,8 @@ public class PsGunManager : MonoBehaviour
             else
                 system.Emit(bulletsPerClick);
             StartCoroutine(FireRateIE());
+
+            SendMessage("PlayShotOnceSound");
         }
         else if (wasHoldingUltra && canUltraFire)
         {
@@ -279,64 +294,31 @@ public class PsGunManager : MonoBehaviour
         ps.SetParticles(particles, particles.Length);
     }
 
-    public void OnParticleCollision(GameObject other)
-    {
-        int collCount = system.GetSafeCollisionEventSize();
+	IEnumerator FireRateIE()
+	{
+		canFire = false;
+		yield return new WaitForSeconds(fireRate);
+		canFire = true;
+	}
+	IEnumerator UltraFireRateIE()
+	{
+		canUltraFire = false;
+		yield return new WaitForSeconds(ultrafireRate);
+		canUltraFire = true;
+	}
+	IEnumerator ChargeUltraIE()
+	{
+		yield return new WaitForSeconds(ultraChargeRate);
+		canUltraFire = true;
+	}
 
-        //if (collCount > collisionEvents.Count)
-        //    collisionEvents = new ParticleCollisionEvent[collCount];
+	private void FireRateIncrease()
+	{
+		fireRate = Mathf.Lerp(currentFireRate, maxFireRate, Time.deltaTime * 12f);
+	}
 
-        int eventCount = system.GetCollisionEvents(other, collisionEvents);
-
-        for (int i = 0; i < eventCount; i++)
-        {
-            if (other.GetComponent<HealthEnemy>())
-            {
-                other.GetComponent<HealthEnemy>().TakeDamage(15);
-                GameObject stats = GameObject.Find("Stats");
-
-                float enemyCurrenhp = other.GetComponent<HealthEnemy>().health;
-                float enemyMaxhp = other.GetComponent<HealthEnemy>().base_maxHealth;
-                string enemyName = "";
-                if (other.GetComponent<Enemy>())
-                {
-                    enemyName = other.GetComponent<Enemy>().enemyName;
-                    stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
-                }
-                else if (other.GetComponentInChildren<SpawnerBehaviour>())
-                {
-                    enemyName = other.GetComponentInChildren<SpawnerBehaviour>().spawnerName;
-                    stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
-                }
-            }
-        }
-    }
-
-    IEnumerator FireRateIE()
-    {
-        canFire = false;
-        yield return new WaitForSeconds(fireRate);
-        canFire = true;
-    }
-    IEnumerator UltraFireRateIE()
-    {
-        canUltraFire = false;
-        yield return new WaitForSeconds(ultrafireRate);
-        canUltraFire = true;
-    }
-    IEnumerator ChargeUltraIE()
-    {
-        yield return new WaitForSeconds(ultraChargeRate);
-        canUltraFire = true;
-    }
-
-    private void FireRateIncrease()
-    {
-        fireRate = Mathf.Lerp(currentFireRate, maxFireRate, Time.deltaTime * 12f);
-    }
-
-    private void UltraFireRateIncrease()
-    {
-        ultrafireRate = Mathf.Lerp(currentUltraFireRate, maxFireRate, Time.deltaTime * 5f);
-    }
+	private void UltraFireRateIncrease()
+	{
+		ultrafireRate = Mathf.Lerp(currentUltraFireRate, maxFireRate, Time.deltaTime * 5f);
+	}
 }

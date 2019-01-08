@@ -27,14 +27,11 @@ public class Eye : Enemy
 
         Action a_ResetRayCooldown = () => { rayCooldown = 0.0f; };
         Action a_CountRayCooldown = () => { rayCooldown += Time.deltaTime; };
-        Action a_ShootRay = () => { playPs = true; SendMessage("PlayEyeLaserAudio"); };
-        Action a_StopShooting = () => { playPs = false; SendMessage("StopEyeLaserAudio"); };
+        Action a_ShootRay = () => { playPs = true; SendMessage("PlayShotLoopAudio"); };
+        Action a_StopShooting = () => { playPs = false; SendMessage("StopShotLoopAudio"); };
         Action a_FaceEnemyRay = () =>
         {
-            transform.rotation = Quaternion.RotateTowards(
-                transform.rotation,
-                Quaternion.LookRotation(player.transform.position - transform.position),
-                Time.deltaTime * MaxRotationSpeed);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), Time.deltaTime * MaxRotationSpeed);
         }; //transform.rotation.SetLookRotation(player.transform.position); };
         Action a_Wander = () => { Velocity = EnemyBehaviours.AvoidObstacles(transform, Velocity, ref isThereAnything) * MaxVelocity; if (!isThereAnything) { Velocity = EnemyBehaviours.Wander(transform, Velocity); } };
         Action a_Move = () => { transform.position += Velocity * Time.deltaTime; };
@@ -91,7 +88,10 @@ public class Eye : Enemy
 
         StopOrPlayParticleSystem(playPs, ps);
 
-        base.Update();
+		if (GetComponent<HealthEnemy>().health <= 0)
+			Destroy(this.gameObject);
+
+		base.Update();
     }
 
     private void MeleeAttack()
@@ -112,4 +112,19 @@ public class Eye : Enemy
     //private bool IsExplosionOver() { return !animController.isPlaying; }
 
     private bool IsRayOver() { return rayTimer > rayDuration; }
+
+	private void OnParticleCollision(GameObject other)
+	{
+		Debug.Log("ray is hitting");
+		Debug.Log(other.transform.name);
+		if(other.transform.name == "AircraftController")
+			other.transform.GetComponent<HealthPlayer>().TakeDamage(1f);
+	}
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		Debug.Log(collision.transform.name);
+		if(collision.transform.GetComponent<HealthPlayer>())
+			collision.transform.GetComponent<HealthPlayer>().TakeDamage(5f);
+	}
 }

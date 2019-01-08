@@ -13,29 +13,17 @@ public class Shotgun : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(addForceObj != null)
-		{
-			foreach(Transform t in addForceObj)
-			{
-				Rigidbody rb = t.GetComponent<Rigidbody>();
-
-				rb.AddForce(transform.forward * 60f);
-				Debug.Log(rb.transform);
-			}
-		}			
+	
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.tag == "Enemy")
 		{
-			addForceObj.Add(other.transform);
-			Debug.Log("collision");
-		}
-	}
+			Rigidbody rb = other.GetComponent<Rigidbody>();
 
-	public void ClearList()
-	{
-		addForceObj.Clear();
+			rb.AddForce(transform.forward * 60f);
+			Destroy(this.gameObject);
+		}
 	}
 }

@@ -24,6 +24,8 @@ public class SpawnerBehaviour : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        enemyController = GameObject.FindGameObjectWithTag("EnemyController").transform;
+
 
         #region STATE MACHINE SCHEME
         /*
@@ -156,6 +158,7 @@ public class SpawnerBehaviour : MonoBehaviour
 
     void SpawnEnemy()
     {
+        SendMessage("PlayShotOnceSound");
         if (!isOnline)
         {
             for (int i = 0; i < numberOfEnemiesPerSpawn; i++)
