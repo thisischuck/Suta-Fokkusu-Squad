@@ -8,13 +8,12 @@ public class HealthPlayer : BaseStats {
 	private bool exploded = false;
 	public ParticleSystem damagedShip, areaPulse;
 	public bool collision = false;
+	public GameObject Shield;
 
 	// Use this for initialization
 	void Start () {
-        GenerateVariables(100,100);
-        hpBar.GetComponent<HealthBar>().SetMaxHealth(health);
-        shieldBar.GetComponent<HealthBar>().SetMaxHealth(shield);
-        //GetComponent<HBController>().SetMaxHealth(health);
+        hpBar.GetComponent<HealthBar>().SetMaxHealth(base_maxHealth);
+        shieldBar.GetComponent<HealthBar>().SetMaxHealth(base_maxShield);
     }
 	
 	// Update is called once per frame
@@ -68,12 +67,33 @@ public class HealthPlayer : BaseStats {
 		}
     }
 
-	public void TakeDamageShield(float damage)
+	override public void TakeDamage(float damage)
+	{
+		if (shield > 0)
+		{
+			if (!Shield.GetComponent<ShieldController>().fadeIn)
+			{
+				Shield.GetComponent<ShieldController>().fadeIn = true;
+				Shield.GetComponent<ShieldController>().fadeOut = false;
+				TakeDamageShield(damage * 2);
+			}
+			else
+			{
+				Shield.GetComponent<ShieldController>().upTime = 0.0f;
+				Shield.GetComponent<ShieldController>().fadeOut = false;
+				TakeDamageShield(damage);
+			}
+		}
+		else
+			TakeDamageHealth(damage);
+	}
+
+	private void TakeDamageShield(float damage)
 	{
 		shield -= damage;
 	}
 
-    override public void TakeDamage(float damage)
+    private void TakeDamageHealth(float damage)
     {
         health -= damage;
         if (invulnerabilityTime != 0)
@@ -84,12 +104,17 @@ public class HealthPlayer : BaseStats {
 			lives--;
 			SpawnLifePod();
             DeathExplosion();
-        }
-		else if (health <= 0 && lives <= 0)
+			KillAround();
+		}
+		else if (health <= 0 && lives <= 0 && !exploded)
 		{
 			IsAlive = false;
-			lives--;
 			DeathExplosion();
+			GameObject.Find("InGame_MainCanvas").GetComponent<MenuController>().GameOver = true;
+		}
+		else if (transform.Find("LifePod").gameObject.activeSelf == true)
+		{
+			IsAlive = false;
 			GameObject.Find("InGame_MainCanvas").GetComponent<MenuController>().GameOver = true;
 		}
 	}
@@ -97,7 +122,7 @@ public class HealthPlayer : BaseStats {
     private void UpdateBars()
     {
         hpBar.GetComponent<HealthBar>().currentAmout = Mathf.Lerp(hpBar.GetComponent<HealthBar>().currentAmout, health, 5f * Time.deltaTime);
-        shieldBar.GetComponent<HealthBar>().currentAmout = Mathf.Lerp(hpBar.GetComponent<HealthBar>().currentAmout, shield, 5f * Time.deltaTime);
+        shieldBar.GetComponent<HealthBar>().currentAmout = Mathf.Lerp(shieldBar.GetComponent<HealthBar>().currentAmout, shield, 5f * Time.deltaTime);
     }
 
     private void DeathExplosion()
@@ -121,11 +146,9 @@ public class HealthPlayer : BaseStats {
         Vector3 pos = transform.Find("Player_aircraft").position;
         Quaternion rot = transform.Find("Player_aircraft").rotation;
         Transform lifepod = transform.Find("LifePod");
-
-        //set lifepod active and position and rotation right 
-        //lifepod.position = pos;
-        //lifepod.rotation = rot;
         lifepod.gameObject.SetActive(true);
+
+		invulnerabilityTime = 2f;
     }
 
     private void OrganizeParts(Transform parent)
@@ -155,13 +178,13 @@ public class HealthPlayer : BaseStats {
         return true;
     }
 
-    private void ActivateChildScripts(Transform parent, bool active)
+    private void ActivateChildScripts(Transform p, bool active)
     {
-		if(parent.name == "Aircraft")
+		if(p.name == "Aircraft")
 		{
-			for (int i = parent.childCount - 1; i >= 0; i--)
+			for (int i = p.childCount - 1; i >= 0; i--)
 			{
-				Transform child = parent.GetChild(i);
+				Transform child = p.GetChild(i);
 
 				if (child.tag == ("PlayerPart"))
 				{
@@ -180,11 +203,11 @@ public class HealthPlayer : BaseStats {
 		}
 		else
 		{
-			parent.GetComponent<PsWeaponSwitching>().enabled = active;
+			p.GetComponent<PsWeaponSwitching>().enabled = active;
 
-			for (int i = parent.childCount - 1; i >= 0; i--)
+			for (int i = p.childCount - 1; i >= 0; i--)
 			{
-				Transform child = parent.GetChild(i);
+				Transform child = p.GetChild(i);
 				if (child.GetComponent<Morph>() != null)
 				{
 					foreach (Transform c in child)
@@ -198,11 +221,35 @@ public class HealthPlayer : BaseStats {
 			//Add the explosion
 			if (!active && IsAlive)
 			{
-				parent.GetComponent<ShipPart>().Explode();
+				p.GetComponent<ShipPart>().Explode();
 				if (IsAlive)
-					parent.GetComponent<ShipPart>().defDeath = false;
+					p.GetComponent<ShipPart>().defDeath = false;
 				else
-					parent.GetComponent<ShipPart>().defDeath = true;
+					p.GetComponent<ShipPart>().defDeath = true;
+			}
+		}
+	}
+
+	private void KillAround()
+	{
+		LayerMask mask = LayerMask.GetMask("Enemy");
+		Collider[] hitColliders = Physics.OverlapSphere(transform.position, 26, mask);
+		Debug.Log(hitColliders.Length);
+		if(hitColliders != null)
+		{
+			for (int i = 0; i <= hitColliders.Length - 1; i++)
+			{
+				Debug.Log(hitColliders[i].name);
+				if (hitColliders[i].GetComponent<HealthEnemy>())
+				{
+					Debug.Log("has he");
+					hitColliders[i].GetComponent<HealthEnemy>().health = 0;
+				}
+				else if(hitColliders[i].transform.parent != null)
+				{
+					Debug.Log("parent has he");
+					hitColliders[i].transform.parent.GetComponent<HealthEnemy>().health = 0;
+				}
 			}
 		}
 	}

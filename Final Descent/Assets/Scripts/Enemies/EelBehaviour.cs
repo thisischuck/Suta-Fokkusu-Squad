@@ -38,27 +38,24 @@ public class EelBehaviour : Enemy
 		Action a_explode = () => { eelAttacks.Explode(); };
 		Action a_onEntryShockWave = () => { eelAttacks.OnEntryShockWave(); };
 		Action a_shockWave = () => { eelAttacks.ShockWave(); };
-		//Action a_onEntryCalling = () => { eelAttacks.OnEntryCalling(); };
 		Action a_call = () => { eelAttacks.Calling(); };
 		Action a_onEntryCharge = () => { eelAttacks.OnEntryCharge(); };
 		Action a_charge = () => { eelAttacks.Charge(); };
-		//Action a_onEntryBite = () => { eelAttacks.OnEntryBite(); };
-		//Action a_bite = () => { eelAttacks.Bite(); };
         Action a_dead = () => { alive = false; };
 
         //Nodes
         StateMachine_Node n_active = new StateMachine_Node("Active", new List<Action> { a_active },null, null);
         StateMachine_Node n_tornado = new StateMachine_Node("Tornado", new List<Action> { a_tornado }, new List<Action> { a_onEntryTornado }, null);
         StateMachine_Node n_highSpeed = new StateMachine_Node("HighSpeed", new List<Action> { a_highSpeed }, new List<Action> { a_onEntryHighSpeed }, null);
-        StateMachine_Node n_shockWave = new StateMachine_Node("ShockWave", new List<Action> { a_shockWave }, null, null);
-        StateMachine_Node n_explode = new StateMachine_Node("Exploding", new List<Action> { a_explode }, null, null);
+        StateMachine_Node n_shockWave = new StateMachine_Node("ShockWave", new List<Action> { a_shockWave }, new List<Action> { a_onEntryShockWave }, null);
+        StateMachine_Node n_explode = new StateMachine_Node("Exploding", new List<Action> { a_explode }, new List<Action> { a_onEntryExplode }, null);
         //StateMachine_Node n_call = new StateMachine_Node("Calling",null, new List<Action> { a_onEntryCalling, a_call }, null);
         StateMachine_Node n_Charge = new StateMachine_Node("Charging", new List<Action> { a_charge }, new List<Action> { a_onEntryCharge }, null);
         //StateMachine_Node n_Bite = new StateMachine_Node("Biting", new List<Action> { a_bite }, new List<Action> { a_onEntryBite }, null);
         StateMachine_Node n_dead = new StateMachine_Node("Dead", null, null, null); //ainda sem açao
 
 		//Transitions
-		StateMachine_Transition t_ativeToHighSpeed = new StateMachine_Transition("Active To HighSpeed", () => { return alive == true; }, n_tornado,
+		StateMachine_Transition t_ativeToHighSpeed = new StateMachine_Transition("Active To HighSpeed", () => { return alive == true; }, n_highSpeed,
 			null);
 		StateMachine_Transition t_highSpeedToTornado = new StateMachine_Transition("HighSpeed To Tornado", () => { return eelAttacks.isHighSpeed == false && 
 			eelAttacks.MedPlayersPositions(transform.position) > 50f; }, n_tornado, null); //Player is far away, tornado is activated
@@ -130,6 +127,9 @@ public class EelBehaviour : Enemy
 			GetComponent<HealthEnemy>().TakeDamage(15f);
 
 		eelHealth = GetComponent<HealthEnemy>().health;
+		if (eelHealth <= 0)
+			Destroy(this.transform.parent.gameObject);
+
 		activateCall();
 	}
 

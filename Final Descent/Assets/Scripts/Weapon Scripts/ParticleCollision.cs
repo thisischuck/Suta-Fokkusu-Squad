@@ -19,7 +19,8 @@ public class ParticleCollision : MonoBehaviour {
 
     public void OnParticleCollision(GameObject other)
     {
-        int collCount = system.GetSafeCollisionEventSize();
+		Debug.Log("bullet collision");
+		int collCount = system.GetSafeCollisionEventSize();
 
         //if (collCount > collisionEvents.Count)
         //    collisionEvents = new ParticleCollisionEvent[collCount];
@@ -30,7 +31,7 @@ public class ParticleCollision : MonoBehaviour {
         {
             if (other.GetComponent<HealthEnemy>())
             {
-                other.GetComponent<HealthEnemy>().TakeDamage(damage);
+                other.GetComponent<HealthEnemy>().TakeDamage(15);
                 GameObject stats = GameObject.Find("Stats");
 
                 float enemyCurrenhp = other.GetComponent<HealthEnemy>().health;
@@ -38,7 +39,7 @@ public class ParticleCollision : MonoBehaviour {
                 string enemyName = "";
                 if (other.GetComponent<Enemy>())
                 {
-                    enemyName = other.GetComponent<HealthEnemy>().name;
+                    enemyName = other.GetComponent<Enemy>().enemyName;
                     stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
                 }
                 else if (other.GetComponentInChildren<SpawnerBehaviour>())
@@ -47,6 +48,26 @@ public class ParticleCollision : MonoBehaviour {
                     stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
                 }
             }
+			else if(other.transform.parent !=null && other.transform.parent.name == "Eel")
+			{
+				GameObject eel = other.transform.parent.Find("Head").gameObject;
+				eel.GetComponent<HealthEnemy>().TakeDamage(15);
+				GameObject stats = GameObject.Find("Stats");
+
+				float enemyCurrenhp = eel.GetComponent<HealthEnemy>().health;
+				float enemyMaxhp = eel.GetComponent<HealthEnemy>().base_maxHealth;
+				string enemyName = "";
+				if (eel.GetComponent<Enemy>())
+				{
+					enemyName = eel.GetComponent<Enemy>().enemyName;
+					stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
+				}
+				else if (eel.GetComponentInChildren<SpawnerBehaviour>())
+				{
+					enemyName = eel.GetComponentInChildren<SpawnerBehaviour>().spawnerName;
+					stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
+				}
+			}
         }
-    }
+	}
 }

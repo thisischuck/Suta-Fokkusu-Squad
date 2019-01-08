@@ -24,11 +24,11 @@ GameObject:
   - component: {fileID: 136447122787566928}
   - component: {fileID: 114533841422096878}
   m_Layer: 14
-  m_Name: Tree1
+  m_Name: tree1
   m_TagString: Up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4661604586415942
 Transform:

@@ -23,13 +23,17 @@ public class HealthEnemy : BaseStats
         if (other.gameObject.tag == "Bullet")
 		{
 			//Eel case
-			if (this.transform.parent != null && other.transform.parent.name == "Eel")
+			if (transform.name == "Head")
 			{
-				GameObject eel = other.transform.parent.Find("Head").gameObject;
-				CheckWhatWepon(eel);
+				Debug.Log("EEl case");
+				//GameObject eel = other.transform.Find("Head").gameObject;
+				CheckWhatWepon(other.gameObject);
 			}
 			else
+			{
 				CheckWhatWepon(other.gameObject);
+				Debug.Log("no parent");
+			}
 
 			GameObject stats = GameObject.Find("Stats");
 
@@ -51,19 +55,18 @@ public class HealthEnemy : BaseStats
 
 	private void CheckWhatWepon(GameObject other)
 	{
-
-		if (other.name == "missile" || other.name == "miniMissile")
+		if (other.name == "missile(Clone)" || other.name == "miniMissile")
 		{
-			other.GetComponent<HealthEnemy>().TakeDamage(10);
+			TakeDamage(10);
 		}
 		if (other.name == "missileBig")
 		{
-			other.GetComponent<HealthEnemy>().TakeDamage(20);
+			TakeDamage(20);
 		}
 		if(other.name == "EnergyBullet")
 		{
-			other.GetComponent<HealthEnemy>().TakeDamage(10);
+			TakeDamage(10);
 		}
-		Destroy(other);
+		Destroy(other.gameObject);
 	}
 }

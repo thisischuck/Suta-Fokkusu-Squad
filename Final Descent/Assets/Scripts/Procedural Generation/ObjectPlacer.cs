@@ -64,12 +64,6 @@ public class ObjectPlacer : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Debug.Log("HEY");
-        //Initialize();
-    }
-
     public void Update()
     {
         /**

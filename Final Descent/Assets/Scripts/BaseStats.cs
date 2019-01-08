@@ -7,7 +7,6 @@ public class BaseStats : MonoBehaviour {
     public float shield;
     public float health;
 
-	[HideInInspector]
 	public float base_maxHealth, base_maxShield;
 
 	public float invulnerabilityTime = 0.0f;
@@ -20,13 +19,12 @@ public class BaseStats : MonoBehaviour {
 
 	private void Start()
 	{
-		base_maxHealth = health;
-		base_maxShield = shield;
+		health = base_maxHealth;
+		shield = base_maxShield;
 	}
 
 	public virtual void TakeDamage(float health)
     {
-        this.health -= health;
         if (invulnerabilityTime != 0)
         {
             IsInvulnerable = true;
@@ -35,6 +33,7 @@ public class BaseStats : MonoBehaviour {
                 IsAlive = false;
             }
         }
+		else this.health -= health;
     }
 
     public void GenerateVariables(float health, float shield, int lives = 1, float invTime = 0.0f)

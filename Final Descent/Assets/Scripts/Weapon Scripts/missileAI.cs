@@ -30,7 +30,7 @@ public class missileAI : MonoBehaviour {
 
 		if (LookForEnemy())
 		{
-			Velocity = EnemyBehaviours.Pursuit(transform, Velocity, target, 1);
+			Velocity = EnemyBehaviours.Pursuit(transform, Velocity, target, 0.1f);
 			transform.forward = Velocity.normalized;
 		}
 		transform.position += Velocity * speed * Time.deltaTime;
@@ -66,6 +66,9 @@ public class missileAI : MonoBehaviour {
 				target = e.transform;
 			}
 		}
+
+		if(target.name =="Eel")
+			target = target.Find("Head");
 		if (distance > 30f)
 			return false;
 		else return true;

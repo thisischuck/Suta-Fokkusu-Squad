@@ -128,7 +128,7 @@ public class PsGunManager : MonoBehaviour
             currentFireRate = fireRate;
             SendMessage("PlayShotOnceSound");
         }
-        else if (toggleOn && Input.GetButton("Fire1") && canUltraFire && Time.time >= ultraAvailable)
+        else if (toggleOn && Input.GetButton("Fire1") && canUltraFire)
         {
             ultraSystem.Emit(ultraBulletsPerClick);
             StartCoroutine(UltraFireRateIE());
@@ -142,11 +142,21 @@ public class PsGunManager : MonoBehaviour
             ultraTimeUp = 0.0f;
         }
         if (Input.GetButtonDown("Fire2"))
-            toggleOn = true;
+		{
+			if (toggleOn)
+			{
+				toggleOn = false;
+				ultraAvailable = Time.time + ultraCoolDown;
+				ultraTimeUp = 0.0f;
+			}
+			else if (!toggleOn && Time.time >= ultraAvailable)
+				toggleOn = true;
+		}
         if (ultraTimeUp >= 0.7f)
         {
             toggleOn = false;
-            ultraAvailable = Time.time + ultraCoolDown;
+			ultraTimeUp = 0.0f;
+			ultraAvailable = Time.time + ultraCoolDown;
         }
     }
 
@@ -284,85 +294,31 @@ public class PsGunManager : MonoBehaviour
         ps.SetParticles(particles, particles.Length);
     }
 
-    public void OnParticleCollision(GameObject other)
-    {
-        Debug.Log("COLLISION CARALHO");
-        int collCount = system.GetSafeCollisionEventSize();
+	IEnumerator FireRateIE()
+	{
+		canFire = false;
+		yield return new WaitForSeconds(fireRate);
+		canFire = true;
+	}
+	IEnumerator UltraFireRateIE()
+	{
+		canUltraFire = false;
+		yield return new WaitForSeconds(ultrafireRate);
+		canUltraFire = true;
+	}
+	IEnumerator ChargeUltraIE()
+	{
+		yield return new WaitForSeconds(ultraChargeRate);
+		canUltraFire = true;
+	}
 
-        //if (collCount > collisionEvents.Count)
-        //    collisionEvents = new ParticleCollisionEvent[collCount];
+	private void FireRateIncrease()
+	{
+		fireRate = Mathf.Lerp(currentFireRate, maxFireRate, Time.deltaTime * 12f);
+	}
 
-        int eventCount = system.GetCollisionEvents(other, collisionEvents);
-
-        for (int i = 0; i < eventCount; i++)
-        {
-            if (other.GetComponent<HealthEnemy>())
-            {
-                other.GetComponent<HealthEnemy>().TakeDamage(15);
-                GameObject stats = GameObject.Find("Stats");
-
-                float enemyCurrenhp = other.GetComponent<HealthEnemy>().health;
-                float enemyMaxhp = other.GetComponent<HealthEnemy>().base_maxHealth;
-                string enemyName = "";
-                if (other.GetComponent<Enemy>())
-                {
-                    enemyName = other.GetComponent<Enemy>().enemyName;
-                    stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
-                }
-                else if (other.GetComponentInChildren<SpawnerBehaviour>())
-                {
-                    enemyName = other.GetComponentInChildren<SpawnerBehaviour>().spawnerName;
-                    stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
-                }
-            }
-            else if (other.transform.parent != null && other.transform.parent.name == "Eel")
-            {
-                GameObject eel = other.transform.parent.Find("Head").gameObject;
-                eel.GetComponent<HealthEnemy>().TakeDamage(15);
-                GameObject stats = GameObject.Find("Stats");
-
-                float enemyCurrenhp = eel.GetComponent<HealthEnemy>().health;
-                float enemyMaxhp = eel.GetComponent<HealthEnemy>().base_maxHealth;
-                string enemyName = "";
-                if (eel.GetComponent<Enemy>())
-                {
-                    enemyName = eel.GetComponent<Enemy>().enemyName;
-                    stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
-                }
-                else if (eel.GetComponentInChildren<SpawnerBehaviour>())
-                {
-                    enemyName = eel.GetComponentInChildren<SpawnerBehaviour>().spawnerName;
-                    stats.GetComponent<DynamicHud>().SetEnemyStats(enemyName, enemyMaxhp, enemyCurrenhp);
-                }
-            }
-        }
-    }
-
-    IEnumerator FireRateIE()
-    {
-        canFire = false;
-        yield return new WaitForSeconds(fireRate);
-        canFire = true;
-    }
-    IEnumerator UltraFireRateIE()
-    {
-        canUltraFire = false;
-        yield return new WaitForSeconds(ultrafireRate);
-        canUltraFire = true;
-    }
-    IEnumerator ChargeUltraIE()
-    {
-        yield return new WaitForSeconds(ultraChargeRate);
-        canUltraFire = true;
-    }
-
-    private void FireRateIncrease()
-    {
-        fireRate = Mathf.Lerp(currentFireRate, maxFireRate, Time.deltaTime * 12f);
-    }
-
-    private void UltraFireRateIncrease()
-    {
-        ultrafireRate = Mathf.Lerp(currentUltraFireRate, maxFireRate, Time.deltaTime * 5f);
-    }
+	private void UltraFireRateIncrease()
+	{
+		ultrafireRate = Mathf.Lerp(currentUltraFireRate, maxFireRate, Time.deltaTime * 5f);
+	}
 }

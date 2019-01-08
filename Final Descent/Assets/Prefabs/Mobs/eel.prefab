@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4803013065766942}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4863838961057688}
   - component: {fileID: 137755021147142474}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder118
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4942763491490878}
   - component: {fileID: 137457849868900130}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder104
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4993660375859536}
   - component: {fileID: 137765218656419682}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder73
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4466124568240222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bottom_Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4352946357386184}
   - component: {fileID: 137211013804689720}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder124
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4812962908331360}
-  m_Layer: 0
+  - component: {fileID: 136331189956422094}
+  m_Layer: 9
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4343817290226026}
   - component: {fileID: 137269983919267082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder64
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4900372517390102}
   - component: {fileID: 137800768977187776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder79
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4695556557555416}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Teeth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4203400791651062}
   - component: {fileID: 137943870985847648}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4724763845718648}
   - component: {fileID: 137466782800549924}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder71
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +208,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4004217523148376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone3_helper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4710333395624380}
   - component: {fileID: 137451762522438904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder67
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4864811687583396}
   - component: {fileID: 137122619539397292}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder74
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4718682692009958}
   - component: {fileID: 137540150210653308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder114
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -270,7 +271,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4456830036605004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4897716111361164}
   - component: {fileID: 137199199226573356}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder121
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4822056449360328}
   - component: {fileID: 137118454259585362}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder106
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,7 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4382310611509154}
   - component: {fileID: 137692309478295658}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder108
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4534400524187986}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4962734930733982}
   - component: {fileID: 137745372033476698}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder72
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4055877996597994}
   - component: {fileID: 137605885197413732}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder91
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4916229974182110}
   - component: {fileID: 137426421229399058}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder123
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +397,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4093635687696904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bottom_Teeth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4092470928250064}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Upper_Teeth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4021458969232346}
   - component: {fileID: 137296846954807106}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder93
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4703648719289202}
   - component: {fileID: 137558904035292282}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder97
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +453,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1282429695704776
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -461,7 +462,7 @@ GameObject:
   - component: {fileID: 198690126402520478}
   - component: {fileID: 199821951978993840}
   - component: {fileID: 114882078659247628}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShockWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4755097559061464}
   - component: {fileID: 137798041429193712}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder65
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,7 +494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4512879689794082}
   - component: {fileID: 137130276761426134}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder122
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4502858929878606}
   - component: {fileID: 137131357915993682}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder115
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4234434970705366}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,7 +541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4867439249860862}
   - component: {fileID: 137366435037409452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder85
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +556,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4979465585049204}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -571,7 +572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4526840734127306}
   - component: {fileID: 137431351419209320}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder63
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +588,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4046736411645592}
   - component: {fileID: 137850329485862168}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder101
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4978579545256662}
   - component: {fileID: 137902882811924906}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder110
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -618,7 +619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4706644651361984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4510444084605314}
   - component: {fileID: 137705342637102130}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder100
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4648211927896610}
   - component: {fileID: 137220078920451212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -666,7 +667,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4242443445399830}
   - component: {fileID: 137544852761601358}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder94
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +683,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4512321393876020}
   - component: {fileID: 137953959759069700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder82
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4955107917035880}
   - component: {fileID: 137173337802631542}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder116
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,7 +715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4675301429274874}
   - component: {fileID: 137563994913978700}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder78
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -730,7 +731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4290377833322580}
   - component: {fileID: 137541522719105540}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder107
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4064001867251682}
   - component: {fileID: 137739506808186448}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder99
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4990751097056628}
   - component: {fileID: 137003473143744162}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder88
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -778,7 +779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4688002242837114}
   - component: {fileID: 137656124185535984}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder75
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +794,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4513278532782914}
-  m_Layer: 0
+  - component: {fileID: 136853076470040522}
+  m_Layer: 9
   m_Name: 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,7 +815,8 @@ GameObject:
   - component: {fileID: 114294366412612754}
   - component: {fileID: 114715740540568706}
   - component: {fileID: 114351578284216088}
-  m_Layer: 0
+  - component: {fileID: 136307479486333684}
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,7 +831,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4480563799053466}
-  m_Layer: 0
+  - component: {fileID: 136029192228388480}
+  m_Layer: 9
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -844,7 +848,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4649388768547620}
   - component: {fileID: 137184984505309770}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder92
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +863,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4014039284970234}
-  m_Layer: 0
+  - component: {fileID: 136082604378543602}
+  m_Layer: 9
   m_Name: 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,7 +880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4454798673330948}
   - component: {fileID: 137836069070595764}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder112
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -890,7 +895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4973038832664200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4101571172776224}
   - component: {fileID: 137725834212631726}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder77
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,7 +926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4521692704639918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Neck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +941,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4238412881577890}
-  m_Layer: 0
+  - component: {fileID: 136353443253474634}
+  m_Layer: 9
   m_Name: 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,7 +958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4835852510644936}
   - component: {fileID: 137900161982241854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder111
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -967,7 +973,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4056436049186614}
-  m_Layer: 0
+  - component: {fileID: 136068270219305148}
+  m_Layer: 9
   m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,7 +990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000191437739932}
   - component: {fileID: 137587185690907832}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder117
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -999,7 +1006,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4247227754651262}
   - component: {fileID: 137809662955856342}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder102
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1014,7 +1021,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4603631267877564}
-  m_Layer: 0
+  - component: {fileID: 136952207381559700}
+  m_Layer: 9
   m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1030,7 +1038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4145983233954350}
   - component: {fileID: 137277856540127790}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder84
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1045,7 +1053,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4440147330633382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1061,7 +1069,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4477290500858986}
   - component: {fileID: 137388870628400818}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder86
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1077,7 +1085,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4488685184812668}
   - component: {fileID: 137242643591812614}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder105
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1086,7 +1094,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1678345451323454
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -1095,7 +1103,7 @@ GameObject:
   - component: {fileID: 198683907575067400}
   - component: {fileID: 199687406899107418}
   - component: {fileID: 114783464146421362}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1111,7 +1119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4557438547811026}
   - component: {fileID: 137804154381700568}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder68
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1126,7 +1134,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4709428082740390}
-  m_Layer: 0
+  - component: {fileID: 136737776228205630}
+  m_Layer: 9
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1141,7 +1150,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4508009085779064}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1157,7 +1166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4397522517571828}
   - component: {fileID: 137979072037972768}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder66
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1173,7 +1182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4594300599633186}
   - component: {fileID: 137897752383888974}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder70
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1189,7 +1198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4209221525927936}
   - component: {fileID: 137711268700748704}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder119
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1204,7 +1213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4520343569600202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1219,7 +1228,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4349309857552298}
-  m_Layer: 0
+  - component: {fileID: 136535116422196664}
+  m_Layer: 9
   m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1234,7 +1244,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4979048795105556}
-  m_Layer: 0
+  - component: {fileID: 136761793603662738}
+  m_Layer: 9
   m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1250,7 +1261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4212397292139152}
   - component: {fileID: 137316572122766592}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder87
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1266,7 +1277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4053221426005402}
   - component: {fileID: 137201950349945020}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder95
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1282,7 +1293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4292493813509156}
   - component: {fileID: 137008499537164074}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder109
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1297,7 +1308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4446774414040516}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone1_helper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1312,7 +1323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4470644256293980}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone2_helper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1327,7 +1338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4154050923446340}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: spine4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1343,7 +1354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4417479557156062}
   - component: {fileID: 137379499880442332}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder90
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1359,7 +1370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4979701690442746}
   - component: {fileID: 137009292271301018}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder83
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1375,7 +1386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4159925711507424}
   - component: {fileID: 137805539762580488}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder113
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1391,7 +1402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4443455629790192}
   - component: {fileID: 137723905996983930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder80
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1407,9 +1418,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4015493514968584}
   - component: {fileID: 95714635944902366}
-  m_Layer: 0
+  - component: {fileID: 54973215816789242}
+  m_Layer: 9
   m_Name: Eel
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1422,7 +1434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4009414484802098}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bone4_helper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1437,7 +1449,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4153978845507620}
-  m_Layer: 0
+  - component: {fileID: 136587636516645034}
+  m_Layer: 9
   m_Name: 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1453,7 +1466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4791302976667630}
   - component: {fileID: 137560544766969430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder76
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1469,7 +1482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4953120387053510}
   - component: {fileID: 137106863203650920}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder98
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1484,7 +1497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4392527591044722}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Upper_Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1500,7 +1513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4117201965381290}
   - component: {fileID: 137260998935592278}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder120
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1516,7 +1529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4914370516676104}
   - component: {fileID: 137739596557769254}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder81
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1532,7 +1545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4545570898604664}
   - component: {fileID: 137338109877728576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder103
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1548,7 +1561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4791690758682980}
   - component: {fileID: 137437224644176198}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder89
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1564,7 +1577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4272102303965154}
   - component: {fileID: 137751264964878068}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder96
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1579,7 +1592,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4120732524757802}
-  m_Layer: 0
+  - component: {fileID: 136001340903583338}
+  m_Layer: 9
   m_Name: 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4636578754525148}
   - component: {fileID: 137657584772459262}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: pCylinder69
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1661,16 +1675,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1891277871730058}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -231.9, y: 22.1, z: 43.4}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -250.7, y: 22.1, z: 35.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4648211927896610}
   - {fileID: 4520343569600202}
-  - {fileID: 4812962908331360}
   - {fileID: 4329984344852464}
-  - {fileID: 4709428082740390}
   - {fileID: 4973038832664200}
+  - {fileID: 4709428082740390}
+  - {fileID: 4812962908331360}
   - {fileID: 4480563799053466}
   - {fileID: 4603631267877564}
   - {fileID: 4979048795105556}
@@ -1681,11 +1695,9 @@ Transform:
   - {fileID: 4513278532782914}
   - {fileID: 4120732524757802}
   - {fileID: 4238412881577890}
-  - {fileID: 4051768986332750}
-  - {fileID: 4636852912551690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4021458969232346
 Transform:
   m_ObjectHideFlags: 1
@@ -1719,11 +1731,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1282429695704776}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0.3, y: 2.79, z: -18.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.4642818, y: 0.4366572, z: -5.399473}
+  m_LocalScale: {x: 6.9540915, y: 6.9540915, z: 6.9540915}
   m_Children: []
-  m_Father: {fileID: 4015493514968584}
-  m_RootOrder: 16
+  m_Father: {fileID: 4349309857552298}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4053221426005402
 Transform:
@@ -2104,7 +2116,7 @@ Transform:
   m_Children:
   - {fileID: 4234434970705366}
   m_Father: {fileID: 4015493514968584}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4343817290226026
 Transform:
@@ -2130,6 +2142,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4706644651361984}
+  - {fileID: 4051768986332750}
+  - {fileID: 4636852912551690}
   m_Father: {fileID: 4015493514968584}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2535,11 +2549,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1678345451323454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3, y: 2.79, z: -18.1}
+  m_LocalPosition: {x: 0.4642818, y: 0.4366572, z: -5.399473}
   m_LocalScale: {x: 4.2518, y: 4.2518, z: 4.2518}
   m_Children: []
-  m_Father: {fileID: 4015493514968584}
-  m_RootOrder: 17
+  m_Father: {fileID: 4349309857552298}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4648211927896610
 Transform:
@@ -2751,7 +2765,7 @@ Transform:
   m_Children:
   - {fileID: 4446774414040516}
   m_Father: {fileID: 4015493514968584}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4822056449360328
 Transform:
@@ -2934,7 +2948,7 @@ Transform:
   m_Children:
   - {fileID: 4521692704639918}
   m_Father: {fileID: 4015493514968584}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4978579545256662
 Transform:
@@ -3015,6 +3029,21 @@ Transform:
   m_Father: {fileID: 4093635687696904}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54973215816789242
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1891277871730058}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &95714635944902366
 Animator:
   serializedVersion: 3
@@ -3046,24 +3075,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eelSpeed: 40
   isTornado: 0
-  radius: 0
-  force: 0.25
+  force: 17
   goToExplode: 0
   isExploding: 0
-  ee: {fileID: 0}
+  ee: {fileID: 198683907575067400}
   isHighSpeed: 0
-  randVoltas: 0
-  endHS: 0
   caveCenter: {fileID: 0}
+  LeftOffset: {fileID: 0}
+  RightOffset: {fileID: 0}
   enemyBabies: {fileID: 0}
   isCalling: 0
   isCharging: 0
   currentHealth: 0
-  sameCharge: 1
-  BottomMouth: {fileID: 0}
-  isBiting: 0
+  BottomMouth: {fileID: 4466124568240222}
   isShockWave: 0
-  SW: {fileID: 0}
+  SW: {fileID: 198690126402520478}
   ExplosionDamage: 0
   BiteDamage: 0
 --- !u!114 &114351578284216088
@@ -3093,14 +3119,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lives: 1
   shield: 0
-  health: 1000
+  health: 100
   base_maxHealth: 0
   base_maxShield: 0
   invulnerabilityTime: 0
   invCount: 0
   IsInvulnerable: 0
   IsAlive: 1
-  name: 
 --- !u!114 &114715740540568706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3172,6 +3197,175 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
+--- !u!136 &136001340903583338
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1984565476340920}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.3829466
+  m_Height: 4.807998
+  m_Direction: 2
+  m_Center: {x: 0.36350918, y: 0.12879658, z: -0.07008076}
+--- !u!136 &136029192228388480
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1492719064069416}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.1337638
+  m_Height: 4.807998
+  m_Direction: 2
+  m_Center: {x: -1.0772925e-16, y: 0.16369247, z: -0.07008076}
+--- !u!136 &136068270219305148
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1572978835439186}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.1337638
+  m_Height: 5.8666053
+  m_Direction: 2
+  m_Center: {x: -1.5119242e-16, y: 0.16369247, z: -0.13563919}
+--- !u!136 &136082604378543602
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1499525798327332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.6010017
+  m_Height: 8.118039
+  m_Direction: 2
+  m_Center: {x: 0.22031271, y: 0.1705141, z: -0.030093193}
+--- !u!136 &136307479486333684
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1489846457496992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.3616323
+  m_Height: 6.5064225
+  m_Direction: 2
+  m_Center: {x: 0.11856413, y: -0.075510025, z: 0.5993366}
+--- !u!136 &136331189956422094
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054756103291156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.1337638
+  m_Height: 4.807998
+  m_Direction: 2
+  m_Center: {x: -1.0772925e-16, y: 0.16369247, z: -0.07008076}
+--- !u!136 &136353443253474634
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1532936822228680}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.0866281
+  m_Height: 6.381831
+  m_Direction: 2
+  m_Center: {x: 0.36346173, y: 0.21914446, z: -0.85699725}
+--- !u!136 &136535116422196664
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1736867453254428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.0892215
+  m_Height: 8.223416
+  m_Direction: 2
+  m_Center: {x: -2.4835243e-15, y: 0.11915016, z: -1.1747622}
+--- !u!136 &136587636516645034
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1899374665255416}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.4420813
+  m_Height: 4.807998
+  m_Direction: 2
+  m_Center: {x: 0.2792995, y: 0.065283775, z: -0.07008076}
+--- !u!136 &136737776228205630
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683237413746614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.1337638
+  m_Height: 4.807998
+  m_Direction: 2
+  m_Center: {x: -1.0772925e-16, y: 0.16369247, z: -0.07008076}
+--- !u!136 &136761793603662738
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1750884150186756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.1337638
+  m_Height: 4.807998
+  m_Direction: 2
+  m_Center: {x: -1.0772925e-16, y: 0.16369247, z: -0.07008076}
+--- !u!136 &136853076470040522
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1485896333238392}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.4420813
+  m_Height: 4.807998
+  m_Direction: 2
+  m_Center: {x: 0.2792995, y: 0.065283775, z: -0.07008076}
+--- !u!136 &136952207381559700
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1617588506456110}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.1337638
+  m_Height: 4.807998
+  m_Direction: 2
+  m_Center: {x: -1.0772925e-16, y: 0.16369247, z: -0.07008076}
 --- !u!137 &137003473143744162
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -4887,7 +5081,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: aeb701e1cd8458a4b9988bfd49d86105, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5437,7 +5631,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100008, guid: 00794111aee0ea94fa9f1d3d8b69b601, type: 3}
+  - {fileID: 2100000, guid: 4a6753d73a5b3a54d948de6c48eefa1b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6237,9 +6431,9 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: aeb701e1cd8458a4b9988bfd49d86105, type: 2}
-  - {fileID: 2100000, guid: 5c92590c9519d8f428c0e41ea2a4ac6a, type: 2}
-  - {fileID: 2100000, guid: 5c92590c9519d8f428c0e41ea2a4ac6a, type: 2}
+  - {fileID: 2100000, guid: 315e06918f6b210429764ab26fa17033, type: 2}
+  - {fileID: 2100000, guid: 4a6753d73a5b3a54d948de6c48eefa1b, type: 2}
+  - {fileID: 2100000, guid: 4a6753d73a5b3a54d948de6c48eefa1b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9803,7 +9997,7 @@ ParticleSystem:
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
     multiplyColliderForceByParticleSpeed: 0
-    multiplyColliderForceByCollisionAngle: 0
+    multiplyColliderForceByCollisionAngle: 1
     plane0: {fileID: 0}
     plane1: {fileID: 0}
     plane2: {fileID: 0}
@@ -9974,7 +10168,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 1024
+      m_Bits: 4096
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -11812,7 +12006,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 100
+        scalar: 200
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -13994,7 +14188,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   SizeBySpeedModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -14564,11 +14758,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 1024
+      m_Bits: 4096
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:

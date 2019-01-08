@@ -15,7 +15,7 @@ public class EelIK : MonoBehaviour
         distances = new float[bones.Count - 1];
         for (int i = 0; i < distances.Length - 1; i++)
         {
-            distances[i] = (bones[i + 1].transform.position - bones[i].transform.position).magnitude * 0.1f;
+            distances[i] = (bones[i + 1].transform.position - bones[i].transform.position).magnitude * 5.0f;
         }
 
         velocity = Vector3.forward;

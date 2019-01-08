@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4427672857199170}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: MainJoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4623833550707724}
   - component: {fileID: 82478587322711924}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: AudioSources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4629044178617682}
   - component: {fileID: 135137560395408808}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: SpikesJoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4855310940986194}
   - component: {fileID: 137535084137248020}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: pCube6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 199795577371230000}
   - component: {fileID: 198013990526466922}
   - component: {fileID: 114597648861000904}
-  m_Layer: 11
+  m_Layer: 9
   m_Name: Eye
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947752668025230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -96.28953, y: 32.842327, z: 11.74419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4427672857199170}
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e70c7f1e45a8dc54db9cb3f0aa885564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
+  lives: 0
   shield: 0
   health: 100
   base_maxHealth: 0
@@ -4020,11 +4020,11 @@ ParticleSystem:
     radiusScale: 2.04
     collidesWith:
       serializedVersion: 2
-      m_Bits: 512
+      m_Bits: 4096
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:

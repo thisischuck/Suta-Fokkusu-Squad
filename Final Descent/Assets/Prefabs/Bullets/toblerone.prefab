@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33112419694371136}
   - component: {fileID: 23042624895667476}
   m_Layer: 0
-  m_Name: missile
+  m_Name: toblerone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

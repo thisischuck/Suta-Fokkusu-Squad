@@ -10,8 +10,9 @@ public class ShieldController : MonoBehaviour
 	public float upTime;
 	public float fadeSpeed;
 	bool up = false;
-	bool fadeIn = false;
-	bool fadeout = false;
+	public bool fadeIn = false;
+	public bool fadeOut = false;
+	public bool activateShield = false;
 
 	void Start()
 	{
@@ -25,7 +26,7 @@ public class ShieldController : MonoBehaviour
 			fadeIn = true;
 		if (fadeIn)
 			Fade(true);
-		if (fadeout)
+		if (fadeOut)
 			Fade(false);
 
 		if (up && upTime < 2f)
@@ -35,7 +36,7 @@ public class ShieldController : MonoBehaviour
 		else if(up && upTime >= 2f)
 		{
 			up = false;
-			fadeout = true;
+			fadeOut = true;
 		}
 
 		if (alpha <= -1)
@@ -43,10 +44,10 @@ public class ShieldController : MonoBehaviour
 			up = true;
 			fadeIn = false;
 		}
-		if( alpha >= 1 && fadeout)
+		if( alpha >= 1 && fadeOut)
 		{
 			up = false;
-			fadeout = false;
+			fadeOut = false;
 			upTime = 0f;
 		}
 
@@ -54,6 +55,7 @@ public class ShieldController : MonoBehaviour
 			transform.GetComponent<MeshRenderer>().enabled = false;
 		else
 			transform.GetComponent<MeshRenderer>().enabled = true;
+
 	}
 
 	void Fade(bool _in)
@@ -63,31 +65,5 @@ public class ShieldController : MonoBehaviour
 		else
 			alpha += fadeSpeed * Time.deltaTime;
 		shield.SetFloat("Vector1_26FA8A98", alpha);
-	}
-
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.tag == "Enemy")
-		{
-			if (player.GetComponent<HealthPlayer>().shield > 0)
-			{
-				if (!fadeIn)
-				{
-					fadeIn = true;
-					fadeout = false;
-					player.GetComponent<HealthPlayer>().TakeDamageShield(20);
-				}
-				else
-				{
-					upTime = 0.0f;
-					fadeout = false;
-					player.GetComponent<HealthPlayer>().TakeDamageShield(10);
-				}
-			}
-			else
-			{
-				player.GetComponent<HealthPlayer>().TakeDamage(20);
-			}
-		}
 	}
 }

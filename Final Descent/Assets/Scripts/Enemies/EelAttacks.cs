@@ -8,17 +8,19 @@ public class EelAttacks : MonoBehaviour {
     public float eelSpeed;
 	//public float eelRotation;
 
-    //Tornado
-    public bool isTornado;
+	//Tornado
+	[HideInInspector]
+	public bool isTornado;
     private Vector3 centerPosition;
-    public float radius;
     public float force;
 	private float timeTornading;
 	private float TornadoDuration;
+	[HideInInspector]
 	public bool goToExplode;
 
     //EletricExplosion
     private float nextExplosion;
+	[HideInInspector]
     public bool isExploding;
     private int explosionCount;
     public ParticleSystem ee;
@@ -29,34 +31,39 @@ public class EelAttacks : MonoBehaviour {
     private Transform selectedHole;
     private bool left;
     private bool goingIn;
-    public bool isHighSpeed;
+	[HideInInspector]
+	public bool isHighSpeed;
     private int nextHole;
     private Vector3 direction;
 	private int voltasCount;
 	private int voltas;
-	public int randVoltas;
-	public bool endHS;
+	private int randVoltas;
+	private bool endHS;
 	public Transform caveCenter;
+	public Transform LeftOffset, RightOffset;
+	private bool leftOffset, rightOffset;
 
     //calling
     public GameObject enemyBabies;
     private int enemiesPerHole;
+	[HideInInspector]
 	public bool isCalling;
 
 	//Charge
+	[HideInInspector]
 	public bool isCharging;
+	[HideInInspector]
 	public float currentHealth;
-	public bool sameCharge;
 	private int playerIndex;
 
 	//Bite
 	public Transform BottomMouth;
-    //public bool isBiting;
     private Quaternion openMouth;
     private Quaternion closeMouth;
     private bool mouthClosed;
 
 	//ShowWave
+	[HideInInspector]
 	public bool isShockWave;
 	public ParticleSystem SW;
 	private int waveCount;
@@ -69,25 +76,24 @@ public class EelAttacks : MonoBehaviour {
 	// Use this for initialization
 	public void Start () {
 		isTornado = false;
-		TornadoDuration = 100f;
+		TornadoDuration = 10f;
 		goToExplode = false;
 		isExploding = false;
 		RHoles = new List<Transform>();
 		LHoles = new List<Transform>();
 		goingIn = false;
 		isHighSpeed = false;
-		enemiesPerHole = 3;
+		enemiesPerHole = 1;
+		leftOffset = false;
+		rightOffset = false;
 		isCalling = false;
 		isCharging = false;
-		sameCharge = true;
-		//isBiting = false;
 		isShockWave = false;
 
         nextExplosion = 0f;
         explosionCount = 0;
         eelSpeed = 15f;
-        radius = 20f;
-		timeTornading = 0.0f;
+		timeTornading = 00.0f;
 		nextWave = 0.0f;
 
         _playerList = new List<Transform>();
@@ -148,50 +154,40 @@ public class EelAttacks : MonoBehaviour {
 	public void OnEntryTornado()
     {
 		isTornado = true;
-		Debug.Log("tornado duration: " + TornadoDuration);
-		timeTornading = Time.time + TornadoDuration;
-        centerPosition = transform.position + Vector3.forward * 10f;
 		goToExplode = false;
-    }
+		timeTornading = Time.time + TornadoDuration;
+		centerPosition = transform.position + Vector3.forward * 10f;
+	}
 
-	public void Tornado()// colocar a dar damage stun qunado toca na ragdoll da enguia
-    {
-		/*if(!isTornado)
-		{
-			transform.position = Vector3.MoveTowards(transform.position, centerPosition, eelSpeed * Time.deltaTime);
-			if (Vector3.Distance(transform.position, centerPosition) == 0f)
-				goToExplode = true;
-		}*/
+	public void Tornado()
+	{
+		isTornado = true;// nao remover esta merda nao sei porque precisa disto aqui
 		if (Time.time >= timeTornading)
-		{
 			isTornado = false;
+
+		if (!isTornado)
+		{
+			transform.position = Vector3.MoveTowards(transform.position, caveCenter.position, eelSpeed * Time.deltaTime);
+			if (Vector3.Distance(transform.position, caveCenter.position) == 0f)
+				goToExplode = true;
 		}
 		else
 		{
-			//CircularMotion //Still needs adjusting
-			float rotSpeed = 20f;
+			transform.RotateAround(caveCenter.position, Vector3.up, 60 * Time.deltaTime);
+			//transform.position += transform.forward * eelSpeed * Time.deltaTime;
 
-			//transform.RotateAround(centerPosition, Vector3.up, Time.deltaTime * rotSpeed);
-			Vector3 desiredPosition = (transform.position - centerPosition).normalized * radius + centerPosition;
-			//transform.position = Vector3.MoveTowards(transform.position, desiredPosition, 20f * Time.deltaTime);
-			transform.position = Vector3.MoveTowards(transform.position, desiredPosition, 20f * Time.deltaTime);
-
-			Vector3 heading = centerPosition - transform.position;
-			float distance = heading.magnitude;
-			transform.right = heading / distance;
-
-			//GetSucked()
+			//Players getting sucked towards Eel
 			foreach (Transform player in _playerList)
 			{
 				Vector3 direction = Vector3.zero;
-				if (Vector3.Distance(centerPosition, player.position) < 50f)
+				if (Vector3.Distance(caveCenter.position, player.position) < 50f)
 				{
 					direction = player.position - transform.position;
-					player.position = Vector3.MoveTowards(player.position, centerPosition, force * Time.deltaTime);
+					player.position = Vector3.MoveTowards(player.position, caveCenter.position, force * Time.deltaTime);
 				}
 			}
 		}
-    }
+	}
 	#endregion
 
 	#region Explode
@@ -199,11 +195,11 @@ public class EelAttacks : MonoBehaviour {
 	public void OnEntryExplode()
 	{
 		isExploding = true;
+		explosionCount = 0;
 	}
 
 	public void Explode()
     {
-		Debug.Log("Explode");
 		if (explosionCount < 3)
         {
             if (Time.time >= nextExplosion)
@@ -213,7 +209,7 @@ public class EelAttacks : MonoBehaviour {
                 explosionCount++;
             }
         }
-        else
+        else if(explosionCount >= 3 && ee.isPlaying == false)
         {
             isExploding = false;
             explosionCount = 0;
@@ -242,10 +238,11 @@ public class EelAttacks : MonoBehaviour {
 		}
 
 		endHS = false;
+		leftOffset = false;
+		rightOffset = false;
 		randVoltas = Random.Range(2, 5);
 		voltasCount = 0;
 		voltas = randVoltas + 1;
-		//Debug.Log(voltas);
 	}
 
 	public void HighSpeed()
@@ -262,6 +259,30 @@ public class EelAttacks : MonoBehaviour {
             //Look for another hole
             if (left && !goingIn)
             {
+				left = true;
+				goingIn = true;
+				leftOffset = true;
+				while (selectedHole == previousHole)
+				{
+					nextHole = Random.Range(0, LHoles.Count - 1);
+					selectedHole = LHoles[nextHole];
+				}
+			}
+            else if(!left && !goingIn)
+            {
+				left = false;
+				goingIn = true;
+				rightOffset = true;
+				//Debug.Log("right true");
+				while (selectedHole == previousHole)
+				{
+					nextHole = Random.Range(0, RHoles.Count - 1);
+					selectedHole = RHoles[nextHole];
+				}
+
+            }
+            else if(left && goingIn)
+            {
 				voltasCount++;
 				if (voltasCount == voltas)
 				{
@@ -270,8 +291,27 @@ public class EelAttacks : MonoBehaviour {
 				}
 				else
 				{
+					goingIn = false;
+					left = false;
+					while (selectedHole == previousHole)
+					{
+						nextHole = Random.Range(0, RHoles.Count - 1);
+						selectedHole = RHoles[nextHole];
+					}
+				}
+			}
+            else if (!left && goingIn)
+            {
+				voltasCount++;
+				if (voltasCount == voltas)
+				{
+					selectedHole = caveCenter;
+					endHS = true;
+				}
+				else
+				{
+					goingIn = false;
 					left = true;
-					goingIn = true;
 					while (selectedHole == previousHole)
 					{
 						nextHole = Random.Range(0, LHoles.Count - 1);
@@ -279,60 +319,41 @@ public class EelAttacks : MonoBehaviour {
 					}
 				}
             }
-            else if(!left && !goingIn)
-            {
-				voltasCount++;
-				if (voltasCount == voltas)
-				{
-					selectedHole = caveCenter;
-					endHS = true;
-				}
-				else
-				{
-					left = false;
-					goingIn = true;
-					while (selectedHole == previousHole)
-					{
-						nextHole = Random.Range(0, RHoles.Count - 1);
-						selectedHole = RHoles[nextHole];
-					}
-				}
-            }
-            else if(left && goingIn)
-            {
-                goingIn = false;
-                left = false;
-                while (selectedHole == previousHole)
-                {
-                    nextHole = Random.Range(0, RHoles.Count - 1);
-                    selectedHole = RHoles[nextHole];
-                }
-            }
-            else if (!left && goingIn)
-            {
-                goingIn = false;
-                left = true;
-                while (selectedHole == previousHole)
-                {
-                    nextHole = Random.Range(0, LHoles.Count - 1);
-                    selectedHole = LHoles[nextHole];
-                }
-            }
 			//Debug.Log(voltasCount);
 		}
-
-		/*Vector3 Velocity = EnemyBehaviours.Pursuit(transform, transform.forward, selectedHole, 0);
-		transform.forward = Velocity.normalized;
-
-		transform.position += Velocity * eelSpeed * Time.deltaTime;*/
 
 		//Movement
 		transform.position += transform.forward * eelSpeed * Time.deltaTime;
 
-        direction = transform.position - selectedHole.position;
-        Quaternion targetRot = Quaternion.LookRotation(-direction, Vector3.up);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 0.04f);
-    }
+		if (leftOffset)
+		{
+			if (Vector3.Distance(transform.position, LeftOffset.position) > 5f)
+			{
+				direction = transform.position - LeftOffset.position;
+				Quaternion targetRot = Quaternion.LookRotation(-direction, Vector3.up);
+				transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2f * Time.deltaTime);
+			}
+			else
+			leftOffset = false;
+		}
+		if (rightOffset)
+		{
+			if (Vector3.Distance(transform.position, RightOffset.position) > 5f)
+			{
+				direction = transform.position - RightOffset.position;
+				Quaternion targetRot = Quaternion.LookRotation(-direction, Vector3.up);
+				transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2f * Time.deltaTime);
+			}
+			else
+				rightOffset = false;
+		}
+		if(!rightOffset && !leftOffset)
+		{
+			direction = transform.position - selectedHole.position;
+			Quaternion targetRot = Quaternion.LookRotation(-direction, Vector3.up);
+			transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, 2f * Time.deltaTime);
+		}
+	}
 
 	#endregion
 
@@ -375,7 +396,7 @@ public class EelAttacks : MonoBehaviour {
 
 	public void Charge()// talvez procurar os q estam com stun e dar charge a um deles
 	{
-		Debug.Log("Charge");
+		//Debug.Log("Charge");
 		Transform chosenTarget;
 		chosenTarget = _playerList[playerIndex];
 

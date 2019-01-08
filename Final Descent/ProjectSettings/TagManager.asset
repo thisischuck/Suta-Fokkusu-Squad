@@ -25,12 +25,12 @@ TagManager:
   - UI
   - 
   - 
-  - TerrainCollision
-  - CombatCollision
+  - Terrain
+  - Enemy
   - PostProcessing
   - ParticleCollision
   - Player
-  - Teste
+  - Camera
   - AboveWater
   - BelowWater
   - 
