@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
         if (healthEnemy.health <= 0)
             Destroy(this.gameObject);
 
+        player = GetClosestPlayer();
     }
 
     public void PlayAnimation(string name)
@@ -75,7 +76,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected GameObject GetClosestPlayer()
+    public virtual GameObject GetClosestPlayer()
     {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         int closest = 0;

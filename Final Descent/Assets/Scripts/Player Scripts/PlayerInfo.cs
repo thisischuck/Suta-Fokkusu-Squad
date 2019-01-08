@@ -44,6 +44,7 @@ public static class PlayerStatsInfo
     public static List<WeaponObject> allWeapons = new List<WeaponObject>();
     public static List<WeaponObject> unlockedWeapons = new List<WeaponObject>();
     public static WeaponObject[] currentWeapons = new WeaponObject[3];
+    public static int selectedWeapon = 0;
     public static int stage = 2;
 
     public static int volume = 100;

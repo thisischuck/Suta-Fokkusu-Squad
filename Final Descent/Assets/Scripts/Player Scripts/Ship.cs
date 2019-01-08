@@ -50,7 +50,8 @@ public class Ship : MonoBehaviour
 
     void Rotate()
     {
-        Vector3 newPos = player.position + player.forward * 10;
+        Ray crosshair = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Vector3 newPos = crosshair.origin + new Vector3(crosshair.direction.x, crosshair.direction.y + 0.05f, crosshair.direction.z) * 100;//player.position + player.forward * 1000;
         Vector3 newDir = newPos - transform.position;
 
         Quaternion rot = Quaternion.LookRotation(newDir);

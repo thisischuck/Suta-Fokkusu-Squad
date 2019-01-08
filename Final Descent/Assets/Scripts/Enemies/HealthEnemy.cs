@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthEnemy : BaseStats
-{
+public class HealthEnemy : BaseStats {
     public string name;
+    public SkinnedMeshRenderer mesh;
+    Color originalColor;
     private void Start()
     {
         GenerateVariables(100, 0);
         base_maxHealth = 100;
         //GetComponent<HBController>().StartHPBar(health);
+        //mat = GetComponentInChildren<Renderer>().material;
+        mesh = GetComponentInChildren<SkinnedMeshRenderer>();
+        originalColor = mesh.material.color;
     }
 
     // Update is called once per frame
@@ -17,6 +21,7 @@ public class HealthEnemy : BaseStats
     {
         if (GetComponent<HBController>() != null)
             GetComponent<HBController>().SetCurrentHealth(health);
+
     }
 
     private void OnTriggerEnter(Collider col)
@@ -34,11 +39,15 @@ public class HealthEnemy : BaseStats
                 float damage = col.gameObject.GetComponent<LaserForward>().damage;
                 ApplyDamage(damage);
             }
+            FlashOnHit();
             GameObject stats = GameObject.Find("Stats");
 
-            float enemyCurrenhp = GetComponent<HealthEnemy>().health;
-            float enemyMaxhp = GetComponent<HealthEnemy>().base_maxHealth;
+            var healthEnemy = GetComponent<HealthEnemy>() as HealthEnemy;
+
+            float enemyCurrenhp = healthEnemy.health;
+            float enemyMaxhp = healthEnemy.base_maxHealth;
             string enemyName = "";
+
             if (GetComponent<Enemy>())
             {
                 enemyName = GetComponent<Enemy>().enemyName;
@@ -51,6 +60,19 @@ public class HealthEnemy : BaseStats
             }
 
         }
+      
+    }
+
+    public void FlashOnHit()
+    {
+        StartCoroutine(IenumFlashOnHit());
+    }
+
+    IEnumerator IenumFlashOnHit()
+    {
+        mesh.material.color = new Color(Color.red.r * 100, Color.red.g, Color.red.b * 100);
+        yield return new WaitForSeconds(0.2f);
+        mesh.material.color = originalColor;
     }
 
     public void ApplyDamage(float damage)

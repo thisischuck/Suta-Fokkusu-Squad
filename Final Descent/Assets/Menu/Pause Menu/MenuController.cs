@@ -14,6 +14,7 @@ public class MenuController : MonoBehaviour {
 
     [Space]
     [Header("StartScene")]
+    public bool doesItNeedIntro = true;
     public TMP_Text Stage;
     public Canvas otherCanvas;
     float count = 0;
@@ -36,6 +37,8 @@ public class MenuController : MonoBehaviour {
     public GameObject optionsCrosshair;
     public GameObject inGameCrosshair;
 
+    public bool isOnline = false;
+
     private void Start()
     {
         sensSlider.value = PlayerStatsInfo.sens;
@@ -44,12 +47,15 @@ public class MenuController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        count += 1 * Time.deltaTime;
-        if (count >= 4)
+        if (doesItNeedIntro)
         {
-            otherCanvas.gameObject.SetActive(false);
+            count += 1 * Time.deltaTime;
+            if (count >= 4)
+            {
+                otherCanvas.gameObject.SetActive(false);
+            }
+            Stage.text = "STAGE " + (PlayerStatsInfo.stage - 1).ToString();
         }
-        Stage.text = "STAGE " + (PlayerStatsInfo.stage - 1).ToString();
         if (!GameOver)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -98,7 +104,8 @@ public class MenuController : MonoBehaviour {
         pauseMenuUI.SetActive(false);
         confirmQuitCanvasGroup.SetActive(false);
         optionMenu.SetActive(false);
-        Time.timeScale = 1f;
+        if (!isOnline)
+            Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         GameIsPaused = false;
@@ -107,7 +114,8 @@ public class MenuController : MonoBehaviour {
     public void Pause()
     {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
+        if (!isOnline)
+            Time.timeScale = 0f;
         GameIsPaused = true;
     }
 

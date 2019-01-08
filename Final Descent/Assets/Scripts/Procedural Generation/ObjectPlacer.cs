@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /* 
@@ -15,6 +14,8 @@ public enum Location { CEILING, FLOOR, WALL, FLOOR_AND_CEILING, FLOOR_AND_WALL, 
 public class ObjectPlacer : MonoBehaviour
 {
     public bool IsOnline = false;
+    public bool IsServer = false;
+    int counter = 0;
 
     public List<ObjectTobePlaced> objects;
     public float chunkSizeX = 60.0f, chunkSizeZ = 60.0f;
@@ -42,7 +43,10 @@ public class ObjectPlacer : MonoBehaviour
         //{
         //    player = GameObject.FindGameObjectWithTag("Player").transform;
         //}
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (!IsOnline)
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
         cellular = GetComponent<CellularAutomata>();
         //waterHeight = GameObject.Find("Water").transform.position.y;
         objectChunks = new Dictionary<Vector2, Chunk>();
@@ -53,7 +57,7 @@ public class ObjectPlacer : MonoBehaviour
                 GameObject chunkObject = new GameObject("Chunk: " + x + ", " + z);
                 Vector3 center = new Vector3(x + chunkSizeX / 2.0f, cellular.height / 2.0f, z + chunkSizeX / 2.0f);
                 chunkObject.transform.position = center;
-                chunkObject.transform.parent = this.transform;
+                chunkObject.transform.parent = transform;
                 Bounds bounds = new Bounds(center, new Vector3(chunkSizeX, cellular.height * 30.0f, chunkSizeZ));
 
                 Chunk chunk = new Chunk();
@@ -64,11 +68,6 @@ public class ObjectPlacer : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        Debug.Log("HEY");
-        //Initialize();
-    }
 
     public void Update()
     {
@@ -77,6 +76,16 @@ public class ObjectPlacer : MonoBehaviour
         * Far plane is reduced for calculations of a low view distance
         * and then it's resetted back to it's original distance
         */
+        if (IsOnline && player == null)
+        {
+            try
+            {
+                player = GameObject.Find("localPlayer").transform;
+            }
+            finally
+            { }
+
+        }
         foreach (Chunk chunk in objectChunks.Values)
         {
             float farPlane = Camera.main.farClipPlane;
@@ -151,85 +160,135 @@ public class ObjectPlacer : MonoBehaviour
                 }
             }
         }
-
         //QuadCenterVertex(dungeon, vertices, normals, obj);
+        //cellular.GetComponent<CellularAutomata>().manager.GetComponent<DungeonController>().AllDone();
     }
 
     public void Ceiling(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
-        if (!dungeon[y].Cells[x, z].hasVisited) return;
+        if (!dungeon[y].Cells[x, z].hasVisited)
+        {
+            return;
+        }
 
         float r = Random.Range(0.0f, 100.0f);
         if (y == dungeon.Length - 1 && r > 100 - o.SpawnRate)
         {
             GameObject newObj = null;
-            if (IsOnline)
+            if (IsOnline && o.GameObject.name == "Spawner_Online" && IsServer)
             {
                 newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
-                UnityEngine.Networking.NetworkServer.Spawn(newObj);
+                newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
+                newObj.transform.localScale = Vector3.one * Random.Range(0, maxSize);
+                if (newObj.tag != "Stalactite")
+                {
+                    newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+                }
+
+                newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
+                positionsUsed.Add(new Vector3(x, y, z), newObj);
+                cellular.GetComponent<CellularAutomata>().manager.GetComponent<DungeonController>().SpawnEnemy(newObj.transform.position, newObj.transform.rotation);
             }
-            else
+            else if (!IsOnline || o.GameObject.name != "Spawner_Online")
             {
                 newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f))); //buscar a normal do vertice para rotação 
-            }
-            newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
-            newObj.transform.localScale = Vector3.one * Random.Range(0, maxSize);
-            if (newObj.tag != "Stalactite")
-                newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
-            newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
-            positionsUsed.Add(new Vector3(x, y, z), newObj);
 
+                newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
+                newObj.transform.localScale = Vector3.one * Random.Range(0, maxSize);
+                if (newObj.tag != "Stalactite")
+                {
+                    newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+                }
+
+                newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
+                positionsUsed.Add(new Vector3(x, y, z), newObj);
+            }
         }
     }
 
     public void Floor(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
-        if (!dungeon[y].Cells[x, z].hasVisited) return;
+        if (!dungeon[y].Cells[x, z].hasVisited)
+        {
+            return;
+        }
 
         if (o.GameObject.layer == LayerMask.NameToLayer("AboveWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y <= water.position.y ||
-            o.GameObject.layer == LayerMask.NameToLayer("BelowWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y > water.position.y) return;
+            o.GameObject.layer == LayerMask.NameToLayer("BelowWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y > water.position.y)
+        {
+            return;
+        }
 
         float r = Random.Range(0.0f, 100.0f);
         if (y == 0 && r > 100 - o.SpawnRate)
         {
             GameObject newObj = null;
-            if (IsOnline)
+            if (IsOnline && o.GameObject.name == "Spawner_Online" && IsServer)
             {
                 newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
-                UnityEngine.Networking.NetworkServer.Spawn(newObj);
+                newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
+                newObj.transform.localScale = Vector3.one * Random.Range(0, maxSize);
+                if (newObj.tag != "Stalactite")
+                {
+                    newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+                }
+
+                newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
+                positionsUsed.Add(new Vector3(x, y, z), newObj);
+                cellular.GetComponent<CellularAutomata>().manager.GetComponent<DungeonController>().SpawnEnemy(newObj.transform.position, newObj.transform.rotation);
             }
-            else
+            else if (!IsOnline || o.GameObject.name != "Spawner_Online")
             {
                 newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f))); //buscar a normal do vertice para rotação 
+
+                newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
+                if (newObj.tag != "Up")
+                {
+                    newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+                }
+
+                positionsUsed.Add(new Vector3(x, y, z), newObj);
             }
-            newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
-            if (newObj.tag != "Up")
-                newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
-            positionsUsed.Add(new Vector3(x, y, z), newObj);
         }
     }
 
     public void Wall(CellularDungeonLayer[] dungeon, Vector3[] vertices, Vector3[] normals, int x, int y, int z, ObjectTobePlaced o)
     {
-        if (o.GameObject.layer == LayerMask.NameToLayer("AboveWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y <= water.position.y) return;
+        if (o.GameObject.layer == LayerMask.NameToLayer("AboveWater") && vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length].y <= water.position.y)
+        {
+            return;
+        }
 
         float r = Random.Range(0.0f, 100.0f);
         if ((y != 0 && y != dungeon.Length - 1) && r > 100 - o.SpawnRate)
         {
             GameObject newObj = null;
-            if (IsOnline)
+            if (IsOnline && o.GameObject.name == "Spawner_Online" && IsServer)
             {
                 newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
-                UnityEngine.Networking.NetworkServer.Spawn(newObj);
+                newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
+                newObj.transform.localScale = Vector3.one * Random.Range(0, maxSize);
+                if (newObj.tag != "Stalactite")
+                {
+                    newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+                }
+
+                newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
+                positionsUsed.Add(new Vector3(x, y, z), newObj);
+                cellular.GetComponent<CellularAutomata>().manager.GetComponent<DungeonController>().SpawnEnemy(newObj.transform.position, newObj.transform.rotation);
             }
-            else
+            else if (!IsOnline || o.GameObject.name != "Spawner_Online")
             {
                 newObj = Instantiate(o.GameObject, vertices[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length], Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f))); //buscar a normal do vertice para rotação 
+
+                newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
+                if (newObj.tag != "Up")
+                {
+                    newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
+                }
+
+                positionsUsed.Add(new Vector3(x, y, z), newObj);
             }
-            newObj.transform.parent = objectChunks[currentChunk].gameObject.transform;
-            if (newObj.tag != "Up")
-                newObj.transform.rotation = Quaternion.FromToRotation(newObj.transform.up, normals[x + z * dungeon[y].width + y * dungeon[y].width * dungeon[y].length]) * newObj.transform.rotation;
-            positionsUsed.Add(new Vector3(x, y, z), newObj);
         }
     }
 
@@ -249,9 +308,57 @@ public class ObjectPlacer : MonoBehaviour
             {
                 for (int x = 0; x < width; x++)
                 {
-                    if (y == 0 && x < width - 1 && z < length - 1)
+                    if (x == 0 || x == width - 1) //PAREDE
                     {
+                        char axis = 'x';
+                        Vector3 BottomLeft = vertices[(x + 0) + (z + 0) * width + y * width * length];
+                        Vector3 BottomRight = vertices[(x + 1) + (z + 0) * width + y * width * length];
+                        Vector3 TopLeft = vertices[(x + 0) + (z + 1) * width + y * width * length];
+                        Vector3 TopRight = vertices[(x + 1) + (z + 1) * width + y * width * length];
 
+                        Vector3 randomPoint = new Vector3(0, Random.Range(BottomLeft.y, BottomRight.y), Random.Range(BottomLeft.z, TopLeft.z));
+                        while (!IsInsidePolygon(randomPoint, BottomLeft, BottomRight, TopRight, TopLeft))
+                        {
+                            randomPoint = new Vector3(0, Random.Range(BottomLeft.y, BottomRight.y), Random.Range(BottomLeft.z, TopLeft.z));
+                        }
+
+                        Vector3 topPoint = randomPoint;
+                        Vector3 botPoint = randomPoint;
+                        Vector3 nRandomPoint = Vector3.zero;
+                        CalculateRandomNumberPosition(BottomLeft, BottomRight, TopLeft, TopRight, out randomPoint, out nRandomPoint, topPoint, botPoint, axis);
+
+                        QuadVertices.Add(randomPoint);
+
+                        QuadNormals.Add(nRandomPoint);
+                    }
+                    else
+                    if (z == 0 || z == length - 1) //PAREDE
+                    {
+                        char axis = 'z';
+                        Vector3 BottomLeft = vertices[(x + 0) + (z + 0) * width + y * width * length];
+                        Vector3 BottomRight = vertices[(x + 1) + (z + 0) * width + y * width * length];
+                        Vector3 TopLeft = vertices[(x + 0) + (z + 1) * width + y * width * length];
+                        Vector3 TopRight = vertices[(x + 1) + (z + 1) * width + y * width * length];
+
+                        Vector3 randomPoint = new Vector3(Random.Range(BottomLeft.x, BottomRight.x), Random.Range(BottomLeft.y, TopLeft.y), 0);
+                        while (!IsInsidePolygon(randomPoint, BottomLeft, BottomRight, TopRight, TopLeft))
+                        {
+                            randomPoint = new Vector3(Random.Range(BottomLeft.x, BottomRight.x), Random.Range(BottomLeft.y, TopLeft.y), 0);
+                        }
+
+                        Vector3 topPoint = randomPoint;
+                        Vector3 botPoint = randomPoint;
+                        Vector3 nRandomPoint = Vector3.zero;
+                        CalculateRandomNumberPosition(BottomLeft, BottomRight, TopLeft, TopRight, out randomPoint, out nRandomPoint, topPoint, botPoint, axis);
+
+                        QuadVertices.Add(randomPoint);
+
+                        QuadNormals.Add(nRandomPoint);
+                    }
+                    else
+                    if (y == height - 1 && x < width - 1 && z < length - 1) //TECTO
+                    {
+                        char axis = 'y';
                         Vector3 BottomLeft = vertices[(x + 0) + (z + 0) * width + y * width * length];
                         Vector3 BottomRight = vertices[(x + 1) + (z + 0) * width + y * width * length];
                         Vector3 TopLeft = vertices[(x + 0) + (z + 1) * width + y * width * length];
@@ -265,40 +372,35 @@ public class ObjectPlacer : MonoBehaviour
 
                         Vector3 topPoint = randomPoint;
                         Vector3 botPoint = randomPoint;
-
-                        topPoint.y = HighestPoint(new Vector3[] { BottomLeft, BottomRight, TopRight, TopLeft });
-                        botPoint.y = LowestPoint(new Vector3[] { BottomLeft, BottomRight, TopRight, TopLeft });
-
-                        Vector3 intersectionTop = Vector3.zero;
-                        Vector3 intersectionBot = Vector3.zero;
                         Vector3 nRandomPoint = Vector3.zero;
-
-                        IntersectWithMesh(topPoint, botPoint, out randomPoint.y, out nRandomPoint);
-
-                        //Vector3 topVector = new Vector3(randomPoint.x, Mathf.Lerp(TopLeft.y, TopRight.y, CalculateWeight(TopLeft, TopRight, randomPoint, out intersectionTop, true)), randomPoint.z);
-                        //Vector3 botVector = new Vector3(randomPoint.x, Mathf.Lerp(BottomLeft.y, BottomRight.y, CalculateWeight(BottomLeft, BottomRight, randomPoint, out intersectionBot, false)), randomPoint.z);
-
-                        //Vector3 aux = Vector3.zero;
-                        //if (IsThePointTotheRight(intersectionTop, intersectionBot, randomPoint))
-                        //    randomPoint.y = Mathf.Lerp(topVector.y, botVector.y, CalculateWeight(intersectionTop, intersectionBot, randomPoint, out aux, true));
-                        //else
-                        //    randomPoint.y = Mathf.Lerp(topVector.y, botVector.y, CalculateWeight(intersectionTop, intersectionBot, randomPoint, out aux, false));
+                        CalculateRandomNumberPosition(BottomLeft, BottomRight, TopLeft, TopRight, out randomPoint, out nRandomPoint, topPoint, botPoint, axis);
 
                         QuadVertices.Add(randomPoint);
 
-                        ////NORMALS 
-                        //Vector3 nBottomLeft = normals[(x + 0) + (z + 0) * width + y * width * length];
-                        //Vector3 nBottomRight = normals[(x + 1) + (z + 0) * width + y * width * length];
-                        //Vector3 nTopLeft = normals[(x + 0) + (z + 1) * width + y * width * length];
-                        //Vector3 nTopRight = normals[(x + 1) + (z + 1) * width + y * width * length];
+                        QuadNormals.Add(nRandomPoint);
+                    }
+                    else
+                    if (y == 0 && x < width - 1 && z < length - 1) //CHAO
+                    {
+                        char axis = 'y';
+                        Vector3 BottomLeft = vertices[(x + 0) + (z + 0) * width + y * width * length];
+                        Vector3 BottomRight = vertices[(x + 1) + (z + 0) * width + y * width * length];
+                        Vector3 TopLeft = vertices[(x + 0) + (z + 1) * width + y * width * length];
+                        Vector3 TopRight = vertices[(x + 1) + (z + 1) * width + y * width * length];
 
-                        //Vector3 ntopVector = nTopLeft - nTopRight;
-                        //Vector3 nbotVector = nBottomLeft - nBottomRight;
+                        Vector3 randomPoint = new Vector3(Random.Range(BottomLeft.x, BottomRight.x), 0, Random.Range(BottomLeft.z, TopLeft.z));
+                        while (!IsInsidePolygon(randomPoint, BottomLeft, BottomRight, TopRight, TopLeft))
+                        {
+                            randomPoint = new Vector3(Random.Range(BottomLeft.x, BottomRight.x), 0, Random.Range(BottomLeft.z, TopLeft.z));
+                        }
 
-                        //Vector3 nRandomPoint = Vector3.Lerp(Vector3.Lerp(nBottomLeft, nBottomRight, Vector2.Distance(new Vector2(nBottomLeft.x, nBottomLeft.z), new Vector2(randomPoint.x, randomPoint.z))),
-                        //    Vector3.Lerp(nTopLeft, nTopRight, Vector2.Distance(new Vector2(nTopLeft.x, nTopLeft.z), new Vector2(randomPoint.x, randomPoint.z))),
-                        //    Vector2.Distance(new Vector2(botVector.x, botVector.z), new Vector2(topVector.x, topVector.z)));
-                        ////Vector3 nRandomPoint = Vector3.up;
+                        Vector3 topPoint = randomPoint;
+                        Vector3 botPoint = randomPoint;
+                        Vector3 nRandomPoint = Vector3.zero;
+                        CalculateRandomNumberPosition(BottomLeft, BottomRight, TopLeft, TopRight, out randomPoint, out nRandomPoint, topPoint, botPoint, axis);
+
+                        QuadVertices.Add(randomPoint);
+
                         QuadNormals.Add(nRandomPoint);
                     }
                 }
@@ -314,119 +416,160 @@ public class ObjectPlacer : MonoBehaviour
         }
     }
 
-    private bool IntersectWithMesh(Vector3 top, Vector3 bot, out float targetPointY, out Vector3 normal)
+    private void CalculateRandomNumberPosition(Vector3 BottomLeft, Vector3 BottomRight, Vector3 TopLeft, Vector3 TopRight, out Vector3 randomPoint, out Vector3 nRandomPoint, Vector3 topPoint, Vector3 botPoint, char axis)
     {
-        targetPointY = 0;
+        Vector3 intersectionTop = Vector3.zero;
+        Vector3 intersectionBot = Vector3.zero;
+
+        switch (axis)
+        {
+            case 'x':
+                topPoint.x = HighestPoint(new Vector3[] { BottomLeft, BottomRight, TopRight, TopLeft }, axis);
+                botPoint.x = LowestPoint(new Vector3[] { BottomLeft, BottomRight, TopRight, TopLeft }, axis);
+
+                intersectionTop = Vector3.zero;
+                intersectionBot = Vector3.zero;
+                nRandomPoint = Vector3.zero;
+
+                IntersectWithMesh(topPoint, botPoint, out randomPoint.x, out nRandomPoint, axis);
+                break;
+            case 'y':
+                topPoint.y = HighestPoint(new Vector3[] { BottomLeft, BottomRight, TopRight, TopLeft }, axis);
+                botPoint.y = LowestPoint(new Vector3[] { BottomLeft, BottomRight, TopRight, TopLeft }, axis);
+
+                intersectionTop = Vector3.zero;
+                intersectionBot = Vector3.zero;
+                nRandomPoint = Vector3.zero;
+
+                IntersectWithMesh(topPoint, botPoint, out randomPoint.y, out nRandomPoint, axis);
+                break;
+            case 'z':
+                topPoint.z = HighestPoint(new Vector3[] { BottomLeft, BottomRight, TopRight, TopLeft }, axis);
+                botPoint.z = LowestPoint(new Vector3[] { BottomLeft, BottomRight, TopRight, TopLeft }, axis);
+
+                intersectionTop = Vector3.zero;
+                intersectionBot = Vector3.zero;
+                nRandomPoint = Vector3.zero;
+
+                IntersectWithMesh(topPoint, botPoint, out randomPoint.z, out nRandomPoint, axis);
+                break;
+        }
+
+        //SE NENHUM FUNCIONAR
+        randomPoint = Vector3.zero;
+        nRandomPoint = Vector3.zero;
+    }
+
+    private bool IntersectWithMesh(Vector3 top, Vector3 bot, out float targetPoint, out Vector3 normal, char axis)
+    {
+        targetPoint = 0;
         normal = Vector3.zero;
-        int layerMask = 1 << 8;
 
         RaycastHit hit;
+
         if (Physics.Linecast(top, bot, out hit))
         {
             if (hit.collider.tag == "Dungeon")
             {
-                targetPointY = hit.point.y;
-                normal = hit.normal;
-                return true;
+                switch (axis)
+                {
+                    case 'x':
+                        targetPoint = hit.point.x;
+                        normal = hit.normal;
+                        return true;
+                    case 'y':
+                        targetPoint = hit.point.y;
+                        normal = hit.normal;
+                        return true;
+                    case 'z':
+                        targetPoint = hit.point.z;
+                        normal = hit.normal;
+                        return true;
+
+                }
             }
         }
         return false;
     }
 
-    private float LowestPoint(Vector3[] polygon)
+    private float LowestPoint(Vector3[] polygon, char axis)
     {
-        float lowestPoint = polygon[0].y;
-        for (int i = 1; i < polygon.Length; i++)
+        float lowestPoint = 0;
+        switch (axis)
         {
-            if (lowestPoint > polygon[i].y)
-                lowestPoint = polygon[i].y;
+            case 'x':
+                lowestPoint = polygon[0].x;
+                for (int i = 1; i < polygon.Length; i++)
+                {
+                    if (lowestPoint > polygon[i].x)
+                    {
+                        lowestPoint = polygon[i].x;
+                    }
+                }
+                break;
+            case 'y':
+                lowestPoint = polygon[0].y;
+                for (int i = 1; i < polygon.Length; i++)
+                {
+                    if (lowestPoint > polygon[i].y)
+                    {
+                        lowestPoint = polygon[i].y;
+                    }
+                }
+                break;
+            case 'z':
+                lowestPoint = polygon[0].z;
+                for (int i = 1; i < polygon.Length; i++)
+                {
+                    if (lowestPoint > polygon[i].z)
+                    {
+                        lowestPoint = polygon[i].z;
+                    }
+                }
+                break;
         }
 
         return lowestPoint;
     }
 
-    private float HighestPoint(Vector3[] polygon)
+    private float HighestPoint(Vector3[] polygon, char axis)
     {
-        float highestPoint = polygon[0].y;
-        for (int i = 1; i < polygon.Length; i++)
+        float highestPoint = 0;
+        switch (axis)
         {
-            if (highestPoint < polygon[i].y)
-                highestPoint = polygon[i].y;
+            case 'x':
+                highestPoint = polygon[0].x;
+                for (int i = 1; i < polygon.Length; i++)
+                {
+                    if (highestPoint < polygon[i].x)
+                    {
+                        highestPoint = polygon[i].x;
+                    }
+                }
+                break;
+            case 'y':
+                highestPoint = polygon[0].y;
+                for (int i = 1; i < polygon.Length; i++)
+                {
+                    if (highestPoint < polygon[i].y)
+                    {
+                        highestPoint = polygon[i].y;
+                    }
+                }
+                break;
+            case 'z':
+                highestPoint = polygon[0].z;
+                for (int i = 1; i < polygon.Length; i++)
+                {
+                    if (highestPoint < polygon[i].z)
+                    {
+                        highestPoint = polygon[i].z;
+                    }
+                }
+                break;
         }
 
         return highestPoint;
-    }
-
-    private float CalculateWeight(Vector3 point1, Vector3 point2, Vector3 targetPoint, out Vector3 intersectionPoint, bool Point2toPoint1)
-    {
-        intersectionPoint = Vector3.zero;
-
-        Vector3 dir_targetToPoint1 = point1 - targetPoint;
-        Vector3 dir_targetToPoint2 = point2 - targetPoint;
-        Vector3 dir_point1ToPoint2 = point2 - point1;
-        Vector3 dir_point1ToTarget = targetPoint - point1;
-        Vector3 dir_point2ToPoint1 = point1 - point2;
-        Vector3 dir_point2ToTarget = targetPoint - point2;
-        Vector3 normal_targetPoint = Vector3.zero;
-
-        //dir_targetToPoint1.y = 0;
-        //dir_point1ToPoint2.y = 0;
-        //dir_point1ToTarget.y = 0;
-        //dir_point2ToPoint1.y = 0;
-        //dir_point2ToTarget.y = 0; 
-        if (Point2toPoint1)
-            normal_targetPoint = Vector3.Cross(dir_targetToPoint2, dir_targetToPoint1);
-        else
-            normal_targetPoint = Vector3.Cross(dir_targetToPoint1, dir_targetToPoint2);
-
-        normal_targetPoint = normal_targetPoint.normalized;
-
-        float angle_Alpha = AngleSigned(dir_point1ToPoint2, dir_point1ToTarget, normal_targetPoint);
-        float angle_Alpha2 = AngleSigned(dir_point2ToPoint1, dir_point2ToTarget, normal_targetPoint);
-
-        if (angle_Alpha <= -90 || angle_Alpha >= 90)
-            return 0.01f;
-        if (angle_Alpha2 <= -90 || angle_Alpha2 >= 90)
-            return 0.99f;
-
-        float angle_newVector = 180 - (Mathf.Abs(angle_Alpha) + 90);
-
-        if (Mathf.Sign(angle_Alpha) < 0)
-            angle_newVector *= -1;
-
-        Vector3 dir_newVector = Quaternion.AngleAxis(angle_newVector, normal_targetPoint) * dir_targetToPoint1.normalized;
-        dir_newVector = dir_newVector.normalized;
-        Vector3 point_auxPoint = targetPoint + (dir_newVector * 20f);
-        //point1.y = 0;
-        //point2.y = 0;
-        //targetPoint.y = 0;
-
-        if (!LineSegmentsIntersection(point1, point2, targetPoint, point_auxPoint, out intersectionPoint))
-        {
-            return 0;
-        }
-
-        float distancePoint1Point2 = Vector3.Distance(point1, point2);
-        float distacePoint1IntersectionPoint = Vector3.Distance(intersectionPoint, point1);
-        float returnValue = distacePoint1IntersectionPoint / distancePoint1Point2;
-
-        return returnValue;
-    }
-
-    private bool IsThePointTotheRight(Vector3 topPoint, Vector3 botPoint, Vector3 targetPoint)
-    {
-        topPoint.y = 0;
-        botPoint.y = 0;
-        targetPoint.y = 0;
-        Vector3 auxTargetPoint = targetPoint + (Vector3.left * 20);
-        Vector3 empty = Vector3.zero;
-
-        if (LineSegmentsIntersection(topPoint, botPoint, targetPoint, auxTargetPoint, out empty))
-        {
-            return true;
-        }
-
-        return false;
     }
 
     private bool IsInsidePolygon(Vector3 point, Vector3 polygonVert1, Vector3 polygonVert2, Vector3 polygonVert3, Vector3 polygonVert4)
@@ -448,26 +591,25 @@ public class ObjectPlacer : MonoBehaviour
             if (i < 3)
             {
                 if (LineSegmentsIntersection(point, auxPoint, polygon[i], polygon[i + 1], out pointInterstion))
+                {
                     numberIntersections++;
+                }
             }
             if (i == 3)
             {
                 if (LineSegmentsIntersection(point, auxPoint, polygon[i], polygon[0], out pointInterstion))
+                {
                     numberIntersections++;
+                }
             }
         }
 
         if (numberIntersections == 1)
+        {
             return true;
+        }
 
         return false;
-    }
-
-    private float AngleSigned(Vector3 v1, Vector3 v2, Vector3 n)
-    {
-        return Mathf.Atan2(
-            Vector3.Dot(n, Vector3.Cross(v1, v2)),
-            Vector3.Dot(v1, v2)) * Mathf.Rad2Deg;
     }
 
     private bool LineSegmentsIntersection(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4, out Vector3 intersection)
@@ -511,3 +653,4 @@ public struct Chunk
     public GameObject gameObject;
     public Bounds bounds;
 }
+

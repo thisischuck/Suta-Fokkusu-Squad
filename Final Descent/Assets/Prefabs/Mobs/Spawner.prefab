@@ -437,7 +437,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1342320092586566
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -1617,12 +1617,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1342320092586566}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0366, z: 0.00737}
+  m_LocalRotation: {x: -0.6944493, y: -0, z: -0, w: 0.7195417}
+  m_LocalPosition: {x: -0.00007798071, y: 0.0033707703, z: 0.00020192051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4718690407205834}
-  m_RootOrder: 1
+  m_Father: {fileID: 4876681209290624}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4610342826166232
 Transform:
@@ -1787,11 +1787,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1712655050129296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2696166, y: -1.2363234, z: 5.3526587}
+  m_LocalPosition: {x: 21.171883, y: -4.48, z: -55.5847}
   m_LocalScale: {x: 507.8212, y: 507.8212, z: 507.8212}
   m_Children:
   - {fileID: 4882235368716058}
-  - {fileID: 4604060149544252}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1894,6 +1893,7 @@ Transform:
   - {fileID: 4894484808785942}
   - {fileID: 4694475655267550}
   - {fileID: 4225725386724838}
+  - {fileID: 4604060149544252}
   m_Father: {fileID: 4283211804004968}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 52.106308, y: 1.1826466, z: 1.240517}
@@ -2073,10 +2073,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8403b452962065e428853be4ab764727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyController: {fileID: 4289457628023752, guid: 45f16853e7464c04a999fd707d867aea,
-    type: 2}
+  player: {fileID: 0}
+  enemyController: {fileID: 0}
+  active: 0
+  alive: 1
   spawnerName: SPAWNER
   spawnPoint: {fileID: 4604060149544252}
+  currentNode: 
   count: 0
   spawningRechargeTime: 2
 --- !u!136 &136411463624364568

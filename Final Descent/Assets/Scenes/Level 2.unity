@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -272,6 +272,10 @@ Prefab:
       propertyPath: slot2
       value: 
       objectReference: {fileID: 502023604}
+    - target: {fileID: 1079690921975560, guid: 851deb4559d782244b902187f010f285, type: 2}
+      propertyPath: m_Name
+      value: WeaponSlot3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 851deb4559d782244b902187f010f285, type: 2}
   m_IsPrefabAsset: 0
@@ -384,7 +388,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1346191249065790, guid: 88de68078f54e8d4fa6509deb9dc3894, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 95470498558695896, guid: 88de68078f54e8d4fa6509deb9dc3894,
         type: 2}
@@ -610,11 +614,6 @@ Prefab:
     m_Modifications:
     - target: {fileID: 224361848249974558, guid: 22324090e889b5e4397c3b45a9d4c1cc,
         type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 224361848249974558, guid: 22324090e889b5e4397c3b45a9d4c1cc,
-        type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -703,6 +702,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114623652700439480, guid: 22324090e889b5e4397c3b45a9d4c1cc,
+        type: 2}
+      propertyPath: Stage
+      value: 
+      objectReference: {fileID: 1220919041}
+    - target: {fileID: 114623652700439480, guid: 22324090e889b5e4397c3b45a9d4c1cc,
+        type: 2}
+      propertyPath: otherCanvas
+      value: 
+      objectReference: {fileID: 1263634636}
     - target: {fileID: 114406669108649932, guid: 22324090e889b5e4397c3b45a9d4c1cc,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -713,16 +722,16 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114623652700439480, guid: 22324090e889b5e4397c3b45a9d4c1cc,
+    - target: {fileID: 114905419542182146, guid: 22324090e889b5e4397c3b45a9d4c1cc,
         type: 2}
-      propertyPath: otherCanvas
-      value: 
-      objectReference: {fileID: 1263634636}
-    - target: {fileID: 114623652700439480, guid: 22324090e889b5e4397c3b45a9d4c1cc,
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114905419542182146, guid: 22324090e889b5e4397c3b45a9d4c1cc,
         type: 2}
-      propertyPath: Stage
-      value: 
-      objectReference: {fileID: 1220919041}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22324090e889b5e4397c3b45a9d4c1cc, type: 2}
   m_IsPrefabAsset: 0

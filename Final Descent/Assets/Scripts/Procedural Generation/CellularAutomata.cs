@@ -42,6 +42,7 @@ public class CellularAutomata : MonoBehaviour
 {
     public int SeedInspector = 0;
     public bool IsOnline = false;
+    public bool isServer = false;
     public static int Seed;
     public GameObject manager;
 
@@ -165,7 +166,7 @@ public class CellularAutomata : MonoBehaviour
         meshFilter2.gameObject.GetComponent<MeshCollider>().sharedMesh = meshFilter2.mesh;
 
         vNormals = CreateTriangles(new MeshData(null, null, null), 2).normals;
-
+        
         WaterGenerator waterGenerator = GetComponentInChildren<WaterGenerator>();
         if (waterGenerator != null)
             waterGenerator.CreateMesh(0, 0, width * Mathf.CeilToInt(spacing), length * Mathf.CeilToInt(spacing), 1); //Needs optimization

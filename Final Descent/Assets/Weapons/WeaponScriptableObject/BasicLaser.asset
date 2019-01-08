@@ -17,6 +17,6 @@ MonoBehaviour:
   weaponModel: {fileID: 1606070544469350, guid: f3784282224a7d0438fb89db909c17e7,
     type: 2}
   weaponType: 0
-  sprite: {fileID: 21300000, guid: 2527106b8939a1d43859b644c5ad65a2, type: 3}
+  sprite: {fileID: 21300000, guid: 5ef155634e07aa741b4e446808643052, type: 3}
   price: 300
   level: 1

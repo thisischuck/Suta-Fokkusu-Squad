@@ -72,6 +72,7 @@ namespace Prototype.NetworkLobby
 
             seed = (int)System.DateTime.Now.Ticks;
             lobbyManager.seed = seed;
+            lobbyManager.alreadySpawnedObjects = false;
             lobbyManager.SetServerInfo("Matchmaker Host", lobbyManager.matchHost);
         }
 

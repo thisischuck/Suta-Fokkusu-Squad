@@ -46,7 +46,7 @@ public class CameraCollision : MonoBehaviour
         if (Physics.Linecast(dad.position, desiredCameraPos, out hit))
         {
             //Debug.Log("HEY");
-            if (hit.transform.tag != "Player" && hit.transform.tag != "PlayerPart" && hit.transform.tag != "Ship" && hit.transform.tag != "AircraftController" && hit.transform.tag != "Gun")
+            if (hit.transform.tag != "Player" && hit.transform.tag != "PlayerPart" && hit.transform.tag != "Ship" && hit.transform.tag != "AircraftController" && hit.transform.tag != "Gun" && hit.transform.tag != "Bullet")
             {
                 Debug.Log(hit.transform.tag);
                 distance = Mathf.Clamp((hit.distance * 0.8f), minDistance, maxDistance);

@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1800318362968326}
+  m_IsPrefabAsset: 1
+--- !u!1 &1800318362968326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4155155983411360}
+  - component: {fileID: 33695790167923624}
+  - component: {fileID: 23403910662064940}
+  - component: {fileID: 114057992113547426}
+  - component: {fileID: 114279006604626558}
+  m_Layer: 4
+  m_Name: Missiles_Online
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4155155983411360
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800318362968326}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23403910662064940
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800318362968326}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &33695790167923624
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800318362968326}
+  m_Mesh: {fileID: 4300000, guid: 2f9d4a1063900174b925d70bff499797, type: 3}
+--- !u!114 &114057992113547426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800318362968326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 169
+    i1: 74
+    i2: 122
+    i3: 178
+    i4: 8
+    i5: 1
+    i6: 112
+    i7: 68
+    i8: 216
+    i9: 130
+    i10: 231
+    i11: 118
+    i12: 132
+    i13: 147
+    i14: 234
+    i15: 187
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
+--- !u!114 &114279006604626558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800318362968326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeb6b075b0e0cfc419fca50b88ee7973, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  system: {fileID: 0}
+  ultraSystem: {fileID: 0}
+  ultraChargeSystem: {fileID: 0}
+  fireObject: {fileID: 1693545239712784, guid: fb955dc8e19318f4d8cba82e503a3c0f, type: 2}
+  ultraObject: {fileID: 1935437751648720, guid: ac6f9a92a2d9dab47a475df50728be23,
+    type: 2}
+  leftClickObject: {fileID: 1081173297821438, guid: 913e1bd78dd900e47bd5e43a6fe33a7c,
+    type: 2}
+  rightClickObject: {fileID: 1644357881772656, guid: 3fb4139dd0245544aa9e6889016c22fc,
+    type: 2}
+  canFire: 1
+  isActive: 1
+  canUltraFire: 1
+  bulletsPerClick: 1
+  ultraBulletsPerClick: 1
+  fireRate: 0.6
+  maxFireRate: 0.1
+  ultrafireRate: 0.1
+  ultraChargeRate: 5
+  ultraCoolDown: 3
+  weaponBehaviour: 4
+  player: {fileID: 0}

@@ -9,6 +9,7 @@ public class LoadOutMenu_Controller : MonoBehaviour {
     public GameObject loadoutMenuUI;
     public GameObject choosingWeaponUI;
     public GameObject plane;
+    public bool isOnline = false;
 
     //LoadOut
     [Header("General Stats")]
@@ -66,6 +67,45 @@ public class LoadOutMenu_Controller : MonoBehaviour {
         UpdateButton(weapon3, 2);
         UpdateChoosingWeaponButtons();
         ColorSelection();
+    }
+
+    public void GiveWeaponNames(out string w1, out string w2, out string w3)
+    {
+        w1 = "";
+        w2 = "";
+        w3 = "";
+        if (PlayerStatsInfo.currentWeapons[0] != null)
+            w1 = PlayerStatsInfo.currentWeapons[0].name;
+        if (PlayerStatsInfo.currentWeapons[1] != null)
+            w2 = PlayerStatsInfo.currentWeapons[1].name;
+        if (PlayerStatsInfo.currentWeapons[2] != null)
+            w3 = PlayerStatsInfo.currentWeapons[2].name;
+    }
+
+    public void GiveColors(out Color c1, out Color c2, out Color c3)
+    {
+        c1 = color1;
+        c2 = color2;
+        c3 = color3;
+        btnColor1.interactable = false;
+        btnColor2.interactable = false;
+        btnColor3.interactable = false;
+    }
+
+    public void GiveWeapons(out GameObject w1, out GameObject w2, out GameObject w3)
+    {
+        w1 = null;
+        w2 = null;
+        w3 = null;
+        if (PlayerStatsInfo.currentWeapons[0] != null)
+            w1 = PlayerStatsInfo.currentWeapons[0].weaponModel;
+        if (PlayerStatsInfo.currentWeapons[1] != null)
+            w2 = PlayerStatsInfo.currentWeapons[1].weaponModel;
+        if (PlayerStatsInfo.currentWeapons[2] != null)
+            w3 = PlayerStatsInfo.currentWeapons[2].weaponModel;
+        weapon1.interactable = false;
+        weapon2.interactable = false;
+        weapon3.interactable = false;
     }
 
     private void ColorSelection()
@@ -179,7 +219,8 @@ public class LoadOutMenu_Controller : MonoBehaviour {
         choosingWeaponUI.GetComponent<CanvasGroup>().alpha = 1f;
         choosingWeaponUI.GetComponent<CanvasGroup>().interactable = true;
         choosingWeaponUI.GetComponent<CanvasGroup>().blocksRaycasts = true;
-
+        if (isOnline)
+            GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
     }
 
     public void LoadOutMenuBack()
@@ -201,6 +242,11 @@ public class LoadOutMenu_Controller : MonoBehaviour {
         selectedWeaponName.text = "Name: ";
         selectedWeaponPrice.text = "PRICE: ";
         selectedWeaponPrice.color = Color.white;
+        if (isOnline)
+        {
+            GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceOverlay;
+            GetComponent<Canvas>().worldCamera = Camera.main;
+        }
     }
 
     public void SelectButtonClicked()

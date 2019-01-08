@@ -52,6 +52,7 @@ public class PsWeaponSwitching : MonoBehaviour
         {
             selectedWeapon = 3;
         }
+        PlayerStatsInfo.selectedWeapon = selectedWeapon;
 
         //Only if we change weapons we call the SelectWapon() function to update which weapon is being used and activate it
         if (previousWeapon != selectedWeapon)

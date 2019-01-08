@@ -41,6 +41,17 @@ namespace Prototype.NetworkLobby
         //static Color OddRowColor = new Color(250.0f / 255.0f, 250.0f / 255.0f, 250.0f / 255.0f, 1.0f);
         //static Color EvenRowColor = new Color(180.0f / 255.0f, 180.0f / 255.0f, 180.0f / 255.0f, 1.0f);
 
+        //SHIP STUFF-------------------------------------------------------------------------------------------------------------------------
+        [SyncVar]
+        public Color color1, color2, color3;
+        public GameObject weaponLoadOut;
+        public GameObject otherCanvas;
+        private GameObject wL;
+        private GameObject oC;
+        private GameObject colorPicker;
+        [SyncVar]
+        public GameObject weapon1, weapon2, weapon3;
+        public string w1, w2, w3;
 
         public override void OnClientEnterLobby()
         {
@@ -105,6 +116,16 @@ namespace Prototype.NetworkLobby
             remoteIcone.gameObject.SetActive(false);
             localIcone.gameObject.SetActive(true);
 
+            oC = Instantiate(otherCanvas);
+            wL = Instantiate(weaponLoadOut);
+            wL.GetComponent<Canvas>().worldCamera = Camera.main;
+            colorPicker = oC.transform.Find("CUIColorPicker").gameObject;
+            wL.GetComponent<LoadOutMenu_Controller>().colorPicker = colorPicker;
+            PlayerStatsInfo.gold = 4000;
+
+            wL.gameObject.SetActive(true);
+            oC.gameObject.SetActive(true);
+
             CheckRemoveButton();
 
             if (playerColor == Color.white)
@@ -162,6 +183,12 @@ namespace Prototype.NetworkLobby
                 readyButton.interactable = false;
                 colorButton.interactable = false;
                 nameInput.interactable = false;
+                if (isLocalPlayer)
+                {
+                    wL.GetComponent<LoadOutMenu_Controller>().GiveColors(out color1, out color2, out color3);
+                    wL.GetComponent<LoadOutMenu_Controller>().GiveWeapons(out weapon1, out weapon2, out weapon3);
+                    wL.GetComponent<LoadOutMenu_Controller>().GiveWeaponNames(out w1, out w2, out w3);
+                }
             }
             else
             {
@@ -296,7 +323,11 @@ namespace Prototype.NetworkLobby
         {
             LobbyPlayerList._instance.RemovePlayer(this);
             if (LobbyManager.s_Singleton != null) LobbyManager.s_Singleton.OnPlayersNumberModified(-1);
-
+            Destroy(wL);
+            Destroy(oC);
+            PlayerStatsInfo.currentWeapons[0] = null;
+            PlayerStatsInfo.currentWeapons[1] = null;
+            PlayerStatsInfo.currentWeapons[2] = null;
             int idx = System.Array.IndexOf(Colors, playerColor);
 
             if (idx < 0)

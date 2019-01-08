@@ -27,14 +27,13 @@ namespace Prototype.NetworkLobby
 
         static public LobbyManager s_Singleton;
 
-
         [Header("Unity UI Lobby")]
         [Tooltip("Time in second between all players ready & match start")]
         public float prematchCountdown = 5.0f;
 
         public int seed;
-        public int donePlayers;
         public List<Vector3> spawnPoints;
+        public bool alreadySpawnedObjects = true;
         //public GameObject dungeonController;
 
         [Space]
@@ -90,6 +89,7 @@ namespace Prototype.NetworkLobby
             {
                 if (topPanel.isInGame)
                 {
+                    
                     ChangeTo(lobbyPanel);
                     if (_isMatchmaking)
                     {
@@ -271,6 +271,7 @@ namespace Prototype.NetworkLobby
                 StopMatchMaker();
                 StopHost();
                 seed = 0;
+                alreadySpawnedObjects = true;
             }
         }
 
@@ -352,26 +353,19 @@ namespace Prototype.NetworkLobby
             GameObject dung = Instantiate(spawnPrefabs[0]);
             ClientScene.localPlayers.Add(new PlayerController());
             NetworkConnection connection = lobbyPlayer.GetComponent<NetworkIdentity>().connectionToClient;
-            //dung.GetComponent<CellularAutomata>().SeedInspector = seed;
-            //dung.GetComponent<CellularAutomata>().IsOnline = true;
-            //dung.GetComponent<ObjectPlacer>().IsOnline = true;
-            //dung.GetComponent<CellularAutomata>().manager = dungeonController;
-            dung.GetComponent<DungeonController>().StartDungeon(seed);
+
             NetworkServer.AddPlayerForConnection(connection, dung, 1);
             NetworkServer.Spawn(dung);
-            dung.GetComponent<DungeonController>().StartDungeon(seed);
-
-            //dung.SetActive(true);
+            dung.GetComponent<DungeonController>().RpcStartDungeon(seed);
+            dung.GetComponent<DungeonController>().RpcGivePlayerStats(lobbyPlayer);
+            GameObject EnemyController = Instantiate(spawnPrefabs[4]);
+            NetworkServer.Spawn(EnemyController);
 
             return true;
         }
 
-        public void Update()
-        {
-            
-        }
 
-        public void DungeonDone(DungeonController dC, Vector3[] spawns, int seed)
+        public void DungeonDone(DungeonController dC, Vector3[] spawns, int seed, GameObject lobbyPlayer)
         {
             if (this.seed == seed)
             {
@@ -383,11 +377,14 @@ namespace Prototype.NetworkLobby
                     }
                 }
 
-                GameObject player = Instantiate(spawnPrefabs[2], spawnPoints[spawnPoints.Count - 1], Quaternion.identity);
+                GameObject player = Instantiate(spawnPrefabs[1], spawnPoints[spawnPoints.Count - 1], Quaternion.identity);
                 Destroy(dC.gameObject);
-                
+
+                LobbyPlayer lP = lobbyPlayer.GetComponent<LobbyPlayer>() as LobbyPlayer;
+
+                player.GetComponent<Network_PlayerMovement>().SetStats(lP.color1, lP.color2, lP.color3, lP.weapon1, lP.weapon2, lP.weapon3, lP.w1, lP.w2, lP.w3);
+
                 NetworkServer.ReplacePlayerForConnection(dC.connectionToClient, player, dC.playerControllerId);
-                spawnPoints.RemoveAt(spawnPoints.Count - 1);
             }
         }
 

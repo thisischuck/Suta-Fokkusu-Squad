@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DynamicTexture : MonoBehaviour
 {
+
     public Color ColorShip1 = new Color(0.0f, 0.0f, 0.0f, 0.0f);
     public Color ColorShip2 = new Color(0.0f, 0.0f, 0.0f, 0.0f);
     public Color ColorShip3 = new Color(0.0f, 0.0f, 0.0f, 0.0f);

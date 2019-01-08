@@ -12,6 +12,7 @@ namespace Prototype.NetworkLobby
         public Text serverInfoText;
         public Text slotInfo;
         public Button joinButton;
+        public int seed;
 
 		public void Populate(MatchInfoSnapshot match, LobbyManager lobbyManager, Color c)
 		{
@@ -32,6 +33,7 @@ namespace Prototype.NetworkLobby
 			lobbyManager.matchMaker.JoinMatch(networkID, "", "", "", 0, 0, lobbyManager.OnMatchJoined);
 			lobbyManager.backDelegate = lobbyManager.StopClientClbk;
             lobbyManager._isMatchmaking = true;
+            
             lobbyManager.DisplayIsConnecting();
         }
     }
