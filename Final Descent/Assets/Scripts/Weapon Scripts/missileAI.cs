@@ -74,9 +74,9 @@ public class missileAI : MonoBehaviour {
 		else return true;
 	}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.tag == "Terrain")
-			Destroy(this.gameObject);
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Terrain")
+			Destroy(this.gameObject);
 	}
 }
