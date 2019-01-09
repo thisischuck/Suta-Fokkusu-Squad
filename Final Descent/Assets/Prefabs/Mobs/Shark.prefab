@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4486644988063868}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: curve1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4231534675911646}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mouth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4353973815071940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4227661135975574}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4970920472541232}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: topnurbsSquare4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4302296654791116}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cluster4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4235436145574872}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cluster2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4997821462908206}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cluster2Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4946991543340228}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TailEnd2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,9 +156,11 @@ GameObject:
   - component: {fileID: 4385055382540660}
   - component: {fileID: 111090102778161378}
   - component: {fileID: 114274690737662180}
-  m_Layer: 0
+  - component: {fileID: 54456905152536348}
+  - component: {fileID: 114479221659784894}
+  m_Layer: 9
   m_Name: Shark
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4356498171490904}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4636467116954656}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +203,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4565245632220540}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mouth Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4968346296547462}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cluster3Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4245764270825566}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cluster5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -246,7 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4560331212415542}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4995792950833618}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4361805333998082}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RightFin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4676161532705186}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rightnurbsSquare2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4944612686828190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Saw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4317564630098606}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4355667676350236}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rightnurbsSquare3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +353,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4233867559912662}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +368,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4111200671255370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4946602247678334}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rightnurbsSquare4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +398,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4430352659992918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4133726600508660}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bottomnurbsSquare3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4237766274216770}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cluster4Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4297353557175990}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4164299677495206}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4464909308155638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -486,7 +488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4785820937956686}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4202703539757338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BodyController3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +518,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4333535234420126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,7 +534,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4765547651544574}
   - component: {fileID: 137333434897419300}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Teeth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4055068487462234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bottomnurbsSquare2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -563,7 +565,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4040637324139780}
   - component: {fileID: 137925818594606578}
-  m_Layer: 0
+  - component: {fileID: 65930050216368768}
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4454439887904744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ikHandle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,7 +596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4561758746524978}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MouthController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,7 +611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4441005685624688}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bottomnurbsSquare4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4334743452777294}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BottomController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,7 +641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4039844621546078}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: topnurbsSquare2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4871047384999512}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bottomnurbsSquare4 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4418926070332858}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: leftnurbsSquare3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,7 +686,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4682866049410304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TipTail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +701,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4519842381020454}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: leftnurbsSquare2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4209781921227858}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: leftnurbsSquare4 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -728,7 +731,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4129806608552074}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -743,7 +746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4359562073208924}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -758,7 +761,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4711661027511102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SawController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4403232090255776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cluster1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4341659327108360}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4023004709256044}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cluster5Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,7 +821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4819846644434172}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cluster3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +836,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4595892053357304}
-  m_Layer: 0
+  - component: {fileID: 135232164103328222}
+  m_Layer: 9
   m_Name: SawShark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +852,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4402513907077192}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LeftFin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +867,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4968853974863012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: joint9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -878,7 +882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4162540337817464}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: topnurbsSquare4 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -893,7 +897,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4670171720287316}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: leftnurbsSquare4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +912,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4298858804934104}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rightnurbsSquare4 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -923,7 +927,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4055750351774166}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: topnurbsSquare3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4495467814552870}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TailEnd1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -953,7 +957,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4106498815406754}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cluster1Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,7 +972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4543839501840384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BodyController2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -985,7 +989,8 @@ GameObject:
   - component: {fileID: 4832630415462778}
   - component: {fileID: 198460361897020130}
   - component: {fileID: 199088500642830024}
-  m_Layer: 0
+  - component: {fileID: 114016841304450108}
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1443,7 +1448,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1202791961372054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.559998, y: 1.5034237, z: 3.14}
+  m_LocalPosition: {x: -70.2, y: 0, z: 113.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4111200671255370}
@@ -1901,6 +1906,33 @@ Transform:
   m_Father: {fileID: 4235436145574872}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54456905152536348
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202791961372054}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &65930050216368768
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563040195028858}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0488968, y: 2.682581, z: 5.992096}
+  m_Center: {x: 0.020542145, y: 1.457252, z: 0.06985474}
 --- !u!111 &111090102778161378
 Animation:
   m_ObjectHideFlags: 1
@@ -1917,6 +1949,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114016841304450108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1972814726119950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3918bdfc45cca649baad65dbfda678c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  system: {fileID: 0}
+  damage: 0
 --- !u!114 &114274690737662180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1941,6 +1986,38 @@ MonoBehaviour:
   enemyName: 
   animController: {fileID: 0}
   p1: {fileID: 198460361897020130}
+--- !u!114 &114479221659784894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202791961372054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70c7f1e45a8dc54db9cb3f0aa885564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 1
+  shield: 0
+  health: 100
+  base_maxHealth: 0
+  base_maxShield: 0
+  invulnerabilityTime: 0
+  invCount: 0
+  IsInvulnerable: 0
+  IsAlive: 1
+--- !u!135 &135232164103328222
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1847446448000650}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.82797
+  m_Center: {x: 0, y: 1.2941504, z: 2.4929528}
 --- !u!137 &137333434897419300
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2154,7 +2231,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2207,7 +2284,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 40
+      scalar: 30
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2843,7 +2920,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
@@ -3116,11 +3193,11 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 11.170107
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3226,7 +3303,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7853982
+      scalar: 0
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2
@@ -3276,7 +3353,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-    separateAxes: 0
+    separateAxes: 1
   ColorModule:
     enabled: 0
     gradient:
@@ -5475,9 +5552,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 3
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -5653,11 +5730,11 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 4352
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -6624,7 +6701,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 174369fe97df3f541920639b7c437485, type: 2}
+  - {fileID: 2100000, guid: 0cc96da02df9f024f969a54d837818bb, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

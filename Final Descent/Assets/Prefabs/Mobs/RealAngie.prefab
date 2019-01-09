@@ -1241,7 +1241,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1602924681687662}
   m_LocalRotation: {x: -0, y: -0.9995515, z: -0, w: 0.029948274}
-  m_LocalPosition: {x: 0, y: 0.962, z: 0}
+  m_LocalPosition: {x: -126.71, y: 27.78, z: 53.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4154760998900302}
@@ -1579,7 +1579,7 @@ Rigidbody:
   m_Mass: 40
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -1637,7 +1637,6 @@ MonoBehaviour:
   invCount: 0
   IsInvulnerable: 0
   IsAlive: 1
-  name: ANGLERFISH
 --- !u!136 &136962279508585360
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1648,9 +1647,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1.45
+  m_Height: 1.6761029
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 3.089207e-10, y: 0, z: -0.113051414}
 --- !u!137 &137033776915945242
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

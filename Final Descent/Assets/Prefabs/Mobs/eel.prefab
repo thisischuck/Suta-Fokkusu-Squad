@@ -525,6 +525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4234434970705366}
+  - component: {fileID: 136182848550681878}
   m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
@@ -814,8 +815,8 @@ GameObject:
   - component: {fileID: 114644789843525224}
   - component: {fileID: 114294366412612754}
   - component: {fileID: 114715740540568706}
-  - component: {fileID: 114351578284216088}
   - component: {fileID: 136307479486333684}
+  - component: {fileID: 136496288580633334}
   m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
@@ -1417,7 +1418,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4015493514968584}
-  - component: {fileID: 95714635944902366}
   - component: {fileID: 54973215816789242}
   m_Layer: 9
   m_Name: eel
@@ -3044,24 +3044,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!95 &95714635944902366
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1891277871730058}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 00794111aee0ea94fa9f1d3d8b69b601, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114294366412612754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3073,7 +3055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5c73132e6afe4742941bbc798f05e7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eelSpeed: 40
+  eelSpeed: 10
   isTornado: 0
   force: 17
   goToExplode: 0
@@ -3092,20 +3074,6 @@ MonoBehaviour:
   SW: {fileID: 198690126402520478}
   ExplosionDamage: 0
   BiteDamage: 0
---- !u!114 &114351578284216088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1489846457496992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e47f2ba282382af4fa4e5ff30890aebe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: {fileID: 224128311392246366, guid: fd9cff0943ac0d743b36335c63f572ff, type: 2}
-  camara: {fileID: 0}
-  canvas: {fileID: 0}
 --- !u!114 &114644789843525224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3250,6 +3218,19 @@ CapsuleCollider:
   m_Height: 8.118039
   m_Direction: 2
   m_Center: {x: 0.22031271, y: 0.1705141, z: -0.030093193}
+--- !u!136 &136182848550681878
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314789139095852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  m_Radius: 2.295865
+  m_Height: 4.9751587
+  m_Direction: 0
+  m_Center: {x: 0.009430347, y: -0.06776261, z: 2.4290807}
 --- !u!136 &136307479486333684
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -3289,6 +3270,19 @@ CapsuleCollider:
   m_Height: 6.381831
   m_Direction: 2
   m_Center: {x: 0.36346173, y: 0.21914446, z: -0.85699725}
+--- !u!136 &136496288580633334
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1489846457496992}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.295865
+  m_Height: 4.9751587
+  m_Direction: 0
+  m_Center: {x: 0.009430347, y: -0.06776261, z: 2.4290807}
 --- !u!136 &136535116422196664
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -5082,7 +5076,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: aeb701e1cd8458a4b9988bfd49d86105, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

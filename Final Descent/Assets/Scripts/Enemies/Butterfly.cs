@@ -18,7 +18,8 @@ public class Butterfly : Enemy
 
     protected override void Start()
     {
-        base.Start();
+		enemyName = "BUTTERFLY";
+		base.Start();
         spawn = false;
         playParticleSystem = spawn;
         ps = GetComponentsInChildren<ParticleSystem>();
@@ -170,13 +171,17 @@ public class Butterfly : Enemy
         {
             StopOrPlayParticleSystem(playParticleSystem, tmp);
         }
+
+		if (IsDead() && IsAnimationOver("Death"))
+			Destroy(this.gameObject);
+
         base.Update();
     }
 
     private bool IsMoving() { return Velocity != Vector3.zero; }
     private bool IsMeleeRange() { return Vector3.Distance(transform.position, player.transform.position) < 5.0f; }
     private bool IsAntenaRange() { float distance = Vector3.Distance(transform.position, player.transform.position); return distance > 30.0f && distance < 60.0f; }
-    private bool IsDead() { return false; } //health < 0
+    private bool IsDead() { if (GetComponent<HealthEnemy>().health <= 0) return true; else return false; } //health < 0
     private bool IsAnimationOver(string animation) { return !animController.IsPlaying(animation); }
     private bool IsAttackCooldownOver() { return attackCooldowns > 2.0f; }
     private bool IsWingsChargeDone() { return material.GetColor("_EmissionColor").g > colorEmissionMax.g; }
@@ -185,4 +190,13 @@ public class Butterfly : Enemy
     private bool DoChargeAttack() { return nextAttack > 5 && nextAttack <= 8; }
     private bool DoAntenasAttack() { return nextAttack > 2 && nextAttack <= 5; }
     private bool IsInWingsAttackRange() { return Vector3.Distance(transform.position, attackwingsLocation) < 15.0f; }
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if(other.tag == "Player")
+		{
+			if (other.GetComponent<HealthPlayer>())
+				GetComponent<HealthPlayer>().TakeDamage(10);
+		}
+	}
 }

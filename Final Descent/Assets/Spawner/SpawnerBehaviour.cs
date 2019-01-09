@@ -112,8 +112,19 @@ public class SpawnerBehaviour : MonoBehaviour
             }
         }
 
-        //Runs through the actions
-        if (alive)
+		if (!isOnline)
+		{
+			if (GetComponentInParent<HealthEnemy>().health <= 0)
+				alive = false;
+		}
+		else
+		{
+			if (GetComponentInParent<Network_EnemyHealth>().currentHealth <= 0)
+				alive = false;
+		}
+
+		//Runs through the actions
+		if (alive)
         {
             //Recharging counter
             if (active)
@@ -132,19 +143,10 @@ public class SpawnerBehaviour : MonoBehaviour
             }
         }
 
-        if (!isOnline)
+
+        if (GetComponentInParent<HealthEnemy>().health <= 0)
         {
-            if (GetComponentInParent<HealthEnemy>().health <= 0)
-            {
-                alive = false;
-            }
-        }
-        else
-        {
-            if (GetComponentInParent<Network_EnemyHealth>().currentHealth <= 0)
-            {
-                alive = false;
-            }
+            alive = false;
         }
     }
 
@@ -185,4 +187,6 @@ public class SpawnerBehaviour : MonoBehaviour
         }
         return players[closest];
     }
+
+	//private bool IsAnimationOver(string animation) { return !animController.IsPlaying(animation); }
 }

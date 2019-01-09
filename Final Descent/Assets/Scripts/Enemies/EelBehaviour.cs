@@ -22,6 +22,7 @@ public class EelBehaviour : Enemy
 
 	protected override void Start()
     {
+		enemyName = "EEL";
 		base.Start();
 		alive = true;
 		eelAttacks = GetComponent<EelAttacks>();
@@ -55,7 +56,7 @@ public class EelBehaviour : Enemy
         StateMachine_Node n_dead = new StateMachine_Node("Dead", null, null, null); //ainda sem açao
 
 		//Transitions
-		StateMachine_Transition t_ativeToHighSpeed = new StateMachine_Transition("Active To HighSpeed", () => { return alive == true; }, n_highSpeed,
+		StateMachine_Transition t_ativeToHighSpeed = new StateMachine_Transition("Active To HighSpeed", () => { return alive == true; }, n_Charge,
 			null);
 		StateMachine_Transition t_highSpeedToTornado = new StateMachine_Transition("HighSpeed To Tornado", () => { return eelAttacks.isHighSpeed == false && 
 			eelAttacks.MedPlayersPositions(transform.position) > 50f; }, n_tornado, null); //Player is far away, tornado is activated

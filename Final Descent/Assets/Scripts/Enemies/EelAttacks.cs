@@ -92,7 +92,6 @@ public class EelAttacks : MonoBehaviour {
 
         nextExplosion = 0f;
         explosionCount = 0;
-        eelSpeed = 15f;
 		timeTornading = 00.0f;
 		nextWave = 0.0f;
 
@@ -423,14 +422,13 @@ public class EelAttacks : MonoBehaviour {
 		mouthClosed = true;
 	}*/
 
-	public void Bite(Transform player)
+	public void Bite()
     {
 		Debug.Log("Bite");
 
 		if (openMouth == BottomMouth.rotation)//esta aberta
 		{
 			mouthClosed = false;
-			player.GetComponent<HealthPlayer>().TakeDamage(BiteDamage);
 		}
 		else
 			mouthClosed = true;
@@ -508,7 +506,9 @@ public class EelAttacks : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			Bite(other.transform);
+			Debug.Log("BITE");
+			Bite();
+			GameObject.Find("AircraftController").GetComponent<HealthPlayer>().TakeDamage(BiteDamage);
 		}
 	}
 }

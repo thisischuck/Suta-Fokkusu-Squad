@@ -14,7 +14,7 @@ public class SawsharkController : Enemy {
 		base.Start();
 		Velocity = Vector3.forward;
 		MaxVelocity = 8.0f;
-		shootCooldown = 1.5f;
+		shootCooldown = 1.8f;
 
 		enemyName = "SAWSHARK";
 		Action a_AnimMove = () => { PlayAnimation("MovingShark"); };
@@ -34,7 +34,8 @@ public class SawsharkController : Enemy {
 		StateMachine_Node pursuit = new StateMachine_Node("Pursuit", new List<Action>(new Action[] { a_Pursuit, a_MoveWithVelocity, a_FaceVelocity, a_Shoot, a_ShootCooldown }), 
 		new List<Action>(new Action[] { a_AnimMove }),null);
 
-		StateMachine_Node wander = new StateMachine_Node("Wander", new List<Action>(new Action[] { a_Wander, a_MoveWithVelocity, a_FaceVelocity }), new List<Action>(new Action[] { a_AnimMove }), null);
+		StateMachine_Node wander = new StateMachine_Node("Wander", new List<Action>(new Action[] { a_Wander, a_MoveWithVelocity, a_FaceVelocity }),
+		new List<Action>(new Action[] { a_AnimMove }), null);
 
 		StateMachine_Transition WanderToPursuit = new StateMachine_Transition("Wander to Pursuit", () => ToPursuit(), pursuit, null);
 		StateMachine_Transition AnyToWander = new StateMachine_Transition("To Wander", () => ToWander(), wander, null);
@@ -43,6 +44,7 @@ public class SawsharkController : Enemy {
 		pursuit.AddTransition(AnyToWander);
 
 		AssignState(wander);
+		GameObject.Find("Teeth").SetActive(false);
 	}
 
 	protected override void Update()
@@ -53,4 +55,21 @@ public class SawsharkController : Enemy {
 	private bool ToWander() { return Vector3.Distance(transform.position, player.transform.position) > 60.0f; }
 	private bool ToPursuit() { return Vector3.Distance(transform.position, player.transform.position) < 50.0f; }
 	private bool IsAnimationOver(string animation) { return !animController.IsPlaying(animation); }
+
+	//Teeth disc
+	private void OnParticleCollision(GameObject other)
+	{
+		Debug.Log(other.transform.name);
+		if (other.transform.name == "AircraftController")
+			other.transform.GetComponent<HealthPlayer>().TakeDamage(3f);
+	}
+
+	//Ram into player
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.transform.name == "AircraftController")
+		{
+			other.transform.GetComponent<HealthPlayer>().TakeDamage(5f);
+		}
+	}
 }

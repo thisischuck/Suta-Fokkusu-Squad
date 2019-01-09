@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4035018688929534}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: Strawjoints_joint26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4555610691353394}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4694475655267550}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint38
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 137208756040852984}
   - component: {fileID: 82685245841797776}
   - component: {fileID: 82629843085156904}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: OuterBulb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4191304468098568}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint34 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4593429305919746}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4419292920196798}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint12 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4062816010874586}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint12 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4597227754363200}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint35
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4775563739282250}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint13 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,7 +172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4613768852474058}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint13 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 23150765846743808}
   - component: {fileID: 114601447076369168}
   - component: {fileID: 114663454357365496}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4323099128257410}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4446617207721928}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint13 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4938381248119220}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4010196948916228}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4423324504703692}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint35 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4894484808785942}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint37
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4257407168538142}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint12 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +311,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4031572963236324}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint33
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4258176600035558}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +341,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4273173246059258}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4218555202175714}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4832406893082148}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint12 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4750808348902978}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint12 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4501833798924870}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4610342826166232}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4876681209290624}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint32
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4604060149544252}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4862868948342414}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint34
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4641802928724544}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4288842415389856}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint13 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4658012445567146}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint35 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4622868381849822}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint13 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,7 +536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4195174315294360}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint12 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4940173283292332}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4538690138056348}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint13 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4263737335547502}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint13 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4914656495361312}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4110796169667080}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4428339127988402}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint13 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4399856099318378}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -656,7 +656,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4674740434581012}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -671,7 +671,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4632592723640070}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint12 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4183309943324838}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint34 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -701,7 +701,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4167349676181278}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint12 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4283211804004968}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint36
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +731,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4706702290365068}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,7 +746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4975510781455626}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +761,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4044849480204878}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4405761355700348}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint13 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4199588179624010}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint12 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -806,7 +806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4520629266175922}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint29
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,7 +821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4832074816737540}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,9 +838,10 @@ GameObject:
   - component: {fileID: 4718690407205834}
   - component: {fileID: 136411463624364568}
   - component: {fileID: 114000621203211588}
-  m_Layer: 11
+  - component: {fileID: 54548447588053724}
+  m_Layer: 16
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -853,7 +854,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4140975171133208}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint13 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -868,7 +869,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4682272032372414}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4017863149779484}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint13 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -898,7 +899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4225725386724838}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint39
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -913,7 +914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4274575048426386}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint12 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -928,7 +929,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4320074333787480}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint13 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -943,7 +944,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4588447176714576}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint34 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -958,7 +959,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4657738649651096}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint35 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -973,7 +974,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4087026965451658}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,7 +989,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4301348344146250}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint12 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1003,7 +1004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4156193697451170}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Innerbulb_joint12 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +1019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4868168694872264}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Outerbulb_joint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1033,7 +1034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4492332798632968}
-  m_Layer: 11
+  m_Layer: 16
   m_Name: spawner_idle:Strawjoints_joint31
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1790,7 +1791,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1712655050129296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.849675, y: -9.82, z: 19.66063}
+  m_LocalPosition: {x: 48.95867, y: 39.139862, z: 4.3792586}
   m_LocalScale: {x: 507.8212, y: 507.8212, z: 507.8212}
   m_Children:
   - {fileID: 4882235368716058}
@@ -2026,6 +2027,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!54 &54548447588053724
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1712655050129296}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!82 &82629843085156904
 AudioSource:
   m_ObjectHideFlags: 1

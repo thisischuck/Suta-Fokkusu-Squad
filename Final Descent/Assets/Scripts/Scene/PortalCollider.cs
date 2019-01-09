@@ -9,24 +9,27 @@ public class PortalCollider : MonoBehaviour {
 	private Scene scene;
 	private GameObject Boss;
 	private GameObject Dungeon;
+	private GameObject BossRoom;
 
 	public void Start()
 	{
 		endPortal = GameObject.Find("EndPoint").transform;
 		scene = SceneManager.GetActiveScene();
 
-		if(scene.name == "Level 2")
+		if (scene.name == "Level 2")
 		{
-			Dungeon = GameObject.Find("2Room");
+			BossRoom = GameObject.Find("2Room");
 			Boss = GameObject.Find("Eel");
+			Dungeon = GameObject.Find("Dungeon2");
 		}
-		else if(scene.name == "Level 1")
+		else if (scene.name == "Level 1")
 		{
-			Dungeon = GameObject.Find("1Room");
+			Dungeon = GameObject.Find("Dungeon");
+			BossRoom = GameObject.Find("1Room");
 			Boss = GameObject.Find("Butterfly");
 		}
 
-		Dungeon.SetActive(false);
+		BossRoom.SetActive(false);
 		Boss.SetActive(false);
 	}
 
@@ -34,10 +37,10 @@ public class PortalCollider : MonoBehaviour {
 	{
 		if (collision.tag == "Player")
 		{
-			Dungeon.SetActive(true);
+			BossRoom.SetActive(true);
 			collision.transform.position = endPortal.position;
-			collision.transform.rotation = endPortal.rotation;
+			collision.transform.rotation = endPortal.rotation;			Dungeon.SetActive(false);
 			Boss.SetActive(true);
 		}
 	}
-}
+}
