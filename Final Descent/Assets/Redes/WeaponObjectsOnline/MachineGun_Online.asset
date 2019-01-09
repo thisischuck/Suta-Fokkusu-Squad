@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa04869c7b692b4095954f4b5a5f976, type: 3}
+  m_Name: MachineGun_Online
+  m_EditorClassIdentifier: 
+  id: 1
+  name: Mini Gun
+  description: A very powerfull, fast shooting gun!
+  weaponModel: {fileID: 1332747204074428, guid: 6b0f8f8e28ecd01448d082cdd5d4abd7,
+    type: 2}
+  weaponType: 1
+  sprite: {fileID: 21300000, guid: 8f02b128373a6914193d1124e7f17e0a, type: 3}
+  price: 800
+  level: 2
