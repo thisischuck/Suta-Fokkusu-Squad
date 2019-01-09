@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4586345916779244}
   - component: {fileID: 198733993771343066}
   - component: {fileID: 199362083083336122}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Shockwave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4127761675503806}
   - component: {fileID: 198089186737653802}
   - component: {fileID: 199125897228050694}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4024556261127660}
   - component: {fileID: 198013368079347558}
   - component: {fileID: 199517219404156312}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4981572142859310}
   - component: {fileID: 198834478811755446}
   - component: {fileID: 199390267731954992}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: ImpactShape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 198681270510822374}
   - component: {fileID: 114438586762892600}
   - component: {fileID: 114258259923509370}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: LeftClickWeapon2Ps
   m_TagString: Gun
   m_Icon: {fileID: 0}

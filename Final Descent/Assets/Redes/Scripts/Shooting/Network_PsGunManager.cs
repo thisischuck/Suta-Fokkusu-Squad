@@ -224,26 +224,24 @@ public class Network_PsGunManager : NetworkBehaviour
     //Shotgun/Harpoon
     private void Weapon3()
     {
-        if (Input.GetButton("Fire1") && !canFire)
-        {
-            transform.Find("ShotgunForceArea").GetComponent<Shotgun>().ClearList();
-        }
-        else if (Input.GetButton("Fire1") && canFire)
+        if (Input.GetButton("Fire1") && canFire)
         {
             system.Emit(bulletsPerClick);
-            transform.Find("ShotgunForceArea").gameObject.SetActive(true);
+            this.transform.Find("ShotgunForceArea").gameObject.SetActive(true);
             StartCoroutine(FireRateIE());
+            SendMessage("PlayShotOnceSound");
         }
         else if (Input.GetButton("Fire2") && canUltraFire && Time.time >= ultraAvailable)
         {
-            CmdShootWeapon3();
+            GameObject obj = Instantiate(ultraObject, this.transform.position, Quaternion.identity);
+            obj.GetComponent<Network_Hook>().Forward = this.transform.forward;
+            obj.GetComponent<Network_Hook>().weaponPos = this.transform;
             ultraAvailable = Time.time + ultraCoolDown;
             StartCoroutine(UltraFireRateIE());
+            SendMessage("PlayUltraOnceSound");
         }
         if (!Input.GetButton("Fire1"))
-        {
-            transform.Find("ShotgunForceArea").gameObject.SetActive(false);
-        }
+            this.transform.Find("ShotgunForceArea").gameObject.SetActive(false);
     }
 
     [Command]
@@ -417,10 +415,7 @@ public class Network_PsGunManager : NetworkBehaviour
             return;
         }
 
-        int collCount = system.GetSafeCollisionEventSize();
 
-        //if (collCount > collisionEvents.Count)
-        //    collisionEvents = new ParticleCollisionEvent[collCount];
 
         int eventCount = system.GetCollisionEvents(other, collisionEvents);
 

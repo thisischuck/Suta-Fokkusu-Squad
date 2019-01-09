@@ -136,6 +136,12 @@ namespace Prototype.NetworkLobby
             }
         }
 
+        public void MainMenu()
+        {
+            SceneManager.LoadScene(1);
+            Destroy(this.gameObject);
+        }
+
         public void ChangeTo(RectTransform newPanel)
         {
             if (currentPanel != null)

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114025713994674410}
   - component: {fileID: 114540331078349426}
   - component: {fileID: 114401726980371404}
-  m_Layer: 4
+  m_Layer: 12
   m_Name: WeaponHolder_Online
   m_TagString: PlayerPart
   m_Icon: {fileID: 0}
@@ -75,6 +75,8 @@ MonoBehaviour:
   slot1: {fileID: 0}
   slot2: {fileID: 0}
   slot3: {fileID: 0}
+  previousWeapon: 0
+  selectedWeapon: 0
 --- !u!114 &114540331078349426
 MonoBehaviour:
   m_ObjectHideFlags: 1

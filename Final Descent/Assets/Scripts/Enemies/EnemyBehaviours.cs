@@ -127,7 +127,7 @@ public static class EnemyBehaviours
 
     public static Vector3 AvoidObstacles(Transform t, Vector3 velocity, ref bool isThereAnything)
     {
-        RaycastHit hit, hitL, hitR;
+        RaycastHit hit;
         Vector3 dir = t.forward;
 
         if (Physics.SphereCast(t.position, 2f, t.forward, out hit, 5))

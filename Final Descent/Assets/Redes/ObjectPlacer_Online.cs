@@ -272,7 +272,6 @@ public class ObjectPlacer_Online : NetworkBehaviour {
     {
         targetPointY = 0;
         normal = Vector3.zero;
-        int layerMask = 1 << 8;
 
         RaycastHit hit;
         if (Physics.Linecast(top, bot, out hit))

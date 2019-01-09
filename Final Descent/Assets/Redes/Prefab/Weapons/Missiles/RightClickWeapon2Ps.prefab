@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 198404298841314422}
   - component: {fileID: 114646365924408550}
   - component: {fileID: 114258608099276318}
-  m_Layer: 4
+  m_Layer: 12
   m_Name: RightClickWeapon2Ps
   m_TagString: Gun
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4776412399195650}
   - component: {fileID: 198783959954198130}
   - component: {fileID: 199864712635892968}
-  m_Layer: 4
+  m_Layer: 12
   m_Name: Mini_Missiles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

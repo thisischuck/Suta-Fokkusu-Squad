@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 public class Network_EnemyHealth : Network_BaseHealth
 {
 
-    public string name;
+    public string nameE;
     public SkinnedMeshRenderer mesh;
     Color originalColor;
 

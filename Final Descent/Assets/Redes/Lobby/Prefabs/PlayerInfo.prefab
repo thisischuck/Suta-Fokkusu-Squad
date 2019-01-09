@@ -367,10 +367,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0, b: 0.39607847, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0.39607847, a: 1}
-    m_PressedColor: {r: 1, g: 0, b: 0.39607847, a: 1}
-    m_DisabledColor: {r: 1, g: 0, b: 0.39607847, a: 0.5019608}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.2
   m_SpriteState:
@@ -582,9 +582,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0, b: 0.39607847, a: 1}
-    m_HighlightedColor: {r: 1, g: 0, b: 0.39607847, a: 1}
-    m_PressedColor: {r: 1, g: 0, b: 0.39607847, a: 1}
+    m_NormalColor: {r: 0, g: 0.71103144, b: 1, a: 1}
+    m_HighlightedColor: {r: 0, g: 0.7137255, b: 1, a: 1}
+    m_PressedColor: {r: 0, g: 0.7137255, b: 1, a: 1}
     m_DisabledColor: {r: 0.63235295, g: 0.61375433, b: 0.61375433, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.2
@@ -928,8 +928,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 56c4630952ccd9546aa30a1eddc073e8, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300002, guid: 2a75c42af43aadd49b568a99331073da, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -986,10 +986,19 @@ MonoBehaviour:
   playerColor: {r: 1, g: 1, b: 1, a: 1}
   OddRowColor: {r: 0.98039216, g: 0.98039216, b: 0.98039216, a: 1}
   EvenRowColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+  color1: {r: 0, g: 0, b: 0, a: 0}
+  color2: {r: 0, g: 0, b: 0, a: 0}
+  color3: {r: 0, g: 0, b: 0, a: 0}
   weaponLoadOut: {fileID: 1663451447069778, guid: d506c2bfb4bd5064db5bc6c1436fcfd7,
     type: 2}
   otherCanvas: {fileID: 1469414106461784, guid: 6d0b00f6c2024b34c9ef9d2ff58e5c86,
     type: 2}
+  weapon1: {fileID: 0}
+  weapon2: {fileID: 0}
+  weapon3: {fileID: 0}
+  w1: 
+  w2: 
+  w3: 
 --- !u!114 &11487112
 MonoBehaviour:
   m_ObjectHideFlags: 1

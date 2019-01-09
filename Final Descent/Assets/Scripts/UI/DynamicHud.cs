@@ -59,8 +59,7 @@ public class DynamicHud : MonoBehaviour
             if (Vector3.Distance(transform.position, ship.position) >= 1)
             {
                 Vector2 screenPos = Vector3.zero;
-                if (cam != null)
-                    screenPos = cam.WorldToScreenPoint(ship.position);
+                screenPos = cam.WorldToScreenPoint(ship.position);
 
                 float step = speed * Time.deltaTime;
                 Vector3 l = Vector3.Lerp(transform.position, screenPos, step);

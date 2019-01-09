@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseStats : MonoBehaviour {
+public class BaseStats : MonoBehaviour
+{
     public int lives = 1;
     public float shield;
     public float health;
 
-	[HideInInspector]
-	public float base_maxHealth, base_maxShield;
+    public float base_maxHealth, base_maxShield;
 
-	public float invulnerabilityTime = 0.0f;
+    public float invulnerabilityTime = 0.0f;
     [SerializeField]
     public float invCount = 0.0f;
     public bool IsInvulnerable = false;
@@ -18,13 +18,13 @@ public class BaseStats : MonoBehaviour {
     public bool IsAlive = true;
 
 
-	private void Start()
-	{
-		base_maxHealth = health;
-		base_maxShield = shield;
-	}
+    private void Start()
+    {
+        health = base_maxHealth;
+        shield = base_maxShield;
+    }
 
-	public virtual void TakeDamage(float health)
+    public virtual void TakeDamage(float health)
     {
         if (invulnerabilityTime != 0)
         {
@@ -34,7 +34,7 @@ public class BaseStats : MonoBehaviour {
                 IsAlive = false;
             }
         }
-		else this.health -= health;
+        else this.health -= health;
     }
 
     public void GenerateVariables(float health, float shield, int lives = 1, float invTime = 0.0f)
@@ -59,14 +59,3 @@ public class BaseStats : MonoBehaviour {
 
 
 }
-
-    public float health;
-
-	public float base_maxHealth, base_maxShield;
-
-	private void Start()
-	{
-		health = base_maxHealth;
-		shield = base_maxShield;
-	}
-

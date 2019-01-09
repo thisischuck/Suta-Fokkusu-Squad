@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 114128941393079930}
   - component: {fileID: 114797587604517694}
   - component: {fileID: 114811257072203920}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: PlayerController_online
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 114662823158960974}
   - component: {fileID: 114507198393633390}
   - component: {fileID: 114617437763134760}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -343,6 +343,12 @@ MonoBehaviour:
   slot1: {fileID: 1301154822531834, guid: 5b0282234d5144d42836d107d335b1e3, type: 2}
   slot2: {fileID: 1800318362968326, guid: a94a7ab208017044d882e7768493eabb, type: 2}
   slot3: {fileID: 1332747204074428, guid: 6b0f8f8e28ecd01448d082cdd5d4abd7, type: 2}
+  color1: {r: 0, g: 0, b: 0, a: 0}
+  color2: {r: 0, g: 0, b: 0, a: 0}
+  color3: {r: 0, g: 0, b: 0, a: 0}
+  name1: 
+  name2: 
+  name3: 
   keyTapTimeFrame: 0.5
   dashDur: 1
   dashSpeed: 40

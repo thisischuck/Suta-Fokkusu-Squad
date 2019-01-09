@@ -22,11 +22,6 @@ public class Network_ParticleCollision : NetworkBehaviour {
 
     public void OnParticleCollision(GameObject other)
     {
-        int collCount = system.GetSafeCollisionEventSize();
-
-        //if (collCount > collisionEvents.Count)
-        //    collisionEvents = new ParticleCollisionEvent[collCount];
-
         int eventCount = system.GetCollisionEvents(other, collisionEvents);
 
         for (int i = 0; i < eventCount; i++)

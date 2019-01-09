@@ -32,6 +32,7 @@ public class ParticleCollision : MonoBehaviour {
             if (other.GetComponent<HealthEnemy>())
             {
                 other.GetComponent<HealthEnemy>().TakeDamage(damage);
+                other.GetComponent<HealthEnemy>().FlashOnHit();
                 GameObject stats = GameObject.Find("Stats");
 
                 float enemyCurrenhp = other.GetComponent<HealthEnemy>().health;
@@ -71,6 +72,3 @@ public class ParticleCollision : MonoBehaviour {
         }
 	}
 }
-
-                other.GetComponent<HealthEnemy>().FlashOnHit();
-                other.GetComponent<HealthEnemy>().TakeDamage(15);

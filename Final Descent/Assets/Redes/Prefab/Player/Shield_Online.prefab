@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23588126051162924}
   - component: {fileID: 114885204114090002}
   - component: {fileID: 114865859474056402}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Shield_Online
   m_TagString: AircraftController
   m_Icon: {fileID: 0}

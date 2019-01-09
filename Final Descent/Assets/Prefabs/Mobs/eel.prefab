@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 95714635944902366}
   - component: {fileID: 54973215816789242}
   m_Layer: 9
-  m_Name: Eel
+  m_Name: eel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3126,6 +3126,7 @@ MonoBehaviour:
   invCount: 0
   IsInvulnerable: 0
   IsAlive: 1
+  mesh: {fileID: 0}
 --- !u!114 &114715740540568706
 MonoBehaviour:
   m_ObjectHideFlags: 1

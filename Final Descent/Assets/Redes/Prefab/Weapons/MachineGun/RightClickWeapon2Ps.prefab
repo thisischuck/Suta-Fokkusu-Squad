@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 198011291472691154}
   - component: {fileID: 114482570360318400}
   - component: {fileID: 114171396953425402}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: RightClickWeapon2Ps
   m_TagString: Gun
   m_Icon: {fileID: 0}

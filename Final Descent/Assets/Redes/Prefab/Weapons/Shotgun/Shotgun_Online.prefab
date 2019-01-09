@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23646986497492516}
   - component: {fileID: 114088872544794422}
   - component: {fileID: 114734168646367430}
-  m_Layer: 4
+  m_Layer: 12
   m_Name: Shotgun_Online
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 23408974148445450}
   - component: {fileID: 64651897839769138}
   - component: {fileID: 114144952604224240}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ShotgunForceArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

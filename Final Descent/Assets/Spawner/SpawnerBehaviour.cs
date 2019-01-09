@@ -59,9 +59,6 @@ public class SpawnerBehaviour : MonoBehaviour
         StateMachine_Transition t_becomingActive = new StateMachine_Transition("nonActive to Active", () => { return player != null && Vector3.Distance(transform.position, player.position) <= 100; },
             n_active, new List<Action>(new Action[] { a_active })); //Player is close, spawner activates
 
-        StateMachine_Transition t_activeToNonActive = new StateMachine_Transition("Active to nonActive", () => { return player != null && Vector3.Distance(transform.position, player.position) > 100; },
-            n_nonActive, new List<Action>(new Action[] { a_toofar })); //Player is far away, spawner deactivates
-
         StateMachine_Transition t_activeToSpawn = new StateMachine_Transition("Active to Spawning", () => { return count >= spawningRechargeTime; }, n_spawning, new List<Action>(new Action[] { a_spawn })); //Spawner is done recharging, it spawns an enemy
         StateMachine_Transition t_spawnToActive = new StateMachine_Transition("Spawning to Active", () => { return !animator.GetBool("Spawn"); }, n_active, null); //Spawner just spawned an enemy, back to recharging
         StateMachine_Transition t_gotKilled = new StateMachine_Transition("Got Killed", () => { return alive == false; }, n_dead, new List<Action>(new Action[] { a_dead })); //Spawner got killed

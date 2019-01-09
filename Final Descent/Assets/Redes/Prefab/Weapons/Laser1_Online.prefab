@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23062691982142550}
   - component: {fileID: 114750071123242604}
   - component: {fileID: 114147616739316822}
-  m_Layer: 4
+  m_Layer: 12
   m_Name: Laser1_Online
   m_TagString: Gun
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4845616152455300}
   - component: {fileID: 198438810706267546}
   - component: {fileID: 199327441594198352}
-  m_Layer: 4
+  m_Layer: 12
   m_Name: LeftClickWeapon1Ps
   m_TagString: Gun
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4476137980499088}
   - component: {fileID: 198588774657427366}
   - component: {fileID: 199796881913398242}
-  m_Layer: 4
+  m_Layer: 12
   m_Name: ChargePs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,6 +176,7 @@ MonoBehaviour:
   ultraChargeRate: 5
   ultraCoolDown: 0
   weaponBehaviour: 1
+  player: {fileID: 0}
 --- !u!114 &114750071123242604
 MonoBehaviour:
   m_ObjectHideFlags: 1
