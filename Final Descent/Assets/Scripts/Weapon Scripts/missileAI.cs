@@ -19,7 +19,7 @@ public class missileAI : MonoBehaviour {
 
 		if (!explosive)
 			lifeTime = 5f;
-		else lifeTime = 4f;
+		else lifeTime = 2f;
 
 		transform.forward = Velocity;
 	}
