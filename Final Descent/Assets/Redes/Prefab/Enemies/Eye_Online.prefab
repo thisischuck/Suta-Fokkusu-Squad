@@ -214,7 +214,7 @@ MonoBehaviour:
   currentHealth: 0
   currentShield: 0
   isAlive: 1
-  name: EYE
+  nameE: 
   mesh: {fileID: 0}
 --- !u!114 &114361324770603004
 MonoBehaviour:

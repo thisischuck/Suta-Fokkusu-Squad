@@ -187,6 +187,7 @@ public class ObjectPlacer : MonoBehaviour
                 newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
                 positionsUsed.Add(new Vector3(x, y, z), newObj);
                 cellular.GetComponent<CellularAutomata>().manager.GetComponent<DungeonController>().SpawnEnemy(newObj.transform.position, newObj.transform.rotation);
+                Destroy(newObj);
             }
             else if (!IsOnline || o.GameObject.name != "Spawner_Online")
             {
@@ -235,6 +236,7 @@ public class ObjectPlacer : MonoBehaviour
                 newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
                 positionsUsed.Add(new Vector3(x, y, z), newObj);
                 cellular.GetComponent<CellularAutomata>().manager.GetComponent<DungeonController>().SpawnEnemy(newObj.transform.position, newObj.transform.rotation);
+                Destroy(newObj);
             }
             else if (!IsOnline || o.GameObject.name != "Spawner_Online")
             {
@@ -275,6 +277,7 @@ public class ObjectPlacer : MonoBehaviour
                 newObj.transform.rotation = Quaternion.AngleAxis(Random.Range(-180, 180), Vector3.up);
                 positionsUsed.Add(new Vector3(x, y, z), newObj);
                 cellular.GetComponent<CellularAutomata>().manager.GetComponent<DungeonController>().SpawnEnemy(newObj.transform.position, newObj.transform.rotation);
+                Destroy(newObj);
             }
             else if (!IsOnline || o.GameObject.name != "Spawner_Online")
             {

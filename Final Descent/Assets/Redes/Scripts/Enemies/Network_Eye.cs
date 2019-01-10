@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Network_Eye : Network_Enemy {
+public class Network_Eye : Network_Enemy
+{
     private float rayCooldown;
     public float rayTimer;
     private float rayDuration;
@@ -37,7 +38,7 @@ public class Network_Eye : Network_Enemy {
         }; //transform.rotation.SetLookRotation(player.transform.position); };
         Action a_Wander = () => { Velocity = EnemyBehaviours.AvoidObstacles(transform, Velocity, ref isThereAnything) * MaxVelocity; if (!isThereAnything) { Velocity = EnemyBehaviours.Wander(transform, Velocity); } };
         Action a_Move = () => { transform.position += Velocity * Time.deltaTime; };
-        Action a_Pursuit = () => { Velocity = EnemyBehaviours.AvoidObstacles(transform, Velocity, ref isThereAnything) * MaxVelocity; if (!isThereAnything) { Velocity = EnemyBehaviours.Pursuit(this.transform, Velocity, player.transform, 2.0f); } };
+        Action a_Pursuit = () => { Velocity = EnemyBehaviours.AvoidObstacles(transform, Velocity, ref isThereAnything) * MaxVelocity; if (!isThereAnything) { Velocity = EnemyBehaviours.Pursuit(transform, Velocity, player.transform, 2.0f); } };
         Action a_FaceVelocity = () => { transform.forward = Velocity.normalized; };
         Action a_PlayExplosion = () => { PlayAnimation("Explosion"); };
         Action a_RayTimerUpdate = () => { rayTimer += Time.deltaTime; };
@@ -89,9 +90,13 @@ public class Network_Eye : Network_Enemy {
         //Velocity = EnemyBehaviours.AvoidObstacles(transform, Velocity, ref isThereAnything) * MaxVelocity;
 
         if (isServer)
+        {
             RpcExecuteParticles();
+        }
         else
+        {
             CmdExecuteParticleSystemAcrossNetwork();
+        }
         //StopOrPlayParticleSystem(playPs, ps);
 
         base.Update();
@@ -127,4 +132,31 @@ public class Network_Eye : Network_Enemy {
     //private bool IsExplosionOver() { return !animController.isPlaying; }
 
     private bool IsRayOver() { return rayTimer > rayDuration; }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("ray is hitting");
+        Debug.Log(other.transform.name);
+        if (other.transform.name == "AircraftController(Clone)")
+        {
+            if (isServer)
+            {
+                other.transform.GetComponent<Network_PlayerHealth>().TakeDamage(1f);
+            }
+        }
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        Debug.Log(collision.transform.name);
+        if (collision.transform.GetComponent<Network_PlayerHealth>())
+        {
+            if (isServer)
+            {
+                collision.transform.GetComponent<Network_PlayerHealth>().TakeDamage(5f);
+            }
+        }
+    }
 }

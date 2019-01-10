@@ -76,7 +76,7 @@ public class SpawnerBehaviour : MonoBehaviour
         {
             if (isOnline)
             {
-                UnityEngine.Networking.NetworkServer.Destroy(gameObject);
+                UnityEngine.Networking.NetworkServer.Destroy(transform.parent.gameObject);
             }
             else
             {
@@ -144,9 +144,15 @@ public class SpawnerBehaviour : MonoBehaviour
         }
 
 
-        if (GetComponentInParent<HealthEnemy>().health <= 0)
+        if (!isOnline)
         {
-            alive = false;
+            if (GetComponentInParent<HealthEnemy>().health <= 0)
+                alive = false;
+        }
+        else
+        {
+            if (GetComponentInParent<Network_EnemyHealth>().currentHealth <= 0)
+                alive = false;
         }
     }
 
