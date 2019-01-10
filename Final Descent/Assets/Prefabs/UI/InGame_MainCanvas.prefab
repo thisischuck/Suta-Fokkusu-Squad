@@ -3923,6 +3923,7 @@ MonoBehaviour:
   currentCrosshair: {fileID: 0}
   optionsCrosshair: {fileID: 1362107464391456}
   inGameCrosshair: {fileID: 1986098397074364}
+  isOnline: 0
 --- !u!114 &114641941876248772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4426,6 +4427,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f46f69d5ffaac041b3b6e5c3c129a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  ship: {fileID: 0}
   speed: 20
   txtWeaponName: {fileID: 114905419542182146}
   weaponSprite: {fileID: 114020706622847644}
@@ -4433,6 +4436,7 @@ MonoBehaviour:
   enemyHp: {fileID: 1936640527790816}
   enemyInfo: {fileID: 1566799341046574}
   crossHair: {fileID: 1986098397074364}
+  isOnline: 0
 --- !u!114 &114893939215267600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5432,16 +5436,16 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1771504882636732}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6136985, y: 0.6136985, z: 0.6136985}
+  m_LocalScale: {x: 0.5630064, y: 1.221696, z: 0.5630064}
   m_Children: []
   m_Father: {fileID: 224521969722063656}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 47.8, y: 0.8}
+  m_AnchoredPosition: {x: 44.8, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224163383248387598
@@ -5844,7 +5848,7 @@ RectTransform:
   m_GameObject: {fileID: 1110493730564348}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.46084, z: 1}
   m_Children:
   - {fileID: 224922920317987348}
   - {fileID: 224155702154355576}
@@ -6328,16 +6332,16 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1714299859404136}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.37269, y: 0.37269, z: 0.37269}
+  m_LocalScale: {x: 0.37268996, y: 0.80871886, z: 0.37268996}
   m_Children: []
   m_Father: {fileID: 224521969722063656}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35.7, y: 20.7}
+  m_AnchoredPosition: {x: -35.700027, y: 44.918007}
   m_SizeDelta: {x: 248.38, y: 54.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224971897966142334
