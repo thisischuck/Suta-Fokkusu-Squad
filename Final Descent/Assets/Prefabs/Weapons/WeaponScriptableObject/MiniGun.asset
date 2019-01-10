@@ -14,7 +14,7 @@ MonoBehaviour:
   id: 2
   name: Mini Gun
   description: A weapon with an high fire rate, but takes some time to charge.
-  weaponModel: {fileID: 1187657121956334, guid: b60865544a04ad048b8f5a2a890ba9f5,
+  weaponModel: {fileID: 1514547187023300, guid: 2b91d65179084d745b1d78f220a8bfa3,
     type: 2}
   weaponType: 1
   sprite: {fileID: 21300000, guid: 8f02b128373a6914193d1124e7f17e0a, type: 3}

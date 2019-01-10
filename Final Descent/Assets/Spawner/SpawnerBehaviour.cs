@@ -80,7 +80,7 @@ public class SpawnerBehaviour : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+                //Destroy(gameObject);
             }
         }
     }
